@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { 
@@ -40,6 +41,7 @@ const navigationItems = [
       { title: 'MEU SOP', href: '/sop/meu' },
       { title: 'SEU SOP', href: '/sop/seu' },
       { title: 'ASD SOP', href: '/sop/asd' },
+      { title: 'Dispatcher SOP', href: '/sop/dispatcher' },
     ]
   },
   {
