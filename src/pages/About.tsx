@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Shield, Heart, Users, Star, Github, MessageSquare } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -130,11 +131,11 @@ export default function About() {
                 A
               </div>
               <div className="flex-1">
-                <h3 className="font-heading text-xl font-bold mb-2">Aarsch (AmorCiTO)</h3>
+                <h3 className="font-heading text-xl font-bold mb-2">Aansh (AmoRCiTo)</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   An experienced roleplayer and law enforcement enthusiast who recognized the need for 
                   comprehensive, accessible guides in the GTA RP community. With years of experience 
-                  in both roleplay and real-world law enforcement knowledge, Aarsch created this resource 
+                  in both roleplay and real-world law enforcement knowledge, Aansh created this resource 
                   to help others excel in their roleplay journeys.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -202,12 +203,12 @@ export default function About() {
             Your feedback helps make this guide better for everyone.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/feedback">
+            <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
               <Button size="lg">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 Share Feedback
               </Button>
-            </Link>
+            </a>
             <Button variant="outline" size="lg">
               <Github className="mr-2 h-5 w-5" />
               Contribute

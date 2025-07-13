@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { 
@@ -12,7 +13,8 @@ import {
   ArrowRight,
   Star,
   Users,
-  BookOpen
+  BookOpen,
+  MessageSquare
 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -193,6 +195,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Feedback Section */}
+      <section className="py-16 bg-gradient-to-br from-primary/5 to-background border-t border-border">
+        <div className="mx-auto max-w-4xl text-center px-6 lg:px-8">
+          <div className="flex justify-center mb-6">
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <MessageSquare className="h-8 w-8 text-primary" />
+            </div>
+          </div>
+          <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
+            Help Us Improve
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Your feedback is invaluable in making this guide better for the entire community. 
+            Share your thoughts, report issues, or suggest new features.
+          </p>
+          <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="px-8 py-3">
+              <MessageSquare className="mr-2 h-5 w-5" />
+              Share Feedback
+            </Button>
+          </a>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-primary/5 to-background border-t border-border">
         <div className="mx-auto max-w-4xl text-center px-6 lg:px-8">
@@ -209,11 +235,11 @@ export default function Home() {
                 Get Started Now
               </Button>
             </Link>
-            <Link to="/feedback">
+            <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="px-8 py-3">
                 Share Feedback
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

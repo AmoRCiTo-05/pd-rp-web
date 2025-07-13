@@ -14,6 +14,10 @@ import SEU from "./pages/SOP/SEU";
 import ASD from "./pages/SOP/ASD";
 import Dispatcher from "./pages/SOP/Dispatcher";
 import AdvancedTerms from "./pages/AdvancedSOP/Terms";
+import PenalCodesTypes from "./pages/PenalCodes/Types";
+import Felony from "./pages/PenalCodes/Felony";
+import Misdemeanor from "./pages/PenalCodes/Misdemeanor";
+import Infraction from "./pages/PenalCodes/Infraction";
 import ShortForms from "./pages/ShortForms";
 import CaseLaws from "./pages/CaseLaws";
 import Amendments from "./pages/Amendments";
@@ -46,6 +50,12 @@ const App = () => (
               
               {/* Advanced SOP Routes */}
               <Route path="/advanced-sop/terms" element={<AdvancedTerms />} />
+              
+              {/* Penal Codes Routes */}
+              <Route path="/penal-codes/types" element={<PenalCodesTypes />} />
+              <Route path="/penal-codes/felony" element={<Felony />} />
+              <Route path="/penal-codes/misdemeanor" element={<Misdemeanor />} />
+              <Route path="/penal-codes/infraction" element={<Infraction />} />
               
               {/* Other Routes */}
               <Route path="/short-forms" element={<ShortForms />} />

@@ -1,7 +1,9 @@
+
 import React from 'react'
 import { Sidebar } from '@/components/Sidebar'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { SearchBar } from '@/components/SearchBar'
+import { BackToTop } from '@/components/BackToTop'
 import { cn } from '@/lib/utils'
 
 interface LayoutProps {
@@ -47,6 +49,9 @@ export function Layout({ children, className }: LayoutProps) {
           </main>
         </div>
       </div>
+      
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   )
 }
