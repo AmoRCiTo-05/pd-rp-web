@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { SearchBar } from '@/components/SearchBar'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -5,105 +6,62 @@ import { Badge } from '@/components/ui/badge'
 import { Radio, AlertCircle, CheckCircle, Clock } from 'lucide-react'
 
 const tenCodes = [
-  { code: '10-1', meaning: 'Unable to copy, bad reception', category: 'Communication', priority: 'Low' },
-  { code: '10-2', meaning: 'Good reception', category: 'Communication', priority: 'Low' },
-  { code: '10-3', meaning: 'Stop transmitting', category: 'Communication', priority: 'Medium' },
-  { code: '10-4', meaning: 'Acknowledgment (OK)', category: 'Communication', priority: 'Low' },
-  { code: '10-5', meaning: 'Relay message', category: 'Communication', priority: 'Medium' },
-  { code: '10-6', meaning: 'Busy, stand by', category: 'Status', priority: 'Medium' },
-  { code: '10-7', meaning: 'Out of service', category: 'Status', priority: 'Medium' },
-  { code: '10-8', meaning: 'In service', category: 'Status', priority: 'Low' },
-  { code: '10-9', meaning: 'Repeat message', category: 'Communication', priority: 'Low' },
-  { code: '10-10', meaning: 'Fight in progress', category: 'Emergency', priority: 'High' },
-  { code: '10-11', meaning: 'Dog case', category: 'Incident', priority: 'Low' },
-  { code: '10-12', meaning: 'Stand by (stop)', category: 'Communication', priority: 'Medium' },
-  { code: '10-13', meaning: 'Weather/road conditions', category: 'Information', priority: 'Low' },
-  { code: '10-14', meaning: 'Prowler report', category: 'Incident', priority: 'Medium' },
-  { code: '10-15', meaning: 'Civil disturbance', category: 'Emergency', priority: 'High' },
-  { code: '10-16', meaning: 'Domestic problem', category: 'Incident', priority: 'Medium' },
-  { code: '10-17', meaning: 'Meet complainant', category: 'Assignment', priority: 'Medium' },
-  { code: '10-18', meaning: 'Complete assignment quickly', category: 'Assignment', priority: 'Medium' },
-  { code: '10-19', meaning: 'Return to station', category: 'Movement', priority: 'Low' },
-  { code: '10-20', meaning: 'Location', category: 'Information', priority: 'Medium' },
-  { code: '10-21', meaning: 'Call by telephone', category: 'Communication', priority: 'Medium' },
-  { code: '10-22', meaning: 'Report in person', category: 'Assignment', priority: 'Medium' },
-  { code: '10-23', meaning: 'Stand by', category: 'Communication', priority: 'Medium' },
-  { code: '10-24', meaning: 'Completed last assignment', category: 'Status', priority: 'Low' },
-  { code: '10-25', meaning: 'Report in person to', category: 'Assignment', priority: 'Medium' },
-  { code: '10-26', meaning: 'Detaining subject, expedite', category: 'Emergency', priority: 'High' },
-  { code: '10-27', meaning: 'Drivers license information', category: 'Information', priority: 'Medium' },
-  { code: '10-28', meaning: 'Vehicle registration information', category: 'Information', priority: 'Medium' },
-  { code: '10-29', meaning: 'Check for wanted', category: 'Information', priority: 'Medium' },
-  { code: '10-30', meaning: 'Unnecessary use of radio', category: 'Communication', priority: 'Low' },
-  { code: '10-31', meaning: 'Crime in progress', category: 'Emergency', priority: 'High' },
-  { code: '10-32', meaning: 'Man with gun', category: 'Emergency', priority: 'High' },
-  { code: '10-33', meaning: 'Emergency traffic', category: 'Emergency', priority: 'High' },
-  { code: '10-34', meaning: 'Riot', category: 'Emergency', priority: 'High' },
-  { code: '10-35', meaning: 'Major crime alert', category: 'Emergency', priority: 'High' },
-  { code: '10-36', meaning: 'Correct time', category: 'Information', priority: 'Low' },
-  { code: '10-37', meaning: 'Investigate suspicious vehicle', category: 'Incident', priority: 'Medium' },
-  { code: '10-38', meaning: 'Stopping suspicious vehicle', category: 'Incident', priority: 'Medium' },
-  { code: '10-39', meaning: 'Urgent - use light, siren', category: 'Emergency', priority: 'High' },
-  { code: '10-40', meaning: 'Silent run - no light, siren', category: 'Movement', priority: 'Medium' },
-  { code: '10-41', meaning: 'Beginning tour of duty', category: 'Status', priority: 'Low' },
-  { code: '10-42', meaning: 'Ending tour of duty', category: 'Status', priority: 'Low' },
-  { code: '10-43', meaning: 'Information', category: 'Information', priority: 'Low' },
-  { code: '10-44', meaning: 'Permission to leave patrol', category: 'Status', priority: 'Medium' },
-  { code: '10-45', meaning: 'Dead animal', category: 'Incident', priority: 'Low' },
-  { code: '10-46', meaning: 'Assist motorist', category: 'Assistance', priority: 'Low' },
-  { code: '10-47', meaning: 'Emergency road repairs', category: 'Incident', priority: 'Medium' },
-  { code: '10-48', meaning: 'Traffic standard repair', category: 'Incident', priority: 'Low' },
-  { code: '10-49', meaning: 'Traffic light out', category: 'Incident', priority: 'Medium' },
-  { code: '10-50', meaning: 'Accident (fatal/personal injury)', category: 'Emergency', priority: 'High' },
-  { code: '10-51', meaning: 'Wrecker needed', category: 'Assistance', priority: 'Medium' },
-  { code: '10-52', meaning: 'Ambulance needed', category: 'Emergency', priority: 'High' },
-  { code: '10-53', meaning: 'Road blocked', category: 'Incident', priority: 'Medium' },
-  { code: '10-54', meaning: 'Livestock on highway', category: 'Incident', priority: 'Medium' },
-  { code: '10-55', meaning: 'Suspected DUI', category: 'Incident', priority: 'High' },
-  { code: '10-56', meaning: 'Intoxicated pedestrian', category: 'Incident', priority: 'Medium' },
-  { code: '10-57', meaning: 'Hit and run (fatal/personal injury)', category: 'Emergency', priority: 'High' },
-  { code: '10-58', meaning: 'Direct traffic', category: 'Assignment', priority: 'Medium' },
-  { code: '10-59', meaning: 'Convoy or escort', category: 'Assignment', priority: 'Medium' },
-  { code: '10-60', meaning: 'Squad in vicinity', category: 'Information', priority: 'Low' },
-  { code: '10-61', meaning: 'Isolate self for message', category: 'Communication', priority: 'Medium' },
-  { code: '10-62', meaning: 'Reply to message', category: 'Communication', priority: 'Medium' },
-  { code: '10-63', meaning: 'Prepare to make written copy', category: 'Communication', priority: 'Medium' },
-  { code: '10-64', meaning: 'Message for local delivery', category: 'Communication', priority: 'Low' },
-  { code: '10-65', meaning: 'Net message assignment', category: 'Communication', priority: 'Medium' },
-  { code: '10-66', meaning: 'Message cancellation', category: 'Communication', priority: 'Medium' },
-  { code: '10-67', meaning: 'Clear for net message', category: 'Communication', priority: 'Medium' },
-  { code: '10-68', meaning: 'Dispatch information', category: 'Information', priority: 'Medium' },
-  { code: '10-69', meaning: 'Message received', category: 'Communication', priority: 'Low' },
-  { code: '10-70', meaning: 'Fire', category: 'Emergency', priority: 'High' },
-  { code: '10-71', meaning: 'Advise nature of fire', category: 'Emergency', priority: 'High' },
-  { code: '10-72', meaning: 'Report progress on fire', category: 'Emergency', priority: 'High' },
-  { code: '10-73', meaning: 'Smoke report', category: 'Incident', priority: 'Medium' },
-  { code: '10-74', meaning: 'Negative', category: 'Communication', priority: 'Low' },
-  { code: '10-75', meaning: 'In contact with', category: 'Communication', priority: 'Low' },
-  { code: '10-76', meaning: 'En route', category: 'Movement', priority: 'Medium' },
-  { code: '10-77', meaning: 'ETA (Estimated Time of Arrival)', category: 'Information', priority: 'Medium' },
-  { code: '10-78', meaning: 'Need assistance', category: 'Emergency', priority: 'High' },
-  { code: '10-79', meaning: 'Notify coroner', category: 'Emergency', priority: 'High' },
-  { code: '10-80', meaning: 'Chase in progress', category: 'Emergency', priority: 'High' },
-  { code: '10-81', meaning: 'Breathalyzer', category: 'Incident', priority: 'Medium' },
-  { code: '10-82', meaning: 'Reserve lodging', category: 'Assignment', priority: 'Low' },
-  { code: '10-83', meaning: 'Work school crossing', category: 'Assignment', priority: 'Medium' },
-  { code: '10-84', meaning: 'If meeting, advise ETA', category: 'Information', priority: 'Low' },
-  { code: '10-85', meaning: 'Delayed due to', category: 'Information', priority: 'Low' },
-  { code: '10-86', meaning: 'Officer/operator on duty', category: 'Status', priority: 'Low' },
-  { code: '10-87', meaning: 'Pick up/distribute checks', category: 'Assignment', priority: 'Low' },
-  { code: '10-88', meaning: 'Present telephone number of', category: 'Information', priority: 'Low' },
-  { code: '10-89', meaning: 'Bomb threat', category: 'Emergency', priority: 'High' },
-  { code: '10-90', meaning: 'Bank alarm', category: 'Emergency', priority: 'High' },
-  { code: '10-91', meaning: 'Pick up prisoner/subject', category: 'Assignment', priority: 'Medium' },
-  { code: '10-92', meaning: 'Improperly parked vehicle', category: 'Incident', priority: 'Low' },
-  { code: '10-93', meaning: 'Blockade', category: 'Assignment', priority: 'Medium' },
-  { code: '10-94', meaning: 'Drag racing', category: 'Incident', priority: 'Medium' },
-  { code: '10-95', meaning: 'Prisoner/subject in custody', category: 'Status', priority: 'Medium' },
-  { code: '10-96', meaning: 'Mental subject', category: 'Incident', priority: 'High' },
-  { code: '10-97', meaning: 'Check (test) signal', category: 'Communication', priority: 'Low' },
-  { code: '10-98', meaning: 'Prison/jail break', category: 'Emergency', priority: 'High' },
-  { code: '10-99', meaning: 'Wanted/stolen indicated', category: 'Information', priority: 'High' }
+  { code: "10-2", description: "Reception Good", category: 'Communication', priority: 'Low' },
+  { code: "10-3", description: "Stop Transmitting", category: 'Communication', priority: 'Medium' },
+  { code: "10-4", description: "Message Received, Understood", category: 'Communication', priority: 'Low' },
+  { code: "10-6", description: "Change Channel", category: 'Communication', priority: 'Medium' },
+  { code: "10-7", description: "Out of Service", category: 'Status', priority: 'Medium' },
+  { code: "10-8", description: "In service", category: 'Status', priority: 'Low' },
+  { code: "10-9", description: "Repeat Message", category: 'Communication', priority: 'Low' },
+  { code: "10-10", description: "Negative", category: 'Communication', priority: 'Low' },
+  { code: "10-11", description: "Traffic Stop", category: 'Incident', priority: 'Medium' },
+  { code: "10-12", description: "Ride-along", category: 'Status', priority: 'Low' },
+  { code: "10-13", description: "Shots Fired", category: 'Emergency', priority: 'High' },
+  { code: "10-14A", description: "Officer Down", category: 'Emergency', priority: 'High' },
+  { code: "10-14B", description: "EMS Down", category: 'Emergency', priority: 'High' },
+  { code: "10-15", description: "Suspect/Prisoner in Custody", category: 'Status', priority: 'Medium' },
+  { code: "10-16", description: "Hospital", category: 'Information', priority: 'Medium' },
+  { code: "10-19", description: "Return(ing) to Station", category: 'Movement', priority: 'Low' },
+  { code: "10-20", description: "Location", category: 'Information', priority: 'Medium' },
+  { code: "10-21", description: "Telephone", category: 'Communication', priority: 'Medium' },
+  { code: "10-22", description: "Disregard", category: 'Communication', priority: 'Medium' },
+  { code: "10-23", description: "Arrived at Scene", category: 'Status', priority: 'Medium' },
+  { code: "10-25", description: "Meet in person", category: 'Assignment', priority: 'Medium' },
+  { code: "10-28", description: "Vehicle Registration Check", category: 'Information', priority: 'Medium' },
+  { code: "10-29", description: "Warrant Check", category: 'Information', priority: 'Medium' },
+  { code: "10-29F", description: "Subject Wanted/ Felony", category: 'Emergency', priority: 'High' },
+  { code: "10-29M", description: "Subject Wanted/ Misdemeanor", category: 'Incident', priority: 'Medium' },
+  { code: "10-29V", description: "Vehicle Wanted", category: 'Incident', priority: 'Medium' },
+  { code: "10-31", description: "Crime in progress", category: 'Emergency', priority: 'High' },
+  { code: "10-32", description: "Person with a gun", category: 'Emergency', priority: 'High' },
+  { code: "10-38", description: "Drug Sales", category: 'Incident', priority: 'High' },
+  { code: "10-41", description: "Going ON DUTY", category: 'Status', priority: 'Low' },
+  { code: "10-42", description: "Going OFF DUTY", category: 'Status', priority: 'Low' },
+  { code: "10-47", description: "Injured Person", category: 'Emergency', priority: 'High' },
+  { code: "10-50", description: "Vehicle Accident", category: 'Incident', priority: 'Medium' },
+  { code: "10-52", description: "Requesting EMS", category: 'Emergency', priority: 'High' },
+  { code: "10-55", description: "Intoxicated driver", category: 'Incident', priority: 'High' },
+  { code: "10-56", description: "Intoxicated person", category: 'Incident', priority: 'Medium' },
+  { code: "10-57", description: "HIT & RUN", category: 'Incident', priority: 'High' },
+  { code: "10-60", description: "Stolen Vehicle", category: 'Incident', priority: 'High' },
+  { code: "10-66", description: "Suspicious Person", category: 'Incident', priority: 'Medium' },
+  { code: "10-67", description: "GTA/Car Jacking", category: 'Emergency', priority: 'High' },
+  { code: "10-70", description: "Foot pursuit", category: 'Emergency', priority: 'High' },
+  { code: "10-71", description: "Shooting", category: 'Emergency', priority: 'High' },
+  { code: "10-72", description: "Hostage/Hostage situation", category: 'Emergency', priority: 'High' },
+  { code: "10-76", description: "Enroute", category: 'Movement', priority: 'Medium' },
+  { code: "10-77", description: "Need backup (non-emergency)", category: 'Assistance', priority: 'Medium' },
+  { code: "10-78", description: "Need backup (emergency)", category: 'Emergency', priority: 'High' },
+  { code: "10-79", description: "Estimate time of arrival (ETA)", category: 'Information', priority: 'Low' },
+  { code: "10-80", description: "Vehicle pursuit", category: 'Emergency', priority: 'High' },
+  { code: "10-90A", description: "Bank Robbery", category: 'Emergency', priority: 'High' },
+  { code: "10-90B", description: "Jewellery Robbery", category: 'Emergency', priority: 'High' },
+  { code: "10-90C", description: "Store Robbery", category: 'Emergency', priority: 'High' },
+  { code: "10-90D", description: "House Robbery/Burglary", category: 'Emergency', priority: 'High' },
+  { code: "10-91", description: "Transport Unit", category: 'Assignment', priority: 'Medium' },
+  { code: "10-94", description: "Reckless Driving", category: 'Incident', priority: 'Medium' },
+  { code: "10-98", description: "Prison Break", category: 'Emergency', priority: 'High' },
+  { code: "10-99", description: "Everyone responds", category: 'Emergency', priority: 'High' }
 ]
 
 const categories = ['All', 'Communication', 'Status', 'Emergency', 'Incident', 'Information', 'Assignment', 'Movement', 'Assistance']
@@ -116,7 +74,7 @@ export default function TenCodes() {
 
   const filteredCodes = tenCodes.filter(code => {
     const matchesSearch = code.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         code.meaning.toLowerCase().includes(searchQuery.toLowerCase())
+                         code.description.toLowerCase().includes(searchQuery.toLowerCase())
     const matchesCategory = selectedCategory === 'All' || code.category === selectedCategory
     const matchesPriority = selectedPriority === 'All' || code.priority === selectedPriority
     return matchesSearch && matchesCategory && matchesPriority
@@ -168,7 +126,7 @@ export default function TenCodes() {
         <div className="mb-8 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:space-x-6">
           <div className="flex-1">
             <SearchBar 
-              placeholder="Search 10-codes or meanings..."
+              placeholder="Search 10-codes or descriptions..."
               onSearch={setSearchQuery}
             />
           </div>
@@ -228,7 +186,7 @@ export default function TenCodes() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-foreground font-medium mb-3 leading-relaxed">
-                  {code.meaning}
+                  {code.description}
                 </CardDescription>
                 <Badge variant="secondary" className="text-xs">
                   {code.category}
