@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -61,24 +62,24 @@ All colors MUST be HSL.
   }
 
   .light {
-    /* Light theme for theme toggle */
-    --background: 0 0% 97%;               /* #F8F8F8 - Off-white */
-    --foreground: 0 0% 20%;               /* #333333 - Dark Gray */
+    /* Enhanced Light theme with better contrast */
+    --background: 0 0% 98%;               /* #FAFAFA - Softer white background */
+    --foreground: 0 0% 15%;               /* #262626 - Darker text for better readability */
 
-    --card: 0 0% 100%;                    /* Pure white cards */
-    --card-foreground: 0 0% 20%;
+    --card: 0 0% 99%;                     /* Very light cards with subtle difference */
+    --card-foreground: 0 0% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
+    --popover: 0 0% 99%;
+    --popover-foreground: 0 0% 15%;
 
     --primary: 214 70% 57%;               /* Keep blue accent */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 40%;     /* #666666 - Medium Gray */
+    --secondary: 0 0% 94%;                /* Slightly darker secondary for better contrast */
+    --secondary-foreground: 0 0% 25%;     /* Darker secondary text */
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 35%;         /* Better contrast for muted text */
 
     --accent: 214 70% 57%;
     --accent-foreground: 0 0% 100%;
@@ -86,21 +87,21 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 100%;
+    --border: 0 0% 88%;                   /* More visible borders */
+    --input: 0 0% 99%;
     --ring: 214 70% 57%;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 20%;
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 0 0% 15%;
     --sidebar-primary: 214 70% 57%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 20%;
-    --sidebar-border: 0 0% 90%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 0 0% 88%;
     --sidebar-ring: 214 70% 57%;
 
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 98%));
-    --shadow-card: 0 4px 16px hsl(0 0% 80% / 0.15);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 99%), hsl(0 0% 96%));
+    --shadow-card: 0 4px 16px hsl(0 0% 70% / 0.15);
     --shadow-card-hover: 0 8px 32px hsl(214 70% 57% / 0.15);
   }
 }
@@ -113,4 +114,29 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Watermark styling */
+.watermark {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.watermark:hover {
+  opacity: 1;
+}
+
+.watermark a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+}
+
+.watermark a:hover {
+  text-decoration: underline;
 }

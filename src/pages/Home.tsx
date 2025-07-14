@@ -7,14 +7,11 @@ import {
   GraduationCap, 
   Scale, 
   Gavel, 
-  AlertTriangle, 
   FileCode, 
   Shield,
   ArrowRight,
-  Star,
-  Users,
-  BookOpen,
-  MessageSquare
+  MessageSquare,
+  BookOpen
 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -30,11 +27,32 @@ const categoryCards = [
     popular: true
   },
   {
+    title: 'Short Forms',
+    description: 'Abbreviations and acronyms used in law enforcement',
+    icon: FileCode,
+    href: '/short-forms',
+    color: 'from-teal-500 to-teal-600'
+  },
+  {
+    title: 'Amendments',
+    description: 'Constitutional amendments relevant to law enforcement',
+    icon: Gavel,
+    href: '/amendments',
+    color: 'from-orange-500 to-orange-600'
+  },
+  {
     title: 'Standard Operating Procedures',
     description: 'Comprehensive SOPs for training, MEU, SEU, and ASD operations',
     icon: FileText,
     href: '/sop/training',
     color: 'from-green-500 to-green-600'
+  },
+  {
+    title: 'Case Laws',
+    description: 'Important case law precedents and legal decisions',
+    icon: Shield,
+    href: '/case-laws',
+    color: 'from-indigo-500 to-indigo-600'
   },
   {
     title: 'Advanced SOPs',
@@ -50,41 +68,7 @@ const categoryCards = [
     href: '/penal-codes/types',
     color: 'from-red-500 to-red-600',
     popular: true
-  },
-  {
-    title: 'Amendments',
-    description: 'Constitutional amendments relevant to law enforcement',
-    icon: Gavel,
-    href: '/amendments',
-    color: 'from-orange-500 to-orange-600'
-  },
-  {
-    title: 'Case Laws',
-    description: 'Important case law precedents and legal decisions',
-    icon: Shield,
-    href: '/case-laws',
-    color: 'from-indigo-500 to-indigo-600'
-  },
-  {
-    title: 'Situations & Topics',
-    description: 'Common scenarios and frequently confusing topics explained',
-    icon: AlertTriangle,
-    href: '/situations-topics/situations',
-    color: 'from-yellow-500 to-yellow-600'
-  },
-  {
-    title: 'Short Forms',
-    description: 'Abbreviations and acronyms used in law enforcement',
-    icon: FileCode,
-    href: '/short-forms',
-    color: 'from-teal-500 to-teal-600'
   }
-]
-
-const stats = [
-  { icon: BookOpen, label: 'Comprehensive Guides', value: '8+' },
-  { icon: Users, label: 'Active Community', value: '1K+' },
-  { icon: Star, label: 'User Rating', value: '4.9' }
 ]
 
 export default function Home() {
@@ -93,11 +77,12 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="relative px-6 py-24 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
+        <div className="relative px-6 py-24 sm:py-32 lg:px-8 text-center">
+          <div className="mx-auto max-w-4xl">
             <div className="mb-8">
               <Badge variant="secondary" className="mb-4 px-4 py-2 text-sm font-medium">
-                ✨ Your Essential Law Enforcement Guide
+                <BookOpen className="mr-2 h-4 w-4" />
+                Your Essential Law Enforcement Guide
               </Badge>
             </div>
             
@@ -116,6 +101,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/basic-codes/10-codes">
                 <Button size="lg" className="group px-8 py-3 text-lg font-medium">
+                  <BookOpen className="mr-2 h-5 w-5" />
                   Start Learning
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -126,23 +112,6 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 border-b border-border">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <stat.icon className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-3xl font-bold font-heading text-foreground">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -170,8 +139,8 @@ export default function Home() {
                     </Badge>
                   )}
                   
-                  <CardHeader className="pb-4">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <CardHeader className="pb-4 text-center">
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
                       <category.icon className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="font-heading text-xl group-hover:text-primary transition-colors duration-200">
@@ -179,12 +148,12 @@ export default function Home() {
                     </CardTitle>
                   </CardHeader>
                   
-                  <CardContent>
-                    <CardDescription className="text-muted-foreground leading-relaxed">
+                  <CardContent className="text-center">
+                    <CardDescription className="text-muted-foreground leading-relaxed mb-4">
                       {category.description}
                     </CardDescription>
                     
-                    <div className="mt-4 flex items-center text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200">
+                    <div className="flex items-center justify-center text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200">
                       Explore <ArrowRight className="ml-1 h-4 w-4" />
                     </div>
                   </CardContent>
@@ -232,11 +201,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/basic-codes/10-codes">
               <Button size="lg" className="px-8 py-3">
+                <BookOpen className="mr-2 h-5 w-5" />
                 Get Started Now
               </Button>
             </Link>
             <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="px-8 py-3">
+                <MessageSquare className="mr-2 h-5 w-5" />
                 Share Feedback
               </Button>
             </a>

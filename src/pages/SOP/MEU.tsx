@@ -7,9 +7,9 @@ import { Bike, Users, GraduationCap, Shield } from 'lucide-react'
 export default function MEU() {
   return (
     <div className="min-h-screen p-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto text-center">
         <div className="mb-8">
-          <div className="flex items-center space-x-3 mb-4">
+          <div className="flex items-center justify-center space-x-3 mb-4">
             <div className="p-2 bg-primary/10 rounded-lg">
               <Bike className="h-6 w-6 text-primary" />
             </div>
@@ -20,12 +20,12 @@ export default function MEU() {
           </div>
         </div>
 
-        <div className="grid gap-6">
+        <div className="grid gap-6 text-left">
           <Card className="border-border bg-card/50">
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Bike className="h-5 w-5" />
-                2.1 Purpose
+                Purpose
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -39,7 +39,7 @@ export default function MEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Users className="h-5 w-5" />
-                2.2 Chain of Command
+                Chain of Command
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -64,7 +64,7 @@ export default function MEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <GraduationCap className="h-5 w-5" />
-                2.3 Eligibility Criteria
+                Eligibility Criteria
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -81,7 +81,7 @@ export default function MEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Shield className="h-5 w-5" />
-                2.4 Equipment & Vehicles
+                Equipment & Vehicles
               </CardTitle>
             </CardHeader>
             <CardContent>

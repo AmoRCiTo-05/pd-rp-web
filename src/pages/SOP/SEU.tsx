@@ -7,9 +7,9 @@ import { Zap, Users, GraduationCap, Car } from 'lucide-react'
 export default function SEU() {
   return (
     <div className="min-h-screen p-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto text-center">
         <div className="mb-8">
-          <div className="flex items-center space-x-3 mb-4">
+          <div className="flex items-center justify-center space-x-3 mb-4">
             <div className="p-2 bg-primary/10 rounded-lg">
               <Zap className="h-6 w-6 text-primary" />
             </div>
@@ -20,12 +20,12 @@ export default function SEU() {
           </div>
         </div>
 
-        <div className="grid gap-6">
+        <div className="grid gap-6 text-left">
           <Card className="border-border bg-card/50">
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Zap className="h-5 w-5" />
-                1.1 Purpose
+                Purpose
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -39,7 +39,7 @@ export default function SEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Users className="h-5 w-5" />
-                1.2 Chain of Command
+                Chain of Command
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -72,13 +72,13 @@ export default function SEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <GraduationCap className="h-5 w-5" />
-                1.3 Eligibility & Training
+                Eligibility & Training
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-foreground mb-2">1.3.1 Eligibility Criteria</h4>
+                  <h4 className="font-semibold text-foreground mb-2">Eligibility Criteria</h4>
                   <ul className="list-disc list-inside space-y-1 text-foreground ml-4">
                     <li>Minimum 1 month of patrol experience.</li>
                     <li>Must be Officer/Deputy Rank or above</li>
@@ -94,7 +94,7 @@ export default function SEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Car className="h-5 w-5" />
-                1.3.2 Equipment & Vehicles
+                Equipment & Vehicles
               </CardTitle>
             </CardHeader>
             <CardContent>

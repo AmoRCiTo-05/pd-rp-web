@@ -9,7 +9,6 @@ import {
   GraduationCap, 
   Scale, 
   Gavel, 
-  AlertTriangle, 
   FileCode, 
   Info, 
   MessageSquare,
@@ -34,6 +33,16 @@ const navigationItems = [
     ]
   },
   {
+    title: 'Short Forms',
+    href: '/short-forms',
+    icon: FileCode
+  },
+  {
+    title: 'Amendments',
+    href: '/amendments',
+    icon: Gavel
+  },
+  {
     title: 'Standard Operating Procedures',
     icon: FileText,
     children: [
@@ -43,6 +52,11 @@ const navigationItems = [
       { title: 'ASD SOP', href: '/sop/asd' },
       { title: 'Dispatcher SOP', href: '/sop/dispatcher' },
     ]
+  },
+  {
+    title: 'Case Laws',
+    href: '/case-laws',
+    icon: Shield
   },
   {
     title: 'Advanced SOPs',
@@ -60,29 +74,6 @@ const navigationItems = [
       { title: 'Misdemeanor', href: '/penal-codes/misdemeanor' },
       { title: 'Infraction', href: '/penal-codes/infraction' },
     ]
-  },
-  {
-    title: 'Amendments',
-    href: '/amendments',
-    icon: Gavel
-  },
-  {
-    title: 'Case Laws',
-    href: '/case-laws',
-    icon: Shield
-  },
-  {
-    title: 'Situations & Topics',
-    icon: AlertTriangle,
-    children: [
-      { title: 'Situations', href: '/situations-topics/situations' },
-      { title: 'Confusing Topics', href: '/situations-topics/confusing' },
-    ]
-  },
-  {
-    title: 'Short Forms',
-    href: '/short-forms',
-    icon: FileCode
   },
   {
     title: 'About',
@@ -142,13 +133,13 @@ export function Sidebar({ className }: SidebarProps) {
 
       {/* Sidebar */}
       <div className={cn(
-        "fixed inset-y-0 left-0 z-50 w-72 bg-sidebar-background border-r border-sidebar-border transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0",
+        "fixed inset-y-0 left-0 z-50 w-72 bg-sidebar-background border-r border-sidebar-border transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 flex flex-col",
         isMobileOpen ? "translate-x-0" : "-translate-x-full",
         className
       )}>
         <div className="flex flex-col h-full">
           {/* Logo/Header */}
-          <div className="flex items-center h-16 px-6 border-b border-sidebar-border">
+          <div className="flex items-center h-16 px-6 border-b border-sidebar-border flex-shrink-0">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center">
                 <Shield className="h-5 w-5 text-primary-foreground" />
@@ -160,8 +151,8 @@ export function Sidebar({ className }: SidebarProps) {
             </div>
           </div>
 
-          {/* Navigation */}
-          <nav className="flex-1 px-4 py-4 space-y-2 overflow-y-auto">
+          {/* Navigation - Fixed height, no scrolling */}
+          <nav className="flex-1 px-4 py-4 space-y-2 min-h-0">
             {navigationItems.map((item) => (
               <div key={item.title}>
                 {item.href ? (
@@ -243,8 +234,8 @@ export function Sidebar({ className }: SidebarProps) {
             ))}
           </nav>
 
-          {/* Footer */}
-          <div className="px-4 py-4 border-t border-sidebar-border">
+          {/* Footer - Fixed position */}
+          <div className="px-4 py-4 border-t border-sidebar-border flex-shrink-0">
             <div className="text-xs text-sidebar-foreground/60 text-center">
               Made by <span className="font-medium text-sidebar-primary">Aansh (AmoRCiTo)</span>
             </div>

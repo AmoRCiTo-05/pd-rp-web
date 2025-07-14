@@ -23,31 +23,37 @@ export function Layout({ children, className }: LayoutProps) {
           {/* Header */}
           <header className="sticky top-0 z-30 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
             <div className="flex items-center justify-between h-16 px-4 sm:px-6">
-              {/* Search Bar */}
-              <div className="hidden sm:block flex-1 max-w-md">
-                <SearchBar />
+              {/* Centered Search Bar for desktop */}
+              <div className="hidden sm:flex flex-1 justify-center max-w-2xl mx-auto">
+                <div className="w-full max-w-md">
+                  <SearchBar />
+                </div>
               </div>
               
-              {/* Mobile search placeholder */}
-              <div className="sm:hidden flex-1" />
-              
               {/* Theme Toggle */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-4 sm:absolute sm:right-6">
                 <ThemeToggle />
               </div>
             </div>
             
-            {/* Mobile Search Bar */}
-            <div className="sm:hidden px-4 pb-4">
-              <SearchBar />
+            {/* Mobile Search Bar - Centered */}
+            <div className="sm:hidden px-4 pb-4 flex justify-center">
+              <div className="w-full max-w-sm">
+                <SearchBar />
+              </div>
             </div>
           </header>
           
           {/* Page Content */}
-          <main className={cn("flex-1", className)}>
+          <main className={cn("flex-1 pb-16", className)}>
             {children}
           </main>
         </div>
+      </div>
+      
+      {/* Watermark */}
+      <div className="watermark">
+        Made by - <a href="https://instagram.com/aanshchopra" target="_blank" rel="noopener noreferrer">Aansh Chopra</a>
       </div>
       
       {/* Back to Top Button */}
