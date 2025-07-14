@@ -1,5 +1,7 @@
+
 import React from 'react'
 import { Sidebar } from '@/components/Sidebar'
+import { Footer } from '@/components/Footer'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { SearchBar } from '@/components/SearchBar'
 import { BackToTop } from '@/components/BackToTop'
@@ -24,8 +26,8 @@ export function Layout({ children, className }: LayoutProps) {
         <header className="sticky top-0 z-30 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
           <div className="flex items-center justify-between h-16 px-4 sm:px-6">
             {/* Centered Search Bar for desktop */}
-            <div className="hidden sm:flex flex-1 justify-center max-w-4xl mx-auto">
-              <div className="w-full max-w-2xl">
+            <div className="hidden sm:flex flex-1 justify-center max-w-5xl mx-auto">
+              <div className="w-full max-w-3xl">
                 <SearchBar />
               </div>
             </div>
@@ -45,9 +47,12 @@ export function Layout({ children, className }: LayoutProps) {
         </header>
         
         {/* Page Content */}
-        <main className={cn("flex-1 pb-16", className)}>
+        <main className={cn("flex-1", className)}>
           {children}
         </main>
+
+        {/* Footer */}
+        <Footer />
       </div>
       
       {/* Back to Top Button */}
