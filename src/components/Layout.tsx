@@ -19,13 +19,13 @@ export function Layout({ children, className }: LayoutProps) {
         <Sidebar />
         
         {/* Main Content */}
-        <div className="flex-1 lg:ml-72">
+        <div className="flex-1">
           {/* Header */}
           <header className="sticky top-0 z-30 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
             <div className="flex items-center justify-between h-16 px-4 sm:px-6">
               {/* Centered Search Bar for desktop */}
-              <div className="hidden sm:flex flex-1 justify-center max-w-2xl mx-auto">
-                <div className="w-full max-w-md">
+              <div className="hidden sm:flex flex-1 justify-center max-w-4xl mx-auto">
+                <div className="w-full max-w-2xl">
                   <SearchBar />
                 </div>
               </div>
@@ -36,9 +36,9 @@ export function Layout({ children, className }: LayoutProps) {
               </div>
             </div>
             
-            {/* Mobile Search Bar - Centered */}
-            <div className="sm:hidden px-4 pb-4 flex justify-center">
-              <div className="w-full max-w-sm">
+            {/* Mobile Search Bar - Single line with menu and theme toggle */}
+            <div className="sm:hidden px-4 pb-4 flex items-center gap-3">
+              <div className="flex-1">
                 <SearchBar />
               </div>
             </div>

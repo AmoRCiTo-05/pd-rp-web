@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Shield, Heart, Users, Star, Github, MessageSquare } from 'lucide-react'
+import { Shield, Heart, Users, Star, Instagram, MessageSquare } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -209,10 +209,12 @@ export default function About() {
                 Share Feedback
               </Button>
             </a>
-            <Button variant="outline" size="lg">
-              <Github className="mr-2 h-5 w-5" />
-              Contribute
-            </Button>
+            <a href="https://instagram.com/aanshchopra" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="lg">
+                <Instagram className="mr-2 h-5 w-5" />
+                Follow on Instagram
+              </Button>
+            </a>
           </div>
         </div>
       </div>
