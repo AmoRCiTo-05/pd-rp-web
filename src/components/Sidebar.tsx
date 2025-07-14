@@ -133,8 +133,10 @@ export function Sidebar({ className }: SidebarProps) {
 
       {/* Sidebar */}
       <div className={cn(
-        "fixed inset-y-0 left-0 z-50 w-72 h-screen bg-sidebar-background border-r border-sidebar-border transform transition-transform duration-300 ease-in-out lg:translate-x-0 flex flex-col",
-        isMobileOpen ? "translate-x-0" : "-translate-x-full",
+        "h-screen bg-sidebar-background border-r border-sidebar-border flex flex-col lg:block",
+        "lg:relative lg:w-full", // Desktop: relative positioning, full width of parent
+        "fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ease-in-out", // Mobile: fixed positioning
+        isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         className
       )}>
         <div className="flex flex-col h-full">
