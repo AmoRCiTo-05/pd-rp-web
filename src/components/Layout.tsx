@@ -50,11 +50,6 @@ export function Layout({ children, className }: LayoutProps) {
         </main>
       </div>
       
-      {/* Watermark */}
-      <div className="watermark">
-        Made by - <a href="https://instagram.com/aanshchopra" target="_blank" rel="noopener noreferrer">Aansh Chopra</a>
-      </div>
-      
       {/* Back to Top Button */}
       <BackToTop />
     </div>
