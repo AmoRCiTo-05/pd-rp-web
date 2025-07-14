@@ -133,8 +133,8 @@ export function Sidebar({ className }: SidebarProps) {
 
       {/* Sidebar */}
       <div className={cn(
-        "h-screen bg-sidebar-background border-r border-sidebar-border flex flex-col lg:block",
-        "lg:relative lg:w-full", // Desktop: relative positioning, full width of parent
+        "h-screen bg-sidebar-background border-r border-sidebar-border flex flex-col",
+        "lg:static lg:inset-0", // Desktop: static positioning to prevent scrolling
         "fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ease-in-out", // Mobile: fixed positioning
         isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         className
@@ -154,7 +154,7 @@ export function Sidebar({ className }: SidebarProps) {
           </div>
 
           {/* Navigation - Fixed height, no scrolling */}
-          <nav className="flex-1 px-4 py-4 space-y-2 min-h-0">
+          <nav className="flex-1 px-4 py-4 space-y-2 min-h-0 overflow-hidden">
             {navigationItems.map((item) => (
               <div key={item.title}>
                 {item.href ? (
