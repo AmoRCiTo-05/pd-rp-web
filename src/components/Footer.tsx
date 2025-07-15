@@ -1,32 +1,47 @@
-
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Shield, Instagram, MessageSquare, ExternalLink } from 'lucide-react'
-
-const quickLinks = [
-  { title: '10-Codes', href: '/basic-codes/10-codes' },
-  { title: 'Short Forms', href: '/short-forms' },
-  { title: 'Amendments', href: '/amendments' },
-  { title: 'Case Laws', href: '/case-laws' }
-]
-
-const sopLinks = [
-  { title: 'Training SOP', href: '/sop/training' },
-  { title: 'MEU SOP', href: '/sop/meu' },
-  { title: 'SEU SOP', href: '/sop/seu' },
-  { title: 'ASD SOP', href: '/sop/asd' }
-]
-
-const penalCodeLinks = [
-  { title: 'Types of Charges', href: '/penal-codes/types' },
-  { title: 'Felony', href: '/penal-codes/felony' },
-  { title: 'Misdemeanor', href: '/penal-codes/misdemeanor' },
-  { title: 'Infraction', href: '/penal-codes/infraction' }
-]
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Shield, Instagram, MessageSquare, ExternalLink } from 'lucide-react';
+const quickLinks = [{
+  title: '10-Codes',
+  href: '/basic-codes/10-codes'
+}, {
+  title: 'Short Forms',
+  href: '/short-forms'
+}, {
+  title: 'Amendments',
+  href: '/amendments'
+}, {
+  title: 'Case Laws',
+  href: '/case-laws'
+}];
+const sopLinks = [{
+  title: 'Training SOP',
+  href: '/sop/training'
+}, {
+  title: 'MEU SOP',
+  href: '/sop/meu'
+}, {
+  title: 'SEU SOP',
+  href: '/sop/seu'
+}, {
+  title: 'ASD SOP',
+  href: '/sop/asd'
+}];
+const penalCodeLinks = [{
+  title: 'Types of Charges',
+  href: '/penal-codes/types'
+}, {
+  title: 'Felony',
+  href: '/penal-codes/felony'
+}, {
+  title: 'Misdemeanor',
+  href: '/penal-codes/misdemeanor'
+}, {
+  title: 'Infraction',
+  href: '/penal-codes/infraction'
+}];
 export function Footer() {
-  return (
-    <footer className="bg-card border-t border-border">
+  return <footer className="bg-card border-t border-border">
       {/* Mobile Layout - Vertical Stack */}
       <div className="lg:hidden">
         {/* Branding Section */}
@@ -46,12 +61,7 @@ export function Footer() {
           </p>
           
           <div className="flex items-center space-x-4 mb-4">
-            <a
-              href="https://instagram.com/aanshchopra"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-sidebar-foreground/60 hover:text-primary transition-colors"
-            >
+            <a href="https://instagram.com/aanshchopra" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-sidebar-foreground/60 hover:text-primary transition-colors">
               <Instagram className="h-4 w-4" />
               <span className="text-sm">@aanshchopra</span>
             </a>
@@ -68,15 +78,9 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-4">Quick Links</h4>
             <div className="grid grid-cols-2 gap-3">
-              {quickLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
+              {quickLinks.map(link => <Link key={link.href} to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   {link.title}
-                </Link>
-              ))}
+                </Link>)}
             </div>
           </div>
 
@@ -84,15 +88,9 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-4">SOPs</h4>
             <div className="grid grid-cols-2 gap-3">
-              {sopLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
+              {sopLinks.map(link => <Link key={link.href} to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   {link.title}
-                </Link>
-              ))}
+                </Link>)}
             </div>
           </div>
 
@@ -100,15 +98,9 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-4">Penal Codes</h4>
             <div className="grid grid-cols-2 gap-3">
-              {penalCodeLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
+              {penalCodeLinks.map(link => <Link key={link.href} to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   {link.title}
-                </Link>
-              ))}
+                </Link>)}
             </div>
           </div>
 
@@ -116,24 +108,13 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-4">Resources</h4>
             <div className="space-y-3">
-              <Link
-                to="/about"
-                className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
+              <Link to="/about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
                 About
               </Link>
-              <Link
-                to="/advanced-sop/terms"
-                className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
+              <Link to="/advanced-sop/terms" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
                 Advanced Terms
               </Link>
-              <a
-                href="https://forms.gle/qRnadpZqkHahsq7U6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
+              <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <MessageSquare className="h-3 w-3" />
                 <span>Feedback</span>
                 <ExternalLink className="h-3 w-3" />
@@ -173,12 +154,7 @@ export function Footer() {
             
             <div className="mt-auto">
               <div className="flex items-center space-x-4 mb-4">
-                <a
-                  href="https://instagram.com/aanshchopra"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2 text-sidebar-foreground/60 hover:text-primary transition-colors"
-                >
+                <a href="https://instagram.com/aanshchopra" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-sidebar-foreground/60 hover:text-primary transition-colors">
                   <Instagram className="h-4 w-4" />
                   <span className="text-sm">@aanshchopra</span>
                 </a>
@@ -198,16 +174,11 @@ export function Footer() {
             <div>
               <h4 className="font-heading font-semibold text-foreground mb-4">Quick Links</h4>
               <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
+                {quickLinks.map(link => <li key={link.href}>
+                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                       {link.title}
                     </Link>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
@@ -215,16 +186,11 @@ export function Footer() {
             <div>
               <h4 className="font-heading font-semibold text-foreground mb-4">SOPs</h4>
               <ul className="space-y-3">
-                {sopLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
+                {sopLinks.map(link => <li key={link.href}>
+                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                       {link.title}
                     </Link>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
@@ -232,16 +198,11 @@ export function Footer() {
             <div>
               <h4 className="font-heading font-semibold text-foreground mb-4">Penal Codes</h4>
               <ul className="space-y-3">
-                {penalCodeLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
+                {penalCodeLinks.map(link => <li key={link.href}>
+                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                       {link.title}
                     </Link>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
@@ -250,28 +211,17 @@ export function Footer() {
               <h4 className="font-heading font-semibold text-foreground mb-4">Resources</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link
-                    to="/about"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/advanced-sop/terms"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link to="/advanced-sop/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     Advanced Terms
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="https://forms.gle/qRnadpZqkHahsq7U6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center space-x-1"
-                  >
+                  <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center space-x-1">
                     <MessageSquare className="h-3 w-3" />
                     <span>Feedback</span>
                     <ExternalLink className="h-3 w-3" />
@@ -282,7 +232,7 @@ export function Footer() {
           </div>
 
           {/* Bottom section */}
-          <div className="mt-8 pt-6 border-t border-border">
+          <div className="mt-8 pt-6">
             <div className="flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
               <div>
                 © 2024 PD RP Guide. All rights reserved.
@@ -294,6 +244,5 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  )
+    </footer>;
 }
