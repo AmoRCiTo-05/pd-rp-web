@@ -25,8 +25,8 @@ export function Layout({ children, className }: LayoutProps) {
           {/* Header */}
           <header className="sticky top-0 z-30 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
             <div className="flex items-center justify-between h-16 px-4 sm:px-6">
-              {/* Mobile Sidebar Toggle */}
-              <div className="lg:hidden">
+              {/* Sidebar Toggle - Always visible */}
+              <div>
                 <SidebarTrigger />
               </div>
               
@@ -44,8 +44,8 @@ export function Layout({ children, className }: LayoutProps) {
             </div>
           </header>
           
-          {/* Page Content */}
-          <main className={cn("flex-1 p-6 lg:p-8", className)}>
+          {/* Page Content - Removed padding */}
+          <main className={cn("flex-1", className)}>
             {children}
           </main>
 

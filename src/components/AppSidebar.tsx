@@ -13,8 +13,6 @@ import {
   Info, 
   MessageSquare,
   Shield,
-  ChevronLeft,
-  ChevronRight
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
@@ -23,7 +21,6 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -31,10 +28,8 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  SidebarTrigger,
   useSidebar,
 } from '@/components/ui/sidebar'
-import { Button } from '@/components/ui/button'
 
 const navigationItems = [
   {
@@ -109,7 +104,7 @@ const navigationItems = [
 export function AppSidebar() {
   const [openSections, setOpenSections] = useState<string[]>([])
   const location = useLocation()
-  const { state, toggleSidebar } = useSidebar()
+  const { state } = useSidebar()
   
   const isCollapsed = state === 'collapsed'
 
@@ -133,7 +128,7 @@ export function AppSidebar() {
   return (
     <Sidebar variant="inset" className="border-r border-sidebar-border">
       <SidebarHeader className="border-b border-sidebar-border">
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center p-4">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center flex-shrink-0">
               <Shield className="h-5 w-5 text-primary-foreground" />
@@ -144,22 +139,6 @@ export function AppSidebar() {
                 <p className="text-xs text-sidebar-foreground/60">Law Enforcement Roleplay</p>
               </div>
             )}
-          </div>
-          
-          {/* Desktop Collapse Toggle */}
-          <div className="hidden lg:block">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleSidebar}
-              className="h-8 w-8 p-0"
-            >
-              {isCollapsed ? (
-                <ChevronRight className="h-4 w-4" />
-              ) : (
-                <ChevronLeft className="h-4 w-4" />
-              )}
-            </Button>
           </div>
         </div>
       </SidebarHeader>
@@ -173,13 +152,13 @@ export function AppSidebar() {
                   {item.href ? (
                     // Single navigation item
                     item.external ? (
-                      <SidebarMenuButton asChild>
+                      <SidebarMenuButton asChild size="lg">
                         <a
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={cn(
-                            "flex items-center space-x-3",
+                            "flex items-center space-x-3 text-sm",
                             isActiveRoute(item.href) && "bg-sidebar-accent text-sidebar-accent-foreground"
                           )}
                         >
@@ -188,11 +167,11 @@ export function AppSidebar() {
                         </a>
                       </SidebarMenuButton>
                     ) : (
-                      <SidebarMenuButton asChild>
+                      <SidebarMenuButton asChild size="lg">
                         <NavLink
                           to={item.href}
                           className={({ isActive }) => cn(
-                            "flex items-center space-x-3",
+                            "flex items-center space-x-3 text-sm",
                             isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
                           )}
                         >
@@ -206,8 +185,9 @@ export function AppSidebar() {
                     <>
                       <SidebarMenuButton
                         onClick={() => toggleSection(item.title)}
+                        size="lg"
                         className={cn(
-                          "flex items-center justify-between w-full",
+                          "flex items-center justify-between w-full text-sm",
                           isParentActive(item.children!) && "bg-sidebar-accent text-sidebar-accent-foreground"
                         )}
                       >
@@ -234,7 +214,7 @@ export function AppSidebar() {
                                 <NavLink
                                   to={child.href}
                                   className={({ isActive }) => cn(
-                                    "block",
+                                    "block text-sm",
                                     isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
                                   )}
                                 >
