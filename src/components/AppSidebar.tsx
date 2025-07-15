@@ -101,8 +101,8 @@ export function AppSidebar() {
     return children.some(child => location.pathname === child.href);
   };
   return <Sidebar variant="inset" className="border-r border-sidebar-border mx-0 px-0 py-0">
-      <SidebarHeader className="border-b border-sidebar-border">
-        <div className="flex items-center p-4">
+      <SidebarHeader className="border-b border-sidebar-border px-0 mx-0 my-0 py-0">
+        <div className="flex items-center p-4 py-[10px] px-[10px]">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center flex-shrink-0">
               <Shield className="h-5 w-5 text-primary-foreground" />
