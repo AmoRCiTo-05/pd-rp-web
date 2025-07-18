@@ -158,7 +158,7 @@ export const searchData: SearchResult[] = [
 ]
 
 export function searchPages(query: string): SearchResult[] {
-  if (!query || query.trim().length < 1) {
+  if (!query || query.trim().length < 2) {
     return []
   }
 
