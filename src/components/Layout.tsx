@@ -7,6 +7,7 @@ import { BackToTop } from '@/components/BackToTop'
 import { AppSidebar } from '@/components/AppSidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -14,6 +15,8 @@ interface LayoutProps {
 }
 
 export function Layout({ children, className }: LayoutProps) {
+  useScrollToTop();
+
   return (
     <SidebarProvider>
       <div className="min-h-screen bg-background text-foreground flex w-full">

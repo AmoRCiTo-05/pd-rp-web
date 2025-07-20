@@ -11,7 +11,9 @@ import {
   Shield,
   ArrowRight,
   MessageSquare,
-  BookOpen
+  BookOpen,
+  HelpCircle,
+  AlertTriangle
 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -68,6 +70,20 @@ const categoryCards = [
     href: '/penal-codes/types',
     color: 'from-red-500 to-red-600',
     popular: true
+  },
+  {
+    title: 'Situation Based Questions',
+    description: 'Scenario-based questions to test practical law enforcement knowledge',
+    icon: HelpCircle,
+    href: '/situation-questions',
+    color: 'from-yellow-500 to-yellow-600'
+  },
+  {
+    title: 'Confusing Topics',
+    description: 'Clarification on commonly misunderstood law enforcement concepts',
+    icon: AlertTriangle,
+    href: '/confusing-topics',
+    color: 'from-pink-500 to-pink-600'
   }
 ]
 
