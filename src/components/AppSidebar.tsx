@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu } from 'lucide-react';
+import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu, HelpCircle, AlertTriangle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, useSidebar } from '@/components/ui/sidebar';
 
@@ -72,13 +71,15 @@ const navigationItems = [{
   }, {
     title: 'Infraction',
     href: '/penal-codes/infraction'
-  }, {
-    title: 'Situation Based Questions',
-    href: '/penal-codes/situation-questions'
-  }, {
-    title: 'Confusing Topics',
-    href: '/penal-codes/confusing-topics'
   }]
+}, {
+  title: 'Situation Based Questions',
+  href: '/situation-questions',
+  icon: HelpCircle
+}, {
+  title: 'Confusing Topics',
+  href: '/confusing-topics',
+  icon: AlertTriangle
 }, {
   title: 'About',
   href: '/about',

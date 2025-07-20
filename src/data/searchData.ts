@@ -121,20 +121,22 @@ export const searchData: SearchResult[] = [
     category: 'Penal Codes',
     keywords: ['infraction', 'penal', 'codes', 'violations', 'tickets']
   },
+
+  // Now separate main sections
   {
     id: 'situation-questions',
     title: 'Situation Based Questions',
     description: 'A situation based questions bank for interviews',
-    path: '/penal-codes/situation-questions',
-    category: 'Penal Codes',
+    path: '/situation-questions',
+    category: 'Interview Prep',
     keywords: ['situation', 'questions', 'interview', 'scenarios', 'bank', 'use of force', 'evidence', 'pursuit', 'arrest']
   },
   {
     id: 'confusing-topics',
     title: 'Confusing Topics',
     description: 'Confusing topics in SOP with detailed explanations',
-    path: '/penal-codes/confusing-topics',
-    category: 'Penal Codes',
+    path: '/confusing-topics',
+    category: 'Reference',
     keywords: ['confusing', 'topics', 'sop', 'pursuit', 'detainment', 'force', 'miranda', 'evidence', 'warrant', 'suspicion']
   },
 

@@ -58,8 +58,10 @@ const App = () => (
               <Route path="/penal-codes/felony" element={<Felony />} />
               <Route path="/penal-codes/misdemeanor" element={<Misdemeanor />} />
               <Route path="/penal-codes/infraction" element={<Infraction />} />
-              <Route path="/penal-codes/situation-questions" element={<SituationQuestions />} />
-              <Route path="/penal-codes/confusing-topics" element={<ConfusingTopics />} />
+              
+              {/* Separate main routes */}
+              <Route path="/situation-questions" element={<SituationQuestions />} />
+              <Route path="/confusing-topics" element={<ConfusingTopics />} />
               
               {/* Other Routes */}
               <Route path="/short-forms" element={<ShortForms />} />
