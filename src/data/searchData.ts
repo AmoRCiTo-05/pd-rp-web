@@ -129,6 +129,14 @@ export const searchData: SearchResult[] = [
     category: 'Penal Codes',
     keywords: ['situation', 'questions', 'interview', 'scenarios', 'bank', 'use of force', 'evidence', 'pursuit', 'arrest']
   },
+  {
+    id: 'confusing-topics',
+    title: 'Confusing Topics',
+    description: 'Confusing topics in SOP with detailed explanations',
+    path: '/penal-codes/confusing-topics',
+    category: 'Penal Codes',
+    keywords: ['confusing', 'topics', 'sop', 'pursuit', 'detainment', 'force', 'miranda', 'evidence', 'warrant', 'suspicion']
+  },
 
   // Other pages
   {
