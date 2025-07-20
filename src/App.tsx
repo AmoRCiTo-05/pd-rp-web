@@ -18,6 +18,7 @@ import PenalCodesTypes from "./pages/PenalCodes/Types";
 import Felony from "./pages/PenalCodes/Felony";
 import Misdemeanor from "./pages/PenalCodes/Misdemeanor";
 import Infraction from "./pages/PenalCodes/Infraction";
+import SituationQuestions from "./pages/PenalCodes/SituationQuestions";
 import ShortForms from "./pages/ShortForms";
 import CaseLaws from "./pages/CaseLaws";
 import Amendments from "./pages/Amendments";
@@ -56,6 +57,7 @@ const App = () => (
               <Route path="/penal-codes/felony" element={<Felony />} />
               <Route path="/penal-codes/misdemeanor" element={<Misdemeanor />} />
               <Route path="/penal-codes/infraction" element={<Infraction />} />
+              <Route path="/penal-codes/situation-questions" element={<SituationQuestions />} />
               
               {/* Other Routes */}
               <Route path="/short-forms" element={<ShortForms />} />

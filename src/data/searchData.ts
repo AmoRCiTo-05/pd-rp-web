@@ -121,6 +121,14 @@ export const searchData: SearchResult[] = [
     category: 'Penal Codes',
     keywords: ['infraction', 'penal', 'codes', 'violations', 'tickets']
   },
+  {
+    id: 'situation-questions',
+    title: 'Situation Based Questions',
+    description: 'A situation based questions bank for interviews',
+    path: '/penal-codes/situation-questions',
+    category: 'Penal Codes',
+    keywords: ['situation', 'questions', 'interview', 'scenarios', 'bank', 'use of force', 'evidence', 'pursuit', 'arrest']
+  },
 
   // Other pages
   {

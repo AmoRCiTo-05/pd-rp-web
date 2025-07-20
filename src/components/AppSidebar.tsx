@@ -70,6 +70,9 @@ const navigationItems = [{
   }, {
     title: 'Infraction',
     href: '/penal-codes/infraction'
+  }, {
+    title: 'Situation Based Questions',
+    href: '/penal-codes/situation-questions'
   }]
 }, {
   title: 'About',
