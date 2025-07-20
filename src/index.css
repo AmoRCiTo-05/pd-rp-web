@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 /* PD RP Guide Design System - Law Enforcement Roleplay Theme
-Dark theme with blue accents for professional law enforcement aesthetic
+Multiple theme variations with consistent design principles
 All colors MUST be HSL.
 */
 
@@ -32,7 +32,7 @@ All colors MUST be HSL.
     --accent: 214 70% 57%;              /* Same as primary - blue accent */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 225 16% 25%;              /* Subtle borders */
@@ -50,15 +50,6 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 88%;
     --sidebar-border: 225 16% 25%;
     --sidebar-ring: 214 70% 57%;
-
-    /* Premium gradients and effects */
-    --gradient-primary: linear-gradient(135deg, hsl(214 70% 57%), hsl(214 70% 65%));
-    --gradient-card: linear-gradient(145deg, hsl(225 16% 20%), hsl(225 16% 22%));
-    --shadow-card: 0 8px 32px hsl(225 16% 8% / 0.3);
-    --shadow-card-hover: 0 12px 48px hsl(214 70% 57% / 0.2);
-
-    /* Animation variables */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .light {
@@ -72,7 +63,7 @@ All colors MUST be HSL.
     --popover: 0 0% 99%;
     --popover-foreground: 0 0% 15%;
 
-    --primary: 214 70% 57%;               /* Keep blue accent */
+    --primary: 214 70% 50%;               /* Slightly darker blue for light theme */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 94%;                /* Slightly darker secondary for better contrast */
@@ -81,28 +72,264 @@ All colors MUST be HSL.
     --muted: 0 0% 94%;
     --muted-foreground: 0 0% 35%;         /* Better contrast for muted text */
 
-    --accent: 214 70% 57%;
+    --accent: 214 70% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 88%;                   /* More visible borders */
     --input: 0 0% 99%;
-    --ring: 214 70% 57%;
+    --ring: 214 70% 50%;
 
     --sidebar-background: 0 0% 99%;
     --sidebar-foreground: 0 0% 15%;
-    --sidebar-primary: 214 70% 57%;
+    --sidebar-primary: 214 70% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 94%;
     --sidebar-accent-foreground: 0 0% 15%;
     --sidebar-border: 0 0% 88%;
-    --sidebar-ring: 214 70% 57%;
+    --sidebar-ring: 214 70% 50%;
+  }
 
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 99%), hsl(0 0% 96%));
-    --shadow-card: 0 4px 16px hsl(0 0% 70% / 0.15);
-    --shadow-card-hover: 0 8px 32px hsl(214 70% 57% / 0.15);
+  .blue {
+    /* Ocean Blue Theme */
+    --background: 220 25% 12%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 25% 16%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 25% 16%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 195 100% 65%;             /* Bright ocean blue */
+    --primary-foreground: 220 25% 12%;
+
+    --secondary: 220 25% 18%;
+    --secondary-foreground: 210 20% 70%;
+
+    --muted: 220 25% 14%;
+    --muted-foreground: 210 20% 65%;
+
+    --accent: 195 100% 65%;
+    --accent-foreground: 220 25% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 25% 22%;
+    --input: 220 25% 16%;
+    --ring: 195 100% 65%;
+
+    --sidebar-background: 220 25% 14%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 195 100% 65%;
+    --sidebar-primary-foreground: 220 25% 12%;
+    --sidebar-accent: 220 25% 18%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 25% 22%;
+    --sidebar-ring: 195 100% 65%;
+  }
+
+  .green {
+    /* Forest Green Theme */
+    --background: 150 25% 10%;
+    --foreground: 120 15% 90%;
+
+    --card: 150 25% 14%;
+    --card-foreground: 120 15% 90%;
+
+    --popover: 150 25% 14%;
+    --popover-foreground: 120 15% 90%;
+
+    --primary: 142 76% 45%;              /* Forest green */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 25% 16%;
+    --secondary-foreground: 120 15% 70%;
+
+    --muted: 150 25% 12%;
+    --muted-foreground: 120 15% 65%;
+
+    --accent: 142 76% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 25% 20%;
+    --input: 150 25% 14%;
+    --ring: 142 76% 45%;
+
+    --sidebar-background: 150 25% 12%;
+    --sidebar-foreground: 120 15% 90%;
+    --sidebar-primary: 142 76% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 25% 16%;
+    --sidebar-accent-foreground: 120 15% 90%;
+    --sidebar-border: 150 25% 20%;
+    --sidebar-ring: 142 76% 45%;
+  }
+
+  .purple {
+    /* Royal Purple Theme */
+    --background: 270 25% 12%;
+    --foreground: 270 15% 90%;
+
+    --card: 270 25% 16%;
+    --card-foreground: 270 15% 90%;
+
+    --popover: 270 25% 16%;
+    --popover-foreground: 270 15% 90%;
+
+    --primary: 270 75% 60%;              /* Royal purple */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 25% 18%;
+    --secondary-foreground: 270 15% 70%;
+
+    --muted: 270 25% 14%;
+    --muted-foreground: 270 15% 65%;
+
+    --accent: 270 75% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 25% 22%;
+    --input: 270 25% 16%;
+    --ring: 270 75% 60%;
+
+    --sidebar-background: 270 25% 14%;
+    --sidebar-foreground: 270 15% 90%;
+    --sidebar-primary: 270 75% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 25% 18%;
+    --sidebar-accent-foreground: 270 15% 90%;
+    --sidebar-border: 270 25% 22%;
+    --sidebar-ring: 270 75% 60%;
+  }
+
+  .orange {
+    /* Sunset Orange Theme */
+    --background: 25 25% 12%;
+    --foreground: 25 15% 90%;
+
+    --card: 25 25% 16%;
+    --card-foreground: 25 15% 90%;
+
+    --popover: 25 25% 16%;
+    --popover-foreground: 25 15% 90%;
+
+    --primary: 25 95% 60%;               /* Sunset orange */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 25% 18%;
+    --secondary-foreground: 25 15% 70%;
+
+    --muted: 25 25% 14%;
+    --muted-foreground: 25 15% 65%;
+
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 25% 22%;
+    --input: 25 25% 16%;
+    --ring: 25 95% 60%;
+
+    --sidebar-background: 25 25% 14%;
+    --sidebar-foreground: 25 15% 90%;
+    --sidebar-primary: 25 95% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 25 25% 18%;
+    --sidebar-accent-foreground: 25 15% 90%;
+    --sidebar-border: 25 25% 22%;
+    --sidebar-ring: 25 95% 60%;
+  }
+
+  .red {
+    /* Police Red Theme */
+    --background: 0 25% 12%;
+    --foreground: 0 15% 90%;
+
+    --card: 0 25% 16%;
+    --card-foreground: 0 15% 90%;
+
+    --popover: 0 25% 16%;
+    --popover-foreground: 0 15% 90%;
+
+    --primary: 0 75% 55%;                /* Police red */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 25% 18%;
+    --secondary-foreground: 0 15% 70%;
+
+    --muted: 0 25% 14%;
+    --muted-foreground: 0 15% 65%;
+
+    --accent: 0 75% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 25% 22%;
+    --input: 0 25% 16%;
+    --ring: 0 75% 55%;
+
+    --sidebar-background: 0 25% 14%;
+    --sidebar-foreground: 0 15% 90%;
+    --sidebar-primary: 0 75% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 25% 18%;
+    --sidebar-accent-foreground: 0 15% 90%;
+    --sidebar-border: 0 25% 22%;
+    --sidebar-ring: 0 75% 55%;
+  }
+
+  .slate {
+    /* Professional Slate Theme */
+    --background: 210 20% 11%;
+    --foreground: 210 15% 88%;
+
+    --card: 210 20% 15%;
+    --card-foreground: 210 15% 88%;
+
+    --popover: 210 20% 15%;
+    --popover-foreground: 210 15% 88%;
+
+    --primary: 210 50% 50%;              /* Professional slate blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 17%;
+    --secondary-foreground: 210 15% 68%;
+
+    --muted: 210 20% 13%;
+    --muted-foreground: 210 15% 63%;
+
+    --accent: 210 50% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 21%;
+    --input: 210 20% 15%;
+    --ring: 210 50% 50%;
+
+    --sidebar-background: 210 20% 13%;
+    --sidebar-foreground: 210 15% 88%;
+    --sidebar-primary: 210 50% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 17%;
+    --sidebar-accent-foreground: 210 15% 88%;
+    --sidebar-border: 210 20% 21%;
+    --sidebar-ring: 210 50% 50%;
   }
 }
 
