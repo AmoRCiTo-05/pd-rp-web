@@ -37,7 +37,7 @@ const navigationItems = [{
     title: 'SOP for Training',
     href: '/sop/training'
   }, {
-    title: 'MEU SOP',
+    title: 'MPU SOP',
     href: '/sop/meu'
   }, {
     title: 'SEU SOP',

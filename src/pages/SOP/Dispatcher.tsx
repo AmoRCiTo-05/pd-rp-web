@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Headphones, Radio, Users, AlertTriangle, Phone } from 'lucide-react'
+import { Headphones, Radio, Users, AlertTriangle, Phone, ChevronDown, ChevronRight } from 'lucide-react'
 
 const sections = [
   {
@@ -114,6 +114,13 @@ export default function Dispatcher() {
                   <CardTitle className="text-primary flex items-center gap-2">
                     <IconComponent className="h-5 w-5" />
                     {section.title}
+                    <div className="ml-auto">
+                      {isExpanded ? (
+                        <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                      )}
+                    </div>
                   </CardTitle>
                 </CardHeader>
                 {isExpanded && (

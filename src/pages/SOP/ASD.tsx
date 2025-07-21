@@ -25,12 +25,12 @@ export default function ASD() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Plane className="h-5 w-5" />
-                Purpose
+                Introduction
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-foreground leading-relaxed">
-                The Air Support Division (ASD) enhances law enforcement operations through aerial surveillance, search and rescue, and pursuit assistance.
+                The SASP Air Corps supports Patrol Operations, SWAT teams, and Major Crimes Units by providing aerial assistance, surveillance, search and rescue, and tactical insertions. Response times are crucial in assisting units that require Air 1 support. The Air Corps plays a critical role in public safety, criminal apprehension, and emergency response, ensuring that ground units receive real-time intelligence and tactical advantage.
               </p>
             </CardContent>
           </Card>
@@ -38,27 +38,75 @@ export default function ASD() {
           <Card className="border-border bg-card/50">
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
-                <Users className="h-5 w-5" />
-                Chain of Command
+                <Shield className="h-5 w-5" />
+                Oath
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">ASU Lead</Badge>
-                  <span className="text-foreground">Supervises operations and ensures pilot training compliance.</span>
+              <p className="text-foreground leading-relaxed italic">
+                "This is my chopper. There are many like it, but this one is mine. I swear to uphold the high standards of the Air Corps, protect my chopper, and keep my co-pilot safe. If I crash or fail, I risk my wings and the trust of my team. I pledge to serve with honor, courage, and precision in the skies."
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border bg-card/50">
+            <CardHeader>
+              <CardTitle className="text-primary flex items-center gap-2">
+                <GraduationCap className="h-5 w-5" />
+                Certification Process (Getting Your Wings)
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc list-inside space-y-2 text-foreground">
+                <li>Theory (Helicopter mechanics, maintenance, SOPs, emergency procedures)</li>
+                <li>Communication (In-flight, air-to-ground coordination, emergency protocols)</li>
+                <li>Handling (Take-off, in-flight controls, hovering, positioning, altitude management)</li>
+                <li>Landing (Precision landing under various conditions, emergency landings)</li>
+                <li>Tactical Maneuvering (Insertions, flying under fire, rapid extractions, urban operations)</li>
+                <li>Night & Adverse Weather Training (Low-visibility operations, using onboard instruments)</li>
+                <li>Final Exam (Viva and practical test for certification)</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border bg-card/50">
+            <CardHeader>
+              <CardTitle className="text-primary flex items-center gap-2">
+                <Plane className="h-5 w-5" />
+                Purpose
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-foreground leading-relaxed">
+                The Air 1 Unit serves as the aerial division of the San Andreas State Police, providing tactical air support, reconnaissance, emergency response, and high-risk intervention. Air 1 ensures enhanced situational awareness, rapid deployment, and an additional layer of security for law enforcement operations.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border bg-card/50">
+            <CardHeader>
+              <CardTitle className="text-primary flex items-center gap-2">
+                <Shield className="h-5 w-5" />
+                Authorized Air 1 Altitude Guidelines
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Standard Patrol & Surveillance:</h4>
+                  <p className="text-foreground ml-4">Above Ground Level (AGL): 800 - 1,000 feet</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">ASU Instructor</Badge>
-                  <span className="text-foreground">Manage shift schedules and operational duties.</span>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Pursuit Operations:</h4>
+                  <p className="text-foreground ml-4">Above Ground Level (AGL): 1,200 - 1,500 feet</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">Pilots/Co-Pilots</Badge>
-                  <span className="text-foreground">Conduct aerial patrols and assist ground units.</span>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Search & Rescue:</h4>
+                  <p className="text-foreground ml-4">Above Ground Level (AGL): 500 - 1,000 feet</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">Trainees</Badge>
-                  <span className="text-foreground">Undergo training before full deployment.</span>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Tactical Operations:</h4>
+                  <p className="text-foreground ml-4">Above Ground Level (AGL): 200 - 500 feet (for approach)</p>
                 </div>
               </div>
             </CardContent>
@@ -67,32 +115,20 @@ export default function ASD() {
           <Card className="border-border bg-card/50">
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
-                <GraduationCap className="h-5 w-5" />
-                Eligibility Criteria
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc list-inside space-y-1 text-foreground">
-                <li>Must have a valid pilot license</li>
-                <li>Must be Officer/Deputy Rank or above</li>
-                <li>Must complete LEO Air Support Training.</li>
-                <li>No major disciplinary actions in the past 1 month.</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-border bg-card/50">
-            <CardHeader>
-              <CardTitle className="text-primary flex items-center gap-2">
-                <Shield className="h-5 w-5" />
-                Equipment & Aircraft
+                <Radio className="h-5 w-5" />
+                Communication Protocols
               </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="list-disc list-inside space-y-2 text-foreground">
-                <li>Law enforcement helicopters (AS350, Maverick models).</li>
-                <li>Thermal imaging & surveillance cameras for operations.</li>
-                <li>Radio communication systems for real-time coordination.</li>
+                <li>Dispatch Coordination: Notify before takeoff/landing, provide mission updates.</li>
+                <li>Radio Channels: Use designated secure frequencies to prevent interference.</li>
+                <li>Emergency Signals:</li>
+                <ul className="ml-6 list-disc list-inside space-y-1 text-foreground">
+                  <li>Mayday - Used in life-threatening situations.</li>
+                  <li>Code Red - Indicates an active threat requiring immediate response.</li>
+                  <li>Code Blue - Signifies an aircraft in distress but not in immediate danger.</li>
+                </ul>
               </ul>
             </CardContent>
           </Card>
@@ -101,33 +137,19 @@ export default function ASD() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <AlertTriangle className="h-5 w-5" />
-                Operational Guidelines
+                Standard Operating Procedures (SOPs)
               </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="list-disc list-inside space-y-2 text-foreground">
-                <li>All flights must be pre-approved by the ASU Supervisor.</li>
-                <li>Pilots cannot operate surveillance cameras while flying; a co-pilot must be present.</li>
-                <li>Minimum altitude: 40 feet (except for tactical landings).</li>
-                <li>Thermal imaging is restricted to authorized operations only.</li>
-                <li>Solo pilots cannot respond to situations unless LEO numbers are critically low.</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-border bg-card/50">
-            <CardHeader>
-              <CardTitle className="text-primary flex items-center gap-2">
-                <Radio className="h-5 w-5" />
-                Civilian Aircraft Regulations
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc list-inside space-y-2 text-foreground">
-                <li>Civilian aircraft must notify law enforcement & air traffic control before flights.</li>
-                <li>Unauthorized civilian aircraft may be contacted on 911/311 frequencies.</li>
-                <li>If a civilian pilot fails to comply, two verbal warnings will be given before escalation.</li>
-                <li>Unauthorized aircraft may be shot down if posing a severe threat.</li>
+                <li>Only certified pilots may operate Air 1.</li>
+                <li>Pilots cannot use surveillance cameras while flying - a co-pilot must be present.</li>
+                <li>Helicopters are for specialized operations only, including pursuits, robberies, search and rescue, SWAT ops.</li>
+                <li>Thermal imaging is used only in authorized operations (e.g. Major RPR, Dense terrain, Wooded areas, Perimeter Scanning).</li>
+                <li>Unauthorized aircraft must be contacted on frequency 911. If unresponsive, seek clearance before engaging.</li>
+                <li>Recklessness is strictly prohibited – Any misuse of Air 1 may result in disciplinary action or license suspension.</li>
+                <li>Landing on roads/highways is prohibited unless explicitly authorized by High Command or the Air 1 Commander.</li>
+                <li>Mandatory uniform and gear compliance – Violations may result in strikes or suspension.</li>
               </ul>
             </CardContent>
           </Card>

@@ -2,7 +2,7 @@
 import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Zap, Users, GraduationCap, Car } from 'lucide-react'
+import { Zap, Users, GraduationCap, Car, Shield, Radio, AlertTriangle } from 'lucide-react'
 
 export default function SEU() {
   return (
@@ -25,12 +25,12 @@ export default function SEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Zap className="h-5 w-5" />
-                Purpose
+                1. Introduction
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-foreground leading-relaxed">
-                The Speed Enforcement Unit (SEU) is tasked with enforcing speed limits, conducting traffic stops for excessive speeding, and reducing road-related fatalities. SEU officers use advanced technology to monitor and control speeding violations across highways and city roads.
+                The Speed Enforcement Unit (SEU) is a specialized division of the Police Department responsible for monitoring, enforcing, and responding to high-speed traffic violations. Operating high-performance patrol vehicles, SEU ensures road safety through proactive patrolling and rapid response.
               </p>
             </CardContent>
           </Card>
@@ -38,33 +38,14 @@ export default function SEU() {
           <Card className="border-border bg-card/50">
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
-                <Users className="h-5 w-5" />
-                Chain of Command
+                <Shield className="h-5 w-5" />
+                2. Oath of the SEU Officer
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">SEU Head</Badge>
-                  <span className="text-foreground">Oversees all operations and ensures compliance with policies.</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">Supervisors</Badge>
-                  <span className="text-foreground">Manage daily deployment, monitor officer performance, and provide training.</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">Trainer</Badge>
-                  <span className="text-foreground">Trains Trainee for SEU Department.</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">SEU Officers</Badge>
-                  <span className="text-foreground">Execute speed enforcement, conduct traffic stops, and issue citations.</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="min-w-fit">Trainee</Badge>
-                  <span className="text-foreground">Learns from trainer about Speed Enforcement.</span>
-                </div>
-              </div>
+              <p className="text-foreground leading-relaxed italic">
+                "I swear to uphold the laws of the State, act swiftly and responsibly, and ensure public safety through fair and effective speed enforcement. I will not abuse the power entrusted to me and will conduct myself with honor and discipline at all times."
+              </p>
             </CardContent>
           </Card>
 
@@ -72,21 +53,36 @@ export default function SEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <GraduationCap className="h-5 w-5" />
-                Eligibility & Training
+                3. Certification Process
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Eligibility Criteria</h4>
-                  <ul className="list-disc list-inside space-y-1 text-foreground ml-4">
-                    <li>Minimum 1 month of patrol experience.</li>
-                    <li>Must be Officer/Deputy Rank or above</li>
-                    <li>No serious disciplinary actions within the past 2 weeks.</li>
-                    <li>Must pass the SEU driving and pursuit course.</li>
-                  </ul>
-                </div>
-              </div>
+              <p className="text-foreground leading-relaxed mb-4">To be assigned to SEU, an officer must:</p>
+              <ul className="list-disc list-inside space-y-2 text-foreground">
+                <li>Be at least Rank Corporal or above</li>
+                <li>Have completed the SEU Training Program</li>
+                <li>Successfully pass High-Speed Vehicle Control assessment</li>
+                <li>Get clearance from HR & SEU Command</li>
+                <li>Undergo a Probationary Ride-Along phase with SEU-1 Lead</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border bg-card/50">
+            <CardHeader>
+              <CardTitle className="text-primary flex items-center gap-2">
+                <Zap className="h-5 w-5" />
+                4. Purpose
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-foreground leading-relaxed mb-4">The SEU aims to:</p>
+              <ul className="list-disc list-inside space-y-2 text-foreground">
+                <li>Enforce traffic speed limits and related laws</li>
+                <li>Minimize street racing and reckless driving</li>
+                <li>Reduce vehicular incidents through deterrence and rapid response</li>
+                <li>Support ground patrol and pursuits when speeds escalate</li>
+              </ul>
             </CardContent>
           </Card>
 
@@ -94,16 +90,103 @@ export default function SEU() {
             <CardHeader>
               <CardTitle className="text-primary flex items-center gap-2">
                 <Car className="h-5 w-5" />
-                Equipment & Vehicles
+                5. Scope
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-foreground leading-relaxed mb-4">The SEU is authorized to patrol and enforce in:</p>
+              <ul className="list-disc list-inside space-y-2 text-foreground">
+                <li>Highways</li>
+                <li>Freeways</li>
+                <li>Expressways</li>
+                <li>Airport Roads</li>
+                <li>Inner-city areas with frequent street racing</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border bg-card/50">
+            <CardHeader>
+              <CardTitle className="text-primary flex items-center gap-2">
+                <Shield className="h-5 w-5" />
+                6. Authorized Guidelines
               </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="list-disc list-inside space-y-2 text-foreground">
-                <li>High-performance patrol vehicles (Interceptor models).</li>
-                <li>Radar and RADAR speed detection systems.</li>
-                <li>Dash and body cameras for evidence collection.</li>
-                <li>Portable spike strips for extreme situations.</li>
+                <li>SEU Officers must operate only approved SEU vehicles.</li>
+                <li>Officers must not exceed departmental jurisdiction unless given chase or support orders.</li>
+                <li>Lights/Sirens must be used for all stops.</li>
+                <li>Bodycam or In-car dashcam must be active at all times.</li>
               </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border bg-card/50">
+            <CardHeader>
+              <CardTitle className="text-primary flex items-center gap-2">
+                <Car className="h-5 w-5" />
+                7. SEU Types & Vehicle Assignments
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="text-left p-3 font-semibold text-foreground">Unit</th>
+                      <th className="text-left p-3 font-semibold text-foreground">Role</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-border/50">
+                      <td className="p-3 font-mono">SEU-1</td>
+                      <td className="p-3">Lead Patrol & Interception</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="p-3 font-mono">SEU-2</td>
+                      <td className="p-3">Support & Surveillance</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="p-3 font-mono">SEU-3</td>
+                      <td className="p-3">Urban Speed Enforcement</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border bg-card/50">
+            <CardHeader>
+              <CardTitle className="text-primary flex items-center gap-2">
+                <Radio className="h-5 w-5" />
+                13. Communication Protocols
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc list-inside space-y-2 text-foreground">
+                <li>Use Incident Radio for pursuit-related traffic</li>
+                <li>Use PD Main for general updates</li>
+                <li>Callouts must include location, direction, suspect details</li>
+                <li>End all 10-80s with final status: "Code 4, Suspect in Custody / Escaped / Vehicle Disabled"</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border bg-card/50">
+            <CardHeader>
+              <CardTitle className="text-primary flex items-center gap-2">
+                <AlertTriangle className="h-5 w-5" />
+                Example RP Callout
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="bg-muted/50 p-4 rounded-lg">
+                <p className="text-foreground font-mono text-sm">
+                  SEU-1 to Dispatch, 10-80 initiated, black Sultan RS, eastbound Del Perro Freeway, speed 160+, requesting spike support from SEU-2 or MPU unit. Air-1 status?
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>

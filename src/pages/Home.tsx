@@ -13,7 +13,9 @@ import {
   MessageSquare,
   BookOpen,
   HelpCircle,
-  AlertTriangle
+  AlertTriangle,
+  ArrowUpRight,
+  Menu
 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -90,6 +92,24 @@ const categoryCards = [
 export default function Home() {
   return (
     <div className="min-h-screen">
+      {/* Guidance Section */}
+      <section className="relative bg-gradient-to-r from-primary/5 to-primary/10 border-b border-border">
+        <div className="px-6 py-4">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <Menu className="h-4 w-4" />
+              <span>Open navigation from here</span>
+              <ArrowRight className="h-4 w-4" />
+            </div>
+            
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <ArrowUpRight className="h-4 w-4" />
+              <span>Change themes from here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
