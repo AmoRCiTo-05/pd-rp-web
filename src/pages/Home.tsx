@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
@@ -97,14 +98,14 @@ export default function Home() {
       {/* Guidance Section */}
       <section className="relative bg-gradient-to-r from-primary/5 to-primary/10 border-b border-border">
         <div className="px-6 py-4">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+          <div className="max-w-7xl mx-auto relative">
+            <div className="absolute left-0 top-0 flex items-center space-x-2 text-sm text-muted-foreground">
               <Menu className="h-4 w-4" />
               <span>Open navigation from here</span>
               <ArrowRight className="h-4 w-4 transform rotate-180" />
             </div>
             
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <div className="absolute right-0 top-0 flex items-center space-x-2 text-sm text-muted-foreground">
               <span>Change themes from here</span>
               <ArrowUpRight className="h-4 w-4" />
             </div>
