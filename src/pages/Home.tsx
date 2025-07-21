@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   Radio, 
@@ -20,6 +19,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { LearningModal } from '@/components/LearningModal'
 
 const categoryCards = [
   {
@@ -90,6 +90,8 @@ const categoryCards = [
 ]
 
 export default function Home() {
+  const [isLearningModalOpen, setIsLearningModalOpen] = useState(false)
+
   return (
     <div className="min-h-screen">
       {/* Guidance Section */}
@@ -103,8 +105,8 @@ export default function Home() {
             </div>
             
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <ArrowUpRight className="h-4 w-4" />
               <span>Change themes from here</span>
+              <ArrowUpRight className="h-4 w-4" />
             </div>
           </div>
         </div>
@@ -135,13 +137,15 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/basic-codes/10-codes">
-                <Button size="lg" className="group px-8 py-3 text-lg font-medium">
-                  <BookOpen className="mr-2 h-5 w-5" />
-                  Start Learning
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
+              <Button 
+                size="lg" 
+                className="group px-8 py-3 text-lg font-medium"
+                onClick={() => setIsLearningModalOpen(true)}
+              >
+                <BookOpen className="mr-2 h-5 w-5" />
+                Start Learning
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
               <Link to="/about">
                 <Button variant="outline" size="lg" className="px-8 py-3 text-lg">
                   Learn More
@@ -235,12 +239,14 @@ export default function Home() {
             authentic and immersive law enforcement experiences.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/basic-codes/10-codes">
-              <Button size="lg" className="px-8 py-3">
-                <BookOpen className="mr-2 h-5 w-5" />
-                Get Started Now
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              className="px-8 py-3"
+              onClick={() => setIsLearningModalOpen(true)}
+            >
+              <BookOpen className="mr-2 h-5 w-5" />
+              Get Started Now
+            </Button>
             <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="px-8 py-3">
                 <MessageSquare className="mr-2 h-5 w-5" />
@@ -250,6 +256,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LearningModal 
+        isOpen={isLearningModalOpen} 
+        onClose={() => setIsLearningModalOpen(false)} 
+      />
     </div>
   )
 }
