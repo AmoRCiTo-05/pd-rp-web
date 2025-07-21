@@ -10,12 +10,10 @@ import {
   FileCode, 
   Shield,
   HelpCircle,
-  AlertTriangle,
-  X
+  AlertTriangle
 } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 
 interface LearningModalProps {
   isOpen: boolean
@@ -96,14 +94,6 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
           <DialogTitle className="text-2xl font-bold text-center mb-4">
             What do you want to learn?
           </DialogTitle>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-4 top-4"
-            onClick={onClose}
-          >
-            <X className="h-4 w-4" />
-          </Button>
         </DialogHeader>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">

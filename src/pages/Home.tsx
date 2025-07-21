@@ -101,7 +101,7 @@ export default function Home() {
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Menu className="h-4 w-4" />
               <span>Open navigation from here</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transform rotate-180" />
             </div>
             
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">

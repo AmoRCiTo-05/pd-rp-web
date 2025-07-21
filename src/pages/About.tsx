@@ -1,6 +1,5 @@
-
 import React from 'react'
-import { Shield, Heart, Users, Star, Instagram, MessageSquare } from 'lucide-react'
+import { Shield, Heart, Users, Star, Instagram, MessageSquare, DollarSign } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -190,6 +189,43 @@ export default function About() {
                   <h4 className="font-semibold">Mobile App</h4>
                   <p className="text-muted-foreground text-sm">Quick reference guide available on your mobile device</p>
                 </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Donation & Support Section */}
+        <Card className="mb-8 border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
+          <CardHeader>
+            <CardTitle className="font-heading text-2xl flex items-center space-x-3">
+              <DollarSign className="h-6 w-6 text-primary" />
+              <span>Support & Donations</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <p className="text-lg leading-relaxed">
+                The PD RP Guide is a passion project created to help the GTA RP community. If you find this resource 
+                valuable and would like to support its continued development and growth, donations are greatly appreciated.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Your support helps cover hosting costs, development time, and allows us to add new features like 
+                interactive training modules, video tutorials, and mobile app development. Every contribution, 
+                no matter how small, makes a difference in keeping this resource free and accessible to everyone.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="mailto:aanshchopra33@gmail.com?subject=PD RP Guide - Donation Support" className="flex-1">
+                  <Button size="lg" className="w-full">
+                    <DollarSign className="mr-2 h-5 w-5" />
+                    Contact for Donations
+                  </Button>
+                </a>
+                <a href="mailto:aanshchopra33@gmail.com?subject=PD RP Guide - Partnership" className="flex-1">
+                  <Button variant="outline" size="lg" className="w-full">
+                    <MessageSquare className="mr-2 h-5 w-5" />
+                    Partnership Inquiries
+                  </Button>
+                </a>
               </div>
             </div>
           </CardContent>
