@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'dark' | 'light' | 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'slate'
+type Theme = 'dark' | 'light' | 'blue' | 'green' | 'orange' | 'red' | 'slate'
 
 type ThemeProviderProps = {
   children: React.ReactNode
@@ -35,7 +35,7 @@ export function ThemeProvider({
     const root = window.document.documentElement
 
     // Remove all theme classes
-    root.classList.remove('light', 'dark', 'blue', 'green', 'purple', 'orange', 'red', 'slate')
+    root.classList.remove('light', 'dark', 'blue', 'green', 'orange', 'red', 'slate')
 
     // Add the current theme class
     root.classList.add(theme)

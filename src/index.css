@@ -93,7 +93,7 @@ All colors MUST be HSL.
   }
 
   .blue {
-    /* Ocean Blue Theme */
+    /* LSPD Theme */
     --background: 220 25% 12%;
     --foreground: 210 20% 92%;
 
@@ -133,7 +133,7 @@ All colors MUST be HSL.
   }
 
   .green {
-    /* Forest Green Theme */
+    /* SASPR Theme */
     --background: 150 25% 10%;
     --foreground: 120 15% 90%;
 
@@ -172,48 +172,8 @@ All colors MUST be HSL.
     --sidebar-ring: 142 76% 45%;
   }
 
-  .purple {
-    /* Royal Purple Theme */
-    --background: 270 25% 12%;
-    --foreground: 270 15% 90%;
-
-    --card: 270 25% 16%;
-    --card-foreground: 270 15% 90%;
-
-    --popover: 270 25% 16%;
-    --popover-foreground: 270 15% 90%;
-
-    --primary: 270 75% 60%;              /* Royal purple */
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 270 25% 18%;
-    --secondary-foreground: 270 15% 70%;
-
-    --muted: 270 25% 14%;
-    --muted-foreground: 270 15% 65%;
-
-    --accent: 270 75% 60%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 270 25% 22%;
-    --input: 270 25% 16%;
-    --ring: 270 75% 60%;
-
-    --sidebar-background: 270 25% 14%;
-    --sidebar-foreground: 270 15% 90%;
-    --sidebar-primary: 270 75% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 270 25% 18%;
-    --sidebar-accent-foreground: 270 15% 90%;
-    --sidebar-border: 270 25% 22%;
-    --sidebar-ring: 270 75% 60%;
-  }
-
   .orange {
-    /* Sunset Orange Theme */
+    /* BCSO Theme */
     --background: 25 25% 12%;
     --foreground: 25 15% 90%;
 
@@ -293,7 +253,7 @@ All colors MUST be HSL.
   }
 
   .slate {
-    /* Professional Slate Theme */
+    /* SASP Theme */
     --background: 210 20% 11%;
     --foreground: 210 15% 88%;
 

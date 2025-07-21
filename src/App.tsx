@@ -1,82 +1,66 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { Layout } from "@/components/Layout";
-import Home from "./pages/Home";
-import TenCodes from "./pages/BasicCodes/TenCodes";
-import CodeComms from "./pages/BasicCodes/CodeComms";
-import Training from "./pages/SOP/Training";
-import MEU from "./pages/SOP/MEU";
-import SEU from "./pages/SOP/SEU";
-import ASD from "./pages/SOP/ASD";
-import Dispatcher from "./pages/SOP/Dispatcher";
-import AdvancedTerms from "./pages/AdvancedSOP/Terms";
-import PenalCodesTypes from "./pages/PenalCodes/Types";
-import Felony from "./pages/PenalCodes/Felony";
-import Misdemeanor from "./pages/PenalCodes/Misdemeanor";
-import Infraction from "./pages/PenalCodes/Infraction";
-import SituationQuestions from "./pages/PenalCodes/SituationQuestions";
-import ConfusingTopics from "./pages/PenalCodes/ConfusingTopics";
-import ShortForms from "./pages/ShortForms";
-import CaseLaws from "./pages/CaseLaws";
-import Amendments from "./pages/Amendments";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Layout } from '@/components/Layout'
+import { ThemeProvider } from '@/components/ThemeProvider'
+import { Toaster } from '@/components/ui/sonner'
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="dark">
-      <TooltipProvider>
+// Import pages
+import Home from '@/pages/Home'
+import TenCodes from '@/pages/BasicCodes/TenCodes'
+import CodeComms from '@/pages/BasicCodes/CodeComms'
+import PrioritySequence from '@/pages/BasicCodes/PrioritySequence'
+import ShortForms from '@/pages/ShortForms'
+import Amendments from '@/pages/Amendments'
+import Training from '@/pages/SOP/Training'
+import MEU from '@/pages/SOP/MEU'
+import SEU from '@/pages/SOP/SEU'
+import ASD from '@/pages/SOP/ASD'
+import Dispatcher from '@/pages/SOP/Dispatcher'
+import CaseLaws from '@/pages/CaseLaws'
+import Terms from '@/pages/AdvancedSOP/Terms'
+import Types from '@/pages/PenalCodes/Types'
+import Felony from '@/pages/PenalCodes/Felony'
+import Misdemeanor from '@/pages/PenalCodes/Misdemeanor'
+import Infraction from '@/pages/PenalCodes/Infraction'
+import SituationQuestions from '@/pages/PenalCodes/SituationQuestions'
+import ConfusingTopics from '@/pages/PenalCodes/ConfusingTopics'
+import About from '@/pages/About'
+import NotFound from '@/pages/NotFound'
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/basic-codes/10-codes" element={<TenCodes />} />
+            <Route path="/basic-codes/code-comms" element={<CodeComms />} />
+            <Route path="/basic-codes/priority-sequence" element={<PrioritySequence />} />
+            <Route path="/short-forms" element={<ShortForms />} />
+            <Route path="/amendments" element={<Amendments />} />
+            <Route path="/sop/training" element={<Training />} />
+            <Route path="/sop/meu" element={<MEU />} />
+            <Route path="/sop/seu" element={<SEU />} />
+            <Route path="/sop/asd" element={<ASD />} />
+            <Route path="/sop/dispatcher" element={<Dispatcher />} />
+            <Route path="/case-laws" element={<CaseLaws />} />
+            <Route path="/advanced-sop/terms" element={<Terms />} />
+            <Route path="/penal-codes/types" element={<Types />} />
+            <Route path="/penal-codes/felony" element={<Felony />} />
+            <Route path="/penal-codes/misdemeanor" element={<Misdemeanor />} />
+            <Route path="/penal-codes/infraction" element={<Infraction />} />
+            <Route path="/situation-questions" element={<SituationQuestions />} />
+            <Route path="/confusing-topics" element={<ConfusingTopics />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
         <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              
-              {/* Basic Codes Routes */}
-              <Route path="/basic-codes/10-codes" element={<TenCodes />} />
-              <Route path="/basic-codes/code-comms" element={<CodeComms />} />
-              
-              {/* SOP Routes */}
-              <Route path="/sop/training" element={<Training />} />
-              <Route path="/sop/meu" element={<MEU />} />
-              <Route path="/sop/seu" element={<SEU />} />
-              <Route path="/sop/asd" element={<ASD />} />
-              <Route path="/sop/dispatcher" element={<Dispatcher />} />
-              
-              {/* Advanced SOP Routes */}
-              <Route path="/advanced-sop/terms" element={<AdvancedTerms />} />
-              
-              {/* Penal Codes Routes */}
-              <Route path="/penal-codes/types" element={<PenalCodesTypes />} />
-              <Route path="/penal-codes/felony" element={<Felony />} />
-              <Route path="/penal-codes/misdemeanor" element={<Misdemeanor />} />
-              <Route path="/penal-codes/infraction" element={<Infraction />} />
-              
-              {/* Separate main routes */}
-              <Route path="/situation-questions" element={<SituationQuestions />} />
-              <Route path="/confusing-topics" element={<ConfusingTopics />} />
-              
-              {/* Other Routes */}
-              <Route path="/short-forms" element={<ShortForms />} />
-              <Route path="/case-laws" element={<CaseLaws />} />
-              <Route path="/amendments" element={<Amendments />} />
-              <Route path="/about" element={<About />} />
-              
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
-        </BrowserRouter>
-      </TooltipProvider>
+      </Router>
     </ThemeProvider>
-  </QueryClientProvider>
-);
+  )
+}
 
-export default App;
+export default App

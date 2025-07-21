@@ -1,3 +1,4 @@
+
 export interface SearchResult {
   id: string
   title: string
@@ -18,13 +19,13 @@ export const searchData: SearchResult[] = [
     keywords: ['dashboard', 'home', 'overview', 'main']
   },
 
-  // Basic Codes
+  // Code Directory (formerly Basic Codes)
   {
     id: 'ten-codes',
     title: '10-Codes',
     description: 'Police radio 10-codes and their meanings',
     path: '/basic-codes/10-codes',
-    category: 'Basic Codes',
+    category: 'Code Directory',
     keywords: ['10-codes', 'radio', 'police', 'communication', 'codes']
   },
   {
@@ -32,17 +33,25 @@ export const searchData: SearchResult[] = [
     title: 'Code Communications',
     description: 'Communication codes and procedures',
     path: '/basic-codes/code-comms',
-    category: 'Basic Codes',
+    category: 'Code Directory',
     keywords: ['communication', 'codes', 'procedures', 'radio']
   },
+  {
+    id: 'priority-sequence',
+    title: 'Priority Sequence',
+    description: 'Priority call sequence for law enforcement response',
+    path: '/basic-codes/priority-sequence',
+    category: 'Code Directory',
+    keywords: ['priority', 'sequence', 'calls', 'emergency', 'response', 'backup']
+  },
 
-  // SOP
+  // S.O.P (formerly SOP)
   {
     id: 'training',
     title: 'Training SOP',
     description: 'Standard Operating Procedures for training',
     path: '/sop/training',
-    category: 'SOP',
+    category: 'S.O.P',
     keywords: ['training', 'sop', 'procedures', 'standard']
   },
   {
@@ -50,7 +59,7 @@ export const searchData: SearchResult[] = [
     title: 'MEU SOP',
     description: 'Major Enforcement Unit Standard Operating Procedures',
     path: '/sop/meu',
-    category: 'SOP',
+    category: 'S.O.P',
     keywords: ['meu', 'major', 'enforcement', 'unit', 'sop']
   },
   {
@@ -58,7 +67,7 @@ export const searchData: SearchResult[] = [
     title: 'SEU SOP',
     description: 'Special Enforcement Unit Standard Operating Procedures',
     path: '/sop/seu',
-    category: 'SOP',
+    category: 'S.O.P',
     keywords: ['seu', 'special', 'enforcement', 'unit', 'sop']
   },
   {
@@ -66,7 +75,7 @@ export const searchData: SearchResult[] = [
     title: 'ASD SOP',
     description: 'Air Support Division Standard Operating Procedures',
     path: '/sop/asd',
-    category: 'SOP',
+    category: 'S.O.P',
     keywords: ['asd', 'air', 'support', 'division', 'sop']
   },
   {
@@ -74,7 +83,7 @@ export const searchData: SearchResult[] = [
     title: 'Dispatcher SOP',
     description: 'Dispatcher Standard Operating Procedures',
     path: '/sop/dispatcher',
-    category: 'SOP',
+    category: 'S.O.P',
     keywords: ['dispatcher', 'sop', 'communication', 'procedures']
   },
 

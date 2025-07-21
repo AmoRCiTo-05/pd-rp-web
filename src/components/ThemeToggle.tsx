@@ -13,12 +13,11 @@ import { useTheme } from '@/components/ThemeProvider'
 const themes = [
   { value: 'dark', label: 'Dark', icon: Moon },
   { value: 'light', label: 'Light', icon: Sun },
-  { value: 'blue', label: 'Ocean Blue', icon: Droplets },
-  { value: 'green', label: 'Forest Green', icon: Zap },
-  { value: 'purple', label: 'Royal Purple', icon: Palette },
-  { value: 'orange', label: 'Sunset Orange', icon: Flame },
+  { value: 'blue', label: 'LSPD', icon: Droplets },
+  { value: 'green', label: 'SASPR', icon: Zap },
+  { value: 'orange', label: 'BCSO', icon: Flame },
   { value: 'red', label: 'Police Red', icon: Heart },
-  { value: 'slate', label: 'Professional Slate', icon: Layers },
+  { value: 'slate', label: 'SASP', icon: Layers },
 ] as const
 
 export function ThemeToggle() {

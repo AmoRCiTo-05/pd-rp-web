@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu, HelpCircle, AlertTriangle } from 'lucide-react';
+import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu, HelpCircle, AlertTriangle, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, useSidebar } from '@/components/ui/sidebar';
 
@@ -9,7 +10,7 @@ const navigationItems = [{
   href: '/',
   icon: Home
 }, {
-  title: 'Basic Codes',
+  title: 'Code Directory',
   icon: Radio,
   children: [{
     title: '10-Codes',
@@ -17,6 +18,9 @@ const navigationItems = [{
   }, {
     title: 'Code-Comms',
     href: '/basic-codes/code-comms'
+  }, {
+    title: 'Priority Sequence',
+    href: '/basic-codes/priority-sequence'
   }]
 }, {
   title: 'Short Forms',
@@ -27,7 +31,7 @@ const navigationItems = [{
   href: '/amendments',
   icon: Gavel
 }, {
-  title: 'Standard Operating Procedures',
+  title: 'S.O.P',
   icon: FileText,
   children: [{
     title: 'SOP for Training',
@@ -236,7 +240,7 @@ export function AppSidebar() {
         {!isCollapsed && (
           <div className="p-4">
             <div className="text-xs text-sidebar-foreground/60 text-center">
-              Made by <span className="font-medium text-sidebar-primary">Aansh (AmoRCiTo)</span>
+              Made by <a href="mailto:aanshchopra33@gmail.com" className="font-medium text-sidebar-primary hover:underline">Aansh (AmoRCiTo)</a>
             </div>
           </div>
         )}
