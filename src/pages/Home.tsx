@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
@@ -97,17 +98,19 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Guidance Section */}
       <section className="relative bg-gradient-to-r from-primary/5 to-primary/10 border-b border-border">
-        <div className="px-6 py-4">
-          <div className="max-w-7xl mx-auto relative">
-            <div className="absolute left-0 top-0 flex items-center space-x-2 text-sm text-muted-foreground">
-              <Menu className="h-4 w-4" />
-              <span>Open navigation from here</span>
-              <ArrowRight className="h-4 w-4 transform rotate-180" />
+        <div className="px-4 sm:px-6 py-3 sm:py-4">
+          <div className="max-w-7xl mx-auto relative h-6">
+            <div className="absolute left-0 top-0 flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-muted-foreground">
+              <Menu className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden sm:inline">Open navigation from here</span>
+              <span className="sm:hidden">Menu</span>
+              <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transform rotate-180" />
             </div>
             
-            <div className="absolute right-0 top-0 flex items-center space-x-2 text-sm text-muted-foreground">
-              <span>Change themes from here</span>
-              <ArrowUpRight className="h-4 w-4" />
+            <div className="absolute right-0 top-0 flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-muted-foreground">
+              <span className="hidden sm:inline">Change themes from here</span>
+              <span className="sm:hidden">Theme</span>
+              <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4" />
             </div>
           </div>
         </div>
@@ -116,39 +119,39 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="relative px-6 py-24 sm:py-32 lg:px-8 text-center">
+        <div className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 text-center">
           <div className="mx-auto max-w-4xl">
-            <div className="mb-8">
-              <Badge variant="secondary" className="mb-4 px-4 py-2 text-sm font-medium">
-                <BookOpen className="mr-2 h-4 w-4" />
+            <div className="mb-6 sm:mb-8">
+              <Badge variant="secondary" className="mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
+                <BookOpen className="mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                 Your Essential Law Enforcement Guide
               </Badge>
             </div>
             
-            <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl mb-6">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 sm:mb-6">
               <span className="text-foreground">PD RP</span>{' '}
               <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                 Guide
               </span>
             </h1>
             
-            <p className="mx-auto max-w-2xl text-lg sm:text-xl text-muted-foreground leading-8 mb-10">
+            <p className="mx-auto max-w-2xl text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed sm:leading-8 mb-8 sm:mb-10 px-4 sm:px-0">
               Master law enforcement roleplay with comprehensive guides covering 10-codes, 
               SOPs, penal codes, and everything you need for authentic GTA RP experiences.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
               <Button 
                 size="lg" 
-                className="group px-8 py-3 text-lg font-medium"
+                className="group w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-medium"
                 onClick={() => setIsLearningModalOpen(true)}
               >
-                <BookOpen className="mr-2 h-5 w-5" />
+                <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Start Learning
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Link to="/about">
-                <Button variant="outline" size="lg" className="px-8 py-3 text-lg">
+              <Link to="/about" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg">
                   Learn More
                 </Button>
               </Link>
@@ -158,39 +161,39 @@ export default function Home() {
       </section>
 
       {/* Categories Grid */}
-      <section className="py-24 px-6 lg:px-8">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
               Explore Categories
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
               Navigate through our comprehensive collection of law enforcement resources, 
               each designed to enhance your roleplay experience.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {categoryCards.map((category, index) => (
               <Link key={index} to={category.href} className="group">
                 <Card className="relative h-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
                   {category.popular && (
-                    <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground">
+                    <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs">
                       Popular
                     </Badge>
                   )}
                   
-                  <CardHeader className="pb-4 text-center">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                      <category.icon className="h-6 w-6 text-white" />
+                  <CardHeader className="pb-3 sm:pb-4 text-center">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                      <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                     </div>
-                    <CardTitle className="font-heading text-xl group-hover:text-primary transition-colors duration-200">
+                    <CardTitle className="font-heading text-lg sm:text-xl group-hover:text-primary transition-colors duration-200">
                       {category.title}
                     </CardTitle>
                   </CardHeader>
                   
-                  <CardContent className="text-center">
-                    <CardDescription className="text-muted-foreground leading-relaxed mb-4">
+                  <CardContent className="text-center px-4 sm:px-6">
+                    <CardDescription className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                       {category.description}
                     </CardDescription>
                     
@@ -206,23 +209,23 @@ export default function Home() {
       </section>
 
       {/* Feedback Section */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 to-background border-t border-border">
-        <div className="mx-auto max-w-4xl text-center px-6 lg:px-8">
-          <div className="flex justify-center mb-6">
-            <div className="p-3 bg-primary/10 rounded-lg">
-              <MessageSquare className="h-8 w-8 text-primary" />
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-primary/5 to-background border-t border-border">
+        <div className="mx-auto max-w-4xl text-center px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center mb-4 sm:mb-6">
+            <div className="p-2.5 sm:p-3 bg-primary/10 rounded-lg">
+              <MessageSquare className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
             </div>
           </div>
-          <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
             Help Us Improve
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto">
             Your feedback is invaluable in making this guide better for the entire community. 
             Share your thoughts, report issues, or suggest new features.
           </p>
           <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="px-8 py-3">
-              <MessageSquare className="mr-2 h-5 w-5" />
+            <Button size="lg" className="px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg">
+              <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Share Feedback
             </Button>
           </a>
@@ -230,27 +233,27 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-primary/5 to-background border-t border-border">
-        <div className="mx-auto max-w-4xl text-center px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold sm:text-4xl mb-4">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary/5 to-background border-t border-border">
+        <div className="mx-auto max-w-4xl text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
             Ready to Master Law Enforcement RP?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto">
             Join thousands of roleplayers who rely on our comprehensive guides for 
             authentic and immersive law enforcement experiences.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button 
               size="lg" 
-              className="px-8 py-3"
+              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg"
               onClick={() => setIsLearningModalOpen(true)}
             >
-              <BookOpen className="mr-2 h-5 w-5" />
+              <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Get Started Now
             </Button>
-            <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="px-8 py-3">
-                <MessageSquare className="mr-2 h-5 w-5" />
+            <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg">
+                <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Share Feedback
               </Button>
             </a>
@@ -265,3 +268,4 @@ export default function Home() {
     </div>
   )
 }
+
