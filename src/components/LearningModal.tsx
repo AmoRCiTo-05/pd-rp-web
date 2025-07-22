@@ -22,64 +22,64 @@ interface LearningModalProps {
 
 const learningCategories = [
   {
-    title: 'Code Directory',
-    description: '10-codes, communication protocols, and priority sequences',
+    title: 'PD Directory',
+    description: 'Essential 10-codes, communication protocols, priority sequences, and patrol area maps for daily operations',
     icon: Radio,
     href: '/basic-codes/10-codes',
     color: 'from-blue-500 to-blue-600'
   },
   {
     title: 'Short Forms',
-    description: 'Abbreviations and acronyms used in law enforcement',
+    description: 'Comprehensive list of law enforcement abbreviations and acronyms used in police communication and documentation',
     icon: FileCode,
     href: '/short-forms',
     color: 'from-teal-500 to-teal-600'
   },
   {
     title: 'Amendments',
-    description: 'Constitutional amendments relevant to law enforcement',
+    description: 'Constitutional amendments and civil rights protections essential for law enforcement officers to understand and uphold',
     icon: Gavel,
     href: '/amendments',
     color: 'from-orange-500 to-orange-600'
   },
   {
-    title: 'S.O.P',
-    description: 'Standard Operating Procedures for all units',
+    title: 'Standard Operating Procedures',
+    description: 'Detailed SOPs covering training protocols, specialized units (MEU, SEU, ASD), and dispatcher operations',
     icon: FileText,
     href: '/sop/training',
     color: 'from-green-500 to-green-600'
   },
   {
     title: 'Case Laws',
-    description: 'Important case law precedents and legal decisions',
+    description: 'Landmark legal precedents and court decisions that shape modern law enforcement procedures and constitutional rights',
     icon: Shield,
     href: '/case-laws',
     color: 'from-indigo-500 to-indigo-600'
   },
   {
-    title: 'Advanced S.O.P',
-    description: 'Advanced terminology and command ranking procedures',
+    title: 'Advanced Terms',
+    description: 'Complex legal terminology, advanced criminal law concepts, and specialized procedures for command-level officers',
     icon: GraduationCap,
     href: '/advanced-sop/terms',
     color: 'from-purple-500 to-purple-600'
   },
   {
     title: 'Penal Codes',
-    description: 'Felonies, misdemeanors, and infractions breakdown',
+    description: 'Complete classification system of criminal offenses including felonies, misdemeanors, infractions, and their penalties',
     icon: Scale,
     href: '/penal-codes/types',
     color: 'from-red-500 to-red-600'
   },
   {
     title: 'Situation Based Questions',
-    description: 'Scenario-based questions to test your knowledge',
+    description: 'Real-world scenario exercises designed to test decision-making skills and practical application of law enforcement knowledge',
     icon: HelpCircle,
     href: '/situation-questions',
     color: 'from-yellow-500 to-yellow-600'
   },
   {
     title: 'Confusing Topics',
-    description: 'Clarification on commonly misunderstood concepts',
+    description: 'Common misconceptions, frequently misunderstood concepts, and clarifications on complex law enforcement procedures',
     icon: AlertTriangle,
     href: '/confusing-topics',
     color: 'from-pink-500 to-pink-600'

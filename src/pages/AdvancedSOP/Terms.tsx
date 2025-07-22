@@ -139,6 +139,231 @@ const advancedTerms = [
     term: "Joyriding",
     definition: "Taking and driving a vehicle without the owner's permission, typically for pleasure and without intent to permanently deprive the owner.",
     category: "Vehicle Crime"
+  },
+  {
+    term: "Resisting Arrest",
+    definition: "Intentionally preventing or attempting to prevent a law enforcement officer from making a lawful arrest.",
+    category: "Criminal Law"
+  },
+  {
+    term: "Obstruction of Justice",
+    definition: "Interfering with the process of law, including hiding evidence, lying to officers, or helping someone avoid arrest.",
+    category: "Court Crime"
+  },
+  {
+    term: "Vehicular Manslaughter",
+    definition: "Causing someone's death through negligent or reckless driving, without intent to kill.",
+    category: "Serious Crime"
+  },
+  {
+    term: "Solicitation",
+    definition: "Encouraging, requesting, or demanding someone to commit a crime, often used in drug or prostitution contexts.",
+    category: "Public Order"
+  },
+  {
+    term: "Stalking",
+    definition: "Repeated, unwanted attention or harassment that causes fear or distress to another person.",
+    category: "Personal Crime"
+  },
+  {
+    term: "Misuse of Emergency Services",
+    definition: "Falsely calling 911 or emergency services without real cause, wasting resources.",
+    category: "Public Order"
+  },
+  {
+    term: "Tampering with Evidence",
+    definition: "Destroying, hiding, or altering evidence with the intent to affect a legal investigation.",
+    category: "Court Crime"
+  },
+  {
+    term: "Hit and Run",
+    definition: "Leaving the scene of an accident without offering help or reporting the incident.",
+    category: "Traffic Crime"
+  },
+  {
+    term: "Aiding and Abetting",
+    definition: "Helping or encouraging another person to commit a crime, even if not directly involved.",
+    category: "Criminal Law"
+  },
+  {
+    term: "Illegal Surveillance",
+    definition: "Recording, watching, or tracking individuals without proper legal authority or consent.",
+    category: "Privacy Crime"
+  },
+  {
+    term: "Unlawful Assembly",
+    definition: "Gathering of individuals in a group that threatens public safety or violates the law.",
+    category: "Public Order"
+  },
+  {
+    term: "Tampering with Public Property",
+    definition: "Unauthorized interference with infrastructure like traffic signs, power boxes, or fire hydrants.",
+    category: "Property Crime"
+  },
+  {
+    term: "Reckless Endangerment",
+    definition: "Acting with disregard for the safety of others, creating a significant risk of injury or harm.",
+    category: "Public Safety"
+  },
+  {
+    term: "Criminal Conspiracy",
+    definition: "An agreement between two or more people to commit a crime, even if the crime isn't actually carried out.",
+    category: "Criminal Law"
+  },
+  {
+    term: "Unlawful Imprisonment",
+    definition: "Restraining or detaining someone without legal authority, such as locking someone in a room.",
+    category: "Personal Crime"
+  },
+  {
+    term: "Obstruction of a Peace Officer",
+    definition: "Intentionally interfering with a police officer's lawful duties, such as providing false information or blocking their actions.",
+    category: "Criminal Law"
+  },
+  {
+    term: "Brandishing a Weapon",
+    definition: "Displaying a weapon in a threatening manner without justification, often used to intimidate.",
+    category: "Weapons Offense"
+  },
+  {
+    term: "Inciting a Riot",
+    definition: "Encouraging or provoking others to engage in violent or unlawful group behavior against the peace.",
+    category: "Serious Crime"
+  },
+  {
+    term: "False Imprisonment",
+    definition: "Illegally detaining someone against their will without proper legal authority.",
+    category: "Personal Crime"
+  },
+  {
+    term: "Unlawful Discharge of a Firearm",
+    definition: "Firing a weapon in an unauthorized manner or location, such as in public or within city limits.",
+    category: "Weapons Offense"
+  },
+  {
+    term: "Conspiracy to Commit a Crime",
+    definition: "Planning or agreeing with others to commit a crime, regardless of whether the act is completed.",
+    category: "Criminal Law"
+  },
+  {
+    term: "Racketeering",
+    definition: "Running illegal business operations as part of an organized group, including extortion, bribery, or fraud.",
+    category: "Organized Crime"
+  },
+  {
+    term: "Possession of Stolen Property",
+    definition: "Knowingly having goods obtained through theft or illegal means.",
+    category: "Property Crime"
+  },
+  {
+    term: "Obstruction of Traffic",
+    definition: "Blocking roadways, intersections, or public pathways without proper authorization.",
+    category: "Traffic Violation"
+  },
+  {
+    term: "Criminal Mischief",
+    definition: "Damaging or interfering with the use of property, often for malicious purposes (e.g., smashing car windows, breaking locks).",
+    category: "Property Crime"
+  },
+  {
+    term: "Threatening a Public Official",
+    definition: "Verbally or physically threatening a government or law enforcement officer in a way that causes fear or obstructs duty.",
+    category: "Serious Crime"
+  },
+  {
+    term: "Improper Use of Emergency Equipment",
+    definition: "Using sirens, lights, or radio codes without authorization, impersonating emergency services.",
+    category: "Operational Misconduct"
+  },
+  {
+    term: "Evading Law Enforcement",
+    definition: "Fleeing from police pursuit on foot or in a vehicle to avoid arrest or detention.",
+    category: "Criminal Law"
+  },
+  {
+    term: "Obstruction of Government Property",
+    definition: "Damaging or blocking access to property owned or controlled by the government (e.g., roads, courthouses, police stations).",
+    category: "Property Crime"
+  },
+  {
+    term: "Contraband Possession",
+    definition: "Possessing illegal items such as drugs, weapons, or banned materials—especially in restricted areas like jails or government buildings.",
+    category: "Security Violation"
+  },
+  {
+    term: "Bribery",
+    definition: "Offering or accepting something of value in exchange for influence or action by a public official or authority figure.",
+    category: "Corruption"
+  },
+  {
+    term: "Tampering with a Witness",
+    definition: "Trying to intimidate, bribe, or otherwise influence a witness to lie, stay silent, or avoid testifying in a legal proceeding.",
+    category: "Court Crime"
+  },
+  {
+    term: "Unlawful Possession of a Firearm",
+    definition: "Owning or carrying a firearm without a valid license, or while being legally prohibited from possessing one.",
+    category: "Weapons Offense"
+  },
+  {
+    term: "Failure to Comply",
+    definition: "Refusing to obey lawful commands from law enforcement or other officials (e.g., ignoring orders during a stop).",
+    category: "Criminal Law"
+  },
+  {
+    term: "Disturbing the Peace",
+    definition: "Engaging in disruptive or violent behavior in public, such as fighting, shouting threats, or creating excessive noise.",
+    category: "Public Order"
+  },
+  {
+    term: "Perverting the Course of Justice",
+    definition: "Knowingly interfering with the administration of justice — such as hiding suspects, destroying evidence, or misleading the court.",
+    category: "Court Crime"
+  },
+  {
+    term: "Possession with Intent to Distribute",
+    definition: "Holding illegal substances with the purpose of selling or supplying them, based on amount, packaging, or behavior.",
+    category: "Drug Crime"
+  },
+  {
+    term: "Forgery of Government Documents",
+    definition: "Creating or altering official documents (e.g., licenses, permits, IDs) to deceive or gain unlawful benefit.",
+    category: "Fraud"
+  },
+  {
+    term: "Misuse of Identification",
+    definition: "Using someone else's ID or a fake identity for personal gain or to avoid consequences.",
+    category: "Fraud"
+  },
+  {
+    term: "Illegal Assembly During Curfew",
+    definition: "Gathering in public during curfew hours declared due to emergencies or unrest.",
+    category: "Public Order"
+  },
+  {
+    term: "Threatening Behavior / Intimidation",
+    definition: "Actions or speech intended to cause fear, emotional distress, or submission through coercion or threat.",
+    category: "Personal Crime"
+  },
+  {
+    term: "Disorderly Conduct",
+    definition: "A broad charge for behavior that causes public inconvenience, annoyance, or alarm (e.g., loitering, indecent exposure, aggressive shouting).",
+    category: "Public Order"
+  },
+  {
+    term: "Escaping Lawful Custody",
+    definition: "Fleeing from handcuffs, jail, transport, or officers after lawful arrest or detention.",
+    category: "Serious Crime"
+  },
+  {
+    term: "Trespass During Emergency Order",
+    definition: "Entering restricted or cordoned-off areas during disasters or active crime scenes.",
+    category: "Public Safety"
+  },
+  {
+    term: "Cybercrime – Unauthorized Access",
+    definition: "Accessing computers, networks, or data without authorization, often to steal, disrupt, or alter information.",
+    category: "Cybercrime"
   }
 ]
 
