@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
@@ -102,13 +100,13 @@ export default function Home() {
           <div className="max-w-7xl mx-auto relative h-6">
             <div className="absolute left-0 top-0 flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-muted-foreground">
               <Menu className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="hidden sm:inline">Open navigation from here</span>
+              <span className="hidden sm:inline">Menu</span>
               <span className="sm:hidden">Menu</span>
               <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transform rotate-180" />
             </div>
             
             <div className="absolute right-0 top-0 flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-muted-foreground">
-              <span className="hidden sm:inline">Change themes from here</span>
+              <span className="hidden sm:inline">Theme</span>
               <span className="sm:hidden">Theme</span>
               <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4" />
             </div>
@@ -268,4 +266,3 @@ export default function Home() {
     </div>
   )
 }
-
