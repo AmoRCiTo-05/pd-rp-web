@@ -10,6 +10,7 @@ import Home from '@/pages/Home'
 import TenCodes from '@/pages/BasicCodes/TenCodes'
 import CodeComms from '@/pages/BasicCodes/CodeComms'
 import PrioritySequence from '@/pages/BasicCodes/PrioritySequence'
+import PatrolAreas from '@/pages/BasicCodes/PatrolAreas'
 import ShortForms from '@/pages/ShortForms'
 import Amendments from '@/pages/Amendments'
 import Training from '@/pages/SOP/Training'
@@ -38,6 +39,7 @@ function App() {
             <Route path="/basic-codes/10-codes" element={<TenCodes />} />
             <Route path="/basic-codes/code-comms" element={<CodeComms />} />
             <Route path="/basic-codes/priority-sequence" element={<PrioritySequence />} />
+            <Route path="/basic-codes/patrol-areas" element={<PatrolAreas />} />
             <Route path="/short-forms" element={<ShortForms />} />
             <Route path="/amendments" element={<Amendments />} />
             <Route path="/sop/training" element={<Training />} />

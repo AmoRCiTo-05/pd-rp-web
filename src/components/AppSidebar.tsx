@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu, HelpCircle, AlertTriangle, Clock } from 'lucide-react';
@@ -10,7 +9,7 @@ const navigationItems = [{
   href: '/',
   icon: Home
 }, {
-  title: 'Code Directory',
+  title: 'PD Directory',
   icon: Radio,
   children: [{
     title: '10-Codes',
@@ -21,6 +20,9 @@ const navigationItems = [{
   }, {
     title: 'Priority Sequence',
     href: '/basic-codes/priority-sequence'
+  }, {
+    title: 'City Limit Patrol Areas',
+    href: '/basic-codes/patrol-areas'
   }]
 }, {
   title: 'Short Forms',
