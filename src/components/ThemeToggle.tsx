@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Monitor, Moon, Sun, Palette, Droplets, Zap, Flame, Heart, Layers } from 'lucide-react'
+import { Monitor, Moon, Sun, Building2, TreePine, Crown, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -13,11 +13,11 @@ import { useTheme } from '@/components/ThemeProvider'
 const themes = [
   { value: 'dark', label: 'Dark', icon: Moon },
   { value: 'light', label: 'Light', icon: Sun },
-  { value: 'blue', label: 'LSPD', icon: Droplets },
-  { value: 'green', label: 'SASPR', icon: Zap },
-  { value: 'orange', label: 'BCSO', icon: Flame },
-  { value: 'red', label: 'Police Red', icon: Heart },
-  { value: 'slate', label: 'SASP', icon: Layers },
+  { value: 'blue', label: 'LSPD', icon: Building2 },
+  { value: 'green', label: 'SASPR', icon: TreePine },
+  { value: 'orange', label: 'BCSO', icon: MapPin },
+  { value: 'red', label: 'Police Red', icon: Crown },
+  { value: 'slate', label: 'SASP', icon: Crown },
 ] as const
 
 export function ThemeToggle() {
