@@ -32,9 +32,10 @@ export function ThemeToggle() {
         <Button
           variant="ghost"
           size="sm"
-          className="w-9 h-9 p-0 hover:bg-accent/20 transition-all duration-300"
+          className="flex items-center gap-2 px-3 py-2 h-9 hover:bg-accent/20 transition-all duration-300"
         >
           <CurrentIcon className="h-4 w-4" />
+          <span className="hidden sm:inline text-sm">Theme</span>
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

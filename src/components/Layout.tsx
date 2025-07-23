@@ -27,27 +27,25 @@ export function Layout({ children, className }: LayoutProps) {
         <div className="flex-1 flex flex-col min-w-0">
           {/* Header */}
           <header className="sticky top-0 z-30 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-            <div className="flex items-center justify-between h-16 px-4 sm:px-6">
-              {/* Sidebar Toggle - Always visible */}
-              <div>
+            <div className="flex items-center justify-between h-16 px-4 sm:px-6 gap-4">
+              {/* Left: Sidebar Toggle */}
+              <div className="flex-shrink-0">
                 <SidebarTrigger />
               </div>
               
-              {/* Centered Search Bar for desktop, full width for mobile */}
-              <div className="flex-1 lg:flex lg:justify-center lg:max-w-5xl lg:mx-auto">
-                <div className="w-full max-w-3xl ml-3 lg:ml-0">
-                  <SearchBar />
-                </div>
+              {/* Center: Search Bar */}
+              <div className="flex-1 max-w-3xl mx-auto">
+                <SearchBar />
               </div>
               
-              {/* Theme Toggle */}
-              <div className="flex items-center space-x-4">
+              {/* Right: Theme Toggle */}
+              <div className="flex-shrink-0">
                 <ThemeToggle />
               </div>
             </div>
           </header>
           
-          {/* Page Content - Removed padding */}
+          {/* Page Content */}
           <main className={cn("flex-1", className)}>
             {children}
           </main>
