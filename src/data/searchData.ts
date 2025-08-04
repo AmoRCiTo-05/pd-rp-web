@@ -1,4 +1,3 @@
-
 export interface SearchResult {
   id: string
   title: string
@@ -147,6 +146,24 @@ export const searchData: SearchResult[] = [
     path: '/confusing-topics',
     category: 'Reference',
     keywords: ['confusing', 'topics', 'sop', 'pursuit', 'detainment', 'force', 'miranda', 'evidence', 'warrant', 'suspicion']
+  },
+
+  // PD Directory
+  {
+    id: 'sample-calls',
+    title: 'Sample Calls',
+    description: 'Sample Calls on a PD Radio while using PD 10-Codes',
+    path: '/pd/sample-calls',
+    category: 'PD Directory',
+    keywords: ['sample', 'calls', 'radio', '10-codes', 'callout', 'formats', 'communication', 'police']
+  },
+  {
+    id: 'in-game-commands',
+    title: 'In-Game PD Commands',
+    description: 'Essential in-game police department commands and functions',
+    path: '/pd/in-game-commands',
+    category: 'PD Directory',
+    keywords: ['commands', 'in-game', 'police', 'jail', 'fine', 'impound', 'mdt', 'callsign', 'radar']
   },
 
   // Other pages

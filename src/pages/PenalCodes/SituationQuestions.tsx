@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, ChevronRight, BookOpen } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { ChevronDown, ChevronRight, BookOpen, Search } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface Question {
@@ -397,6 +397,7 @@ const categories: Category[] = [
 
 const SituationQuestions = () => {
   const [openCategories, setOpenCategories] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const toggleCategory = (categoryName: string) => {
     setOpenCategories(prev => 
@@ -406,81 +407,115 @@ const SituationQuestions = () => {
     );
   };
 
+  const filteredCategories = categories.map(category => ({
+    ...category,
+    questions: category.questions.filter(question => {
+      if (!searchQuery.trim()) return true;
+      const query = searchQuery.toLowerCase();
+      return (
+        question.scenario.toLowerCase().includes(query) ||
+        question.question.toLowerCase().includes(query) ||
+        question.answer.toLowerCase().includes(query) ||
+        category.name.toLowerCase().includes(query)
+      );
+    })
+  })).filter(category => category.questions.length > 0);
+
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-4">
-          <BookOpen className="h-8 w-8 text-primary" />
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+    <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 max-w-6xl">
+      <div className="mb-6 sm:mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+          <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+          <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Situation Based Questions
           </h1>
         </div>
-        <p className="text-lg text-muted-foreground mb-6">
+        <p className="text-sm sm:text-lg text-muted-foreground mb-4 sm:mb-6">
           A comprehensive question bank for law enforcement interviews covering various scenarios and procedures.
         </p>
-        <div className="flex flex-wrap gap-2 mb-6">
-          <Badge variant="secondary">{categories.length} Categories</Badge>
-          <Badge variant="secondary">{categories.reduce((total, cat) => total + cat.questions.length, 0)} Questions</Badge>
+        
+        {/* Search Bar */}
+        <div className="relative mb-4 sm:mb-6">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+          <Input
+            placeholder="Search scenarios, questions, or answers..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="pl-10"
+          />
+        </div>
+        
+        <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+          <Badge variant="secondary">{filteredCategories.length} Categories</Badge>
+          <Badge variant="secondary">{filteredCategories.reduce((total, cat) => total + cat.questions.length, 0)} Questions</Badge>
         </div>
       </div>
 
-      <div className="space-y-4">
-        {categories.map((category, categoryIndex) => (
-          <Card key={categoryIndex} className="border-l-4 border-l-primary/50">
-            <Collapsible 
-              open={openCategories.includes(category.name)}
-              onOpenChange={() => toggleCategory(category.name)}
-            >
-              <CollapsibleTrigger asChild>
-                <CardHeader className="cursor-pointer hover:bg-muted/50 transition-colors">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <CardTitle className="text-xl">{category.name}</CardTitle>
-                      <Badge variant="outline">{category.questions.length} questions</Badge>
-                    </div>
-                    {openCategories.includes(category.name) ? (
-                      <ChevronDown className="h-5 w-5" />
-                    ) : (
-                      <ChevronRight className="h-5 w-5" />
-                    )}
-                  </div>
-                </CardHeader>
-              </CollapsibleTrigger>
-              
-              <CollapsibleContent>
-                <CardContent className="pt-0">
-                  <div className="space-y-6">
-                    {category.questions.map((question, questionIndex) => (
-                      <div key={questionIndex} className="border rounded-lg p-4 bg-card/50">
-                        <div className="mb-3">
-                          <Badge variant="secondary" className="mb-2">
-                            Scenario {questionIndex + 1}
-                          </Badge>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            {question.scenario}
-                          </p>
-                        </div>
-                        
-                        <div className="mb-3">
-                          <h4 className="font-semibold text-primary mb-1">Question:</h4>
-                          <p className="text-sm">{question.question}</p>
-                        </div>
-                        
-                        <div>
-                          <h4 className="font-semibold text-green-600 mb-1">Answer:</h4>
-                          <p className="text-sm bg-muted/30 p-3 rounded border-l-4 border-l-green-500/50">
-                            {question.answer}
-                          </p>
-                        </div>
+      {filteredCategories.length === 0 ? (
+        <Card className="text-center py-8">
+          <CardContent>
+            <p className="text-muted-foreground">No questions found matching your search.</p>
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="space-y-4">
+          {filteredCategories.map((category, categoryIndex) => (
+            <Card key={categoryIndex} className="border-l-4 border-l-primary/50">
+              <Collapsible 
+                open={openCategories.includes(category.name)}
+                onOpenChange={() => toggleCategory(category.name)}
+              >
+                <CollapsibleTrigger asChild>
+                  <CardHeader className="cursor-pointer hover:bg-muted/50 transition-colors">
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                        <CardTitle className="text-lg sm:text-xl">{category.name}</CardTitle>
+                        <Badge variant="outline">{category.questions.length} questions</Badge>
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </CollapsibleContent>
-            </Collapsible>
-          </Card>
-        ))}
-      </div>
+                      {openCategories.includes(category.name) ? (
+                        <ChevronDown className="h-5 w-5 flex-shrink-0" />
+                      ) : (
+                        <ChevronRight className="h-5 w-5 flex-shrink-0" />
+                      )}
+                    </div>
+                  </CardHeader>
+                </CollapsibleTrigger>
+                
+                <CollapsibleContent>
+                  <CardContent className="pt-0">
+                    <div className="space-y-4 sm:space-y-6">
+                      {category.questions.map((question, questionIndex) => (
+                        <div key={questionIndex} className="border rounded-lg p-3 sm:p-4 bg-card/50">
+                          <div className="mb-3">
+                            <Badge variant="secondary" className="mb-2">
+                              Scenario {questionIndex + 1}
+                            </Badge>
+                            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                              {question.scenario}
+                            </p>
+                          </div>
+                          
+                          <div className="mb-3">
+                            <h4 className="font-semibold text-primary mb-1 text-sm sm:text-base">Question:</h4>
+                            <p className="text-xs sm:text-sm">{question.question}</p>
+                          </div>
+                          
+                          <div>
+                            <h4 className="font-semibold text-green-600 mb-1 text-sm sm:text-base">Answer:</h4>
+                            <p className="text-xs sm:text-sm bg-muted/30 p-2 sm:p-3 rounded border-l-4 border-l-green-500/50 leading-relaxed">
+                              {question.answer}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </CollapsibleContent>
+              </Collapsible>
+            </Card>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
