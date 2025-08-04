@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+import React, { useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { HelpCircle, Search, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronRight, BookOpen } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface Question {
@@ -17,204 +17,379 @@ interface Category {
   questions: Question[];
 }
 
-const situationCategories: Category[] = [
+const categories: Category[] = [
   {
-    name: "Use of Force Scenarios",
+    name: "Use of Force & Arrest Procedures",
     questions: [
       {
-        scenario: "A suspect is verbally aggressive and refuses to comply with commands.",
-        question: "What level of force is justified in this situation?",
-        answer: "Verbal commands, soft empty hand techniques, or OC spray may be justified depending on the totality of the circumstances."
+        scenario: "While patrolling downtown, you respond to a 911 call reporting a suspicious male loitering near a bank wearing a hoodie and pacing back and forth. Upon arrival, you observe the male nervously checking his surroundings. You approach and ask him for ID. He becomes evasive and tries to walk away.",
+        question: "What level of suspicion is this, and what can you legally do at this point?",
+        answer: "This is reasonable suspicion. You may detain the individual for questioning but cannot arrest unless you gather probable cause. You may frisk if you believe he is armed."
       },
       {
-        scenario: "An armed suspect points a firearm at officers.",
-        question: "What is the appropriate response?",
-        answer: "Lethal force is justified to protect the lives of officers and others."
+        scenario: "During a routine traffic stop, you notice a bulge in the driver's waistband. When asked to step out, the driver complies but appears tense. As you frisk him, you find a concealed firearm.",
+        question: "How should you proceed, and what legal standards apply?",
+        answer: "Frisk is justified due to suspicion of being armed. Upon discovering a firearm, and assuming no valid license is presented, you now have probable cause to arrest. Read Miranda rights, confiscate the weapon, and search the person fully."
       },
       {
-        scenario: "A suspect is passively resisting arrest.",
-        question: "What techniques can be used to gain compliance?",
-        answer: "Escort holds, pressure points, or mechanical restraints may be used."
+        scenario: "While on foot patrol in a high-crime area, you see two individuals arguing. One of them suddenly pulls a knife and threatens the other. You draw your firearm and give three verbal warnings, but he refuses to drop it.",
+        question: "What level of force is now authorized, and what should you do next?",
+        answer: "Lethal force is authorized as there's an imminent threat to life. Use appropriate force to neutralize the threat and immediately call for EMS and backup."
+      },
+      {
+        scenario: "A suspect is handcuffed and placed in the patrol car after arrest. He starts kicking the window violently and trying to break free.",
+        question: "What force can you use to restrain him?",
+        answer: "Use hard empty-hand control or non-lethal tools like restraints or a hobble. Ensure the force is proportional and the suspect receives medical attention if necessary."
+      },
+      {
+        scenario: "You detain an individual in relation to a reported robbery, but after investigation, it turns out he was wrongly identified and uninvolved.",
+        question: "What are your obligations in this case?",
+        answer: "You must release the individual immediately, document the incident in your MDT, and report the mistaken identity to your supervisor."
       }
     ]
   },
   {
-    name: "Search and Seizure Scenarios",
+    name: "Evidence Handling & Documentation",
     questions: [
       {
-        scenario: "Officers have probable cause to believe a vehicle contains illegal drugs.",
-        question: "What actions can officers take?",
-        answer: "Officers can conduct a warrantless search of the vehicle, including containers that could hold the drugs."
+        scenario: "During a robbery investigation, your bodycam captures a suspect holding a firearm and threatening civilians. The footage is clear and unedited.",
+        question: "How do you classify this evidence and what is your next step?",
+        answer: "This is bonafide evidence. You must upload the footage link in the MDT under \"Evidence\" and ensure it's timestamped and verified."
       },
       {
-        scenario: "A suspect is stopped for a traffic violation and appears nervous.",
-        question: "Can officers conduct a pat-down search for weapons?",
-        answer: "Officers can conduct a pat-down search if they have reasonable suspicion the suspect is armed and dangerous."
+        scenario: "At a drug bust scene, you find suspicious white powder and electronic devices with potentially incriminating data.",
+        question: "How do you process these items?",
+        answer: "Send the powder to EMS for lab verification and the devices to forensics. Once certified, upload results in MDT and label accordingly in evidence logs."
       },
       {
-        scenario: "Officers enter a home with a valid search warrant.",
-        question: "What areas can be searched?",
-        answer: "Officers can search areas specified in the warrant where the items sought could be located."
+        scenario: "You see another officer taking marijuana from the evidence locker and placing it in his personal bag.",
+        question: "What should you do?",
+        answer: "Report the misconduct to Internal Affairs immediately. Do not confront the officer directly unless necessary. Document the incident."
+      },
+      {
+        scenario: "A civilian provides security camera footage showing a vehicle involved in a hit-and-run.",
+        question: "Is this admissible evidence? What steps do you take?",
+        answer: "Yes, if the footage is unaltered. Request the original copy, ensure metadata is intact, and classify it as bonafide if verified. Link in MDT."
+      },
+      {
+        scenario: "After a felony stop, you recover weapons and a large amount of cash from the suspect's vehicle. You forget to log it in MDT until after the suspect is jailed.",
+        question: "What should you do now?",
+        answer: "Immediately update the MDT with evidence entries and inform your supervisor. Late logging may trigger a compliance review."
       }
     ]
   },
   {
-    name: "Interview and Interrogation Scenarios",
+    name: "Command & Robbery Response",
     questions: [
       {
-        scenario: "A suspect is in custody and being questioned about a crime.",
-        question: "What rights must be advised to the suspect?",
-        answer: "The suspect must be advised of their Miranda rights before interrogation."
+        scenario: "You're the commanding officer at an ongoing bank robbery. There are four armed suspects and two hostages. Negotiator is on standby, and units are positioned.",
+        question: "What are your responsibilities and steps to manage this situation?",
+        answer: "Assign a negotiator to verify proof of life. Designate an MDT officer to collect evidence inside the bank. Establish a perimeter, prepare a pursuit unit, maintain communication discipline, and ensure any response matches force. Debrief post-situation and ensure MDT updates."
       },
       {
-        scenario: "A suspect invokes their right to remain silent.",
-        question: "What actions should officers take?",
-        answer: "Officers must cease questioning and respect the suspect's right to remain silent."
+        scenario: "In a hostage robbery, suspects ask to leave with the hostage as a shield.",
+        question: "What is the SOP-approved response to such demands?",
+        answer: "Deny the request. Hostage must be released before suspects exit. If they attempt escape with the hostage, you may intervene using de-escalation or controlled force."
       },
       {
-        scenario: "A suspect requests an attorney during questioning.",
-        question: "What actions should officers take?",
-        answer: "Officers must cease questioning until an attorney is present."
+        scenario: "During a major crime scene, multiple units are arriving, but no one has taken charge.",
+        question: "What should be done immediately as a senior officer on scene?",
+        answer: "Take command, assign roles (MDT officer, perimeter, negotiation), establish radio protocol, and begin documentation. Ensure no one acts independently."
       }
     ]
   },
   {
-    name: "Traffic Stop Scenarios",
+    name: "Vehicle Pursuits & PIT Protocols",
     questions: [
       {
-        scenario: "A vehicle is stopped for speeding.",
-        question: "What information can officers request from the driver?",
-        answer: "Officers can request the driver's license, vehicle registration, and insurance information."
+        scenario: "A suspect vehicle evades after a robbery. After 12 minutes of pursuit, they begin ramming civilian vehicles.",
+        question: "Can you initiate a PIT, and under what conditions?",
+        answer: "Yes, since they are endangering civilians, a soft PIT is justified. Request permission from commanding officer and use only with PIT-approved vehicle."
       },
       {
-        scenario: "During a traffic stop, officers observe drug paraphernalia in plain view.",
-        question: "What actions can officers take?",
-        answer: "Officers can seize the paraphernalia and conduct a search of the vehicle based on probable cause."
+        scenario: "During a chase, the suspect changes vehicles for the second time.",
+        question: "What is the tire pop policy now?",
+        answer: "Pop two tires or deploy spikes. Ensure it's documented in MDT and use only pistol unless SWAT-authorized."
       },
       {
-        scenario: "A driver refuses to exit the vehicle during a lawful traffic stop.",
-        question: "What actions can officers take?",
-        answer: "Officers can order the driver out of the vehicle and use reasonable force if necessary to gain compliance."
+        scenario: "AIR-1 is requested during a car chase, but the officer available doesn't have a license.",
+        question: "Can they still fly AIR-1 under orders from a commanding officer?",
+        answer: "No. AIR-1 license is mandatory. Even commanding officers cannot override this rule."
+      },
+      {
+        scenario: "In a boosting vehicle pursuit, officers begin using SEU units and bikes without permission.",
+        question: "Is this allowed, and what's the proper protocol?",
+        answer: "No. Boosting chases follow strict vehicle-use rules. Only specific vehicles like Caracara or STX are allowed based on suspect vehicle type."
+      },
+      {
+        scenario: "You're in a pursuit and the suspect flips their car once but resets.",
+        question: "What is the SOP regarding tire pop now?",
+        answer: "No tire pop on first flip. If it happens again, one tire pop is permitted. Avoid lethal escalation."
       }
     ]
   },
   {
-    name: "Domestic Violence Scenarios",
+    name: "Community Interaction & Public Conduct",
     questions: [
       {
-        scenario: "Officers respond to a domestic disturbance call and hear yelling inside.",
-        question: "What actions can officers take?",
-        answer: "Officers can enter the home without a warrant if they have a reasonable belief someone is in imminent danger."
+        scenario: "A civilian records you during duty and makes aggressive remarks.",
+        question: "How should you respond?",
+        answer: "Stay professional, do not engage verbally. Verbal abuse alone isn't grounds for arrest. De-escalate and report if behavior disrupts operations."
       },
       {
-        scenario: "A victim of domestic violence recants their statement.",
-        question: "Can officers still make an arrest?",
-        answer: "Officers can make an arrest if they have probable cause based on other evidence, even without the victim's statement."
+        scenario: "A crowd begins gathering during a traffic stop, making sarcastic comments.",
+        question: "What should you do?",
+        answer: "Maintain focus on the stop. If crowd grows or interferes, request backup and disperse them using verbal warnings. Do not retaliate."
       },
       {
-        scenario: "A suspect violates a domestic violence restraining order.",
-        question: "What actions can officers take?",
-        answer: "Officers must arrest the suspect for violating the restraining order."
+        scenario: "You receive a public complaint about excessive force by another officer.",
+        question: "What are your responsibilities?",
+        answer: "Inform Internal Affairs and ensure the complaint is documented. Offer the complainant the official procedure to file it. Avoid bias."
       }
     ]
   },
   {
-    name: "Mental Health Crisis Scenarios",
+    name: "Patrol & Field Activity",
     questions: [
       {
-        scenario: "Officers encounter an individual experiencing a mental health crisis and posing a danger to themselves.",
-        question: "What actions can officers take?",
-        answer: "Officers can take the individual into protective custody and transport them to a mental health facility for evaluation."
+        scenario: "You start your shift and notice your patrol car has low fuel and missing spike strips.",
+        question: "What must you do before starting duty?",
+        answer: "Refill the vehicle, check all equipment, and report any missing items to Watch Commander. Start shift only when ready."
       },
       {
-        scenario: "An individual is threatening suicide.",
-        question: "What steps should officers take to ensure the person's safety?",
-        answer: "Officers should attempt to establish communication, assess the immediate danger, and take steps to remove any means of self-harm."
+        scenario: "During a building check, you find an unlocked warehouse door at midnight.",
+        question: "What is your next course of action?",
+        answer: "Call for backup, enter cautiously, and check for signs of forced entry. Document findings and report to dispatch."
       },
       {
-        scenario: "An individual with a known mental illness is refusing medication and becoming agitated.",
-        question: "Under what circumstances can officers administer medication against the person's will?",
-        answer: "Medication can only be administered against the person's will if they pose an imminent danger to themselves or others and a court order has been obtained."
+        scenario: "On patrol, you see a suspicious vehicle parked in a school zone with engine running.",
+        question: "How do you proceed?",
+        answer: "Approach with caution, run the plate, observe driver behavior. Detain if reasonable suspicion arises; escalate only with probable cause."
       }
     ]
   },
   {
-    name: "Crowd Control Scenarios",
+    name: "Arrest & Processing",
     questions: [
       {
-        scenario: "A peaceful protest begins to turn violent.",
-        question: "What steps should officers take to de-escalate the situation?",
-        answer: "Officers should attempt to communicate with protest leaders, establish clear boundaries, and use de-escalation techniques."
+        scenario: "You arrest a suspect and they plead not guilty. Their lawyer has been requested but hasn't arrived in 20 minutes.",
+        question: "What do you do next?",
+        answer: "Process and jail the suspect. SOP allows you to proceed if lawyer does not appear within 15 minutes."
       },
       {
-        scenario: "Protesters are blocking a public roadway.",
-        question: "What actions can officers take to disperse the crowd?",
-        answer: "Officers can issue dispersal orders, provide a reasonable opportunity to comply, and use reasonable force if necessary to remove protesters."
+        scenario: "A suspect confesses to a crime during casual questioning but was never read Miranda rights.",
+        question: "Is the confession valid?",
+        answer: "No, if in custody, Miranda rights must be read first. The statement may be inadmissible in court."
       },
       {
-        scenario: "Protesters are throwing objects at officers.",
-        question: "What level of force is justified in response?",
-        answer: "Officers can use riot control agents, impact weapons, or other reasonable force to protect themselves and others."
+        scenario: "While jailing a suspect, you realize their weapons and contraband were not logged.",
+        question: "What do you do?",
+        answer: "Halt processing, log items immediately in MDT and notify commanding officer of the delay."
       }
     ]
   },
   {
-    name: "Active Shooter Scenarios",
+    name: "Disciplinary & Misconduct",
     questions: [
       {
-        scenario: "Officers respond to an active shooter incident in a school.",
-        question: "What is the immediate priority?",
-        answer: "The immediate priority is to locate and neutralize the shooter to stop the threat."
+        scenario: "You witness a sergeant issuing commands in violation of SOP, such as allowing lethal force in a low-threat scenario.",
+        question: "What action should you take?",
+        answer: "Report the incident to High-Command or Internal Affairs. Include your report with bodycam and radio logs."
       },
       {
-        scenario: "Officers encounter wounded individuals while searching for the shooter.",
-        question: "Should officers stop to provide medical aid?",
-        answer: "Officers should continue to move towards the threat, but provide quick assessments and direct wounded individuals to safe areas if possible."
+        scenario: "An officer tases a handcuffed suspect who was verbally abusive.",
+        question: "Is this allowed?",
+        answer: "No. Tasers may not be used on restrained individuals unless there's a new active threat. IA complaint should be filed."
       },
       {
-        scenario: "The shooter is located and engaged in gunfire with officers.",
-        question: "What tactics should officers use to neutralize the threat?",
-        answer: "Officers should use cover and concealment, communicate with each other, and use lethal force if necessary to stop the shooter."
+        scenario: "You've been issued a verbal warning.",
+        question: "Can you appeal this?",
+        answer: "No. Verbal warnings are not appealable. Only LEO WARNED and STRIKE are appealable through chain-of-command."
       }
     ]
   },
   {
-    name: "High-Risk Vehicle Stop Scenarios",
+    name: "Legal Standards – Warrants, Suspicion, Charges",
     questions: [
       {
-        scenario: "Officers are conducting a high-risk vehicle stop on a suspect wanted for armed robbery.",
-        question: "What procedures should be followed?",
-        answer: "Officers should use a tactical approach, maintain cover, issue clear commands, and control all occupants of the vehicle."
+        scenario: "You catch someone vandalizing a car and detain them.",
+        question: "Is a warrant needed to arrest them?",
+        answer: "No. You witnessed the misdemeanor. Arrest is valid without a warrant."
       },
       {
-        scenario: "The suspect refuses to exit the vehicle.",
-        question: "What actions can officers take?",
-        answer: "Officers can use chemical agents, break windows, or use other reasonable force to remove the suspect from the vehicle."
+        scenario: "You suspect a house is being used for drug manufacturing.",
+        question: "What must you have before entering?",
+        answer: "Probable cause and a search warrant unless exigent circumstances exist."
       },
       {
-        scenario: "The suspect exits the vehicle and begins firing at officers.",
-        question: "What is the appropriate response?",
-        answer: "Officers can use lethal force to protect themselves and others."
+        scenario: "You stop a person near a robbery scene who matches a BOLO description.",
+        question: "Can you detain them?",
+        answer: "Yes, under reasonable suspicion. Confirm details and escalate if evidence supports."
+      },
+      {
+        scenario: "What's the difference between a BOLO and a Warrant?",
+        question: "Explain.",
+        answer: "BOLO is an internal alert to be on the lookout; not an order. A warrant is a legal document allowing arrest or search."
       }
     ]
   },
   {
-    name: "Building Search Scenarios",
+    name: "Specialized Units – SWAT, Air, SEU, MPU",
     questions: [
       {
-        scenario: "Officers are searching a building for a burglary suspect.",
-        question: "What tactics should be used to safely clear rooms?",
-        answer: "Officers should use a systematic approach, maintain communication, and use cover and concealment."
+        scenario: "A terrorist attack is underway and officers are responding with pistols.",
+        question: "What weapons are permitted under SOP?",
+        answer: "Officers with SMG authorization may use them. Others, including cadets, may use Deagle if approved by High-Command."
       },
       {
-        scenario: "Officers encounter a locked door.",
-        question: "What options are available to gain entry?",
-        answer: "Officers can attempt to force the door, use a breaching tool, or obtain a key."
+        scenario: "You're in SWAT, deployed for a hostage rescue.",
+        question: "What must you ensure before entry?",
+        answer: "Confirm threat level, hostage status, communication protocol, and follow commands from SWAT Overwatch or Commander."
       },
       {
-        scenario: "The suspect is located and refuses to surrender.",
-        question: "What actions can officers take?",
-        answer: "Officers can use verbal commands, chemical agents, or other reasonable force to gain compliance."
+        scenario: "You are an SEU officer in a high-speed pursuit and initiate PIT without approval.",
+        question: "Is this a violation?",
+        answer: "Yes. PIT requires conditions: speed under 80 in city, 120 outside, permission from commanding, and proper vehicle."
+      },
+      {
+        scenario: "A cadet uses a taser on a suspect near a cliffside.",
+        question: "What SOP rule was violated?",
+        answer: "Tasing near elevated edges or stairs is prohibited. Cadet may face disciplinary action."
+      }
+    ]
+  },
+  {
+    name: "Tactical Response & Scene Management",
+    questions: [
+      {
+        scenario: "You arrive first at an armed robbery in progress with a civilian held at gunpoint. Backup is two minutes out.",
+        question: "What immediate actions should you take?",
+        answer: "Take cover, assess risk, communicate updates to dispatch and units en route, avoid engaging unless shots are fired or immediate threat escalates."
+      },
+      {
+        scenario: "An explosion is reported in a commercial area. Civilians are panicked and some are recording.",
+        question: "What is your priority as a first responder?",
+        answer: "Secure the scene perimeter, evacuate civilians, call bomb squad/EMS, avoid speculation, and initiate incident command until supervisors arrive."
+      },
+      {
+        scenario: "A suspect has barricaded themselves in a house with a possible hostage but no shots fired.",
+        question: "How should the scene be handled?",
+        answer: "Establish perimeter, request SWAT, initiate negotiations, confirm proof of life, and avoid forced entry unless lives are at immediate risk."
+      }
+    ]
+  },
+  {
+    name: "Internal Protocols & Department Policy",
+    questions: [
+      {
+        scenario: "A cadet repeatedly ignores radio protocol and talks over senior officers.",
+        question: "What is your obligation as their FTO?",
+        answer: "Correct the behavior immediately. If it continues, file an observation report and notify the Watch Commander for possible disciplinary review."
+      },
+      {
+        scenario: "An officer refuses to share MDT access or evidence files from a joint case.",
+        question: "What is the proper course of action?",
+        answer: "Escalate the issue to a supervisor. All case-related evidence must be shared among assigned units as per SOP collaboration standards."
+      },
+      {
+        scenario: "You're asked to participate in a pursuit outside your department's assigned zone without clearance.",
+        question: "Can you join?",
+        answer: "No, unless mutual aid is requested or jurisdiction is shared (city/county overlap). Otherwise, notify dispatch and remain in-zone."
+      }
+    ]
+  },
+  {
+    name: "Civilian Complaints & IA Investigations",
+    questions: [
+      {
+        scenario: "A civilian files a complaint claiming you searched their car without cause.",
+        question: "What must you do?",
+        answer: "Document the complaint, inform your supervisor, and preserve all bodycam/MDT logs. Let Internal Affairs handle investigation."
+      },
+      {
+        scenario: "IA contacts you about a case involving a partner officer.",
+        question: "What is your duty if you witnessed misconduct?",
+        answer: "Provide an honest and complete statement. Lying or withholding info during an IA inquiry is a serious SOP violation."
+      },
+      {
+        scenario: "You are being falsely accused by a suspect of physical assault during an arrest.",
+        question: "How do you protect yourself?",
+        answer: "Secure bodycam and witness footage, file a detailed report, and immediately inform your supervisor and IA liaison."
+      }
+    ]
+  },
+  {
+    name: "Traffic & DUI Enforcement",
+    questions: [
+      {
+        scenario: "You pull over a driver who smells of alcohol but passes the breathalyzer.",
+        question: "Can you arrest for DUI?",
+        answer: "No, if tests are clean and no impairment is observed. Continue investigation but do not arrest without evidence of impairment."
+      },
+      {
+        scenario: "A driver refuses to exit the vehicle during a stop but is not physically threatening.",
+        question: "What steps should you take?",
+        answer: "Use verbal commands, call backup, and escalate slowly. Do not break the window unless there's threat or probable cause."
+      },
+      {
+        scenario: "You ticket a parked vehicle in a red zone, but the owner confronts you claiming it's an emergency.",
+        question: "How should you respond?",
+        answer: "Remain calm, explain the violation, and offer instructions to appeal. Do not revoke the ticket unless a commanding officer authorizes."
+      }
+    ]
+  },
+  {
+    name: "Mental Health & EMS Coordination",
+    questions: [
+      {
+        scenario: "A civilian is found wandering the streets barefoot and screaming incoherently.",
+        question: "What's your first action?",
+        answer: "Detain safely if needed, call EMS for psych eval, and ensure no threats to self/others. Avoid charges unless a crime occurs."
+      },
+      {
+        scenario: "EMS requests police presence at a house where the patient has prior violent history.",
+        question: "What should you do upon arrival?",
+        answer: "Secure the scene before EMS enters, assess for threats, and ensure patient is safe for transport. Use non-lethal force if needed."
+      },
+      {
+        scenario: "You respond to a suspected overdose case at a park.",
+        question: "What's the protocol?",
+        answer: "Call EMS, secure scene, look for substances, begin basic aid if trained, and gather witness statements."
+      }
+    ]
+  },
+  {
+    name: "Public Events & Community Engagement",
+    questions: [
+      {
+        scenario: "You're assigned to patrol a city festival with thousands in attendance.",
+        question: "What are your patrol priorities?",
+        answer: "Ensure crowd control, monitor exits, look for intoxicated or disorderly persons, maintain high visibility, and assist EMS if needed."
+      },
+      {
+        scenario: "A child is reported missing at a parade.",
+        question: "What is your immediate protocol?",
+        answer: "Broadcast BOLO, secure perimeter, interview guardians, search nearby shops/cars, and check with event staff/security cams."
+      },
+      {
+        scenario: "You're invited to speak at a school on policing. A student asks why police use force.",
+        question: "How do you respond?",
+        answer: "Explain force is used only when necessary for public or officer safety and always guided by laws and policy. Emphasize accountability."
+      }
+    ]
+  },
+  {
+    name: "Interagency Cooperation",
+    questions: [
+      {
+        scenario: "The fire department is blocked by traffic and cannot reach a burning house.",
+        question: "What should you do?",
+        answer: "Clear traffic manually or by code 2/3 escort, establish scene control, and coordinate crowd control with other LEOs."
+      },
+      {
+        scenario: "You are assisting the Marshals in a warrant service but your department's SOP differs on tactics.",
+        question: "What do you follow?",
+        answer: "Follow Marshal command structure unless their instruction violates your legal limits. Clarify roles beforehand."
       }
     ]
   }
@@ -222,7 +397,6 @@ const situationCategories: Category[] = [
 
 const SituationQuestions = () => {
   const [openCategories, setOpenCategories] = useState<string[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
 
   const toggleCategory = (categoryName: string) => {
     setOpenCategories(prev => 
@@ -232,134 +406,80 @@ const SituationQuestions = () => {
     );
   };
 
-  const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) {
-      return situationCategories;
-    }
-
-    const query = searchQuery.toLowerCase().trim();
-    return situationCategories.map(category => ({
-      ...category,
-      questions: category.questions.filter(q => 
-        q.scenario.toLowerCase().includes(query) ||
-        q.question.toLowerCase().includes(query) ||
-        q.answer.toLowerCase().includes(query) ||
-        category.name.toLowerCase().includes(query)
-      )
-    })).filter(category => category.questions.length > 0);
-  }, [searchQuery]);
-
-  const clearSearch = () => {
-    setSearchQuery('');
-  };
-
   return (
-    <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8 max-w-6xl">
-      <div className="mb-6 sm:mb-8">
-        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-          <HelpCircle className="h-6 w-6 sm:h-8 sm:w-8 text-primary flex-shrink-0" />
-          <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+    <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-4">
+          <BookOpen className="h-8 w-8 text-primary" />
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Situation Based Questions
           </h1>
         </div>
-        <p className="text-sm sm:text-lg text-muted-foreground mb-4 sm:mb-6">
-          A comprehensive collection of situation-based questions for law enforcement interviews and training scenarios.
+        <p className="text-lg text-muted-foreground mb-6">
+          A comprehensive question bank for law enforcement interviews covering various scenarios and procedures.
         </p>
-
-        {/* Search Bar */}
-        <div className="relative mb-4 sm:mb-6">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input
-            type="text"
-            placeholder="Search scenarios, questions, or answers..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 pr-10"
-          />
-          {searchQuery && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={clearSearch}
-              className="absolute right-1 top-1/2 transform -translate-y-1/2 h-7 w-7 p-0 hover:bg-muted"
-            >
-              <X className="h-3 w-3" />
-            </Button>
-          )}
-        </div>
-        
-        <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-          <Badge variant="secondary">{filteredCategories.length} Categories</Badge>
-          <Badge variant="secondary">{filteredCategories.reduce((total, cat) => total + cat.questions.length, 0)} Scenarios</Badge>
-          {searchQuery && (
-            <Badge variant="outline">Filtered Results</Badge>
-          )}
+        <div className="flex flex-wrap gap-2 mb-6">
+          <Badge variant="secondary">{categories.length} Categories</Badge>
+          <Badge variant="secondary">{categories.reduce((total, cat) => total + cat.questions.length, 0)} Questions</Badge>
         </div>
       </div>
 
-      <div className="space-y-3 sm:space-y-4">
-        {filteredCategories.length === 0 ? (
-          <Card className="p-6 sm:p-8 text-center">
-            <p className="text-muted-foreground">No scenarios found matching your search.</p>
-          </Card>
-        ) : (
-          filteredCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="border-l-4 border-l-blue-500/50">
-              <Collapsible 
-                open={openCategories.includes(category.name)}
-                onOpenChange={() => toggleCategory(category.name)}
-              >
-                <CollapsibleTrigger asChild>
-                  <CardHeader className="cursor-pointer hover:bg-muted/50 transition-colors py-3 sm:py-6">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                        <CardTitle className="text-lg sm:text-xl truncate">{category.name}</CardTitle>
-                        <Badge variant="outline" className="flex-shrink-0 text-xs sm:text-sm">{category.questions.length}</Badge>
-                      </div>
-                      {openCategories.includes(category.name) ? (
-                        <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                      ) : (
-                        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                      )}
+      <div className="space-y-4">
+        {categories.map((category, categoryIndex) => (
+          <Card key={categoryIndex} className="border-l-4 border-l-primary/50">
+            <Collapsible 
+              open={openCategories.includes(category.name)}
+              onOpenChange={() => toggleCategory(category.name)}
+            >
+              <CollapsibleTrigger asChild>
+                <CardHeader className="cursor-pointer hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <CardTitle className="text-xl">{category.name}</CardTitle>
+                      <Badge variant="outline">{category.questions.length} questions</Badge>
                     </div>
-                  </CardHeader>
-                </CollapsibleTrigger>
-                
-                <CollapsibleContent>
-                  <CardContent className="pt-0 px-3 sm:px-6">
-                    <div className="space-y-4 sm:space-y-6">
-                      {category.questions.map((item, itemIndex) => (
-                        <div key={itemIndex} className="border rounded-lg p-3 sm:p-4 bg-card/50">
-                          <div className="mb-4">
-                            <Badge variant="secondary" className="mb-2 text-xs">
-                              Scenario {itemIndex + 1}
-                            </Badge>
-                            <h4 className="font-semibold text-blue-600 mb-2 text-sm sm:text-base">Scenario:</h4>
-                            <p className="text-xs sm:text-sm mb-3 bg-blue-50/50 dark:bg-blue-950/30 p-2 sm:p-3 rounded border-l-4 border-l-blue-500/50">
-                              {item.scenario}
-                            </p>
-                          </div>
-                          
-                          <div className="mb-4">
-                            <h4 className="font-semibold text-primary mb-1 text-sm sm:text-base">Question:</h4>
-                            <p className="text-xs sm:text-sm mb-3">{item.question}</p>
-                          </div>
-                          
-                          <div>
-                            <h4 className="font-semibold text-green-600 mb-1 text-sm sm:text-base">Expected Response:</h4>
-                            <p className="text-xs sm:text-sm bg-green-50/50 dark:bg-green-950/30 p-2 sm:p-3 rounded border-l-4 border-l-green-500/50">
-                              {item.answer}
-                            </p>
-                          </div>
+                    {openCategories.includes(category.name) ? (
+                      <ChevronDown className="h-5 w-5" />
+                    ) : (
+                      <ChevronRight className="h-5 w-5" />
+                    )}
+                  </div>
+                </CardHeader>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent>
+                <CardContent className="pt-0">
+                  <div className="space-y-6">
+                    {category.questions.map((question, questionIndex) => (
+                      <div key={questionIndex} className="border rounded-lg p-4 bg-card/50">
+                        <div className="mb-3">
+                          <Badge variant="secondary" className="mb-2">
+                            Scenario {questionIndex + 1}
+                          </Badge>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {question.scenario}
+                          </p>
                         </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </CollapsibleContent>
-              </Collapsible>
-            </Card>
-          ))
-        )}
+                        
+                        <div className="mb-3">
+                          <h4 className="font-semibold text-primary mb-1">Question:</h4>
+                          <p className="text-sm">{question.question}</p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-semibold text-green-600 mb-1">Answer:</h4>
+                          <p className="text-sm bg-muted/30 p-3 rounded border-l-4 border-l-green-500/50">
+                            {question.answer}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </CollapsibleContent>
+            </Collapsible>
+          </Card>
+        ))}
       </div>
     </div>
   );

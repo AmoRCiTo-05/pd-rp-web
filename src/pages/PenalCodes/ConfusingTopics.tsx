@@ -1,10 +1,9 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { ChevronDown, ChevronRight, HelpCircle, Search, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, HelpCircle } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface Question {
@@ -294,7 +293,6 @@ const categories: Category[] = [
 
 const ConfusingTopics = () => {
   const [openCategories, setOpenCategories] = useState<string[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
 
   const toggleCategory = (categoryName: string) => {
     setOpenCategories(prev => 
@@ -304,126 +302,74 @@ const ConfusingTopics = () => {
     );
   };
 
-  const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) {
-      return categories;
-    }
-
-    const query = searchQuery.toLowerCase().trim();
-    return categories.map(category => ({
-      ...category,
-      questions: category.questions.filter(q => 
-        q.question.toLowerCase().includes(query) ||
-        q.answer.toLowerCase().includes(query) ||
-        category.name.toLowerCase().includes(query)
-      )
-    })).filter(category => category.questions.length > 0);
-  }, [searchQuery]);
-
-  const clearSearch = () => {
-    setSearchQuery('');
-  };
-
   return (
-    <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8 max-w-6xl">
-      <div className="mb-6 sm:mb-8">
-        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-          <HelpCircle className="h-6 w-6 sm:h-8 sm:w-8 text-primary flex-shrink-0" />
-          <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+    <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-4">
+          <HelpCircle className="h-8 w-8 text-primary" />
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Confusing Topics
           </h1>
         </div>
-        <p className="text-sm sm:text-lg text-muted-foreground mb-4 sm:mb-6">
+        <p className="text-lg text-muted-foreground mb-6">
           Confusing topics in SOP with detailed explanations to clarify common misconceptions and gray areas.
         </p>
-        
-        {/* Search Bar */}
-        <div className="relative mb-4 sm:mb-6">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input
-            type="text"
-            placeholder="Search topics, questions, or answers..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 pr-10"
-          />
-          {searchQuery && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={clearSearch}
-              className="absolute right-1 top-1/2 transform -translate-y-1/2 h-7 w-7 p-0 hover:bg-muted"
-            >
-              <X className="h-3 w-3" />
-            </Button>
-          )}
-        </div>
-
-        <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-          <Badge variant="secondary">{filteredCategories.length} Categories</Badge>
-          <Badge variant="secondary">{filteredCategories.reduce((total, cat) => total + cat.questions.length, 0)} Topics</Badge>
-          {searchQuery && (
-            <Badge variant="outline">Filtered Results</Badge>
-          )}
+        <div className="flex flex-wrap gap-2 mb-6">
+          <Badge variant="secondary">{categories.length} Categories</Badge>
+          <Badge variant="secondary">{categories.reduce((total, cat) => total + cat.questions.length, 0)} Topics</Badge>
         </div>
       </div>
 
-      <div className="space-y-3 sm:space-y-4">
-        {filteredCategories.length === 0 ? (
-          <Card className="p-6 sm:p-8 text-center">
-            <p className="text-muted-foreground">No topics found matching your search.</p>
-          </Card>
-        ) : (
-          filteredCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="border-l-4 border-l-orange-500/50">
-              <Collapsible 
-                open={openCategories.includes(category.name)}
-                onOpenChange={() => toggleCategory(category.name)}
-              >
-                <CollapsibleTrigger asChild>
-                  <CardHeader className="cursor-pointer hover:bg-muted/50 transition-colors py-3 sm:py-6">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                        <CardTitle className="text-lg sm:text-xl truncate">{category.name}</CardTitle>
-                        <Badge variant="outline" className="flex-shrink-0 text-xs sm:text-sm">{category.questions.length}</Badge>
-                      </div>
-                      {openCategories.includes(category.name) ? (
-                        <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                      ) : (
-                        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                      )}
+      <div className="space-y-4">
+        {categories.map((category, categoryIndex) => (
+          <Card key={categoryIndex} className="border-l-4 border-l-orange-500/50">
+            <Collapsible 
+              open={openCategories.includes(category.name)}
+              onOpenChange={() => toggleCategory(category.name)}
+            >
+              <CollapsibleTrigger asChild>
+                <CardHeader className="cursor-pointer hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <CardTitle className="text-xl">{category.name}</CardTitle>
+                      <Badge variant="outline">{category.questions.length} topics</Badge>
                     </div>
-                  </CardHeader>
-                </CollapsibleTrigger>
-                
-                <CollapsibleContent>
-                  <CardContent className="pt-0 px-3 sm:px-6">
-                    <div className="space-y-4 sm:space-y-6">
-                      {category.questions.map((question, questionIndex) => (
-                        <div key={questionIndex} className="border rounded-lg p-3 sm:p-4 bg-card/50">
-                          <div className="mb-3">
-                            <Badge variant="secondary" className="mb-2 text-xs">
-                              Topic {questionIndex + 1}
-                            </Badge>
-                            <h4 className="font-semibold text-primary mb-1 text-sm sm:text-base">Question:</h4>
-                            <p className="text-xs sm:text-sm mb-3">{question.question}</p>
-                          </div>
-                          
-                          <div>
-                            <h4 className="font-semibold text-orange-600 mb-1 text-sm sm:text-base">Answer:</h4>
-                            <p className="text-xs sm:text-sm bg-muted/30 p-2 sm:p-3 rounded border-l-4 border-l-orange-500/50">
-                              {question.answer}
-                            </p>
-                          </div>
+                    {openCategories.includes(category.name) ? (
+                      <ChevronDown className="h-5 w-5" />
+                    ) : (
+                      <ChevronRight className="h-5 w-5" />
+                    )}
+                  </div>
+                </CardHeader>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent>
+                <CardContent className="pt-0">
+                  <div className="space-y-6">
+                    {category.questions.map((question, questionIndex) => (
+                      <div key={questionIndex} className="border rounded-lg p-4 bg-card/50">
+                        <div className="mb-3">
+                          <Badge variant="secondary" className="mb-2">
+                            Topic {questionIndex + 1}
+                          </Badge>
+                          <h4 className="font-semibold text-primary mb-1">Question:</h4>
+                          <p className="text-sm mb-3">{question.question}</p>
                         </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </CollapsibleContent>
-              </Collapsible>
-            </Card>
-          ))
-        )}
+                        
+                        <div>
+                          <h4 className="font-semibold text-orange-600 mb-1">Answer:</h4>
+                          <p className="text-sm bg-muted/30 p-3 rounded border-l-4 border-l-orange-500/50">
+                            {question.answer}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </CollapsibleContent>
+            </Collapsible>
+          </Card>
+        ))}
       </div>
     </div>
   );

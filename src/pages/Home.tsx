@@ -1,232 +1,247 @@
 
-import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Shield, Code, FileText, Scale, BookOpen, Mail, Heart, Megaphone } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { 
+  Radio, 
+  FileText, 
+  GraduationCap, 
+  Scale, 
+  Gavel, 
+  FileCode, 
+  Shield,
+  ArrowRight,
+  MessageSquare,
+  BookOpen,
+  HelpCircle,
+  AlertTriangle
+} from 'lucide-react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { LearningModal } from '@/components/LearningModal'
 
-const Home = () => {
+const categoryCards = [
+  {
+    title: 'Basic Codes',
+    description: 'Essential 10-codes and communication protocols for daily operations',
+    icon: Radio,
+    href: '/basic-codes/10-codes',
+    color: 'from-blue-500 to-blue-600',
+    popular: true
+  },
+  {
+    title: 'Short Forms',
+    description: 'Abbreviations and acronyms used in law enforcement',
+    icon: FileCode,
+    href: '/short-forms',
+    color: 'from-teal-500 to-teal-600'
+  },
+  {
+    title: 'Amendments',
+    description: 'Constitutional amendments relevant to law enforcement',
+    icon: Gavel,
+    href: '/amendments',
+    color: 'from-orange-500 to-orange-600'
+  },
+  {
+    title: 'Standard Operating Procedures',
+    description: 'Comprehensive SOPs for training, MEU, SEU, and ASD operations',
+    icon: FileText,
+    href: '/sop/training',
+    color: 'from-green-500 to-green-600'
+  },
+  {
+    title: 'Case Laws',
+    description: 'Important case law precedents and legal decisions',
+    icon: Shield,
+    href: '/case-laws',
+    color: 'from-indigo-500 to-indigo-600'
+  },
+  {
+    title: 'Advanced SOPs',
+    description: 'Advanced terminology and command ranking procedures',
+    icon: GraduationCap,
+    href: '/advanced-sop/terms',
+    color: 'from-purple-500 to-purple-600'
+  },
+  {
+    title: 'Penal Codes',
+    description: 'Complete breakdown of felonies, misdemeanors, and infractions',
+    icon: Scale,
+    href: '/penal-codes/types',
+    color: 'from-red-500 to-red-600',
+    popular: true
+  },
+  {
+    title: 'Situation Based Questions',
+    description: 'Scenario-based questions to test practical law enforcement knowledge',
+    icon: HelpCircle,
+    href: '/situation-questions',
+    color: 'from-yellow-500 to-yellow-600'
+  },
+  {
+    title: 'Confusing Topics',
+    description: 'Clarification on commonly misunderstood law enforcement concepts',
+    icon: AlertTriangle,
+    href: '/confusing-topics',
+    color: 'from-pink-500 to-pink-600'
+  }
+]
+
+export default function Home() {
+  const [isLearningModalOpen, setIsLearningModalOpen] = useState(false)
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-muted/20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-primary/3 to-transparent">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="relative container mx-auto px-4 pt-16 pb-24">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="flex items-center justify-center mb-6">
-              <Shield className="h-16 w-16 text-primary mr-4" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+        <div className="relative px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 text-center">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-4 sm:mb-6">
+              <Badge variant="secondary" className="mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
+                <BookOpen className="mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                Your Essential Law Enforcement Guide
+              </Badge>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-              LEO Academy
+            
+            <h1 className="font-heading text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-3 sm:mb-4">
+              <span className="text-foreground">PD RP</span>{' '}
+              <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                Guide
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              Your comprehensive resource for law enforcement training, procedures, and protocols.
-              Master the codes, understand the procedures, and excel in your service.
+            
+            <p className="mx-auto max-w-2xl text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed sm:leading-7 mb-6 sm:mb-8 px-4 sm:px-0">
+              Master law enforcement roleplay with comprehensive guides covering 10-codes, 
+              SOPs, penal codes, and everything you need for authentic GTA RP experiences.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <Badge variant="secondary" className="text-sm px-4 py-2">
-                <Code className="h-4 w-4 mr-2" />
-                10-Codes & Communications
-              </Badge>
-              <Badge variant="secondary" className="text-sm px-4 py-2">
-                <FileText className="h-4 w-4 mr-2" />
-                Standard Operating Procedures
-              </Badge>
-              <Badge variant="secondary" className="text-sm px-4 py-2">
-                <Scale className="h-4 w-4 mr-2" />
-                Penal Codes & Laws
-              </Badge>
+            
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+              <Button 
+                size="lg" 
+                className="group w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium"
+                onClick={() => setIsLearningModalOpen(true)}
+              >
+                <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                Start Learning
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Link to="/about" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
+                  Learn More
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Quick Access Cards */}
-      <div className="container mx-auto px-4 -mt-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          <Link to="/basic-codes/10-codes">
-            <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group cursor-pointer border-l-4 border-l-blue-500/50">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <Code className="h-8 w-8 text-blue-600 mr-3 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <CardTitle className="text-lg">10-Codes</CardTitle>
-                      <Badge variant="outline" className="text-xs">Basic Codes</Badge>
+      {/* Categories Grid */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
+              Explore Categories
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
+              Navigate through our comprehensive collection of law enforcement resources, 
+              each designed to enhance your roleplay experience.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {categoryCards.map((category, index) => (
+              <Link key={index} to={category.href} className="group">
+                <Card className="relative h-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
+                  {category.popular && (
+                    <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs">
+                      Popular
+                    </Badge>
+                  )}
+                  
+                  <CardHeader className="pb-3 sm:pb-4 text-center">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                      <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                     </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Essential police radio codes for effective communication during operations and emergencies.
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link to="/sop/training">
-            <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group cursor-pointer border-l-4 border-l-green-500/50">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <FileText className="h-8 w-8 text-green-600 mr-3 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <CardTitle className="text-lg">Training SOP</CardTitle>
-                      <Badge variant="outline" className="text-xs">S.O.P</Badge>
+                    <CardTitle className="font-heading text-base sm:text-lg group-hover:text-primary transition-colors duration-200">
+                      {category.title}
+                    </CardTitle>
+                  </CardHeader>
+                  
+                  <CardContent className="text-center px-4 sm:px-6">
+                    <CardDescription className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm">
+                      {category.description}
+                    </CardDescription>
+                    
+                    <div className="flex items-center justify-center text-xs sm:text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200">
+                      Explore <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
                     </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Standard Operating Procedures for training protocols and field operations.
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link to="/penal-codes/types">
-            <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group cursor-pointer border-l-4 border-l-purple-500/50">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <Scale className="h-8 w-8 text-purple-600 mr-3 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <CardTitle className="text-lg">Penal Codes</CardTitle>
-                      <Badge variant="outline" className="text-xs">Legal</Badge>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Comprehensive penal code classifications including felonies, misdemeanors, and infractions.
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </Link>
-        </div>
-
-        {/* Featured Resources */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Featured Resources</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Link to="/situation-questions">
-              <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group cursor-pointer">
-                <CardHeader>
-                  <div className="flex items-center">
-                    <BookOpen className="h-8 w-8 text-orange-600 mr-3 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <CardTitle>Situation Based Questions</CardTitle>
-                      <Badge variant="secondary" className="text-xs mt-1">Interview Prep</Badge>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Comprehensive collection of scenario-based questions for law enforcement interviews and training.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
-
-            <Link to="/confusing-topics">
-              <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group cursor-pointer">
-                <CardHeader>
-                  <div className="flex items-center">
-                    <BookOpen className="h-8 w-8 text-red-600 mr-3 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <CardTitle>Confusing Topics</CardTitle>
-                      <Badge variant="secondary" className="text-xs mt-1">Reference</Badge>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Detailed explanations of confusing SOP topics to clarify common misconceptions.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </Link>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
+      </section>
 
-        {/* Community & Support Section */}
-        <div className="mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Server Promotion */}
-            <Card className="border-l-4 border-l-blue-500/50">
-              <CardHeader>
-                <div className="flex items-center">
-                  <Megaphone className="h-8 w-8 text-blue-600 mr-3" />
-                  <div>
-                    <CardTitle>Promote Your Server</CardTitle>
-                    <Badge variant="secondary" className="text-xs mt-1">Community</Badge>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="mb-4">
-                  Want to feature your law enforcement roleplay server or community? We'd love to help promote quality servers that use proper procedures and training.
-                </CardDescription>
-                <Button variant="outline" className="w-full">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Contact Us for Promotion
-                </Button>
-              </CardContent>
-            </Card>
+      {/* Feedback Section */}
+      <section className="py-10 sm:py-14 bg-gradient-to-br from-primary/5 to-background border-t border-border">
+        <div className="mx-auto max-w-4xl text-center px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center mb-3 sm:mb-4">
+            <div className="p-2 sm:p-2.5 bg-primary/10 rounded-lg">
+              <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+            </div>
+          </div>
+          <h2 className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
+            Help Us Improve
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto">
+            Your feedback is invaluable in making this guide better for the entire community. 
+            Share your thoughts, report issues, or suggest new features.
+          </p>
+          <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
+              <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+              Share Feedback
+            </Button>
+          </a>
+        </div>
+      </section>
 
-            {/* Donations */}
-            <Card className="border-l-4 border-l-green-500/50">
-              <CardHeader>
-                <div className="flex items-center">
-                  <Heart className="h-8 w-8 text-green-600 mr-3" />
-                  <div>
-                    <CardTitle>Support LEO Academy</CardTitle>
-                    <Badge variant="secondary" className="text-xs mt-1">Donations</Badge>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="mb-4">
-                  Help us maintain and improve this free resource for the law enforcement roleplay community. Your support keeps the academy running and content updated.
-                </CardDescription>
-                <Button variant="outline" className="w-full">
-                  <Heart className="h-4 w-4 mr-2" />
-                  Support Our Mission
-                </Button>
-              </CardContent>
-            </Card>
+      {/* CTA Section */}
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-primary/5 to-background border-t border-border">
+        <div className="mx-auto max-w-4xl text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
+            Ready to Master Law Enforcement RP?
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto">
+            Join thousands of roleplayers who rely on our comprehensive guides for 
+            authentic and immersive law enforcement experiences.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
+              onClick={() => setIsLearningModalOpen(true)}
+            >
+              <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+              Get Started Now
+            </Button>
+            <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
+                <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                Share Feedback
+              </Button>
+            </a>
           </div>
         </div>
+      </section>
 
-        {/* Contact Information */}
-        <div className="mb-16">
-          <Card className="bg-muted/30">
-            <CardHeader className="text-center">
-              <CardTitle className="flex items-center justify-center">
-                <Mail className="h-6 w-6 mr-2" />
-                Contact Information
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-muted-foreground mb-4">
-                For server promotions, donations, suggestions, or general inquiries:
-              </p>
-              <div className="bg-background/50 p-4 rounded-lg border">
-                <p className="font-mono text-sm text-primary">contact@leoacademy.com</p>
-              </div>
-              <p className="text-xs text-muted-foreground mt-2">
-                We respond to all legitimate inquiries within 24-48 hours
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      <LearningModal 
+        isOpen={isLearningModalOpen} 
+        onClose={() => setIsLearningModalOpen(false)} 
+      />
     </div>
-  );
-};
-
-export default Home;
+  )
+}
