@@ -23,6 +23,12 @@ const navigationItems = [{
   }, {
     title: 'City Limit Patrol Areas',
     href: '/basic-codes/patrol-areas'
+  }, {
+    title: 'Sample Calls',
+    href: '/pd/sample-calls'
+  }, {
+    title: 'In-Game PD Commands',
+    href: '/pd/in-game-commands'
   }]
 }, {
   title: 'Short Forms',
