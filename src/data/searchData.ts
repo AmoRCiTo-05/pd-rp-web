@@ -131,6 +131,24 @@ export const searchData: SearchResult[] = [
     keywords: ['infraction', 'penal', 'codes', 'violations', 'tickets']
   },
 
+  // PD Directory - New Pages
+  {
+    id: 'sample-calls',
+    title: 'Sample Calls',
+    description: 'Sample calls on a PD Radio while using PD 10-Codes',
+    path: '/pd/sample-calls',
+    category: 'PD Directory',
+    keywords: ['sample', 'calls', 'radio', 'pd', '10-codes', 'callout', 'formats', 'leo', 'patrol', 'emergency', 'backup']
+  },
+  {
+    id: 'ingame-commands',
+    title: 'In-Game PD Commands',
+    description: 'Essential in-game police department commands for roleplay',
+    path: '/pd/ingame-commands',
+    category: 'PD Directory',
+    keywords: ['ingame', 'commands', 'pd', 'police', 'jail', 'fine', 'impound', 'radar', 'mdt', 'roleplay']
+  },
+
   // Now separate main sections
   {
     id: 'situation-questions',
