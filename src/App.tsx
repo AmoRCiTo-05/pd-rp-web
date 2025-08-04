@@ -26,8 +26,6 @@ import Misdemeanor from '@/pages/PenalCodes/Misdemeanor'
 import Infraction from '@/pages/PenalCodes/Infraction'
 import SituationQuestions from '@/pages/PenalCodes/SituationQuestions'
 import ConfusingTopics from '@/pages/PenalCodes/ConfusingTopics'
-import SampleCalls from '@/pages/PD/SampleCalls'
-import InGameCommands from '@/pages/PD/InGameCommands'
 import About from '@/pages/About'
 import NotFound from '@/pages/NotFound'
 
@@ -55,8 +53,6 @@ function App() {
             <Route path="/penal-codes/felony" element={<Felony />} />
             <Route path="/penal-codes/misdemeanor" element={<Misdemeanor />} />
             <Route path="/penal-codes/infraction" element={<Infraction />} />
-            <Route path="/pd/sample-calls" element={<SampleCalls />} />
-            <Route path="/pd/ingame-commands" element={<InGameCommands />} />
             <Route path="/situation-questions" element={<SituationQuestions />} />
             <Route path="/confusing-topics" element={<ConfusingTopics />} />
             <Route path="/about" element={<About />} />

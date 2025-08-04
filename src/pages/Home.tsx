@@ -2,7 +2,8 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Code, FileText, Scale, BookOpen } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Shield, Code, FileText, Scale, BookOpen, Mail, Heart, Megaphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -150,6 +151,78 @@ const Home = () => {
               </Card>
             </Link>
           </div>
+        </div>
+
+        {/* Community & Support Section */}
+        <div className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Server Promotion */}
+            <Card className="border-l-4 border-l-blue-500/50">
+              <CardHeader>
+                <div className="flex items-center">
+                  <Megaphone className="h-8 w-8 text-blue-600 mr-3" />
+                  <div>
+                    <CardTitle>Promote Your Server</CardTitle>
+                    <Badge variant="secondary" className="text-xs mt-1">Community</Badge>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="mb-4">
+                  Want to feature your law enforcement roleplay server or community? We'd love to help promote quality servers that use proper procedures and training.
+                </CardDescription>
+                <Button variant="outline" className="w-full">
+                  <Mail className="h-4 w-4 mr-2" />
+                  Contact Us for Promotion
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Donations */}
+            <Card className="border-l-4 border-l-green-500/50">
+              <CardHeader>
+                <div className="flex items-center">
+                  <Heart className="h-8 w-8 text-green-600 mr-3" />
+                  <div>
+                    <CardTitle>Support LEO Academy</CardTitle>
+                    <Badge variant="secondary" className="text-xs mt-1">Donations</Badge>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="mb-4">
+                  Help us maintain and improve this free resource for the law enforcement roleplay community. Your support keeps the academy running and content updated.
+                </CardDescription>
+                <Button variant="outline" className="w-full">
+                  <Heart className="h-4 w-4 mr-2" />
+                  Support Our Mission
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Contact Information */}
+        <div className="mb-16">
+          <Card className="bg-muted/30">
+            <CardHeader className="text-center">
+              <CardTitle className="flex items-center justify-center">
+                <Mail className="h-6 w-6 mr-2" />
+                Contact Information
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-muted-foreground mb-4">
+                For server promotions, donations, suggestions, or general inquiries:
+              </p>
+              <div className="bg-background/50 p-4 rounded-lg border">
+                <p className="font-mono text-sm text-primary">contact@leoacademy.com</p>
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                We respond to all legitimate inquiries within 24-48 hours
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
