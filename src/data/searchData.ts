@@ -1,3 +1,4 @@
+
 export interface SearchResult {
   id: string
   title: string
@@ -84,6 +85,16 @@ export const searchData: SearchResult[] = [
     path: '/sop/dispatcher',
     category: 'S.O.P',
     keywords: ['dispatcher', 'sop', 'communication', 'procedures']
+  },
+
+  // FTD
+  {
+    id: 'field-training',
+    title: 'Field Training Division',
+    description: 'Comprehensive training program for cadets and officers',
+    path: '/ftd/field-training',
+    category: 'FTD',
+    keywords: ['ftd', 'field', 'training', 'division', 'cadet', 'officer', 'program', 'phases']
   },
 
   // Advanced SOP

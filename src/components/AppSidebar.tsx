@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu, HelpCircle, AlertTriangle, Clock } from 'lucide-react';
+import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu, HelpCircle, AlertTriangle, Clock, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, useSidebar } from '@/components/ui/sidebar';
 
@@ -56,6 +57,13 @@ const navigationItems = [{
   }, {
     title: 'Dispatcher SOP',
     href: '/sop/dispatcher'
+  }]
+}, {
+  title: 'FTD',
+  icon: Users,
+  children: [{
+    title: 'Field Training Division',
+    href: '/ftd/field-training'
   }]
 }, {
   title: 'Case Laws',

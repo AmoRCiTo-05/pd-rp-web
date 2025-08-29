@@ -18,6 +18,7 @@ import MEU from '@/pages/SOP/MEU'
 import SEU from '@/pages/SOP/SEU'
 import ASD from '@/pages/SOP/ASD'
 import Dispatcher from '@/pages/SOP/Dispatcher'
+import FieldTraining from '@/pages/FTD/FieldTraining'
 import CaseLaws from '@/pages/CaseLaws'
 import Terms from '@/pages/AdvancedSOP/Terms'
 import Types from '@/pages/PenalCodes/Types'
@@ -49,6 +50,7 @@ function App() {
             <Route path="/sop/seu" element={<SEU />} />
             <Route path="/sop/asd" element={<ASD />} />
             <Route path="/sop/dispatcher" element={<Dispatcher />} />
+            <Route path="/ftd/field-training" element={<FieldTraining />} />
             <Route path="/case-laws" element={<CaseLaws />} />
             <Route path="/advanced-sop/terms" element={<Terms />} />
             <Route path="/penal-codes/types" element={<Types />} />
