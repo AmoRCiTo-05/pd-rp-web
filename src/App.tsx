@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Layout } from '@/components/Layout'
@@ -31,6 +30,7 @@ import SampleCalls from '@/pages/PD/SampleCalls'
 import InGameCommands from '@/pages/PD/InGameCommands'
 import About from '@/pages/About'
 import NotFound from '@/pages/NotFound'
+import EvaluationTest from '@/pages/FTD/EvaluationTest'
 
 function App() {
   return (
@@ -51,6 +51,7 @@ function App() {
             <Route path="/sop/asd" element={<ASD />} />
             <Route path="/sop/dispatcher" element={<Dispatcher />} />
             <Route path="/ftd/field-training" element={<FieldTraining />} />
+            <Route path="/ftd/evaluation-test" element={<EvaluationTest />} />
             <Route path="/case-laws" element={<CaseLaws />} />
             <Route path="/advanced-sop/terms" element={<Terms />} />
             <Route path="/penal-codes/types" element={<Types />} />

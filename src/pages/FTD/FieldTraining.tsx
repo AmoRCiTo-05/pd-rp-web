@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -361,7 +360,6 @@ export default function FieldTraining() {
                   <CardContent className="p-4 text-center space-y-2">
                     <CheckCircle className="h-8 w-8 text-primary mx-auto" />
                     <h3 className="font-semibold text-sm">Confusing Topics</h3>
-                    <p className="text-xs text-muted-foreground">Clear your queries</p>
                     <ArrowRight className="h-4 w-4 text-muted-foreground mx-auto" />
                   </CardContent>
                 </Card>

@@ -64,6 +64,9 @@ const navigationItems = [{
   children: [{
     title: 'Field Training Division',
     href: '/ftd/field-training'
+  }, {
+    title: 'FTD Evaluation Test',
+    href: '/ftd/evaluation-test'
   }]
 }, {
   title: 'Case Laws',

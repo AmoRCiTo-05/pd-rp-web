@@ -1,4 +1,3 @@
-
 export interface SearchResult {
   id: string
   title: string
@@ -95,6 +94,14 @@ export const searchData: SearchResult[] = [
     path: '/ftd/field-training',
     category: 'FTD',
     keywords: ['ftd', 'field', 'training', 'division', 'cadet', 'officer', 'program', 'phases']
+  },
+  {
+    id: 'evaluation-test',
+    title: 'FTD Evaluation Test',
+    description: 'Test your knowledge with comprehensive FTD questions and explanations',
+    path: '/ftd/evaluation-test',
+    category: 'FTD',
+    keywords: ['ftd', 'evaluation', 'test', 'questions', 'exam', 'quiz', 'assessment', 'multiple choice']
   },
 
   // Advanced SOP
