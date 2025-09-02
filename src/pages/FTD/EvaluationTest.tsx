@@ -16,7 +16,8 @@ import {
   Award,
   HelpCircle,
   Users,
-  AlertTriangle
+  AlertTriangle,
+  Info
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -78,6 +79,21 @@ export default function EvaluationTest() {
           </CardContent>
         </Card>
 
+        {/* Instructions Card */}
+        <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-800">
+          <CardContent className="p-4">
+            <div className="flex items-start gap-3">
+              <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">How to Use This Test</h3>
+                <p className="text-sm text-blue-700 dark:text-blue-300">
+                  Click on any question to reveal the detailed answer and explanation. Take your time to understand each concept thoroughly.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Part A - Basic Questions */}
         <Card className="shadow-lg">
           <CardHeader>
@@ -99,7 +115,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is SOP?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -118,7 +133,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is Chain of Command?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -137,7 +151,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is RSPC (Reasonable Suspicion & Probable Cause)?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -156,7 +169,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">Types of Warrants?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -175,7 +187,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is BOLO?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -194,7 +205,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is Miranda Rights?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -213,7 +223,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is N+2 Rule?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -232,7 +241,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is Penal Code?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -251,7 +259,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is 10-11?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -270,7 +277,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">Difference between Detain & Arrest?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -306,7 +312,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is the work of HRU (Hostage Rescue Unit) in a situation?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -325,7 +330,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What are the commanding calls in a 90-A (Bank Robbery)?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -344,7 +348,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What should you do if you find unlisted evidence during a Search Warrant?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -363,7 +366,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">How do you act during a felony stop?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -382,7 +384,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">When is a PIT maneuver allowed in a pursuit?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -401,7 +402,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">How do you handle a traffic stop with a non-compliant driver?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -420,7 +420,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is the role of Negotiators in a hostage situation?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -439,7 +438,6 @@ export default function EvaluationTest() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">How do you respond to shots fired at officers during a priority call?</h3>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -481,7 +479,6 @@ export default function EvaluationTest() {
                         <span>D) Special Officer Program</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -494,36 +491,10 @@ export default function EvaluationTest() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="mcq2" className="border border-border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline group">
-                  <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q2</Badge>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold">What is the first step in the Chain of Command?</h3>
-                      <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
-                        <span>A) Chief of Police</span>
-                        <span>B) Sergeant</span>
-                        <span>C) Officer</span>
-                        <span>D) Cadet</span>
-                      </div>
-                    </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pt-4">
-                  <div className="bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-green-800 dark:text-green-200 mb-2">Answer: B) Sergeant</p>
-                    <p className="text-sm text-green-700 dark:text-green-300">
-                      Chain of Command starts from Sergeant upwards; cadets report to FTOs/Sergeants.
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
               <AccordionItem value="mcq3" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q3</Badge>
+                    <Badge variant="destructive" className="text-sm">Q2</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What does BOLO stand for?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -533,7 +504,6 @@ export default function EvaluationTest() {
                         <span>D) Bureau of Law Officers</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -549,7 +519,7 @@ export default function EvaluationTest() {
               <AccordionItem value="mcq4" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q4</Badge>
+                    <Badge variant="destructive" className="text-sm">Q3</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">Which is stronger legally?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -559,7 +529,6 @@ export default function EvaluationTest() {
                         <span>D) None</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -575,7 +544,7 @@ export default function EvaluationTest() {
               <AccordionItem value="mcq5" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q5</Badge>
+                    <Badge variant="destructive" className="text-sm">Q4</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">Which Amendment protects against unreasonable searches?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -585,7 +554,6 @@ export default function EvaluationTest() {
                         <span>D) 6th</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -601,7 +569,7 @@ export default function EvaluationTest() {
               <AccordionItem value="mcq6" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q6</Badge>
+                    <Badge variant="destructive" className="text-sm">Q5</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is the N+2 Rule about?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -611,7 +579,6 @@ export default function EvaluationTest() {
                         <span>D) Penal codes</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -627,7 +594,7 @@ export default function EvaluationTest() {
               <AccordionItem value="mcq7" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q7</Badge>
+                    <Badge variant="destructive" className="text-sm">Q6</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is the main difference between Detain and Arrest?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -637,7 +604,6 @@ export default function EvaluationTest() {
                         <span>D) Vehicle type</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -650,36 +616,10 @@ export default function EvaluationTest() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="mcq8" className="border border-border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline group">
-                  <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q8</Badge>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold">When must Miranda Rights be read?</h3>
-                      <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
-                        <span>A) Always on contact</span>
-                        <span>B) During frisk</span>
-                        <span>C) Before questioning after arrest</span>
-                        <span>D) Only in court</span>
-                      </div>
-                    </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pt-4">
-                  <div className="bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-green-800 dark:text-green-200 mb-2">Answer: C) Before questioning after arrest</p>
-                    <p className="text-sm text-green-700 dark:text-green-300">
-                      Must be read before interrogation after an arrest.
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
               <AccordionItem value="mcq9" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q9</Badge>
+                    <Badge variant="destructive" className="text-sm">Q7</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is GSR testing?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -689,7 +629,6 @@ export default function EvaluationTest() {
                         <span>D) Gun Safety Regulation</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -702,36 +641,10 @@ export default function EvaluationTest() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="mcq10" className="border border-border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline group">
-                  <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q10</Badge>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold">Who handles 90-A situations?</h3>
-                      <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
-                        <span>A) Traffic Unit</span>
-                        <span>B) HRU</span>
-                        <span>C) Dispatch only</span>
-                        <span>D) Civil Unit</span>
-                      </div>
-                    </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pt-4">
-                  <div className="bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-green-800 dark:text-green-200 mb-2">Answer: B) HRU</p>
-                    <p className="text-sm text-green-700 dark:text-green-300">
-                      Hostage Rescue Unit (HRU) handles major robberies & hostage calls.
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
               <AccordionItem value="mcq11" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q11</Badge>
+                    <Badge variant="destructive" className="text-sm">Q8</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is the job of Dispatch?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -741,7 +654,6 @@ export default function EvaluationTest() {
                         <span>D) Court duties</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -757,7 +669,7 @@ export default function EvaluationTest() {
               <AccordionItem value="mcq12" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q12</Badge>
+                    <Badge variant="destructive" className="text-sm">Q9</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">Penal Codes define:</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -767,7 +679,6 @@ export default function EvaluationTest() {
                         <span>D) Dispatch rules</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -780,36 +691,10 @@ export default function EvaluationTest() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="mcq13" className="border border-border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline group">
-                  <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q13</Badge>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold">Who has the final say in PD policy?</h3>
-                      <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
-                        <span>A) Sergeant</span>
-                        <span>B) DOJ</span>
-                        <span>C) Chief of Police</span>
-                        <span>D) Officer</span>
-                      </div>
-                    </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pt-4">
-                  <div className="bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 p-4 rounded-lg">
-                    <p className="text-sm font-semibold text-green-800 dark:text-green-200 mb-2">Answer: C) Chief of Police</p>
-                    <p className="text-sm text-green-700 dark:text-green-300">
-                      Chief of Police sets policy, DOJ oversees legality.
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-
               <AccordionItem value="mcq14" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q14</Badge>
+                    <Badge variant="destructive" className="text-sm">Q10</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">Which is used for vehicle lookups?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -819,7 +704,6 @@ export default function EvaluationTest() {
                         <span>D) Dispatch</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -835,7 +719,7 @@ export default function EvaluationTest() {
               <AccordionItem value="mcq15" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q15</Badge>
+                    <Badge variant="destructive" className="text-sm">Q11</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">What is a 10-11?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -845,7 +729,6 @@ export default function EvaluationTest() {
                         <span>D) Pursuit</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -861,7 +744,7 @@ export default function EvaluationTest() {
               <AccordionItem value="mcq16" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q16</Badge>
+                    <Badge variant="destructive" className="text-sm">Q12</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">Which force is least lethal?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -871,7 +754,6 @@ export default function EvaluationTest() {
                         <span>D) PIT Maneuver</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
@@ -887,7 +769,7 @@ export default function EvaluationTest() {
               <AccordionItem value="mcq17" className="border border-border rounded-lg px-4">
                 <AccordionTrigger className="hover:no-underline group">
                   <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="destructive" className="text-sm">Q17</Badge>
+                    <Badge variant="destructive" className="text-sm">Q13</Badge>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">Who must approve a felony stop?</h3>
                       <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
@@ -897,7 +779,6 @@ export default function EvaluationTest() {
                         <span>D) Dispatch</span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground opacity-70 group-hover:opacity-100 transition-opacity">Click to see answer</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4">
