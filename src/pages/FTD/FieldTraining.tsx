@@ -21,8 +21,12 @@ import {
   Radio,
   Award,
   Heart,
-  Sparkles
+  Sparkles,
+  ArrowRight,
+  ExternalLink,
+  ChevronDown
 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function FieldTraining() {
   return (
@@ -90,7 +94,7 @@ export default function FieldTraining() {
               Training Phases
             </CardTitle>
             <CardDescription>
-              Click on each stage to explore the detailed curriculum and training components
+              Click on each stage below to explore the detailed curriculum and training components
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -98,14 +102,18 @@ export default function FieldTraining() {
               
               {/* Stage 1 */}
               <AccordionItem value="stage1" className="border border-border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-center gap-4 text-left">
+                <AccordionTrigger className="hover:no-underline group">
+                  <div className="flex items-center gap-4 text-left w-full">
                     <Badge variant="secondary" className="text-sm font-semibold">Stage 1</Badge>
-                    <div>
+                    <div className="flex-1">
                       <h3 className="text-lg font-semibold">Basic Systems & Communication</h3>
                       <p className="text-sm text-muted-foreground">2 Days • Foundation Training</p>
                     </div>
-                    <MonitorSpeaker className="h-5 w-5 text-primary ml-auto" />
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <span className="opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
+                      <MonitorSpeaker className="h-5 w-5 text-primary" />
+                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    </div>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4 space-y-4">
@@ -118,7 +126,7 @@ export default function FieldTraining() {
                       <ul className="space-y-1 text-sm text-muted-foreground">
                         <li>• PD Headquarters Introduction</li>
                         <li>• MDT Interface Navigation</li>
-                        <li>• Radial Button (F1) & F6 Button Usage</li>
+                        <li>• Radial Button & Menu Button Usage</li>
                         <li>• Plate Reader & Speed Reader in PD Vehicles</li>
                       </ul>
                     </div>
@@ -139,24 +147,41 @@ export default function FieldTraining() {
 
               {/* Stage 2 */}
               <AccordionItem value="stage2" className="border border-border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-center gap-4 text-left">
+                <AccordionTrigger className="hover:no-underline group">
+                  <div className="flex items-center gap-4 text-left w-full">
                     <Badge variant="secondary" className="text-sm font-semibold">Stage 2</Badge>
-                    <div>
+                    <div className="flex-1">
                       <h3 className="text-lg font-semibold">SOPs, Legal Knowledge & Structure</h3>
                       <p className="text-sm text-muted-foreground">3 Days • Advanced Theory</p>
                     </div>
-                    <Scale className="h-5 w-5 text-primary ml-auto" />
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <span className="opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
+                      <Scale className="h-5 w-5 text-primary" />
+                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    </div>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4 space-y-4">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-3">
                       <h4 className="font-semibold">Department Structure</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {['SALE', 'SASP', 'LSPD', 'BCSO', 'DOJ'].map((dept) => (
-                          <Badge key={dept} variant="outline">{dept}</Badge>
-                        ))}
+                      <div className="space-y-2">
+                        <div>
+                          <h5 className="text-sm font-medium mb-1">Main Departments</h5>
+                          <div className="flex flex-wrap gap-2">
+                            {['SALE', 'SASP', 'LSPD', 'BCSO', 'SASPR'].map((dept) => (
+                              <Badge key={dept} variant="outline">{dept}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <h5 className="text-sm font-medium mb-1">Sub Departments</h5>
+                          <div className="flex flex-wrap gap-2">
+                            {['MPU', 'SEU', 'ASD'].map((dept) => (
+                              <Badge key={dept} variant="secondary">{dept}</Badge>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                       
                       <h4 className="font-semibold mt-4">Constitutional Law</h4>
@@ -189,14 +214,18 @@ export default function FieldTraining() {
 
               {/* Stage 3 */}
               <AccordionItem value="stage3" className="border border-border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline">
-                  <div className="flex items-center gap-4 text-left">
+                <AccordionTrigger className="hover:no-underline group">
+                  <div className="flex items-center gap-4 text-left w-full">
                     <Badge variant="secondary" className="text-sm font-semibold">Stage 3</Badge>
-                    <div>
+                    <div className="flex-1">
                       <h3 className="text-lg font-semibold">Field Operations & Tactical Training</h3>
                       <p className="text-sm text-muted-foreground">2 Days • Practical Application</p>
                     </div>
-                    <Handshake className="h-5 w-5 text-primary ml-auto" />
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <span className="opacity-70 group-hover:opacity-100 transition-opacity">Click to expand</span>
+                      <Handshake className="h-5 w-5 text-primary" />
+                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    </div>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-4 space-y-4">
@@ -281,6 +310,63 @@ export default function FieldTraining() {
             <p className="text-lg leading-relaxed max-w-4xl mx-auto">
               ✨ "FTD is the core of every department. It prepares cadets not just with knowledge but with the confidence and responsibility required to serve and protect."
             </p>
+          </CardContent>
+        </Card>
+
+        {/* Helpful Resources Section */}
+        <Card className="border-primary/20 bg-gradient-to-br from-card to-muted/20 shadow-lg">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl text-primary flex items-center justify-center gap-2">
+              <BookOpen className="h-6 w-6" />
+              Helpful Resources
+            </CardTitle>
+            <CardDescription>
+              Additional resources to enhance your FTD experience and clear any queries
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link to="/sop/training">
+                <Card className="hover:shadow-md transition-shadow cursor-pointer border-primary/20 hover:border-primary/40">
+                  <CardContent className="p-4 text-center space-y-2">
+                    <FileText className="h-8 w-8 text-primary mx-auto" />
+                    <h3 className="font-semibold text-sm">SOP for Training</h3>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground mx-auto" />
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link to="/amendments">
+                <Card className="hover:shadow-md transition-shadow cursor-pointer border-primary/20 hover:border-primary/40">
+                  <CardContent className="p-4 text-center space-y-2">
+                    <Scale className="h-8 w-8 text-primary mx-auto" />
+                    <h3 className="font-semibold text-sm">Amendments</h3>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground mx-auto" />
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link to="/case-laws">
+                <Card className="hover:shadow-md transition-shadow cursor-pointer border-primary/20 hover:border-primary/40">
+                  <CardContent className="p-4 text-center space-y-2">
+                    <Shield className="h-8 w-8 text-primary mx-auto" />
+                    <h3 className="font-semibold text-sm">Case Laws</h3>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground mx-auto" />
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link to="/confusing-topics">
+                <Card className="hover:shadow-md transition-shadow cursor-pointer border-primary/20 hover:border-primary/40">
+                  <CardContent className="p-4 text-center space-y-2">
+                    <CheckCircle className="h-8 w-8 text-primary mx-auto" />
+                    <h3 className="font-semibold text-sm">Confusing Topics</h3>
+                    <p className="text-xs text-muted-foreground">Clear your queries</p>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground mx-auto" />
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
           </CardContent>
         </Card>
 
