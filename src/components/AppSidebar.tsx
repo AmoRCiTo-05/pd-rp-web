@@ -175,12 +175,12 @@ export function AppSidebar() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className={cn(
-                            "flex items-center space-x-3 text-base",
+                            "flex items-center space-x-3 text-base w-full",
                             isActiveRoute(item.href) && "bg-sidebar-accent text-sidebar-accent-foreground"
                           )}
                         >
-                          <item.icon className="h-5 w-5" />
-                          {!isCollapsed && <span>{item.title}</span>}
+                          <item.icon className="h-5 w-5 flex-shrink-0" />
+                          {!isCollapsed && <span className="truncate">{item.title}</span>}
                         </a>
                       </SidebarMenuButton>
                     ) : (
@@ -206,18 +206,18 @@ export function AppSidebar() {
                         onClick={() => toggleSection(item.title)}
                         size="lg"
                         className={cn(
-                          "flex items-center justify-between w-full text-base",
+                          "flex items-center justify-between w-full text-base min-h-[40px]",
                           isParentActive(item.children!) && "bg-sidebar-accent text-sidebar-accent-foreground"
                         )}
                       >
-                        <div className="flex items-center space-x-3 flex-1">
+                        <div className="flex items-center space-x-3 flex-1 min-w-0">
                           <item.icon className="h-5 w-5 flex-shrink-0" />
-                          {!isCollapsed && <span className="truncate">{item.title}</span>}
+                          {!isCollapsed && <span className="truncate text-left">{item.title}</span>}
                         </div>
                         {!isCollapsed && (
                           <ChevronDown
                             className={cn(
-                              "h-4 w-4 transition-transform duration-200",
+                              "h-4 w-4 transition-transform duration-200 flex-shrink-0",
                               openSections.includes(item.title) ? "rotate-180" : ""
                             )}
                           />
@@ -234,14 +234,14 @@ export function AppSidebar() {
                                    to={child.href}
                                    className={({ isActive }) =>
                                      cn(
-                                       "block text-base w-full truncate",
+                                       "block text-sm w-full truncate text-left py-2",
                                        isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
                                      )
                                    }
                                  >
                                    {child.title}
                                  </NavLink>
-                              </SidebarMenuSubButton>
+                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
                           ))}
                         </SidebarMenuSub>
