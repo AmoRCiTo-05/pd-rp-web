@@ -189,13 +189,13 @@ export function AppSidebar() {
                           to={item.href}
                           className={({ isActive }) =>
                             cn(
-                              "flex items-center space-x-3 text-base",
+                              "flex items-center space-x-3 text-base w-full",
                               isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
                             )
                           }
                         >
-                          <item.icon className="h-5 w-5" />
-                          {!isCollapsed && <span>{item.title}</span>}
+                          <item.icon className="h-5 w-5 flex-shrink-0" />
+                          {!isCollapsed && <span className="truncate">{item.title}</span>}
                         </NavLink>
                       </SidebarMenuButton>
                     )
@@ -210,9 +210,9 @@ export function AppSidebar() {
                           isParentActive(item.children!) && "bg-sidebar-accent text-sidebar-accent-foreground"
                         )}
                       >
-                        <div className="flex items-center space-x-3">
-                          <item.icon className="h-5 w-5" />
-                          {!isCollapsed && <span>{item.title}</span>}
+                        <div className="flex items-center space-x-3 flex-1">
+                          <item.icon className="h-5 w-5 flex-shrink-0" />
+                          {!isCollapsed && <span className="truncate">{item.title}</span>}
                         </div>
                         {!isCollapsed && (
                           <ChevronDown
@@ -230,17 +230,17 @@ export function AppSidebar() {
                           {item.children?.map((child) => (
                             <SidebarMenuSubItem key={child.href}>
                               <SidebarMenuSubButton asChild>
-                                <NavLink
-                                  to={child.href}
-                                  className={({ isActive }) =>
-                                    cn(
-                                      "block text-base",
-                                      isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
-                                    )
-                                  }
-                                >
-                                  {child.title}
-                                </NavLink>
+                                 <NavLink
+                                   to={child.href}
+                                   className={({ isActive }) =>
+                                     cn(
+                                       "block text-base w-full truncate",
+                                       isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
+                                     )
+                                   }
+                                 >
+                                   {child.title}
+                                 </NavLink>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
                           ))}

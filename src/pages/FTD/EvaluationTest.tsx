@@ -80,13 +80,13 @@ export default function EvaluationTest() {
         </Card>
 
         {/* Instructions Card */}
-        <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-800">
+        <Card className="border-primary/20 bg-primary/5">
           <CardContent className="p-4">
             <div className="flex items-start gap-3">
-              <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+              <Info className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">How to Use This Test</h3>
-                <p className="text-sm text-blue-700 dark:text-blue-300">
+                <h3 className="font-semibold text-primary mb-1">How to Use This Test</h3>
+                <p className="text-sm text-muted-foreground">
                   Click on any question to reveal the detailed answer and explanation. Take your time to understand each concept thoroughly.
                 </p>
               </div>
