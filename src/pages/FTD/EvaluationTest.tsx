@@ -24,21 +24,21 @@ import { Link } from 'react-router-dom'
 export default function EvaluationTest() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-      <div className="max-w-6xl mx-auto p-6 space-y-8">
+      <div className="max-w-6xl mx-auto p-4 sm:p-6 space-y-6 sm:space-y-8">
         
         {/* Hero Header */}
-        <div className="text-center space-y-4 py-12">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="p-3 bg-primary/10 rounded-full">
-              <Brain className="h-8 w-8 text-primary" />
+        <div className="text-center space-y-4 py-8 sm:py-12 px-4">
+          <div className="inline-flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+            <div className="p-2 sm:p-3 bg-primary/10 rounded-full">
+              <Brain className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
               📝 FTD Evaluation Test
             </h1>
           </div>
           
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xl text-muted-foreground leading-relaxed">
+          <div className="max-w-3xl mx-auto px-4">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Test your knowledge and understanding of Field Training Division concepts with comprehensive questions and detailed explanations.
             </p>
           </div>
@@ -53,25 +53,25 @@ export default function EvaluationTest() {
             </div>
           </CardHeader>
           <CardContent className="text-center space-y-4">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <HelpCircle className="h-8 w-8 text-primary mx-auto" />
-                <h3 className="font-semibold">Question Types</h3>
-                <p className="text-sm text-muted-foreground">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div className="space-y-2 p-4 rounded-lg bg-muted/20">
+                <HelpCircle className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto" />
+                <h3 className="font-semibold text-sm sm:text-base">Question Types</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   Basic concepts, situational scenarios, and multiple choice questions
                 </p>
               </div>
-              <div className="space-y-2">
-                <CheckCircle className="h-8 w-8 text-primary mx-auto" />
-                <h3 className="font-semibold">Comprehensive Coverage</h3>
-                <p className="text-sm text-muted-foreground">
+              <div className="space-y-2 p-4 rounded-lg bg-muted/20">
+                <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto" />
+                <h3 className="font-semibold text-sm sm:text-base">Comprehensive Coverage</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   Tests knowledge across all FTD training phases and concepts
                 </p>
               </div>
-              <div className="space-y-2">
-                <BookOpen className="h-8 w-8 text-primary mx-auto" />
-                <h3 className="font-semibold">Detailed Explanations</h3>
-                <p className="text-sm text-muted-foreground">
+              <div className="space-y-2 p-4 rounded-lg bg-muted/20 sm:col-span-2 lg:col-span-1">
+                <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto" />
+                <h3 className="font-semibold text-sm sm:text-base">Detailed Explanations</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   Each answer includes thorough explanations for better understanding
                 </p>
               </div>
@@ -106,20 +106,20 @@ export default function EvaluationTest() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <Accordion type="single" collapsible className="w-full space-y-2 sm:space-y-4">
               
-              <AccordionItem value="q1" className="border border-border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline group">
-                  <div className="flex items-center gap-4 text-left w-full">
-                    <Badge variant="secondary" className="text-sm">Q1</Badge>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold">What is SOP?</h3>
+              <AccordionItem value="q1" className="border border-border rounded-lg px-3 sm:px-4">
+                <AccordionTrigger className="hover:no-underline group py-3 sm:py-4">
+                  <div className="flex items-center gap-3 sm:gap-4 text-left w-full">
+                    <Badge variant="secondary" className="text-xs sm:text-sm shrink-0">Q1</Badge>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm sm:text-lg font-semibold leading-tight">What is SOP?</h3>
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pt-4">
-                  <div className="bg-muted/30 p-4 rounded-lg">
-                    <p className="text-sm leading-relaxed">
+                <AccordionContent className="pt-2 sm:pt-4">
+                  <div className="bg-muted/30 p-3 sm:p-4 rounded-lg">
+                    <p className="text-xs sm:text-sm leading-relaxed">
                       SOP stands for <strong>Standard Operating Procedure</strong>. It's the set of official rules and guidelines every officer must follow to ensure consistency, professionalism, and accountability in policing.
                     </p>
                   </div>

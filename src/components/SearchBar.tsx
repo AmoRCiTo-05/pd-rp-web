@@ -90,7 +90,7 @@ export function SearchBar({ placeholder = "Search codes, procedures...", onSearc
 
   return (
     <div className={`relative ${className}`} ref={searchRef}>
-      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <Search className="absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 h-3 w-3 sm:h-4 sm:w-4 text-muted-foreground" />
       <Input
         ref={inputRef}
         type="text"
@@ -103,39 +103,39 @@ export function SearchBar({ placeholder = "Search codes, procedures...", onSearc
             setIsOpen(true)
           }
         }}
-        className="pl-10 pr-10 bg-card border-border focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
+        className="pl-8 sm:pl-10 pr-8 sm:pr-10 text-sm sm:text-base bg-card border-border focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 h-8 sm:h-10"
       />
       {query && (
         <Button
           variant="ghost"
           size="sm"
           onClick={clearSearch}
-          className="absolute right-1 top-1/2 transform -translate-y-1/2 h-7 w-7 p-0 hover:bg-muted"
+          className="absolute right-0.5 sm:right-1 top-1/2 transform -translate-y-1/2 h-6 w-6 sm:h-7 sm:w-7 p-0 hover:bg-muted"
         >
-          <X className="h-3 w-3" />
+          <X className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
         </Button>
       )}
 
       {/* Search Results Dropdown */}
       {isOpen && results.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-popover border border-border rounded-lg shadow-lg z-50 max-h-96 overflow-y-auto">
-          <div className="py-2">
+        <div className="absolute top-full left-0 right-0 mt-1 bg-popover border border-border rounded-lg shadow-lg z-50 max-h-80 sm:max-h-96 overflow-y-auto">
+          <div className="py-1 sm:py-2">
             {results.map((result, index) => (
               <button
                 key={result.id}
                 onClick={() => handleResultClick(result)}
-                className={`w-full px-4 py-3 text-left hover:bg-accent hover:text-accent-foreground transition-colors border-none bg-transparent ${
+                className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-left hover:bg-accent hover:text-accent-foreground transition-colors border-none bg-transparent ${
                   selectedIndex === index ? 'bg-accent text-accent-foreground' : ''
                 }`}
               >
                 <div className="flex flex-col">
                   <div className="flex items-center justify-between">
-                    <span className="font-medium text-sm">{result.title}</span>
-                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+                    <span className="font-medium text-xs sm:text-sm truncate flex-1 pr-2">{result.title}</span>
+                    <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 sm:py-1 rounded shrink-0">
                       {result.category}
                     </span>
                   </div>
-                  <span className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                  <span className="text-xs text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
                     {result.description}
                   </span>
                 </div>

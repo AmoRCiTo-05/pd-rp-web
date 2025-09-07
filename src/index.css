@@ -457,4 +457,44 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  
+  /* Mobile-first responsive design */
+  .mobile-optimized {
+    @apply text-sm;
+  }
+  
+  @media (max-width: 640px) {
+    .immersive-card {
+      @apply p-4 rounded-lg shadow-md;
+    }
+    
+    .gradient-text {
+      @apply text-lg;
+    }
+    
+    /* Enhanced mobile spacing */
+    .container {
+      @apply px-4;
+    }
+    
+    /* Mobile-optimized accordions */
+    .accordion-trigger {
+      @apply py-3 px-3 text-sm;
+    }
+    
+    /* Mobile badge adjustments */
+    .badge {
+      @apply text-xs px-2 py-0.5;
+    }
+    
+    /* Mobile button optimizations */
+    .btn-mobile {
+      @apply px-4 py-2 text-sm min-h-[2.5rem];
+    }
+    
+    /* Mobile search optimizations */
+    .search-mobile {
+      @apply text-sm h-8;
+    }
+  }
 }
