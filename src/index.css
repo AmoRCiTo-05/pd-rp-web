@@ -52,17 +52,15 @@ All colors MUST be HSL.
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
     
-    /* Enhanced Shadow System for Depth */
-    --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.09);
-    --shadow-xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.12);
-    --shadow-sm: 0px 2px 4px 0px hsl(0 0% 0% / 0.15), 0px 1px 2px -1px hsl(0 0% 0% / 0.18);
-    --shadow: 0px 4px 8px 0px hsl(0 0% 0% / 0.18), 0px 2px 4px -1px hsl(0 0% 0% / 0.12);
-    --shadow-md: 0px 8px 16px 0px hsl(0 0% 0% / 0.15), 0px 4px 8px -2px hsl(0 0% 0% / 0.18);
-    --shadow-lg: 0px 12px 24px 0px hsl(0 0% 0% / 0.12), 0px 6px 12px -2px hsl(0 0% 0% / 0.18);
-    --shadow-xl: 0px 20px 40px 0px hsl(0 0% 0% / 0.15), 0px 10px 20px -4px hsl(0 0% 0% / 0.18);
-    --shadow-2xl: 0px 25px 50px 0px hsl(0 0% 0% / 0.25);
-    --shadow-glow: 0px 0px 20px 0px hsl(var(--primary) / 0.3);
-    --shadow-glow-lg: 0px 0px 40px 0px hsl(var(--primary) / 0.4);
+    /* Optimized Light Shadows - Reduced intensity */
+    --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.08);
+    --shadow-sm: 0px 2px 4px 0px hsl(0 0% 0% / 0.1);
+    --shadow: 0px 4px 8px 0px hsl(0 0% 0% / 0.12);
+    --shadow-md: 0px 6px 12px 0px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0px 8px 16px 0px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0px 12px 24px 0px hsl(0 0% 0% / 0.12);
+    --shadow-2xl: 0px 20px 40px 0px hsl(0 0% 0% / 0.15);
     
     /* Immersive Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary) / 0.95), hsl(var(--accent) / 0.9));
@@ -70,10 +68,9 @@ All colors MUST be HSL.
     --gradient-border: linear-gradient(135deg, hsl(var(--border)), hsl(var(--accent) / 0.3));
     --gradient-glass: linear-gradient(135deg, hsl(var(--background) / 0.8), hsl(var(--card) / 0.6));
     
-    /* Animation Variables */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Optimized animation variables for performance */
+    --transition-fast: all 0.15s ease-out;
+    --transition-smooth: all 0.2s ease-out;
     
     --tracking-normal: 0em;
     --spacing: 0.25rem;
@@ -145,17 +142,15 @@ All colors MUST be HSL.
     --sidebar-border: 223.8136 0.0000% 19.8916%;
     --sidebar-ring: 223.8136 0.0000% 64.4710%;
     
-    /* Enhanced Dark Mode Shadows with Depth */
-    --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.15);
-    --shadow-xs: 0px 2px 4px 0px hsl(0 0% 0% / 0.18);
-    --shadow-sm: 0px 4px 8px 0px hsl(0 0% 0% / 0.25), 0px 2px 4px -1px hsl(0 0% 0% / 0.3);
-    --shadow: 0px 6px 12px 0px hsl(0 0% 0% / 0.3), 0px 3px 6px -1px hsl(0 0% 0% / 0.25);
-    --shadow-md: 0px 10px 20px 0px hsl(0 0% 0% / 0.25), 0px 5px 10px -2px hsl(0 0% 0% / 0.3);
-    --shadow-lg: 0px 15px 30px 0px hsl(0 0% 0% / 0.3), 0px 8px 16px -2px hsl(0 0% 0% / 0.25);
-    --shadow-xl: 0px 25px 50px 0px hsl(0 0% 0% / 0.35), 0px 12px 24px -4px hsl(0 0% 0% / 0.3);
-    --shadow-2xl: 0px 35px 70px 0px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0px 0px 30px 0px hsl(var(--primary) / 0.4);
-    --shadow-glow-lg: 0px 0px 60px 0px hsl(var(--primary) / 0.5);
+    /* Optimized Dark Shadows - Reduced intensity */
+    --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.1);
+    --shadow-xs: 0px 2px 4px 0px hsl(0 0% 0% / 0.12);
+    --shadow-sm: 0px 4px 8px 0px hsl(0 0% 0% / 0.15);
+    --shadow: 0px 6px 12px 0px hsl(0 0% 0% / 0.18);
+    --shadow-md: 0px 8px 16px 0px hsl(0 0% 0% / 0.15);
+    --shadow-lg: 0px 12px 24px 0px hsl(0 0% 0% / 0.18);
+    --shadow-xl: 0px 20px 40px 0px hsl(0 0% 0% / 0.2);
+    --shadow-2xl: 0px 30px 60px 0px hsl(0 0% 0% / 0.25);
     
     /* Dark Mode Immersive Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--accent) / 0.8));
@@ -404,55 +399,32 @@ All colors MUST be HSL.
   }
 }
 
-@layer components {
-  /* Immersive Interactive Elements */
+  /* Optimized Interactive Elements - Reduced Heavy Effects */
   .immersive-card {
-    @apply bg-card border border-border rounded-lg shadow-lg hover:shadow-xl;
-    background: var(--gradient-card);
-    backdrop-filter: blur(8px);
-    transition: var(--transition-smooth);
+    @apply bg-card border border-border rounded-lg shadow-md hover:shadow-lg;
+    transition: all 0.2s ease-out;
   }
   
   .immersive-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    transform: translateY(-1px);
   }
   
   .glass-effect {
-    background: var(--gradient-glass);
-    backdrop-filter: blur(12px);
+    background: hsl(var(--background) / 0.95);
+    backdrop-filter: blur(4px);
     border: 1px solid hsl(var(--border) / 0.5);
   }
   
-  .glow-border {
-    border: 1px solid hsl(var(--primary) / 0.3);
-    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.1), var(--shadow-glow);
-  }
-  
   .interactive-hover {
-    transition: var(--transition-spring);
+    transition: all 0.2s ease-out;
   }
   
   .interactive-hover:hover {
-    transform: scale(1.02) translateY(-1px);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
-  }
-  
-  .pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite alternate;
-  }
-  
-  @keyframes pulse-glow {
-    from {
-      box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
-    }
-    to {
-      box-shadow: 0 0 40px hsl(var(--primary) / 0.4);
-    }
+    transform: translateY(-1px);
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--foreground)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -461,6 +433,12 @@ All colors MUST be HSL.
   /* Mobile-first responsive design */
   .mobile-optimized {
     @apply text-sm;
+  }
+  
+  /* Remove heavy animations for performance */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   @media (max-width: 640px) {
