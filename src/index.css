@@ -502,6 +502,28 @@ All colors MUST be HSL.
     -moz-osx-font-smoothing: grayscale;
   }
   
+  /* Ensure all interactive elements are clickable */
+  button, 
+  [role="button"], 
+  .cursor-pointer,
+  [data-state] {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Fix any potential pointer-events issues */
+  .interactive-hover,
+  .hover-scale,
+  .hover-lift {
+    pointer-events: auto !important;
+  }
+  
+  /* Ensure accordion and sidebar components work */
+  [data-radix-accordion-trigger],
+  [data-radix-accordion-content] {
+    pointer-events: auto !important;
+  }
+  
   /* Mobile Optimizations */
   @media (max-width: 768px) {
     .immersive-card:hover {
@@ -514,10 +536,18 @@ All colors MUST be HSL.
       transform: none; /* Disable hover effects on mobile for performance */
     }
     
-    /* Mobile-friendly touch targets */
+    /* Ensure mobile touch works */
+    button, 
+    [role="button"], 
+    .cursor-pointer,
+    [data-state],
     .mobile-touch-target {
       min-height: 44px;
       min-width: 44px;
+      touch-action: manipulation;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
     }
     
     /* Better mobile spacing */
@@ -541,6 +571,15 @@ All colors MUST be HSL.
     .pulse-gentle {
       animation: none !important;
       transition: none !important;
+    }
+    
+    /* But keep functionality working */
+    button, 
+    [role="button"], 
+    .cursor-pointer,
+    [data-state] {
+      cursor: pointer !important;
+      pointer-events: auto !important;
     }
   }
   
@@ -567,7 +606,8 @@ All colors MUST be HSL.
     
     /* Mobile-optimized components */
     .accordion-trigger {
-      @apply py-3 px-3 text-sm mobile-touch-target;
+      @apply py-3 px-3 text-sm mobile-touch-target cursor-pointer;
+      pointer-events: auto !important;
     }
     
     .badge {
@@ -575,7 +615,8 @@ All colors MUST be HSL.
     }
     
     .btn-mobile {
-      @apply px-4 py-2 text-sm min-h-[2.75rem] mobile-touch-target focus-ring;
+      @apply px-4 py-2 text-sm min-h-[2.75rem] mobile-touch-target focus-ring cursor-pointer;
+      pointer-events: auto !important;
     }
     
     .search-mobile {
@@ -584,7 +625,8 @@ All colors MUST be HSL.
     
     /* Mobile navigation improvements */
     .mobile-nav-item {
-      @apply py-3 px-4 text-base mobile-touch-target;
+      @apply py-3 px-4 text-base mobile-touch-target cursor-pointer;
+      pointer-events: auto !important;
     }
     
     /* Mobile card optimizations */

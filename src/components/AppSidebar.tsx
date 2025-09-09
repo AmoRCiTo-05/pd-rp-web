@@ -173,12 +173,12 @@ export function AppSidebar() {
                             "flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
                             "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                             "focus:bg-sidebar-accent focus:text-sidebar-accent-foreground focus:outline-none",
-                            "active:scale-95",
+                            "active:scale-95 cursor-pointer text-left",
                             isActiveRoute(item.href) && "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
                           )}
                         >
                           <item.icon className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0 mr-2 md:mr-3 group-hover:scale-110 transition-transform duration-200" />
-                          {!isCollapsed && <span className="truncate text-left">{item.title}</span>}
+                          {!isCollapsed && <span className="truncate text-left font-medium">{item.title}</span>}
                         </a>
                       </SidebarMenuButton>
                     ) : (
@@ -187,16 +187,16 @@ export function AppSidebar() {
                           to={item.href}
                           className={({ isActive }) =>
                             cn(
-                              "flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
-                              "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                              "focus:bg-sidebar-accent focus:text-sidebar-accent-foreground focus:outline-none",
-                              "active:scale-95",
+                            "flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
+                            "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                            "focus:bg-sidebar-accent focus:text-sidebar-accent-foreground focus:outline-none",
+                            "active:scale-95 cursor-pointer text-left",
                               isActive && "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
                             )
                           }
                         >
                           <item.icon className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0 mr-2 md:mr-3 group-hover:scale-110 transition-transform duration-200" />
-                          {!isCollapsed && <span className="truncate text-left">{item.title}</span>}
+                          {!isCollapsed && <span className="truncate text-left font-medium">{item.title}</span>}
                         </NavLink>
                       </SidebarMenuButton>
                     )
@@ -209,13 +209,14 @@ export function AppSidebar() {
                           "group flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
                           "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                           "focus:bg-sidebar-accent focus:text-sidebar-accent-foreground focus:outline-none",
-                          "active:scale-95",
+                          "active:scale-95 cursor-pointer",
+                          "text-left",
                           isParentActive(item.children!) && "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
                         )}
                       >
                         <div className="flex items-center flex-1 min-w-0">
                           <item.icon className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0 mr-2 md:mr-3 group-hover:scale-110 transition-transform duration-200" />
-                          {!isCollapsed && <span className="truncate text-left">{item.title}</span>}
+                          {!isCollapsed && <span className="truncate text-left font-medium">{item.title}</span>}
                         </div>
                         {!isCollapsed && (
                           <ChevronDown
@@ -237,16 +238,16 @@ export function AppSidebar() {
                                   to={child.href}
                                   className={({ isActive }) =>
                                     cn(
-                                      "flex items-center w-full px-3 py-2 text-sm rounded-md transition-all duration-200",
-                                      "hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground",
-                                      "focus:bg-sidebar-accent/50 focus:text-sidebar-accent-foreground focus:outline-none",
-                                      "active:scale-95",
+                                     "flex items-center w-full px-3 py-2 text-sm rounded-md transition-all duration-200",
+                                     "hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground",
+                                     "focus:bg-sidebar-accent/50 focus:text-sidebar-accent-foreground focus:outline-none",
+                                     "active:scale-95 cursor-pointer text-left",
                                       isActive && "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm font-medium"
                                     )
                                   }
                                 >
                                   <div className="w-2 h-2 rounded-full bg-current opacity-50 mr-3 flex-shrink-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-200"></div>
-                                  <span className="truncate text-left">{child.title}</span>
+                                  <span className="truncate text-left font-medium">{child.title}</span>
                                 </NavLink>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
