@@ -19,6 +19,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { LearningModal } from '@/components/LearningModal'
+import { LoadingSpinner } from '@/components/LoadingSpinner'
+import { ImmersiveButton } from '@/components/ImmersiveButton'
+import { ImmersiveTooltip } from '@/components/ImmersiveTooltip'
 
 const categoryCards = [
   {
@@ -118,20 +121,24 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
-              <Button 
+              <ImmersiveButton 
                 size="lg" 
+                glow
+                floating
                 className="group w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium"
                 onClick={() => setIsLearningModalOpen(true)}
               >
                 <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Start Learning
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Link to="/about" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
-                  Learn More
-                </Button>
-              </Link>
+              </ImmersiveButton>
+              <ImmersiveTooltip content="Learn more about our comprehensive law enforcement guides">
+                <Link to="/about" className="w-full sm:w-auto">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base hover-lift">
+                    Learn More
+                  </Button>
+                </Link>
+              </ImmersiveTooltip>
             </div>
           </div>
         </div>
@@ -152,34 +159,36 @@ export default function Home() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {categoryCards.map((category, index) => (
-              <Link key={index} to={category.href} className="group">
-                <Card className="relative h-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
-                  {category.popular && (
-                    <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs">
-                      Popular
-                    </Badge>
-                  )}
-                  
-                  <CardHeader className="pb-3 sm:pb-4 text-center">
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                      <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                    </div>
-                    <CardTitle className="font-heading text-base sm:text-lg group-hover:text-primary transition-colors duration-200">
-                      {category.title}
-                    </CardTitle>
-                  </CardHeader>
-                  
-                  <CardContent className="text-center px-4 sm:px-6">
-                    <CardDescription className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm">
-                      {category.description}
-                    </CardDescription>
+              <ImmersiveTooltip key={index} content={`Explore ${category.title} - ${category.description}`}>
+                <Link to={category.href} className="group block">
+                  <Card className="immersive-card relative h-full transition-all duration-300 hover-lift border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
+                    {category.popular && (
+                      <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs pulse-gentle">
+                        Popular
+                      </Badge>
+                    )}
                     
-                    <div className="flex items-center justify-center text-xs sm:text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200">
-                      Explore <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
+                    <CardHeader className="pb-3 sm:pb-4 text-center">
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 sm:mb-4 mx-auto hover-scale transition-transform duration-300`}>
+                        <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                      </div>
+                      <CardTitle className="font-heading text-base sm:text-lg group-hover:text-primary transition-colors duration-200">
+                        {category.title}
+                      </CardTitle>
+                    </CardHeader>
+                    
+                    <CardContent className="text-center px-4 sm:px-6">
+                      <CardDescription className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm">
+                        {category.description}
+                      </CardDescription>
+                      
+                      <div className="flex items-center justify-center text-xs sm:text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200">
+                        Explore <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </ImmersiveTooltip>
             ))}
           </div>
         </div>
@@ -201,10 +210,10 @@ export default function Home() {
             Share your thoughts, report issues, or suggest new features.
           </p>
           <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
+            <ImmersiveButton size="lg" floating className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
               <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Share Feedback
-            </Button>
+            </ImmersiveButton>
           </a>
         </div>
       </section>
@@ -220,16 +229,18 @@ export default function Home() {
             authentic and immersive law enforcement experiences.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Button 
+            <ImmersiveButton 
               size="lg" 
+              glow
+              pulse
               className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
               onClick={() => setIsLearningModalOpen(true)}
             >
               <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Get Started Now
-            </Button>
+            </ImmersiveButton>
             <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base hover-lift">
                 <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Share Feedback
               </Button>
