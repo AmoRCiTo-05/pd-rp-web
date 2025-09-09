@@ -138,65 +138,64 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar variant="inset" className="border-r border-sidebar-border">
-      <SidebarHeader className="border-b border-sidebar-border">
-        <div className="flex items-center p-3 md:p-4">
-          <div className="flex items-center space-x-2 md:space-x-3 w-full">
-            <div className="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center flex-shrink-0 hover-scale">
-              <Shield className="h-4 w-4 md:h-5 md:w-5 text-primary-foreground" />
+    <Sidebar variant="inset" className="border-r border-sidebar-border mx-0 px-0 py-0">
+      <SidebarHeader className="border-b border-sidebar-border px-0 mx-0 my-0 py-0">
+        <div className="flex items-center p-4 py-[10px] px-[10px]">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Shield className="h-5 w-5 text-primary-foreground" />
             </div>
             {!isCollapsed && (
-              <div className="min-w-0 flex-1">
-                <h1 className="font-heading font-semibold text-base md:text-lg text-sidebar-foreground truncate">PD RP Guide</h1>
-                <p className="text-xs text-sidebar-foreground/70 truncate">Law Enforcement Roleplay</p>
+              <div>
+                <h1 className="font-heading font-semibold text-lg text-sidebar-foreground">PD RP Guide</h1>
+                <p className="text-xs text-sidebar-foreground/60">Law Enforcement Roleplay</p>
               </div>
             )}
           </div>
+          {isCollapsed && (
+            <div className="absolute top-4 left-12 z-50">
+              <Menu className="h-4 w-4 text-sidebar-foreground cursor-pointer" onClick={() => {}} />
+            </div>
+          )}
         </div>
       </SidebarHeader>
 
-      <SidebarContent className="py-2">
+      <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-1">
+            <SidebarMenu>
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   {item.href ? (
                     // Single navigation item
                     item.external ? (
-                      <SidebarMenuButton asChild className="group">
+                      <SidebarMenuButton asChild size="lg">
                         <a
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={cn(
-                            "flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
-                            "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                            "focus:bg-sidebar-accent focus:text-sidebar-accent-foreground focus:outline-none",
-                            "active:scale-95 cursor-pointer text-left",
-                            isActiveRoute(item.href) && "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
+                            "flex items-center space-x-3 text-base w-full",
+                            isActiveRoute(item.href) && "bg-sidebar-accent text-sidebar-accent-foreground"
                           )}
                         >
-                          <item.icon className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0 mr-2 md:mr-3 group-hover:scale-110 transition-transform duration-200" />
-                          {!isCollapsed && <span className="truncate text-left font-medium">{item.title}</span>}
+                          <item.icon className="h-5 w-5 flex-shrink-0" />
+                          {!isCollapsed && <span className="truncate">{item.title}</span>}
                         </a>
                       </SidebarMenuButton>
                     ) : (
-                      <SidebarMenuButton asChild className="group">
+                      <SidebarMenuButton asChild size="lg">
                         <NavLink
                           to={item.href}
                           className={({ isActive }) =>
                             cn(
-                            "flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
-                            "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                            "focus:bg-sidebar-accent focus:text-sidebar-accent-foreground focus:outline-none",
-                            "active:scale-95 cursor-pointer text-left",
-                              isActive && "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
+                              "flex items-center space-x-3 text-base w-full",
+                              isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
                             )
                           }
                         >
-                          <item.icon className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0 mr-2 md:mr-3 group-hover:scale-110 transition-transform duration-200" />
-                          {!isCollapsed && <span className="truncate text-left font-medium">{item.title}</span>}
+                          <item.icon className="h-5 w-5 flex-shrink-0" />
+                          {!isCollapsed && <span className="truncate">{item.title}</span>}
                         </NavLink>
                       </SidebarMenuButton>
                     )
@@ -205,51 +204,44 @@ export function AppSidebar() {
                     <>
                       <SidebarMenuButton
                         onClick={() => toggleSection(item.title)}
+                        size="lg"
                         className={cn(
-                          "group flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
-                          "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                          "focus:bg-sidebar-accent focus:text-sidebar-accent-foreground focus:outline-none",
-                          "active:scale-95 cursor-pointer",
-                          "text-left",
-                          isParentActive(item.children!) && "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
+                          "flex items-center justify-between w-full text-base min-h-[40px]",
+                          isParentActive(item.children!) && "bg-sidebar-accent text-sidebar-accent-foreground"
                         )}
                       >
-                        <div className="flex items-center flex-1 min-w-0">
-                          <item.icon className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0 mr-2 md:mr-3 group-hover:scale-110 transition-transform duration-200" />
-                          {!isCollapsed && <span className="truncate text-left font-medium">{item.title}</span>}
+                        <div className="flex items-center space-x-3 flex-1 min-w-0">
+                          <item.icon className="h-5 w-5 flex-shrink-0" />
+                          {!isCollapsed && <span className="truncate text-left">{item.title}</span>}
                         </div>
                         {!isCollapsed && (
                           <ChevronDown
                             className={cn(
-                              "h-4 w-4 flex-shrink-0 ml-1 transition-all duration-200 group-hover:scale-110",
+                              "h-4 w-4 transition-transform duration-200 flex-shrink-0",
                               openSections.includes(item.title) ? "rotate-180" : ""
                             )}
                           />
                         )}
                       </SidebarMenuButton>
                       
-                      {/* Submenu with smooth animation */}
+                      {/* Submenu */}
                       {!isCollapsed && openSections.includes(item.title) && (
-                        <SidebarMenuSub className="ml-4 mt-1 space-y-1 animate-accordion-down">
+                        <SidebarMenuSub>
                           {item.children?.map((child) => (
                             <SidebarMenuSubItem key={child.href}>
-                              <SidebarMenuSubButton asChild className="group">
-                                <NavLink
-                                  to={child.href}
-                                  className={({ isActive }) =>
-                                    cn(
-                                     "flex items-center w-full px-3 py-2 text-sm rounded-md transition-all duration-200",
-                                     "hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground",
-                                     "focus:bg-sidebar-accent/50 focus:text-sidebar-accent-foreground focus:outline-none",
-                                     "active:scale-95 cursor-pointer text-left",
-                                      isActive && "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm font-medium"
-                                    )
-                                  }
-                                >
-                                  <div className="w-2 h-2 rounded-full bg-current opacity-50 mr-3 flex-shrink-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-200"></div>
-                                  <span className="truncate text-left font-medium">{child.title}</span>
-                                </NavLink>
-                              </SidebarMenuSubButton>
+                              <SidebarMenuSubButton asChild>
+                                 <NavLink
+                                   to={child.href}
+                                   className={({ isActive }) =>
+                                     cn(
+                                       "block text-sm w-full truncate text-left py-2",
+                                       isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
+                                     )
+                                   }
+                                 >
+                                   {child.title}
+                                 </NavLink>
+                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
                           ))}
                         </SidebarMenuSub>
@@ -265,14 +257,9 @@ export function AppSidebar() {
 
       <SidebarFooter className="border-t border-sidebar-border">
         {!isCollapsed && (
-          <div className="p-3 md:p-4">
-            <div className="text-xs text-sidebar-foreground/70 text-center">
-              Made by <a 
-                href="mailto:aanshchopra33@gmail.com" 
-                className="font-medium text-sidebar-primary hover:text-sidebar-primary/80 transition-colors duration-200 hover:underline"
-              >
-                Aansh (AmoRCiTo)
-              </a>
+          <div className="p-4">
+            <div className="text-xs text-sidebar-foreground/60 text-center">
+              Made by <a href="mailto:aanshchopra33@gmail.com" className="font-medium text-sidebar-primary hover:underline">Aansh (AmoRCiTo)</a>
             </div>
           </div>
         )}

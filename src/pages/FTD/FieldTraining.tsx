@@ -101,12 +101,12 @@ export default function FieldTraining() {
               
               {/* Stage 1 */}
               <AccordionItem value="stage1" className="border border-border rounded-lg px-3 sm:px-4">
-                <AccordionTrigger className="hover:no-underline group py-3 sm:py-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 text-left">
+                <AccordionTrigger className="hover:no-underline group py-3 sm:py-4">
                   <div className="flex items-center gap-3 sm:gap-4 text-left w-full">
                     <Badge variant="secondary" className="text-xs sm:text-sm font-semibold shrink-0">Stage 1</Badge>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-sm sm:text-lg font-semibold leading-tight text-left">Basic Systems & Communication</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground mt-1 text-left">2 Days • Foundation Training</p>
+                      <h3 className="text-sm sm:text-lg font-semibold leading-tight">Basic Systems & Communication</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground mt-1">2 Days • Foundation Training</p>
                     </div>
                     <div className="hidden sm:flex items-center gap-2 text-xs text-muted-foreground">
                       <MonitorSpeaker className="h-5 w-5 text-primary" />
