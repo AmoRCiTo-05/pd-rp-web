@@ -13,12 +13,18 @@ import {
   MessageSquare,
   BookOpen,
   HelpCircle,
-  AlertTriangle
+  AlertTriangle,
+  Sparkles,
+  Zap
 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { LearningModal } from '@/components/LearningModal'
+import { ParticleField } from '@/components/ParticleField'
+import { FloatingElements } from '@/components/FloatingElements'
+import { AnimatedBackground } from '@/components/AnimatedBackground'
+import { GlowCard } from '@/components/GlowCard'
 
 const categoryCards = [
   {
@@ -94,14 +100,17 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border">
-        <div className="absolute inset-0 opacity-[0.02] bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.4%22%3E%3Ccircle%20cx%3D%227%22%20cy%3D%227%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-        <div className="relative px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 text-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border min-h-screen flex items-center">
+        <AnimatedBackground />
+        <ParticleField />
+        <FloatingElements />
+        <div className="relative w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 text-center z-10">
           <div className="mx-auto max-w-4xl">
             <div className="mb-4 sm:mb-6">
-              <Badge variant="secondary" className="mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
-                <BookOpen className="mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+              <Badge variant="secondary" className="mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-primary/10 hover:bg-primary/20 transition-colors border-primary/20">
+                <Sparkles className="mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
                 Your Essential Law Enforcement Guide
+                <Zap className="ml-1.5 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4 animate-bounce" />
               </Badge>
             </div>
             
@@ -118,17 +127,19 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
-              <Button 
-                size="lg" 
-                className="group w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium interactive-hover shadow-lg hover:shadow-xl"
-                onClick={() => setIsLearningModalOpen(true)}
-              >
-                <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Start Learning
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <GlowCard>
+                <Button 
+                  size="lg" 
+                  className="group w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium interactive-hover shadow-lg hover:shadow-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 transition-all duration-300"
+                  onClick={() => setIsLearningModalOpen(true)}
+                >
+                  <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
+                  Start Learning
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </GlowCard>
               <Link to="/about" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base interactive-hover">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base interactive-hover glass-effect">
                   Learn More
                 </Button>
               </Link>
@@ -151,23 +162,29 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {categoryCards.map((category, index) => (
-              <Link key={index} to={category.href} className="group">
-                <Card className="relative h-full immersive-card glass-effect group-hover:shadow-lg group-hover:shadow-primary/10">
+            {categoryCards.map((category, index) => {
+              const glowColors = ['blue', 'green', 'red', 'purple', 'blue', 'green', 'red', 'purple', 'blue'] as const
+              return (
+                <Link key={index} to={category.href} className="group">
+                  <GlowCard glowColor={glowColors[index % glowColors.length]}>
+                    <Card className="relative h-full immersive-card glass-effect group-hover:shadow-lg group-hover:shadow-primary/10 overflow-hidden">
                   {category.popular && (
                     <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs">
                       Popular
                     </Badge>
                   )}
                   
-                  <CardHeader className="pb-3 sm:pb-4 text-center">
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                      <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                    </div>
-                    <CardTitle className="font-heading text-base sm:text-lg group-hover:text-primary transition-colors duration-200">
-                      {category.title}
-                    </CardTitle>
-                  </CardHeader>
+                    <CardHeader className="pb-3 sm:pb-4 text-center relative">
+                      {/* Animated background */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-lg"></div>
+                      
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl relative z-10`}>
+                        <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white animate-pulse" />
+                      </div>
+                      <CardTitle className="font-heading text-base sm:text-lg group-hover:text-primary transition-colors duration-200 relative z-10">
+                        {category.title}
+                      </CardTitle>
+                    </CardHeader>
                   
                   <CardContent className="text-center px-4 sm:px-6">
                     <CardDescription className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm">
@@ -177,10 +194,12 @@ export default function Home() {
                     <div className="flex items-center justify-center text-xs sm:text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200">
                       Explore <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
                     </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+                    </CardContent>
+                  </Card>
+                  </GlowCard>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
