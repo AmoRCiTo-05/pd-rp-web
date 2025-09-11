@@ -399,14 +399,16 @@ All colors MUST be HSL.
   }
 }
 
-  /* Optimized Interactive Elements - Reduced Heavy Effects */
+  /* Optimized Interactive Elements - Performance Focused */
   .immersive-card {
-    @apply bg-card border border-border rounded-lg shadow-md hover:shadow-lg;
-    transition: all 0.2s ease-out;
+    @apply bg-card border border-border rounded-lg shadow-sm hover:shadow-md;
+    transition: var(--transition-smooth);
+    will-change: transform, box-shadow;
   }
   
   .immersive-card:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
   }
   
   .glass-effect {
@@ -416,11 +418,12 @@ All colors MUST be HSL.
   }
   
   .interactive-hover {
-    transition: all 0.2s ease-out;
+    transition: var(--transition-smooth);
+    will-change: transform;
   }
   
   .interactive-hover:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
   
   .gradient-text {
@@ -435,15 +438,49 @@ All colors MUST be HSL.
     @apply text-sm;
   }
   
-  /* Remove heavy animations for performance */
+  /* Performance optimizations */
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
+  /* Reduce motion for accessibility and performance */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Line clamp utilities for better text overflow handling */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
   @media (max-width: 640px) {
+    /* Mobile touch targets - minimum 44px */
     .immersive-card {
-      @apply p-4 rounded-lg shadow-md;
+      @apply min-h-[3rem] p-4 rounded-lg shadow-sm;
     }
     
     .gradient-text {
@@ -457,21 +494,31 @@ All colors MUST be HSL.
     
     /* Mobile-optimized accordions */
     .accordion-trigger {
-      @apply py-3 px-3 text-sm;
+      @apply py-3 px-3 text-sm min-h-[2.75rem];
     }
     
     /* Mobile badge adjustments */
     .badge {
-      @apply text-xs px-2 py-0.5;
+      @apply text-xs px-2 py-1;
     }
     
     /* Mobile button optimizations */
     .btn-mobile {
-      @apply px-4 py-2 text-sm min-h-[2.5rem];
+      @apply px-4 py-2 text-sm min-h-[2.75rem];
     }
     
     /* Mobile search optimizations */
     .search-mobile {
-      @apply text-sm h-8;
+      @apply text-sm h-10;
+    }
+    
+    /* Disable hover effects on mobile */
+    .interactive-hover:hover {
+      transform: none;
+    }
+    
+    .immersive-card:hover {
+      transform: none;
+      box-shadow: var(--shadow-sm);
     }
   }

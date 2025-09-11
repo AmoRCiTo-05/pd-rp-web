@@ -108,32 +108,50 @@ const learningCategories = [
       { title: 'Short Forms', href: '/short-forms' },
       { title: 'Advanced Terms', href: '/advanced-sop/terms' }
     ]
+  },
+  {
+    title: 'Situation Based Questions',
+    description: 'Scenario-based questions to test practical law enforcement knowledge',
+    icon: HelpCircle,
+    href: '/situation-questions',
+    color: 'from-yellow-500 to-yellow-600',
+    subcategories: []
+  },
+  {
+    title: 'Confusing Topics',
+    description: 'Clarification on commonly misunderstood law enforcement concepts',
+    icon: AlertTriangle,
+    href: '/confusing-topics',
+    color: 'from-pink-500 to-pink-600',
+    subcategories: []
   }
 ]
 
 export function LearningModal({ isOpen, onClose }: LearningModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto glass-effect border-border/50">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center mb-4">
+          <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-center mb-4 gradient-text">
             What do you want to learn?
           </DialogTitle>
         </DialogHeader>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 max-h-[60vh] overflow-y-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-6 max-h-[60vh] overflow-y-auto px-2 sm:px-0">
           {learningCategories.map((category, index) => (
             <div key={index} className="space-y-2">
               <Link to={category.href} onClick={onClose}>
-                <Card className="transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 border-border bg-card cursor-pointer">
+                <Card className="immersive-card group cursor-pointer overflow-hidden">
                   <CardHeader className="pb-3">
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center`}>
-                        <category.icon className="h-5 w-5 text-white" />
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                       </div>
-                      <div>
-                        <CardTitle className="text-lg">{category.title}</CardTitle>
-                        <CardDescription className="text-sm leading-relaxed">
+                      <div className="flex-1 min-w-0">
+                        <CardTitle className="text-base sm:text-lg font-heading group-hover:text-primary transition-colors duration-200 line-clamp-2">
+                          {category.title}
+                        </CardTitle>
+                        <CardDescription className="text-xs sm:text-sm leading-relaxed line-clamp-2 mt-1">
                           {category.description}
                         </CardDescription>
                       </div>
@@ -142,13 +160,13 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
                 </Card>
               </Link>
               
-              {category.subcategories && (
+              {category.subcategories && category.subcategories.length > 0 && (
                 <div className="ml-4 space-y-1">
                   {category.subcategories.map((sub, subIndex) => (
                     <Link key={subIndex} to={sub.href} onClick={onClose}>
-                      <div className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50 transition-colors text-sm">
-                        <div className="w-1.5 h-1.5 bg-muted-foreground rounded-full"></div>
-                        <span className="text-muted-foreground hover:text-foreground transition-colors">
+                      <div className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-accent/50 transition-colors text-sm group cursor-pointer">
+                        <div className="w-1.5 h-1.5 bg-muted-foreground rounded-full group-hover:bg-primary transition-colors"></div>
+                        <span className="text-muted-foreground group-hover:text-foreground transition-colors truncate">
                           {sub.title}
                         </span>
                       </div>

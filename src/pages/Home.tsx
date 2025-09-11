@@ -95,7 +95,7 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+        <div className="absolute inset-0 opacity-[0.02] bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.4%22%3E%3Ccircle%20cx%3D%227%22%20cy%3D%227%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
         <div className="relative px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 text-center">
           <div className="mx-auto max-w-4xl">
             <div className="mb-4 sm:mb-6">
@@ -105,9 +105,9 @@ export default function Home() {
               </Badge>
             </div>
             
-            <h1 className="font-heading text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-3 sm:mb-4">
+            <h1 className="font-heading text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-3 sm:mb-4 animate-fade-in">
               <span className="text-foreground">PD RP</span>{' '}
-              <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+              <span className="gradient-text">
                 Guide
               </span>
             </h1>
@@ -120,7 +120,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
               <Button 
                 size="lg" 
-                className="group w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium"
+                className="group w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium interactive-hover shadow-lg hover:shadow-xl"
                 onClick={() => setIsLearningModalOpen(true)}
               >
                 <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
@@ -128,7 +128,7 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Link to="/about" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base interactive-hover">
                   Learn More
                 </Button>
               </Link>
@@ -153,7 +153,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {categoryCards.map((category, index) => (
               <Link key={index} to={category.href} className="group">
-                <Card className="relative h-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50">
+                <Card className="relative h-full immersive-card glass-effect group-hover:shadow-lg group-hover:shadow-primary/10">
                   {category.popular && (
                     <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs">
                       Popular
