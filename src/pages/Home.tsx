@@ -100,13 +100,13 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border min-h-screen flex items-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border min-h-[85vh] flex items-center">
         <AnimatedBackground />
         <ParticleField />
         <FloatingElements />
-        <div className="relative w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 text-center z-10">
-          <div className="mx-auto max-w-4xl">
-            <div className="mb-4 sm:mb-6">
+        <div className="relative w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 text-center z-10">
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-4 sm:mb-6 flex justify-center">
               <Badge variant="secondary" className="mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-primary/10 hover:bg-primary/20 transition-colors border-primary/20">
                 <Sparkles className="mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
                 Your Essential Law Enforcement Guide
@@ -114,48 +114,73 @@ export default function Home() {
               </Badge>
             </div>
             
-            <h1 className="font-heading text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-3 sm:mb-4 animate-fade-in">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 sm:mb-6 animate-fade-in text-center">
               <span className="text-foreground">PD RP</span>{' '}
               <span className="gradient-text">
                 Guide
               </span>
             </h1>
             
-            <p className="mx-auto max-w-2xl text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed sm:leading-7 mb-6 sm:mb-8 px-4 sm:px-0">
+            <p className="mx-auto max-w-3xl text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 sm:mb-10 text-center">
               Master law enforcement roleplay with comprehensive guides covering 10-codes, 
               SOPs, penal codes, and everything you need for authentic GTA RP experiences.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-12">
               <GlowCard>
                 <Button 
                   size="lg" 
-                  className="group w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium interactive-hover shadow-lg hover:shadow-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 transition-all duration-300"
+                  className="group w-full sm:w-auto px-8 py-3 text-base font-medium interactive-hover shadow-lg hover:shadow-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 transition-all duration-300"
                   onClick={() => setIsLearningModalOpen(true)}
                 >
-                  <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
+                  <BookOpen className="mr-2 h-5 w-5 animate-pulse" />
                   Start Learning
-                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </GlowCard>
               <Link to="/about" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base interactive-hover glass-effect">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 py-3 text-base interactive-hover glass-effect">
                   Learn More
                 </Button>
               </Link>
+            </div>
+
+            {/* Quick Access Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 max-w-4xl mx-auto">
+              {[
+                { icon: Radio, label: '10-Codes', href: '/basic-codes/10-codes', color: 'from-blue-500 to-blue-600' },
+                { icon: Scale, label: 'Penal Codes', href: '/penal-codes/types', color: 'from-red-500 to-red-600' },
+                { icon: FileText, label: 'SOPs', href: '/sop/training', color: 'from-green-500 to-green-600' },
+                { icon: Shield, label: 'Case Laws', href: '/case-laws', color: 'from-indigo-500 to-indigo-600' },
+                { icon: FileCode, label: 'Short Forms', href: '/short-forms', color: 'from-teal-500 to-teal-600' },
+                { icon: Gavel, label: 'Amendments', href: '/amendments', color: 'from-orange-500 to-orange-600' }
+              ].map((item, index) => (
+                <Link key={index} to={item.href} className="group">
+                  <GlowCard glowColor="blue">
+                    <div className="glass-effect border border-border/50 rounded-lg p-3 sm:p-4 hover:border-primary/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10">
+                      <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center mb-2 mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                        <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                      </div>
+                      <p className="text-xs sm:text-sm font-medium text-center group-hover:text-primary transition-colors">
+                        {item.label}
+                      </p>
+                    </div>
+                  </GlowCard>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Categories Grid */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
+          <div className="text-center mb-6 sm:mb-10">
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-center">
               Explore Categories
             </h2>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto text-center">
               Navigate through our comprehensive collection of law enforcement resources, 
               each designed to enhance your roleplay experience.
             </p>
@@ -167,39 +192,62 @@ export default function Home() {
               return (
                 <Link key={index} to={category.href} className="group">
                   <GlowCard glowColor={glowColors[index % glowColors.length]}>
-                    <Card className="relative h-full immersive-card glass-effect group-hover:shadow-lg group-hover:shadow-primary/10 overflow-hidden">
-                  {category.popular && (
-                    <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs">
-                      Popular
-                    </Badge>
-                  )}
-                  
-                    <CardHeader className="pb-3 sm:pb-4 text-center relative">
-                      {/* Animated background */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-lg"></div>
+                    <Card className="relative h-full immersive-card glass-effect group-hover:shadow-lg group-hover:shadow-primary/10 overflow-hidden transform transition-all duration-300 group-hover:scale-[1.02]">
+                      {category.popular && (
+                        <Badge className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs z-20">
+                          Popular
+                        </Badge>
+                      )}
                       
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl relative z-10`}>
-                        <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white animate-pulse" />
-                      </div>
-                      <CardTitle className="font-heading text-base sm:text-lg group-hover:text-primary transition-colors duration-200 relative z-10">
-                        {category.title}
-                      </CardTitle>
-                    </CardHeader>
-                  
-                  <CardContent className="text-center px-4 sm:px-6">
-                    <CardDescription className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm">
-                      {category.description}
-                    </CardDescription>
+                      <CardHeader className="pb-3 sm:pb-4 text-center relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-lg"></div>
+                        
+                        <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl relative z-10`}>
+                          <category.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white animate-pulse" />
+                        </div>
+                        <CardTitle className="font-heading text-base sm:text-lg group-hover:text-primary transition-colors duration-200 relative z-10 text-center">
+                          {category.title}
+                        </CardTitle>
+                      </CardHeader>
                     
-                    <div className="flex items-center justify-center text-xs sm:text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200">
-                      Explore <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
-                    </div>
-                    </CardContent>
-                  </Card>
+                      <CardContent className="text-center px-4 sm:px-6 pb-6">
+                        <CardDescription className="text-muted-foreground leading-relaxed mb-4 text-sm text-center">
+                          {category.description}
+                        </CardDescription>
+                        
+                        <div className="flex items-center justify-center text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200">
+                          Explore <ArrowRight className="ml-1 h-4 w-4" />
+                        </div>
+                      </CardContent>
+                    </Card>
                   </GlowCard>
                 </Link>
               )
             })}
+          </div>
+
+          {/* Interactive Stats Section */}
+          <div className="mt-12 sm:mt-16">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+              {[
+                { number: '200+', label: 'Codes & Procedures', icon: Radio },
+                { number: '50+', label: 'Case Laws', icon: Scale },
+                { number: '100+', label: 'SOPs Covered', icon: FileText },
+                { number: '24/7', label: 'Available Access', icon: Shield }
+              ].map((stat, index) => (
+                <GlowCard key={index} glowColor="blue">
+                  <div className="glass-effect border border-border/50 rounded-lg p-4 sm:p-6 text-center group hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+                    <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 animate-pulse" />
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-1">
+                      {stat.number}
+                    </div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">
+                      {stat.label}
+                    </div>
+                  </div>
+                </GlowCard>
+              ))}
+            </div>
           </div>
         </div>
       </section>

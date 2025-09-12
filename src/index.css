@@ -501,6 +501,75 @@ All colors MUST be HSL.
       @apply px-4;
     }
     
+    /* Reduced animations for performance */
+    .animate-pulse {
+      animation-duration: 3s;
+    }
+    
+    .particle-field {
+      display: none;
+    }
+    
+    .floating-elements .opacity-\[0\.03\] {
+      opacity: 0.01;
+    }
+    
+    /* Mobile-optimized hover states */
+    .interactive-hover:hover {
+      @apply transform-none; /* Remove hover transforms on mobile */
+    }
+    
+    /* Better text alignment for mobile */
+    .text-center {
+      text-align: center !important;
+    }
+  }
+  
+  /* Additional mobile performance optimizations */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    will-change: auto; /* Only set will-change when needed */
+  }
+  
+  /* Immersive enhancements */
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    will-change: transform, box-shadow;
+  }
+  
+  .immersive-card {
+    @apply transition-all duration-500 ease-out;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    will-change: transform, box-shadow;
+  }
+  
+  .immersive-card:hover {
+    @apply transform -translate-y-2;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Text centering utilities */
+  .text-center {
+    text-align: center !important;
+  }
+  
+  /* Optimized interactive hover */
+  .interactive-hover {
+    @apply transition-all duration-300 ease-out;
+    will-change: transform;
+  }
+  
+  .interactive-hover:hover {
+    @apply transform scale-105;
+  }
+      @apply px-4;
+    }
+    
     /* Mobile-optimized accordions */
     .accordion-trigger {
       @apply py-3 px-3 text-sm min-h-[2.75rem];
