@@ -72,8 +72,8 @@ const learningCategories = [
       { title: 'Felonies', href: '/penal-codes/felony' },
       { title: 'Misdemeanors', href: '/penal-codes/misdemeanor' },
       { title: 'Infractions', href: '/penal-codes/infraction' },
-      { title: 'Situation Questions', href: '/penal-codes/situation-questions' },
-      { title: 'Confusing Topics', href: '/penal-codes/confusing-topics' }
+      { title: 'Situation Questions', href: '/situation-questions' },
+      { title: 'Confusing Topics', href: '/confusing-topics' }
     ]
   },
   {

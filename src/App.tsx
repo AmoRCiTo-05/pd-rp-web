@@ -28,6 +28,8 @@ import SituationQuestions from '@/pages/PenalCodes/SituationQuestions'
 import ConfusingTopics from '@/pages/PenalCodes/ConfusingTopics'
 import SampleCalls from '@/pages/PD/SampleCalls'
 import InGameCommands from '@/pages/PD/InGameCommands'
+import BasicInGameCommands from '@/pages/BasicCodes/InGameCommands'
+import BasicSampleCalls from '@/pages/BasicCodes/SampleCalls'
 import About from '@/pages/About'
 import NotFound from '@/pages/NotFound'
 import EvaluationTest from '@/pages/FTD/EvaluationTest'
@@ -41,8 +43,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/basic-codes/10-codes" element={<TenCodes />} />
             <Route path="/basic-codes/code-comms" element={<CodeComms />} />
-            <Route path="/basic-codes/priority-sequence" element={<PrioritySequence />} />
+            <Route path="/basic-codes/in-game-commands" element={<BasicInGameCommands />} />
             <Route path="/basic-codes/patrol-areas" element={<PatrolAreas />} />
+            <Route path="/basic-codes/priority-sequence" element={<PrioritySequence />} />
+            <Route path="/basic-codes/sample-calls" element={<BasicSampleCalls />} />
             <Route path="/short-forms" element={<ShortForms />} />
             <Route path="/amendments" element={<Amendments />} />
             <Route path="/sop/training" element={<Training />} />
