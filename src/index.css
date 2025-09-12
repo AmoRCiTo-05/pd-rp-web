@@ -567,13 +567,11 @@ All colors MUST be HSL.
   .interactive-hover:hover {
     @apply transform scale-105;
   }
-      @apply px-4;
-    }
-    
-    /* Mobile-optimized accordions */
-    .accordion-trigger {
-      @apply py-3 px-3 text-sm min-h-[2.75rem];
-    }
+  
+  /* Mobile-optimized accordions */
+  .accordion-trigger {
+    @apply py-3 px-3 text-sm min-h-[2.75rem];
+  }
     
     /* Mobile badge adjustments */
     .badge {
