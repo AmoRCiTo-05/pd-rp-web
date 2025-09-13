@@ -44,7 +44,8 @@ const learningCategories = [
     color: 'from-indigo-500 to-indigo-600',
     subcategories: [
       { title: 'Field Training Program', href: '/ftd/field-training' },
-      { title: 'Evaluation Test', href: '/ftd/evaluation-test' }
+      { title: 'Evaluation Test', href: '/ftd/evaluation-test' },
+      { title: 'Rank Based Questions', href: '/rank-based-questions' }
     ]
   },
   {

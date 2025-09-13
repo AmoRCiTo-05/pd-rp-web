@@ -1,0 +1,414 @@
+====================================
+Academy (Cadet + Probationary Officer)
+====================================
+
+--- Cadet ---
+
+Q1. What is the first level of force officers should always attempt before anything else?
+A) Verbal Commands
+B) Officer Presence ✅
+C) Taser Deployment
+D) Firearm Use
+
+Q2. During a patrol, you find a car illegally parked with no driver inside. What should you do first?
+A) Tow the vehicle immediately
+B) Break into the car
+C) Report to dispatch, run the plate ✅
+D) Ignore it
+
+Q3. What does BOLO stand for?
+A) Be On the Lookout ✅
+B) Bring Our Law Officers
+C) Back Off, Law Order
+D) Basic Operations, Law Only
+
+Q4. If a senior officer gives you a personal order unrelated to duty, how should you respond?
+A) Obey without question
+B) Refuse rudely
+C) Respectfully decline and follow duty-related orders only ✅
+D) Report them immediately
+
+Q5. Why must cadets always wear their proper uniform?
+A) To look stylish
+B) To maintain professionalism and identification ✅
+C) Because it’s comfortable
+D) To avoid fines
+
+
+--- Probationary Officer ---
+
+Q1. Which amendment protects individuals from self-incrimination?
+A) 1st Amendment
+B) 4th Amendment
+C) 5th Amendment ✅
+D) 6th Amendment
+
+Q2. When can an officer frisk a person without a warrant?
+A) Anytime they want
+B) With reasonable suspicion they may be armed ✅
+C) After arrest only
+D) With judge approval
+
+Q3. After handcuffing a suspect, what must you do?
+A) Leave them silent
+B) Read Miranda Rights and explain ✅
+C) Transport immediately with no explanation
+D) Confiscate their belongings
+
+Q4. How should you handle a civilian who is verbally insulting but not violent?
+A) Arrest them for disrespect
+B) Ignore all insults
+C) Stay professional and de-escalate ✅
+D) Insult them back
+
+Q5. Why is reporting via MDT essential?
+A) To show off typing skills
+B) To ensure accountability and evidence logging ✅
+C) Because supervisors want it
+D) To earn promotions
+
+
+=================
+Patrol (Officer + Senior Officer)
+=================
+
+--- Officer ---
+
+Q1. When must Miranda Rights be read?
+A) At the time of arrest and before interrogation ✅
+B) During patrol only
+C) In court only
+D) Never
+
+Q2. What is the difference between detain and arrest?
+A) Detain is temporary questioning; arrest involves taking into custody ✅
+B) Detain is harsher than arrest
+C) Both mean the same
+D) Arrest is polite, detain is forceful
+
+Q3. What is the purpose of a traffic stop?
+A) To generate revenue
+B) To enforce laws and ensure safety ✅
+C) To harass civilians
+D) To practice skills
+
+Q4. Which is NOT required equipment on patrol?
+A) Firearm
+B) Radio
+C) Handcuffs
+D) Personal bag ✅
+
+Q5. What should an officer do first in a domestic violence call?
+A) Rush in aggressively
+B) Ensure scene safety ✅
+C) Ignore it
+D) Arrest everyone
+
+
+--- Senior Officer ---
+
+Q1. Which amendment gives the right to an attorney?
+A) 2nd
+B) 5th
+C) 6th ✅
+D) 8th
+
+Q2. If an officer witnesses destruction of evidence during a misdemeanor, what can they do?
+A) Ignore it
+B) Arrest without warrant ✅
+C) Call a judge immediately
+D) Only issue a warning
+
+Q3. What is the N+2 Rule?
+A) Always bring two more units than suspects ✅
+B) Never outnumber suspects
+C) No more than 2 officers per suspect
+D) 2 suspects per officer
+
+Q4. In which case was stop-and-frisk allowed under reasonable suspicion?
+A) Miranda v. Arizona
+B) Terry v. Ohio ✅
+C) Tennessee v. Garner
+D) Carroll v. US
+
+Q5. Which amendment protects against cruel punishment?
+A) 6th
+B) 7th
+C) 8th ✅
+D) 10th
+
+
+=================
+Supervisor (Corporal + Sergeant)
+=================
+
+--- Corporal ---
+
+Q1. Which case law set precedent for use of deadly force if a suspect poses threat?
+A) Terry v. Ohio
+B) Tennessee v. Garner ✅
+C) Miranda v. Arizona
+D) People v. Kyrakruz
+
+Q2. Which is an example of Probable Cause?
+A) Suspicious behavior only
+B) Smelling marijuana and seeing drug paraphernalia ✅
+C) Nervous movement
+D) Loitering at night
+
+Q3. What does “Non-Bonafide Evidence” mean?
+A) Genuine and legal
+B) Unreliable or illegally obtained ✅
+C) Witness verified
+D) Certified by court
+
+Q4. What should be done before deploying a taser?
+A) Shout “Taser! Taser!” after warning ✅
+B) Shoot without notice
+C) Always aim for head
+D) Use only indoors
+
+Q5. A sergeant asks you to help in misconduct cover-up. What should you do?
+A) Follow orders
+B) Refuse and report ✅
+C) Stay silent
+D) Ask IA later
+
+
+--- Sergeant ---
+
+Q1. What is “Match of Force”?
+A) Escalating force unnecessarily
+B) Using proportional force to suspects’ weapons ✅
+C) Always overpowering suspects
+D) Using minimum force only
+
+Q2. Which advanced crime term means deliberate lying under oath?
+A) Forgery
+B) Perjury ✅
+C) Fraud
+D) Impersonation
+
+Q3. Which type of warrant allows officers to arrest a person?
+A) Bench Warrant
+B) Arrest Warrant ✅
+C) Search Warrant
+D) BOLO
+
+Q4. If suspects refuel their vehicle mid-chase, what can officers do?
+A) End pursuit
+B) Tire pop allowed ✅
+C) Call SWAT only
+D) Ignore and follow
+
+Q5. What is the penalty action system sequence?
+A) Warning → Strike → Bench → Suspension
+B) Bench → Warning → Strike → Suspension ✅
+C) Strike → Suspension → Bench
+D) Suspension only
+
+
+=================
+Command (Head Sergeant + Lieutenant)
+=================
+
+--- Head Sergeant ---
+
+Q1. Which advanced crime is defined as “unlawful uprising against government”?
+A) Mayhem
+B) Insurrection ✅
+C) Extortion
+D) Fraud
+
+Q2. What is the difference between Reports/FIR and Chargesheet?
+A) FIR is initial complaint; Chargesheet after arrest ✅
+B) Both are the same
+C) Chargesheet is optional
+D) FIR comes after court
+
+Q3. Which crime involves concealing illegal money through transactions?
+A) Extortion
+B) Embezzlement
+C) Money Laundering ✅
+D) Graft
+
+Q4. In pursuit, when is PIT allowed in city?
+A) At any speed
+B) Max 80 inside city ✅
+C) Max 150 inside city
+D) Never
+
+Q5. Which amendment prevents unreasonable searches?
+A) 3rd
+B) 4th ✅
+C) 6th
+D) 8th
+
+
+--- Lieutenant ---
+
+Q1. What is the chain of command from Chief down to Officer in LSPD?
+A) Chief → Commander → Captain → Lieutenant → Sergeant → Corporal → Officer ✅
+B) Chief → Sergeant → Corporal → Officer
+C) Chief → Cadet → Officer → Commander
+D) Chief → Watch Commander only
+
+Q2. Which case law allows officers to search a car with probable cause without warrant?
+A) Terry v. Ohio
+B) Carroll v. US ✅
+C) Tennessee v. Garner
+D) Wyoming v. Houghton
+
+Q3. During an armed bank robbery, what must suspects provide to negotiator?
+A) Proof of life ✅
+B) Money demand only
+C) Escape route
+D) Car keys
+
+Q4. What should be done after tasering a suspect twice?
+A) Leave them down
+B) Provide medical attention ✅
+C) Continue tasing
+D) Arrest immediately
+
+Q5. What is the LOA maximum duration at once?
+A) 15 days
+B) 10 days
+C) 7 days ✅
+D) Unlimited
+
+
+=================
+High Command (Captain + Commander + Deputy Chief + Chief)
+=================
+
+--- Captain ---
+
+Q1. In an active shooter situation, what units must be coordinated?
+A) Patrol only
+B) SWAT and other specialized units ✅
+C) Traffic unit
+D) Cadets only
+
+Q2. Which law protects against forced entry without a warrant?
+A) 2nd Amendment
+B) 3rd Amendment
+C) 4th Amendment ✅
+D) 5th Amendment
+
+Q3. Who has final authority on disciplinary actions after IA investigation?
+A) Corporal
+B) IAA Director
+C) IAA Head ✅
+D) Watch Commander
+
+Q4. During gang wars in populated areas, when may officers engage?
+A) Immediately
+B) After warnings and civilian risk ✅
+C) Never
+D) Only SWAT can
+
+Q5. Which crime involves misuse of public office for personal gain?
+A) Fraud
+B) Extortion
+C) Graft ✅
+D) Forgery
+
+
+--- Commander ---
+
+Q1. In case of hostage situation, what is the first step?
+A) Rush the building
+B) Assign negotiator and gather proof of life ✅
+C) Order SWAT immediately
+D) Wait passively
+
+Q2. Which amendment ensures right to trial by judge?
+A) 5th
+B) 6th
+C) 7th ✅
+D) 8th
+
+Q3. What must be prepared within 48 hours of arrest?
+A) FIR only
+B) Chargesheet ✅
+C) Nothing required
+D) Negotiation report
+
+Q4. Who can authorize suspension of officers?
+A) Any officer
+B) Only Command/High Command ✅
+C) Cadets
+D) Dispatchers
+
+Q5. What is the maximum suspension period?
+A) 1 day
+B) 2 days
+C) 4 days ✅
+D) 7 days
+
+
+--- Deputy Chief ---
+
+Q1. What is the primary jurisdiction of SASP?
+A) Only city
+B) Only county
+C) Whole state ✅
+D) Only highways
+
+Q2. Which crime means unlawfully depriving someone of body part?
+A) Mayhem ✅
+B) Murder
+C) Assault
+D) Insurrection
+
+Q3. When can lethal force be used?
+A) Only if life is at risk ✅
+B) Always allowed
+C) On verbal abuse
+D) On property damage
+
+Q4. What is the insurance policy coverage for SALE officers?
+A) 50%
+B) 70% ✅
+C) 90%
+D) 100%
+
+Q5. How many consecutive terms can a subdivision head serve?
+A) Unlimited
+B) 1
+C) 2 ✅
+D) 3
+
+
+--- Chief ---
+
+Q1. Who is at the top of Chain of Command in SASP?
+A) Asst. Commissioner
+B) Chief
+C) Commissioner ✅
+D) Sheriff
+
+Q2. Which case law makes undercover statements admissible in court?
+A) Terry v. Ohio
+B) People v. Williams ✅
+C) Tennessee v. Garner
+D) Miranda v. Arizona
+
+Q3. What’s the correct order of penalty escalation?
+A) Bench → Warning → Strike → Suspension ✅
+B) Suspension → Warning → Strike
+C) Strike only
+D) None
+
+Q4. Which amendment covers rights not listed in Constitution?
+A) 8th
+B) 9th ✅
+C) 10th
+D) 1st
+
+Q5. In a terrorism situation, what weapons can cadets use?
+A) SMG
+B) Rifle
+C) Deagle ✅
+D) AR-15
