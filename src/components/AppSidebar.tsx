@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu, HelpCircle, AlertTriangle, Clock, Users } from 'lucide-react';
+import { ChevronDown, Home, Radio, FileText, GraduationCap, Scale, Gavel, FileCode, Info, MessageSquare, Shield, Menu, HelpCircle, AlertTriangle, Clock, Users, Trophy } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, useSidebar } from '@/components/ui/sidebar';
 
@@ -68,6 +68,23 @@ const navigationItems = [{
     title: 'FTD Evaluation Test',
     href: '/ftd/evaluation-test'
   }]
+}, {
+  title: 'Rank Based Questions',
+  icon: Trophy,
+  children: [
+    {
+      title: 'Overview',
+      href: '/rank-based-questions'
+    },
+    {
+      title: 'Individual Ranks',
+      href: '/rank-based-questions/individual-ranks'
+    },
+    {
+      title: 'Category Ranks',
+      href: '/rank-based-questions/category-ranks'
+    }
+  ]
 }, {
   title: 'Case Laws',
   href: '/case-laws',

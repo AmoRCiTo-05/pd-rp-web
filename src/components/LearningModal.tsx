@@ -10,7 +10,8 @@ import {
   FileCode, 
   Shield,
   HelpCircle,
-  AlertTriangle
+  AlertTriangle,
+  BookOpen
 } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -177,6 +178,58 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
               )}
             </div>
           ))}
+
+          {/* All pages - derived from searchData for completeness */}
+          <div className="space-y-2">
+            <Card className="immersive-card group cursor-default">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-gray-500 to-gray-600 flex items-center justify-center transition-transform duration-300 shadow-lg`}>
+                    <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <CardTitle className="text-base sm:text-lg font-heading transition-colors duration-200 line-clamp-2">
+                      All Pages
+                    </CardTitle>
+                    <CardDescription className="text-xs sm:text-sm leading-relaxed line-clamp-2 mt-1">
+                      Quick links to every discoverable page in the site
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 gap-1 max-h-40 overflow-y-auto">
+                  {/** We'll reference searchData to list all paths. Keep this static list in sync with `src/data/searchData.ts` */}
+                  <Link to="/" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Dashboard</Link>
+                  <Link to="/basic-codes/10-codes" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">10-Codes</Link>
+                  <Link to="/basic-codes/code-comms" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Code Communications</Link>
+                  <Link to="/basic-codes/in-game-commands" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Basic In-Game Commands</Link>
+                  <Link to="/basic-codes/patrol-areas" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Patrol Areas</Link>
+                  <Link to="/basic-codes/priority-sequence" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Priority Sequence</Link>
+                  <Link to="/basic-codes/sample-calls" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Basic Sample Calls</Link>
+                  <Link to="/short-forms" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Short Forms</Link>
+                  <Link to="/amendments" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Amendments</Link>
+                  <Link to="/sop/training" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Training SOP</Link>
+                  <Link to="/sop/meu" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">MEU SOP</Link>
+                  <Link to="/sop/seu" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">SEU SOP</Link>
+                  <Link to="/sop/asd" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">ASD SOP</Link>
+                  <Link to="/sop/dispatcher" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Dispatcher SOP</Link>
+                  <Link to="/ftd/field-training" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Field Training Division</Link>
+                  <Link to="/ftd/evaluation-test" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">FTD Evaluation Test</Link>
+                  <Link to="/advanced-sop/terms" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Advanced Terms</Link>
+                  <Link to="/penal-codes/types" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Penal Code Types</Link>
+                  <Link to="/penal-codes/felony" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Felony</Link>
+                  <Link to="/penal-codes/misdemeanor" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Misdemeanor</Link>
+                  <Link to="/penal-codes/infraction" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Infraction</Link>
+                  <Link to="/situation-questions" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Situation Based Questions</Link>
+                  <Link to="/confusing-topics" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Confusing Topics</Link>
+                  <Link to="/pd/sample-calls" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">PD Sample Calls</Link>
+                  <Link to="/pd/in-game-commands" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">PD In-Game Commands</Link>
+                  <Link to="/about" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">About</Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

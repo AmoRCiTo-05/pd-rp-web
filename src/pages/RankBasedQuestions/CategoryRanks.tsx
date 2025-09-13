@@ -80,7 +80,7 @@ export default function CategoryRanks() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-8">
           <Link to="/rank-based-questions">
             <Button variant="ghost" size="sm" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
@@ -105,13 +105,13 @@ export default function CategoryRanks() {
             return (
               <Card key={index} className="immersive-card group cursor-pointer transition-all duration-300 hover:scale-105">
                 <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between">
+                  <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg text-2xl`}>
                         {category.icon}
                       </div>
                       <div>
-                        <CardTitle className="text-lg font-heading group-hover:text-primary transition-colors">
+                        <CardTitle className="text-lg sm:text-xl font-heading group-hover:text-primary transition-colors">
                           {category.title}
                         </CardTitle>
                         <CardDescription className="text-sm">
