@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   Radio, 
@@ -14,6 +14,7 @@ import {
   BookOpen
 } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { searchData } from '@/data/searchData'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface LearningModalProps {
@@ -130,104 +131,130 @@ const learningCategories = [
 ]
 
 export function LearningModal({ isOpen, onClose }: LearningModalProps) {
+  const [query, setQuery] = useState('')
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+
+  const normalizedQuery = query.trim().toLowerCase()
+
+  const filteredCategories = useMemo(() => {
+    if (!normalizedQuery) return learningCategories
+    return learningCategories
+      .map((cat) => ({
+        ...cat,
+        subcategories: cat.subcategories.filter((s) => s.title.toLowerCase().includes(normalizedQuery))
+      }))
+      .filter((cat) => cat.title.toLowerCase().includes(normalizedQuery) || cat.subcategories.length > 0)
+  }, [normalizedQuery])
+
+  const filteredPages = useMemo(() => {
+    if (!normalizedQuery) return searchData
+    return searchData.filter((p) => p.title.toLowerCase().includes(normalizedQuery) || p.category.toLowerCase().includes(normalizedQuery))
+  }, [normalizedQuery])
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto glass-effect border-border/50">
+      <DialogContent className="w-full max-w-4xl sm:max-w-6xl max-h-[92vh] sm:rounded-lg overflow-hidden glass-effect border-border/50 px-3 sm:px-6">
         <DialogHeader>
-          <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-center mb-4 gradient-text">
+          <DialogTitle className="text-lg sm:text-2xl font-heading font-bold text-center mb-2 gradient-text">
             What do you want to learn?
           </DialogTitle>
         </DialogHeader>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-6 max-h-[60vh] overflow-y-auto px-2 sm:px-0">
-          {learningCategories.map((category, index) => (
-            <div key={index} className="space-y-2">
-              <Link to={category.href} onClick={onClose}>
-                <Card className="immersive-card group cursor-pointer overflow-hidden">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                        <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <CardTitle className="text-base sm:text-lg font-heading group-hover:text-primary transition-colors duration-200 line-clamp-2">
-                          {category.title}
-                        </CardTitle>
-                        <CardDescription className="text-xs sm:text-sm leading-relaxed line-clamp-2 mt-1">
-                          {category.description}
-                        </CardDescription>
-                      </div>
+
+        {/* Search */}
+        <div className="px-1 sm:px-4 mb-3">
+          <div className="relative">
+            <input
+              aria-label="Search learning topics"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search topics, pages or categories..."
+              className="w-full rounded-lg bg-muted/10 border border-border/40 px-4 py-3 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+            />
+            {query && (
+              <button
+                onClick={() => setQuery('')}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-muted-foreground px-2 py-1"
+                aria-label="Clear search"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 px-1 sm:px-4 max-h-[68vh] overflow-y-auto pb-6">
+          {/* Categories (accordion style) */}
+          <div className="space-y-3">
+            {filteredCategories.map((category, index) => {
+              const isOpen = openIndex === index
+              return (
+                <div key={category.title} className="">
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="w-full text-left"
+                    aria-expanded={isOpen}
+                  >
+                    <Card className={`immersive-card group cursor-pointer overflow-hidden transition-shadow ${isOpen ? 'ring-2 ring-primary/20' : ''}`}>
+                      <CardHeader className="pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-md`}> 
+                            <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <CardTitle className="text-base sm:text-lg font-heading group-hover:text-primary transition-colors duration-150 truncate">
+                              {category.title}
+                            </CardTitle>
+                            <CardDescription className="text-xs sm:text-sm leading-relaxed mt-1 truncate text-muted-foreground">
+                              {category.description}
+                            </CardDescription>
+                          </div>
+                        </div>
+                      </CardHeader>
+                    </Card>
+                  </button>
+
+                  <div className={`mt-2 pl-4 transition-[max-height,opacity] duration-200 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="space-y-2">
+                      {category.subcategories && category.subcategories.length > 0 ? (
+                        category.subcategories.map((sub, sIdx) => (
+                          <Link key={sIdx} to={sub.href} onClick={onClose} className="block px-3 py-3 rounded-md hover:bg-accent/60 transition-colors text-sm text-muted-foreground flex items-center gap-3">
+                            <div className="w-2 h-2 bg-muted-foreground rounded-full mt-1" />
+                            <div className="truncate">{sub.title}</div>
+                          </Link>
+                        ))
+                      ) : (
+                        <div className="px-3 py-2 text-sm text-muted-foreground">No quick links</div>
+                      )}
                     </div>
-                  </CardHeader>
-                </Card>
-              </Link>
-              
-              {category.subcategories && category.subcategories.length > 0 && (
-                <div className="ml-4 space-y-1">
-                  {category.subcategories.map((sub, subIndex) => (
-                    <Link key={subIndex} to={sub.href} onClick={onClose}>
-                      <div className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-accent/50 transition-colors text-sm group cursor-pointer">
-                        <div className="w-1.5 h-1.5 bg-muted-foreground rounded-full group-hover:bg-primary transition-colors"></div>
-                        <span className="text-muted-foreground group-hover:text-foreground transition-colors truncate">
-                          {sub.title}
-                        </span>
-                      </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Pages / Results */}
+          <div className="space-y-3">
+            <Card className="immersive-card">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base sm:text-lg font-heading">Pages & Results</CardTitle>
+                <CardDescription className="text-xs sm:text-sm text-muted-foreground mt-1">Quickly jump to any page. Search filters results in real-time.</CardDescription>
+              </CardHeader>
+              <div className="px-2 sm:px-4 pb-3">
+                <div className="grid grid-cols-1 gap-2 max-h-[56vh] overflow-y-auto">
+                  {(normalizedQuery ? filteredPages : searchData).map((item) => (
+                    <Link
+                      key={item.id}
+                      to={item.path}
+                      onClick={onClose}
+                      className="block w-full px-4 py-3 rounded-md hover:bg-accent/60 transition-colors text-sm text-muted-foreground flex items-center gap-3"
+                    >
+                      <div className="w-2 h-2 bg-muted-foreground rounded-full mt-1" />
+                      <div className="truncate">{item.title}</div>
+                      <div className="ml-auto text-xs text-muted-foreground/70 hidden sm:block">{item.category}</div>
                     </Link>
                   ))}
                 </div>
-              )}
-            </div>
-          ))}
-
-          {/* All pages - derived from searchData for completeness */}
-          <div className="space-y-2">
-            <Card className="immersive-card group cursor-default">
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-gray-500 to-gray-600 flex items-center justify-center transition-transform duration-300 shadow-lg`}>
-                    <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <CardTitle className="text-base sm:text-lg font-heading transition-colors duration-200 line-clamp-2">
-                      All Pages
-                    </CardTitle>
-                    <CardDescription className="text-xs sm:text-sm leading-relaxed line-clamp-2 mt-1">
-                      Quick links to every discoverable page in the site
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 gap-1 max-h-40 overflow-y-auto">
-                  {/** We'll reference searchData to list all paths. Keep this static list in sync with `src/data/searchData.ts` */}
-                  <Link to="/" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Dashboard</Link>
-                  <Link to="/basic-codes/10-codes" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">10-Codes</Link>
-                  <Link to="/basic-codes/code-comms" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Code Communications</Link>
-                  <Link to="/basic-codes/in-game-commands" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Basic In-Game Commands</Link>
-                  <Link to="/basic-codes/patrol-areas" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Patrol Areas</Link>
-                  <Link to="/basic-codes/priority-sequence" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Priority Sequence</Link>
-                  <Link to="/basic-codes/sample-calls" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Basic Sample Calls</Link>
-                  <Link to="/short-forms" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Short Forms</Link>
-                  <Link to="/amendments" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Amendments</Link>
-                  <Link to="/sop/training" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Training SOP</Link>
-                  <Link to="/sop/meu" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">MEU SOP</Link>
-                  <Link to="/sop/seu" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">SEU SOP</Link>
-                  <Link to="/sop/asd" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">ASD SOP</Link>
-                  <Link to="/sop/dispatcher" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Dispatcher SOP</Link>
-                  <Link to="/ftd/field-training" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Field Training Division</Link>
-                  <Link to="/ftd/evaluation-test" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">FTD Evaluation Test</Link>
-                  <Link to="/advanced-sop/terms" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Advanced Terms</Link>
-                  <Link to="/penal-codes/types" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Penal Code Types</Link>
-                  <Link to="/penal-codes/felony" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Felony</Link>
-                  <Link to="/penal-codes/misdemeanor" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Misdemeanor</Link>
-                  <Link to="/penal-codes/infraction" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Infraction</Link>
-                  <Link to="/situation-questions" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Situation Based Questions</Link>
-                  <Link to="/confusing-topics" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">Confusing Topics</Link>
-                  <Link to="/pd/sample-calls" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">PD Sample Calls</Link>
-                  <Link to="/pd/in-game-commands" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">PD In-Game Commands</Link>
-                  <Link to="/about" onClick={onClose} className="text-sm text-muted-foreground hover:text-foreground">About</Link>
-                </div>
-              </CardContent>
+              </div>
             </Card>
           </div>
         </div>

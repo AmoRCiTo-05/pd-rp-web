@@ -157,7 +157,7 @@ export default function Home() {
               ].map((item, index) => (
                 <Link key={index} to={item.href} className="group">
                   <GlowCard glowColor="blue">
-                    <div className="glass-effect border border-border/50 rounded-lg p-3 sm:p-4 hover:border-primary/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10">
+                    <div className="glass-effect border border-border/50 rounded-lg p-4 sm:p-5 hover:border-primary/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10">
                       <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center mb-2 mx-auto group-hover:scale-110 transition-transform duration-300`}>
                         <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                       </div>
@@ -168,6 +168,26 @@ export default function Home() {
                   </GlowCard>
                 </Link>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Rank Evaluation CTA */}
+      <section className="py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="bg-gradient-to-r from-primary/5 to-background border border-border rounded-lg p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="w-full sm:w-auto">
+              <h3 className="font-heading text-lg sm:text-xl font-semibold text-left">Confident about your rank?</h3>
+              <p className="text-sm text-muted-foreground mt-1 text-left">Take a Rank Evaluation Test to confirm your knowledge and get tailored recommendations.</p>
+            </div>
+            <div className="w-full sm:w-auto sm:ml-auto">
+              <Link to="/rank-based-questions">
+                <Button size="lg" className="w-full sm:w-auto px-4 py-3 flex items-center justify-center">
+                  <BookOpen className="mr-2 h-4 w-4" aria-hidden="true" />
+                  <span>Take the Rank Evaluation</span>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -226,23 +246,23 @@ export default function Home() {
             })}
           </div>
 
-          {/* Interactive Stats Section */}
+          {/* Interactive Highlights Section (descriptive, no unverified numeric claims) */}
           <div className="mt-12 sm:mt-16">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
               {[
-                { number: '200+', label: 'Codes & Procedures', icon: Radio },
-                { number: '50+', label: 'Case Laws', icon: Scale },
-                { number: '100+', label: 'SOPs Covered', icon: FileText },
-                { number: '24/7', label: 'Available Access', icon: Shield }
+                { title: 'Codes & Procedures', subtitle: 'Comprehensive reference', icon: Radio },
+                { title: 'Case Laws', subtitle: 'Key legal precedents', icon: Scale },
+                { title: 'SOPs', subtitle: 'Operational procedures', icon: FileText },
+                { title: 'Always Available', subtitle: 'Access anytime', icon: Shield }
               ].map((stat, index) => (
                 <GlowCard key={index} glowColor="blue">
                   <div className="glass-effect border border-border/50 rounded-lg p-4 sm:p-6 text-center group hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
                     <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 animate-pulse" />
-                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-1">
-                      {stat.number}
+                    <div className="text-lg sm:text-xl lg:text-xl font-semibold text-primary mb-1">
+                      {stat.title}
                     </div>
                     <div className="text-xs sm:text-sm text-muted-foreground">
-                      {stat.label}
+                      {stat.subtitle}
                     </div>
                   </div>
                 </GlowCard>
@@ -301,6 +321,26 @@ export default function Home() {
                 Share Feedback
               </Button>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Rank Evaluation CTA */}
+      <section className="py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="bg-gradient-to-r from-primary/5 to-background border border-border rounded-lg p-4 sm:p-6 flex flex-col sm:flex-row items-center gap-4">
+            <div className="text-left sm:text-left">
+              <h3 className="font-heading text-lg sm:text-xl font-semibold">Confident about your rank?</h3>
+              <p className="text-sm text-muted-foreground mt-1">Take a Rank Evaluation Test to confirm your knowledge and get tailored recommendations.</p>
+            </div>
+            <div className="ml-auto">
+              <Link to="/rank-based-questions">
+                <Button size="default" className="px-4 py-2">
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  Take the Rank Evaluation
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

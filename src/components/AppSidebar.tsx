@@ -134,7 +134,7 @@ const navigationItems = [{
 export function AppSidebar() {
   const [openSections, setOpenSections] = useState<string[]>([]);
   const location = useLocation();
-  const { state } = useSidebar();
+    const { state, setOpenMobile, isMobile } = useSidebar();
   const isCollapsed = state === 'collapsed';
 
   const toggleSection = (title: string) => {
@@ -195,6 +195,7 @@ export function AppSidebar() {
                             "flex items-center space-x-3 text-base w-full",
                             isActiveRoute(item.href) && "bg-sidebar-accent text-sidebar-accent-foreground"
                           )}
+                            onClick={() => isMobile && setOpenMobile(false)}
                         >
                           <item.icon className="h-5 w-5 flex-shrink-0" />
                           {!isCollapsed && <span className="truncate">{item.title}</span>}
@@ -204,6 +205,7 @@ export function AppSidebar() {
                       <SidebarMenuButton asChild size="lg">
                         <NavLink
                           to={item.href}
+                            onClick={() => isMobile && setOpenMobile(false)}
                           className={({ isActive }) =>
                             cn(
                               "flex items-center space-x-3 text-base w-full",
@@ -249,6 +251,7 @@ export function AppSidebar() {
                               <SidebarMenuSubButton asChild>
                                  <NavLink
                                    to={child.href}
+                                   onClick={() => isMobile && setOpenMobile(false)}
                                    className={({ isActive }) =>
                                      cn(
                                        "block text-sm w-full truncate text-left py-2",

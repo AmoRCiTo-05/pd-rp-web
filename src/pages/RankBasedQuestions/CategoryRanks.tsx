@@ -79,7 +79,7 @@ export default function CategoryRanks() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
           <Link to="/rank-based-questions">
             <Button variant="ghost" size="sm" className="gap-2">
@@ -88,10 +88,10 @@ export default function CategoryRanks() {
             </Button>
           </Link>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-heading font-bold gradient-text">
+            <h1 className="text-3xl sm:text-4xl font-heading font-bold gradient-text text-center">
               Category Ranks
             </h1>
-            <p className="text-muted-foreground mt-1">
+            <p className="text-muted-foreground mt-1 text-center">
               Choose a category to test your departmental knowledge
             </p>
           </div>
@@ -107,14 +107,14 @@ export default function CategoryRanks() {
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg text-2xl`}>
-                        {category.icon}
+                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0`}>
+                        <span className="text-2xl leading-none select-none">{category.icon}</span>
                       </div>
-                      <div>
+                      <div className="flex-1 min-w-0">
                         <CardTitle className="text-lg sm:text-xl font-heading group-hover:text-primary transition-colors">
                           {category.title}
                         </CardTitle>
-                        <CardDescription className="text-sm">
+                        <CardDescription className="text-sm sm:text-sm text-muted-foreground">
                           {questionCount} questions available
                         </CardDescription>
                       </div>
@@ -122,15 +122,15 @@ export default function CategoryRanks() {
                     <Trophy className="h-5 w-5 text-muted-foreground/50 group-hover:text-primary transition-colors" />
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
+                <CardContent className="px-4 sm:px-6">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-base sm:text-base text-left sm:text-left">
                     {category.description}
                   </p>
                   
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
                       <BookOpen className="h-4 w-4" />
-                      <span>Comprehensive {category.title.toLowerCase()} knowledge test</span>
+                      <span className="truncate">Comprehensive {category.title.toLowerCase()} knowledge test</span>
                     </div>
                     
                     <Link 
