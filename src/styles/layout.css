@@ -1,0 +1,71 @@
+/* Layout Fixes */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 0;
+  }
+}
+
+/* Text Alignment Fixes */
+.text-align-reset {
+  text-align: initial;
+}
+
+/* Content Container */
+.content-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .content-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-container {
+    padding: 2rem;
+  }
+}
+
+/* Sidebar Improvements */
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 40;
+  width: 16rem;
+  background-color: var(--sidebar-background);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+}
+
+/* Performance Optimizations */
+.animate-on-desktop {
+  @media (min-width: 768px) {
+    animation: fade-in 0.3s ease-out;
+  }
+}
+
+/* Responsive Typography */
+.responsive-text {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.5;
+}

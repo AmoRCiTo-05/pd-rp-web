@@ -12,7 +12,7 @@ const floatingIcons = [
 
 export function FloatingElements() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="floating-elements absolute inset-0 overflow-hidden pointer-events-none">
       {floatingIcons.map((item, index) => {
         const Icon = item.icon
         return (

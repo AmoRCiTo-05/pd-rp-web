@@ -3,6 +3,101 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import layout fixes */
+@import './styles/layout.css';
+
+/* Base fixes */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container improvements */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Typography improvements */
+.heading-text {
+  font-family: theme('fontFamily.heading');
+  letter-spacing: -0.025em;
+}
+
+.body-text {
+  font-family: theme('fontFamily.sans');
+  line-height: 1.6;
+}
+
+/* Performance optimizations */
+.content-visibility-auto {
+  content-visibility: auto;
+}
+
+/* Sidebar optimizations */
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar) transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar);
+  border-radius: 3px;
+}
+
+/* Responsive text utilities */
+.responsive-text-sm {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+}
+
+.responsive-text-base {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.responsive-text-lg {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+/* Animation optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* PD RP Guide Design System - Law Enforcement Roleplay Theme
 Multiple theme variations with consistent design principles
 All colors MUST be HSL.
@@ -599,3 +694,82 @@ All colors MUST be HSL.
       box-shadow: var(--shadow-sm);
     }
   }
+
+/* Additional mobile and accessibility optimizations for animations */
+@media (max-width: 768px) {
+  /* Disable common animated utilities on mobile for performance */
+  .animate-pulse,
+  .animate-fade-in,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-slow,
+  .animate-shimmer,
+  .animate-glow,
+  .animate-bounce,
+  .animate-pulse-slow,
+  .gradient-text {
+    animation-duration: 0.01ms !important;
+    animation-name: none !important;
+    transition-duration: 120ms !important;
+  }
+
+  /* Hide decorative floating elements on smaller screens (redundant safety) */
+  .floating-elements,
+  .particle-field,
+  .AnimatedBackground {
+    display: none !important;
+  }
+}
+
+/* Sheet-specific safe scrolling rules: the sheet overlay captures pointer events
+   and the sheet content will scroll independently on mobile. */
+.rp-sheet-content {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Apply strong scroll prevention on the main content when sheet opens.
+   This combines fixed positioning with pointer/touch event blocking
+   to ensure the sheet is the only interactive/scrollable element. */
+.sheet-open .app-main {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-overflow-scrolling: auto !important;
+  transform: translateZ(0);
+  z-index: 1;
+}
+
+/* Ensure the sheet portal (rendered outside app-root) is always above
+   the fixed main content and can receive all interactions */
+[role="dialog"][data-state="open"] {
+  position: fixed;
+  z-index: 999;
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  transform: translateZ(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Explicitly disable known animation utility classes when user prefers reduced motion */
+  .animate-pulse,
+  .animate-fade-in,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-slow,
+  .animate-shimmer,
+  .animate-glow,
+  .animate-bounce,
+  .animate-pulse-slow,
+  .gradient-text {
+    animation: none !important;
+    transition: none !important;
+  }
+}

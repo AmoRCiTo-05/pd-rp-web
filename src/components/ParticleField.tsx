@@ -28,33 +28,38 @@ export function ParticleField() {
 
     const createParticles = () => {
       const particles: Particle[] = []
-      const particleCount = Math.min(50, window.innerWidth / 20) // Responsive particle count
+      // Reduced particle count for better performance, especially on mobile
+      const particleCount = Math.min(30, Math.floor(window.innerWidth / 40)) // More optimized responsive count
       
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 2 + 1,
-          opacity: Math.random() * 0.3 + 0.1
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: (Math.random() - 0.5) * 0.8,
+          size: Math.random() * 3 + 1,
+          opacity: Math.random() * 0.4 + 0.2
         })
       }
       particlesRef.current = particles
     }
 
     const animate = () => {
+      if (!ctx) return;
+      
+      // Use RequestAnimationFrame timestamp for smooth animation
+      const now = performance.now() * 0.001; // Convert to seconds
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
       particlesRef.current.forEach((particle, index) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
+        // Use time-based movement for smooth animation across different frame rates
+        particle.x += particle.vx * (1/60)
+        particle.y += particle.vy * (1/60)
 
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width
-        if (particle.x > canvas.width) particle.x = 0
-        if (particle.y < 0) particle.y = canvas.height
-        if (particle.y > canvas.height) particle.y = 0
+        // Optimized edge wrapping
+        particle.x = (particle.x + canvas.width) % canvas.width
+        particle.y = (particle.y + canvas.height) % canvas.height
 
         // Draw particle
         ctx.globalAlpha = particle.opacity
@@ -107,7 +112,7 @@ export function ParticleField() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none opacity-20"
+      className="particle-field absolute inset-0 pointer-events-none opacity-20"
       style={{ zIndex: 1 }}
     />
   )

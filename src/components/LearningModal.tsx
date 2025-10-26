@@ -153,22 +153,23 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full max-w-4xl sm:max-w-6xl max-h-[92vh] sm:rounded-lg overflow-hidden glass-effect border-border/50 px-3 sm:px-6">
+      <DialogContent className="w-full max-w-4xl sm:max-w-6xl max-h-[92vh] sm:rounded-lg overflow-hidden backdrop-blur-md bg-background/95 border-border/50 px-3 sm:px-6 shadow-xl">
         <DialogHeader>
           <DialogTitle className="text-lg sm:text-2xl font-heading font-bold text-center mb-2 gradient-text">
             What do you want to learn?
           </DialogTitle>
         </DialogHeader>
 
-        {/* Search */}
+        {/* Search with enhanced details */}
         <div className="px-1 sm:px-4 mb-3">
           <div className="relative">
+            <BookOpen className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground/60" />
             <input
               aria-label="Search learning topics"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search topics, pages or categories..."
-              className="w-full rounded-lg bg-muted/10 border border-border/40 px-4 py-3 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+              className="w-full rounded-lg bg-muted/5 border border-border/40 pl-12 pr-4 py-3.5 placeholder:text-muted-foreground/70 focus:outline-none focus:ring-1 focus:ring-primary/20 focus:bg-muted/10 transition-all duration-200 shadow-sm"
             />
             {query && (
               <button
@@ -194,10 +195,10 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
                     className="w-full text-left"
                     aria-expanded={isOpen}
                   >
-                    <Card className={`immersive-card group cursor-pointer overflow-hidden transition-shadow ${isOpen ? 'ring-2 ring-primary/20' : ''}`}>
+                    <Card className={`relative overflow-hidden backdrop-blur-sm bg-card/95 border-border/50 transition-all duration-200 ${isOpen ? 'ring-1 ring-primary/30 shadow-lg shadow-primary/5' : 'hover:shadow-md hover:shadow-primary/5'}`}>
                       <CardHeader className="pb-3">
                         <div className="flex items-center gap-3">
-                          <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-md`}> 
+                          <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center transform transition-transform will-change-transform hover:scale-105 shadow-sm`}> 
                             <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                           </div>
                           <div className="flex-1 min-w-0">

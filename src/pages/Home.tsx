@@ -101,14 +101,17 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border min-h-[85vh] flex items-center">
-        <AnimatedBackground />
-        <ParticleField />
-        <FloatingElements />
-        <div className="relative w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 text-center z-10">
+        {/* Decorative backgrounds only on desktop */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none">
+          <AnimatedBackground />
+          <ParticleField />
+          <FloatingElements />
+        </div>
+        <div className="relative container max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 z-10">
           <div className="mx-auto max-w-5xl">
             <div className="mb-4 sm:mb-6 flex justify-center">
               <Badge variant="secondary" className="mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-primary/10 hover:bg-primary/20 transition-colors border-primary/20">
-                <Sparkles className="mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 animate-pulse" />
+                <Sparkles className="mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 md:motion-safe:animate-pulse" />
                 Your Essential Law Enforcement Guide
                 <Zap className="ml-1.5 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4 animate-bounce" />
               </Badge>
@@ -133,7 +136,7 @@ export default function Home() {
                   className="group w-full sm:w-auto px-8 py-3 text-base font-medium interactive-hover shadow-lg hover:shadow-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 transition-all duration-300"
                   onClick={() => setIsLearningModalOpen(true)}
                 >
-                  <BookOpen className="mr-2 h-5 w-5 animate-pulse" />
+                  <BookOpen className="mr-2 h-5 w-5 md:motion-safe:animate-pulse" />
                   Start Learning
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -223,7 +226,7 @@ export default function Home() {
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-lg"></div>
                         
                         <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl relative z-10`}>
-                          <category.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white animate-pulse" />
+                          <category.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white md:motion-safe:animate-pulse" />
                         </div>
                         <CardTitle className="font-heading text-base sm:text-lg group-hover:text-primary transition-colors duration-200 relative z-10 text-center">
                           {category.title}
@@ -257,7 +260,7 @@ export default function Home() {
               ].map((stat, index) => (
                 <GlowCard key={index} glowColor="blue">
                   <div className="glass-effect border border-border/50 rounded-lg p-4 sm:p-6 text-center group hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-                    <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 animate-pulse" />
+                    <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 md:motion-safe:animate-pulse" />
                     <div className="text-lg sm:text-xl lg:text-xl font-semibold text-primary mb-1">
                       {stat.title}
                     </div>

@@ -68,6 +68,33 @@ const SidebarProvider = React.forwardRef<
     const isMobile = useIsMobile()
     const [openMobile, setOpenMobile] = React.useState(false)
 
+    // Toggle a class on the top-level app container to prevent background
+    // scrolling while the mobile sheet is open. This avoids touching
+    // document.body directly and is safer across browsers.
+    React.useEffect(() => {
+      try {
+        const root = document.getElementById('app-root')
+        if (!root) return
+        if (openMobile) {
+          root.classList.add('sheet-open')
+        } else {
+          root.classList.remove('sheet-open')
+        }
+        return () => {
+          root.classList.remove('sheet-open')
+        }
+      } catch (e) {
+        // ignore in non-browser env
+      }
+    }, [openMobile])
+
+    // NOTE:
+    // We previously implemented a position:fixed body lock to prevent background
+    // scrolling while the mobile sheet is open. That caused interaction issues
+    // on some devices. The mobile sheet will instead manage its own scrolling
+    // via CSS (overflow on the sheet content). Keep openMobile state but do not
+    // touch document.body styles here to avoid interfering with native scrolling.
+
     // This is the internal state of the sidebar.
     // We use openProp and setOpenProp for control from outside the component.
     const [_open, _setOpen] = React.useState(defaultOpen)

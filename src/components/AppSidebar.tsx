@@ -134,8 +134,18 @@ const navigationItems = [{
 export function AppSidebar() {
   const [openSections, setOpenSections] = useState<string[]>([]);
   const location = useLocation();
-    const { state, setOpenMobile, isMobile } = useSidebar();
+  const { state, setOpenMobile, isMobile } = useSidebar();
   const isCollapsed = state === 'collapsed';
+
+  // Keep the active section open by default
+  React.useEffect(() => {
+    const activeSection = navigationItems.find(item => 
+      item.children?.some(child => child.href === location.pathname)
+    );
+    if (activeSection && !openSections.includes(activeSection.title)) {
+      setOpenSections(prev => [...prev, activeSection.title]);
+    }
+  }, [location.pathname]);
 
   const toggleSection = (title: string) => {
     if (isCollapsed) return;

@@ -175,7 +175,23 @@ export default {
 						transform: 'translateY(0px)'
 					},
 					'50%': {
-						transform: 'translateY(-10px)'
+						transform: 'translateY(-6px)'
+					}
+				},
+				'float-delayed': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-4px)'
+					}
+				},
+				'float-slow': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-3px)'
 					}
 				},
 				'shimmer': {
@@ -214,10 +230,12 @@ export default {
                 'scale-out': 'scale-out 0.15s ease-out',
                 'enter': 'fade-in 0.2s ease-out, scale-in 0.15s ease-out',
                 'exit': 'fade-out 0.2s ease-out, scale-out 0.15s ease-out',
-                'float': 'float 6s ease-in-out infinite',
-                'shimmer': 'shimmer 2s linear infinite',
-                'glow': 'glow 2s ease-in-out infinite alternate',
-                'pulse-slow': 'pulse-slow 4s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'float-delayed': 'float-delayed 3.5s ease-in-out infinite',
+				'float-slow': 'float-slow 4s ease-in-out infinite',
+				'shimmer': 'shimmer 1.6s linear infinite',
+				'glow': 'glow 1.6s ease-in-out infinite alternate',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
 			}
 		}
 	},
