@@ -165,9 +165,9 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar variant="inset" className="border-r border-sidebar-border mx-0 px-0 py-0">
-      <SidebarHeader className="border-b border-sidebar-border px-0 mx-0 my-0 py-0">
-        <div className="flex items-center p-4 py-[10px] px-[10px]">
+    <Sidebar variant="inset" className="border-r border-sidebar-border mx-0 px-0 py-0 bg-sidebar">
+      <SidebarHeader className="border-b border-sidebar-border px-0 mx-0 my-0 py-0 bg-sidebar">
+        <div className="flex items-center p-4 py-[10px] px-[10px] bg-sidebar">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center flex-shrink-0">
               <Shield className="h-5 w-5 text-primary-foreground" />
@@ -187,7 +187,7 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="bg-sidebar">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -285,9 +285,9 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-sidebar-border">
+      <SidebarFooter className="border-t border-sidebar-border bg-sidebar">
         {!isCollapsed && (
-          <div className="p-4">
+          <div className="p-4 bg-sidebar">
             <div className="text-xs text-sidebar-foreground/60 text-center">
               Made by <a href="mailto:aanshchopra33@gmail.com" className="font-medium text-sidebar-primary hover:underline">Aansh (AmoRCiTo)</a>
             </div>
