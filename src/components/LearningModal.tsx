@@ -153,28 +153,28 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full max-w-4xl sm:max-w-6xl max-h-[92vh] sm:rounded-lg overflow-hidden backdrop-blur-md bg-background/95 border-border/50 px-3 sm:px-6 shadow-xl">
-        <DialogHeader>
-          <DialogTitle className="text-lg sm:text-2xl font-heading font-bold text-center mb-2 gradient-text">
+      <DialogContent className="w-[95vw] sm:w-full max-w-[95vw] sm:max-w-4xl lg:max-w-6xl max-h-[90vh] sm:max-h-[92vh] rounded-lg sm:rounded-xl overflow-hidden backdrop-blur-md bg-background/95 border-border/50 p-4 sm:px-6 shadow-xl">
+        <DialogHeader className="pb-3 sm:pb-4">
+          <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-center gradient-text">
             What do you want to learn?
           </DialogTitle>
         </DialogHeader>
 
         {/* Search with enhanced details */}
-        <div className="px-1 sm:px-4 mb-3">
+        <div className="px-0 sm:px-4 mb-4">
           <div className="relative">
-            <BookOpen className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground/60" />
+            <BookOpen className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground/60" />
             <input
               aria-label="Search learning topics"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search topics, pages or categories..."
-              className="w-full rounded-lg bg-muted/5 border border-border/40 pl-12 pr-4 py-3.5 placeholder:text-muted-foreground/70 focus:outline-none focus:ring-1 focus:ring-primary/20 focus:bg-muted/10 transition-all duration-200 shadow-sm"
+              className="w-full rounded-lg bg-muted/5 border border-border/40 pl-10 sm:pl-12 pr-16 sm:pr-20 py-3 sm:py-3.5 text-sm sm:text-base placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:bg-muted/10 transition-all duration-200 shadow-sm"
             />
             {query && (
               <button
                 onClick={() => setQuery('')}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-muted-foreground px-2 py-1"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-muted-foreground hover:text-foreground px-2 py-1 rounded hover:bg-muted/50 transition-colors"
                 aria-label="Clear search"
               >
                 Clear
@@ -183,9 +183,9 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 px-1 sm:px-4 max-h-[68vh] overflow-y-auto pb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 px-0 sm:px-4 max-h-[60vh] sm:max-h-[65vh] overflow-y-auto pb-4 sm:pb-6">
           {/* Categories (accordion style) */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {filteredCategories.map((category, index) => {
               const isOpen = openIndex === index
               return (
@@ -195,17 +195,17 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
                     className="w-full text-left"
                     aria-expanded={isOpen}
                   >
-                    <Card className={`relative overflow-hidden backdrop-blur-sm bg-card/95 border-border/50 transition-all duration-200 ${isOpen ? 'ring-1 ring-primary/30 shadow-lg shadow-primary/5' : 'hover:shadow-md hover:shadow-primary/5'}`}>
-                      <CardHeader className="pb-3">
-                        <div className="flex items-center gap-3">
-                          <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center transform transition-transform will-change-transform hover:scale-105 shadow-sm`}> 
+                    <Card className={`relative overflow-hidden backdrop-blur-sm bg-card/95 border-border/50 transition-all duration-200 ${isOpen ? 'ring-2 ring-primary/40 shadow-lg shadow-primary/10' : 'hover:shadow-md hover:shadow-primary/5'}`}>
+                      <CardHeader className="p-3 sm:pb-3 sm:pt-4">
+                        <div className="flex items-center gap-2.5 sm:gap-3">
+                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center transform transition-transform will-change-transform hover:scale-105 shadow-sm flex-shrink-0`}> 
                             <category.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <CardTitle className="text-base sm:text-lg font-heading group-hover:text-primary transition-colors duration-150 truncate">
+                            <CardTitle className="text-sm sm:text-base lg:text-lg font-heading group-hover:text-primary transition-colors duration-150 line-clamp-1">
                               {category.title}
                             </CardTitle>
-                            <CardDescription className="text-xs sm:text-sm leading-relaxed mt-1 truncate text-muted-foreground">
+                            <CardDescription className="text-xs sm:text-sm leading-relaxed mt-0.5 sm:mt-1 line-clamp-2 text-muted-foreground">
                               {category.description}
                             </CardDescription>
                           </div>
@@ -214,17 +214,17 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
                     </Card>
                   </button>
 
-                  <div className={`mt-2 pl-4 transition-[max-height,opacity] duration-200 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="space-y-2">
+                  <div className={`mt-1.5 sm:mt-2 pl-3 sm:pl-4 transition-[max-height,opacity] duration-200 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="space-y-1 sm:space-y-2">
                       {category.subcategories && category.subcategories.length > 0 ? (
                         category.subcategories.map((sub, sIdx) => (
-                          <Link key={sIdx} to={sub.href} onClick={onClose} className="block px-3 py-3 rounded-md hover:bg-accent/60 transition-colors text-sm text-muted-foreground flex items-center gap-3">
-                            <div className="w-2 h-2 bg-muted-foreground rounded-full mt-1" />
+                          <Link key={sIdx} to={sub.href} onClick={onClose} className="block px-2 sm:px-3 py-2 sm:py-3 rounded-md hover:bg-accent/60 transition-colors text-xs sm:text-sm text-muted-foreground flex items-center gap-2 sm:gap-3">
+                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-muted-foreground rounded-full flex-shrink-0" />
                             <div className="truncate">{sub.title}</div>
                           </Link>
                         ))
                       ) : (
-                        <div className="px-3 py-2 text-sm text-muted-foreground">No quick links</div>
+                        <div className="px-2 sm:px-3 py-2 text-xs sm:text-sm text-muted-foreground">No quick links</div>
                       )}
                     </div>
                   </div>
@@ -234,24 +234,24 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
           </div>
 
           {/* Pages / Results */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <Card className="immersive-card">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg font-heading">Pages & Results</CardTitle>
+              <CardHeader className="p-3 sm:pb-2 sm:pt-4">
+                <CardTitle className="text-sm sm:text-base lg:text-lg font-heading">Pages & Results</CardTitle>
                 <CardDescription className="text-xs sm:text-sm text-muted-foreground mt-1">Quickly jump to any page. Search filters results in real-time.</CardDescription>
               </CardHeader>
               <div className="px-2 sm:px-4 pb-3">
-                <div className="grid grid-cols-1 gap-2 max-h-[56vh] overflow-y-auto">
+                <div className="grid grid-cols-1 gap-1 sm:gap-2 max-h-[52vh] sm:max-h-[56vh] overflow-y-auto">
                   {(normalizedQuery ? filteredPages : searchData).map((item) => (
                     <Link
                       key={item.id}
                       to={item.path}
                       onClick={onClose}
-                      className="block w-full px-4 py-3 rounded-md hover:bg-accent/60 transition-colors text-sm text-muted-foreground flex items-center gap-3"
+                      className="block w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-accent/60 transition-colors text-xs sm:text-sm text-muted-foreground flex items-center gap-2 sm:gap-3"
                     >
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full mt-1" />
-                      <div className="truncate">{item.title}</div>
-                      <div className="ml-auto text-xs text-muted-foreground/70 hidden sm:block">{item.category}</div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-muted-foreground rounded-full flex-shrink-0" />
+                      <div className="truncate flex-1">{item.title}</div>
+                      <div className="ml-auto text-xs text-muted-foreground/70 hidden sm:block flex-shrink-0">{item.category}</div>
                     </Link>
                   ))}
                 </div>

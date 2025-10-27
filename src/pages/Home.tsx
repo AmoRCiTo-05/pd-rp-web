@@ -176,25 +176,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Rank Evaluation CTA */}
-      <section className="py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <div className="bg-gradient-to-r from-primary/5 to-background border border-border rounded-lg p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="w-full sm:w-auto">
-              <h3 className="font-heading text-lg sm:text-xl font-semibold text-left">Confident about your rank?</h3>
-              <p className="text-sm text-muted-foreground mt-1 text-left">Take a Rank Evaluation Test to confirm your knowledge and get tailored recommendations.</p>
-            </div>
-            <div className="w-full sm:w-auto sm:ml-auto">
-              <Link to="/rank-based-questions">
-                <Button size="lg" className="w-full sm:w-auto px-4 py-3 flex items-center justify-center">
-                  <BookOpen className="mr-2 h-4 w-4" aria-hidden="true" />
-                  <span>Take the Rank Evaluation</span>
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Categories Grid */}
       <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
@@ -329,18 +310,18 @@ export default function Home() {
       </section>
 
       {/* Rank Evaluation CTA */}
-      <section className="py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="bg-gradient-to-r from-primary/5 to-background border border-border rounded-lg p-4 sm:p-6 flex flex-col sm:flex-row items-center gap-4">
-            <div className="text-left sm:text-left">
-              <h3 className="font-heading text-lg sm:text-xl font-semibold">Confident about your rank?</h3>
-              <p className="text-sm text-muted-foreground mt-1">Take a Rank Evaluation Test to confirm your knowledge and get tailored recommendations.</p>
+      <section className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="bg-gradient-to-r from-primary/5 to-background border border-border rounded-lg p-5 sm:p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex-1">
+              <h3 className="font-heading text-lg sm:text-xl lg:text-2xl font-semibold">Confident about your rank?</h3>
+              <p className="text-sm sm:text-base text-muted-foreground mt-1.5">Take a Rank Evaluation Test to confirm your knowledge and get tailored recommendations.</p>
             </div>
-            <div className="ml-auto">
+            <div className="w-full sm:w-auto sm:ml-auto flex-shrink-0">
               <Link to="/rank-based-questions">
-                <Button size="default" className="px-4 py-2">
-                  <BookOpen className="mr-2 h-4 w-4" />
-                  Take the Rank Evaluation
+                <Button size="lg" className="w-full sm:w-auto px-6 py-3">
+                  <BookOpen className="mr-2 h-4 w-4" aria-hidden="true" />
+                  <span>Take the Rank Evaluation</span>
                 </Button>
               </Link>
             </div>
