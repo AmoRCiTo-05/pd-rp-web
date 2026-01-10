@@ -68,32 +68,26 @@ const SidebarProvider = React.forwardRef<
     const isMobile = useIsMobile()
     const [openMobile, setOpenMobile] = React.useState(false)
 
-    // Toggle a class on the top-level app container to prevent background
-    // scrolling while the mobile sheet is open. This avoids touching
-    // document.body directly and is safer across browsers.
-    React.useEffect(() => {
-      try {
-        const root = document.getElementById('app-root')
-        if (!root) return
-        if (openMobile) {
-          root.classList.add('sheet-open')
-        } else {
-          root.classList.remove('sheet-open')
-        }
-        return () => {
-          root.classList.remove('sheet-open')
-        }
-      } catch (e) {
-        // ignore in non-browser env
-      }
-    }, [openMobile])
 
-    // NOTE:
-    // We previously implemented a position:fixed body lock to prevent background
-    // scrolling while the mobile sheet is open. That caused interaction issues
-    // on some devices. The mobile sheet will instead manage its own scrolling
-    // via CSS (overflow on the sheet content). Keep openMobile state but do not
-    // touch document.body styles here to avoid interfering with native scrolling.
+    // Lock background scrolling while the mobile sheet is open (prevents iOS
+    // scroll "ghosting" where the page appears behind the sidebar).
+    React.useEffect(() => {
+      if (!isMobile) return
+      if (!openMobile) return
+
+      const html = document.documentElement
+      const body = document.body
+      const prevHtmlOverflow = html.style.overflow
+      const prevBodyOverflow = body.style.overflow
+
+      html.style.overflow = "hidden"
+      body.style.overflow = "hidden"
+
+      return () => {
+        html.style.overflow = prevHtmlOverflow
+        body.style.overflow = prevBodyOverflow
+      }
+    }, [openMobile, isMobile])
 
     // This is the internal state of the sidebar.
     // We use openProp and setOpenProp for control from outside the component.
@@ -217,6 +211,7 @@ const Sidebar = React.forwardRef<
       )
     }
 
+
     if (isMobile) {
       return (
         <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
@@ -231,7 +226,10 @@ const Sidebar = React.forwardRef<
             }
             side={side}
           >
-            <div className="flex h-full w-full flex-col bg-sidebar overflow-y-auto">{children}</div>
+            {/* Single, dedicated scroll container (avoids nested overflow on mobile) */}
+            <div className="flex h-full w-full flex-col bg-sidebar rp-sheet-content sidebar-scroll">
+              {children}
+            </div>
           </SheetContent>
         </Sheet>
       )
