@@ -4,6 +4,7 @@ import { SearchBar } from '@/components/SearchBar'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Radio, AlertCircle, CheckCircle, Clock } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 const tenCodes = [
   { code: "10-2", description: "Reception Good", category: 'Communication', priority: 'Low' },
@@ -107,37 +108,37 @@ export default function TenCodes() {
   }
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="min-h-screen p-4 sm:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="p-2 bg-primary/10 rounded-lg">
-              <Radio className="h-6 w-6 text-primary" />
+        <div className="mb-6 sm:mb-8">
+          <div className="flex items-center gap-3 mb-3 sm:mb-4">
+            <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+              <Radio className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
             </div>
             <div>
-              <h1 className="font-heading text-3xl font-bold">10-Codes</h1>
-              <p className="text-muted-foreground">Essential radio communication codes for law enforcement</p>
+              <h1 className="font-heading text-2xl sm:text-3xl font-bold">10-Codes</h1>
+              <p className="text-sm sm:text-base text-muted-foreground">Essential radio communication codes</p>
             </div>
           </div>
         </div>
 
-        {/* Filters */}
-        <div className="mb-8 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:space-x-6">
-          <div className="flex-1">
+        {/* Filters - Optimized for mobile */}
+        <div className="mb-6 sm:mb-8 space-y-4">
+          <div className="w-full">
             <SearchBar 
-              placeholder="Search 10-codes or descriptions..."
+              placeholder="Search 10-codes..."
               onSearch={setSearchQuery}
             />
           </div>
           
-          <div className="flex flex-wrap gap-3">
-            <div>
-              <label className="block text-sm font-medium mb-2">Category</label>
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            <div className="flex-1 min-w-[140px]">
+              <label className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Category</label>
               <select 
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-3 py-2 bg-card border border-border rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                className="w-full px-3 py-2 bg-card border border-border rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary touch-manipulation"
               >
                 {categories.map(category => (
                   <option key={category} value={category}>{category}</option>
@@ -145,12 +146,12 @@ export default function TenCodes() {
               </select>
             </div>
             
-            <div>
-              <label className="block text-sm font-medium mb-2">Priority</label>
+            <div className="flex-1 min-w-[120px]">
+              <label className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Priority</label>
               <select 
                 value={selectedPriority}
                 onChange={(e) => setSelectedPriority(e.target.value)}
-                className="px-3 py-2 bg-card border border-border rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                className="w-full px-3 py-2 bg-card border border-border rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary touch-manipulation"
               >
                 {priorities.map(priority => (
                   <option key={priority} value={priority}>{priority}</option>
@@ -168,24 +169,27 @@ export default function TenCodes() {
         </div>
 
         {/* Codes Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {filteredCodes.map((code, index) => (
-            <Card key={index} className="hover:shadow-lg hover:shadow-primary/10 transition-all duration-200 border-border bg-card/50">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="font-mono text-xl text-primary font-bold">
+            <Card 
+              key={index} 
+              className="hover:shadow-lg hover:shadow-primary/10 transition-all duration-200 border-border bg-card/50 active:scale-[0.98] touch-manipulation"
+            >
+              <CardHeader className="pb-2 sm:pb-3">
+                <div className="flex items-center justify-between gap-2">
+                  <CardTitle className="font-mono text-lg sm:text-xl text-primary font-bold">
                     {code.code}
                   </CardTitle>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
                     {getPriorityIcon(code.priority)}
-                    <Badge variant="outline" className={getPriorityColor(code.priority)}>
+                    <Badge variant="outline" className={cn("text-xs", getPriorityColor(code.priority))}>
                       {code.priority}
                     </Badge>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <CardDescription className="text-foreground font-medium mb-3 leading-relaxed">
+              <CardContent className="pt-0">
+                <CardDescription className="text-foreground font-medium mb-2 sm:mb-3 leading-relaxed text-sm sm:text-base">
                   {code.description}
                 </CardDescription>
                 <Badge variant="secondary" className="text-xs">
@@ -195,6 +199,7 @@ export default function TenCodes() {
             </Card>
           ))}
         </div>
+
 
         {/* No Results */}
         {filteredCodes.length === 0 && (
