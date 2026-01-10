@@ -737,6 +737,49 @@ All colors MUST be HSL.
   overflow: visible;
 }
 
+/* Mobile touch feedback utilities */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+/* Mobile safe area for bottom nav */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Active state for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .active\:scale-95:active {
+    transform: scale(0.95);
+  }
+  
+  .active\:bg-accent\/50:active {
+    background-color: hsl(var(--accent) / 0.5);
+  }
+  
+  /* Faster transitions for touch feedback */
+  .transition-all {
+    transition-duration: 150ms;
+  }
+}
+
+/* Smooth scrolling momentum for iOS */
+.momentum-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Cards with better mobile touch feedback */
+.card-interactive {
+  @apply transition-transform duration-150;
+}
+
+.card-interactive:active {
+  @apply scale-[0.98];
+}
 
 @media (prefers-reduced-motion: reduce) {
   /* Explicitly disable known animation utility classes when user prefers reduced motion */
@@ -749,8 +792,10 @@ All colors MUST be HSL.
   .animate-glow,
   .animate-bounce,
   .animate-pulse-slow,
+  .animate-bounce-subtle,
   .gradient-text {
     animation: none !important;
     transition: none !important;
   }
 }
+

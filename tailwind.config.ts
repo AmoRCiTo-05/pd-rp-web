@@ -159,9 +159,19 @@ export default {
 						transform: 'translateY(0)'
 					},
 					'50%': {
-						transform: 'translateY(-5px)'
+						transform: 'translateY(-3px)'
 					}
 				},
+				'press': {
+					'0%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(0.97)' },
+					'100%': { transform: 'scale(1)' }
+				},
+				'tap-feedback': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0.7' }
+				},
+
 				'glow-pulse': {
 					'0%, 100%': {
 						boxShadow: '0 0 20px hsl(var(--primary) / 0.3)'
@@ -235,7 +245,11 @@ export default {
 				'float-slow': 'float-slow 4s ease-in-out infinite',
 				'shimmer': 'shimmer 1.6s linear infinite',
 				'glow': 'glow 1.6s ease-in-out infinite alternate',
-				'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'bounce-subtle': 'bounce-subtle 0.4s ease-out',
+				'press': 'press 0.15s ease-out',
+				'tap-feedback': 'tap-feedback 0.1s ease-out'
+
 			}
 		}
 	},

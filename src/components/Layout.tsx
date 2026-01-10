@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { SearchBar } from '@/components/SearchBar'
 import { BackToTop } from '@/components/BackToTop'
+import { MobileQuickNav } from '@/components/MobileQuickNav'
 import { AppSidebar } from '@/components/AppSidebar'
 import { AnimatedBackground } from '@/components/AnimatedBackground'
 import { ParticleField } from '@/components/ParticleField'
@@ -90,8 +91,8 @@ export function Layout({ children, className }: LayoutProps) {
             </div>
           </header>
           
-          {/* Page Content */}
-          <main className={cn("flex-1 animate-fade-in", className)}>
+          {/* Page Content - Add bottom padding for mobile nav */}
+          <main className={cn("flex-1 animate-fade-in pb-20 md:pb-0", className)}>
             {children}
           </main>
 
@@ -99,6 +100,9 @@ export function Layout({ children, className }: LayoutProps) {
           <Footer />
         </div>
         
+        {/* Mobile Quick Navigation Bar */}
+        <MobileQuickNav />
+
         {/* Back to Top Button */}
         <BackToTop />
         
