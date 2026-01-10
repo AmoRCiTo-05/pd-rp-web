@@ -721,41 +721,22 @@ All colors MUST be HSL.
   }
 }
 
-/* Sheet-specific safe scrolling rules: the sheet overlay captures pointer events
-   and the sheet content will scroll independently on mobile. */
+/* Sheet-specific safe scrolling rules */
 .rp-sheet-content {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
 
-/* Apply strong scroll prevention on the main content when sheet opens.
-   This combines fixed positioning with pointer/touch event blocking
-   to ensure the sheet is the only interactive/scrollable element. */
-.sheet-open .app-main {
-  position: fixed !important;
-  inset: 0 !important;
-  width: 100% !important;
-  overflow: hidden !important;
-  overscroll-behavior: none !important;
-  touch-action: none !important;
-  pointer-events: none !important;
-  user-select: none !important;
-  -webkit-overflow-scrolling: auto !important;
-  transform: translateZ(0);
-  z-index: 1;
+/* Mobile sidebar sheet: avoid nested scroll containers (prevents iOS "ghosting") */
+[data-sidebar="sidebar"][data-mobile="true"] {
+  background: hsl(var(--sidebar));
 }
 
-/* Ensure the sheet portal (rendered outside app-root) is always above
-   the fixed main content and can receive all interactions */
-[role="dialog"][data-state="open"] {
-  position: fixed;
-  z-index: 999;
-  touch-action: manipulation;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-  transform: translateZ(0);
+[data-sidebar="sidebar"][data-mobile="true"] [data-sidebar="content"] {
+  overflow: visible;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   /* Explicitly disable known animation utility classes when user prefers reduced motion */

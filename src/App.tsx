@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Layout } from '@/components/Layout'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { Toaster } from '@/components/ui/sonner'
+import { SidebarProvider } from '@/components/ui/sidebar'
 
 // Import pages
 import Home from '@/pages/Home'
@@ -42,42 +43,44 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/basic-codes/10-codes" element={<TenCodes />} />
-            <Route path="/basic-codes/code-comms" element={<CodeComms />} />
-            <Route path="/basic-codes/in-game-commands" element={<BasicInGameCommands />} />
-            <Route path="/basic-codes/patrol-areas" element={<PatrolAreas />} />
-            <Route path="/basic-codes/priority-sequence" element={<PrioritySequence />} />
-            <Route path="/basic-codes/sample-calls" element={<BasicSampleCalls />} />
-            <Route path="/short-forms" element={<ShortForms />} />
-            <Route path="/amendments" element={<Amendments />} />
-            <Route path="/sop/training" element={<Training />} />
-            <Route path="/sop/meu" element={<MEU />} />
-            <Route path="/sop/seu" element={<SEU />} />
-            <Route path="/sop/asd" element={<ASD />} />
-            <Route path="/sop/dispatcher" element={<Dispatcher />} />
-            <Route path="/ftd/field-training" element={<FieldTraining />} />
-            <Route path="/ftd/evaluation-test" element={<EvaluationTest />} />
-            <Route path="/rank-based-questions" element={<RankBasedQuestions />} />
-            <Route path="/rank-based-questions/individual-ranks" element={<IndividualRanks />} />
-            <Route path="/rank-based-questions/category-ranks" element={<CategoryRanks />} />
-            <Route path="/rank-based-questions/quiz/:type/:quizId" element={<QuizComponent />} />
-            <Route path="/case-laws" element={<CaseLaws />} />
-            <Route path="/advanced-sop/terms" element={<Terms />} />
-            <Route path="/penal-codes/types" element={<Types />} />
-            <Route path="/penal-codes/felony" element={<Felony />} />
-            <Route path="/penal-codes/misdemeanor" element={<Misdemeanor />} />
-            <Route path="/penal-codes/infraction" element={<Infraction />} />
-            <Route path="/situation-questions" element={<SituationQuestions />} />
-            <Route path="/confusing-topics" element={<ConfusingTopics />} />
-            <Route path="/pd/sample-calls" element={<SampleCalls />} />
-            <Route path="/pd/in-game-commands" element={<InGameCommands />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
+        <SidebarProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/basic-codes/10-codes" element={<TenCodes />} />
+              <Route path="/basic-codes/code-comms" element={<CodeComms />} />
+              <Route path="/basic-codes/in-game-commands" element={<BasicInGameCommands />} />
+              <Route path="/basic-codes/patrol-areas" element={<PatrolAreas />} />
+              <Route path="/basic-codes/priority-sequence" element={<PrioritySequence />} />
+              <Route path="/basic-codes/sample-calls" element={<BasicSampleCalls />} />
+              <Route path="/short-forms" element={<ShortForms />} />
+              <Route path="/amendments" element={<Amendments />} />
+              <Route path="/sop/training" element={<Training />} />
+              <Route path="/sop/meu" element={<MEU />} />
+              <Route path="/sop/seu" element={<SEU />} />
+              <Route path="/sop/asd" element={<ASD />} />
+              <Route path="/sop/dispatcher" element={<Dispatcher />} />
+              <Route path="/ftd/field-training" element={<FieldTraining />} />
+              <Route path="/ftd/evaluation-test" element={<EvaluationTest />} />
+              <Route path="/rank-based-questions" element={<RankBasedQuestions />} />
+              <Route path="/rank-based-questions/individual-ranks" element={<IndividualRanks />} />
+              <Route path="/rank-based-questions/category-ranks" element={<CategoryRanks />} />
+              <Route path="/rank-based-questions/quiz/:type/:quizId" element={<QuizComponent />} />
+              <Route path="/case-laws" element={<CaseLaws />} />
+              <Route path="/advanced-sop/terms" element={<Terms />} />
+              <Route path="/penal-codes/types" element={<Types />} />
+              <Route path="/penal-codes/felony" element={<Felony />} />
+              <Route path="/penal-codes/misdemeanor" element={<Misdemeanor />} />
+              <Route path="/penal-codes/infraction" element={<Infraction />} />
+              <Route path="/situation-questions" element={<SituationQuestions />} />
+              <Route path="/confusing-topics" element={<ConfusingTopics />} />
+              <Route path="/pd/sample-calls" element={<SampleCalls />} />
+              <Route path="/pd/in-game-commands" element={<InGameCommands />} />
+              <Route path="/about" element={<About />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        </SidebarProvider>
         <Toaster />
       </Router>
     </ThemeProvider>
