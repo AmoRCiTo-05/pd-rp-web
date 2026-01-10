@@ -8,7 +8,7 @@ import { AppSidebar } from '@/components/AppSidebar'
 import { AnimatedBackground } from '@/components/AnimatedBackground'
 import { ParticleField } from '@/components/ParticleField'
 import { LearningModal } from '@/components/LearningModal'
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarTrigger } from '@/components/ui/sidebar'
 import { Button } from '@/components/ui/button'
 import { BookOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -23,9 +23,10 @@ export function Layout({ children, className }: LayoutProps) {
   useScrollToTop();
   const [isLearningModalOpen, setIsLearningModalOpen] = useState(false);
 
+
   return (
-    <SidebarProvider>
       <div id="app-root" className="min-h-screen bg-background text-foreground relative">
+
         {/* Animated Background - Only show on desktop for better mobile performance */}
         <div className="fixed inset-0 pointer-events-none hidden md:block">
           <AnimatedBackground />
@@ -108,6 +109,6 @@ export function Layout({ children, className }: LayoutProps) {
         />
       </div>
       </div>
-    </SidebarProvider>
   )
+
 }
