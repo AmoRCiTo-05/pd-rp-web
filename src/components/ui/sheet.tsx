@@ -61,11 +61,7 @@ const SheetContent = React.forwardRef<
       <SheetOverlay />
       <SheetPrimitive.Content
         ref={ref}
-        className={cn(
-          sheetVariants({ side }),
-          "overflow-y-auto overscroll-contain touch-auto bg-sidebar",
-          className
-        )}
+        className={cn(sheetVariants({ side }), "touch-auto bg-sidebar", className)}
         {...props}
       >
         <div className="h-full w-full bg-sidebar">
