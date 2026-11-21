@@ -165,7 +165,7 @@ export default function Home() {
                       <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center mb-1.5 sm:mb-2 mx-auto group-hover:scale-110 transition-transform duration-200`}>
                         <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                       </div>
-                      <p className="text-[10px] sm:text-sm font-medium text-center group-hover:text-primary transition-colors truncate">
+                      <p className="text-[10px] sm:text-sm font-medium text-center leading-tight min-h-[2.5em] flex items-center justify-center group-hover:text-primary transition-colors">
                         {item.label}
                       </p>
                     </div>

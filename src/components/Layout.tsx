@@ -9,7 +9,7 @@ import { AppSidebar } from '@/components/AppSidebar'
 import { AnimatedBackground } from '@/components/AnimatedBackground'
 import { ParticleField } from '@/components/ParticleField'
 import { LearningModal } from '@/components/LearningModal'
-import { SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Button } from '@/components/ui/button'
 import { BookOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -37,21 +37,11 @@ export function Layout({ children, className }: LayoutProps) {
         {/* Mobile-optimized simpler background */}
         <div className="fixed inset-0 pointer-events-none md:hidden bg-gradient-to-b from-background via-background/95 to-background opacity-80" />
 
-        <div className="flex h-full">
-          {/* Sidebar - Sticky on desktop */}
-          <div className="hidden md:block flex-shrink-0">
-            <div className="fixed top-0 left-0 h-screen">
-              <AppSidebar />
-            </div>
-          </div>
-          
-          {/* Mobile Sidebar */}
-          <div className="md:hidden relative z-20">
-            <AppSidebar />
-          </div>
-        
-          {/* Main Content */}
-        <div className="flex-1 flex flex-col min-w-0 relative z-10 md:ml-64 app-main will-change-transform">
+        <div className="flex min-h-screen w-full">
+          {/* Single sidebar handles the mobile sheet and desktop sidebar. */}
+          <AppSidebar />
+
+          <SidebarInset className="flex flex-1 flex-col min-w-0 relative z-10">
           {/* Header */}
           <header className="sticky top-0 z-[15] backdrop-blur-md bg-background/80 border-b border-border/50 shadow-sm transition-all duration-300 hover:bg-background/90">
             <div className="flex items-center justify-between h-14 sm:h-16 px-3 sm:px-4 lg:px-6 gap-2 sm:gap-3">
@@ -61,7 +51,7 @@ export function Layout({ children, className }: LayoutProps) {
               </div>
               
               {/* Center: Search Bar */}
-              <div className="flex-1 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto">
+              <div className="flex-1 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto min-w-0">
                 <SearchBar />
               </div>
               
@@ -92,12 +82,17 @@ export function Layout({ children, className }: LayoutProps) {
           </header>
           
           {/* Page Content - Add bottom padding for mobile nav */}
-          <main className={cn("flex-1 animate-fade-in pb-20 md:pb-0", className)}>
+          <div className={cn(
+            "flex-1 animate-fade-in",
+            "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
+            className
+          )}>
             {children}
-          </main>
+          </div>
 
           {/* Footer */}
           <Footer />
+          </SidebarInset>
         </div>
         
         {/* Mobile Quick Navigation Bar */}
@@ -111,7 +106,6 @@ export function Layout({ children, className }: LayoutProps) {
           isOpen={isLearningModalOpen} 
           onClose={() => setIsLearningModalOpen(false)} 
         />
-      </div>
       </div>
   )
 
