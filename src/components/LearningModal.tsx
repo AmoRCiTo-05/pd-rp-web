@@ -118,7 +118,9 @@ const learningCategories = [
     icon: HelpCircle,
     href: '/situation-questions',
     color: 'from-yellow-500 to-yellow-600',
-    subcategories: []
+    subcategories: [
+      { title: 'Situation Based Questions', href: '/situation-questions' }
+    ]
   },
   {
     title: 'Confusing Topics',
@@ -126,7 +128,9 @@ const learningCategories = [
     icon: AlertTriangle,
     href: '/confusing-topics',
     color: 'from-pink-500 to-pink-600',
-    subcategories: []
+    subcategories: [
+      { title: 'Confusing Topics', href: '/confusing-topics' }
+    ]
   }
 ]
 
@@ -223,9 +227,7 @@ export function LearningModal({ isOpen, onClose }: LearningModalProps) {
                             <div className="truncate">{sub.title}</div>
                           </Link>
                         ))
-                      ) : (
-                        <div className="px-2 sm:px-3 py-2 text-xs sm:text-sm text-muted-foreground">No quick links</div>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                 </div>
