@@ -3,6 +3,11 @@ export interface Question {
   question: string
   options: string[]
   correctAnswer: number
+  explanation?: string
+  learnMore?: {
+    label: string
+    href: string
+  }
 }
 
 export interface QuizData {
