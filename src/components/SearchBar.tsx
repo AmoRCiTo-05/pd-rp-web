@@ -1,7 +1,8 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Search, X } from 'lucide-react'
+import { createPageDrill } from '@/utils/pageDrills'
+import { Search, X, Brain } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { searchPages, SearchResult } from '@/data/searchData'
@@ -121,16 +122,17 @@ export function SearchBar({ placeholder = "Search codes, procedures...", onSearc
         <div className="absolute top-full left-0 right-0 mt-1 bg-popover border border-border rounded-lg shadow-lg z-50 max-h-80 sm:max-h-96 overflow-y-auto">
           <div className="py-1 sm:py-2">
             {results.map((result, index) => (
-              <button
+              <div key={result.id}>
+              <Button variant="ghost"
                 key={result.id}
                 onClick={() => handleResultClick(result)}
-                className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-left hover:bg-accent hover:text-accent-foreground transition-colors border-none bg-transparent ${
+                className={`w-full h-auto whitespace-normal justify-start px-3 sm:px-4 py-2 sm:py-3 text-left hover:bg-accent hover:text-accent-foreground transition-colors border-none bg-transparent ${
                   selectedIndex === index ? 'bg-accent text-accent-foreground' : ''
                 }`}
               >
-                <div className="flex flex-col">
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium text-xs sm:text-sm truncate flex-1 pr-2">{result.title}</span>
+                <div className="flex flex-col w-full min-w-0">
+                  <div className="flex flex-wrap gap-2 items-center justify-between">
+                    <span className="font-medium text-xs sm:text-sm break-words flex-1 pr-2">{result.title}</span>
                     <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 sm:py-1 rounded shrink-0">
                       {result.category}
                     </span>
@@ -139,7 +141,13 @@ export function SearchBar({ placeholder = "Search codes, procedures...", onSearc
                     {result.description}
                   </span>
                 </div>
-              </button>
+              </Button>
+              {createPageDrill(result.path) && <Button variant="outline" size="sm" className="mx-3 my-2 gap-2" onClick={() => {
+                const filtered=createPageDrill(result.path,query)
+                const target=`/practice/quiz-me?page=${encodeURIComponent(result.path)}${filtered?`&topic=${encodeURIComponent(query)}`:''}`
+                navigate(target);setQuery('');setResults([]);setIsOpen(false);inputRef.current?.blur()
+              }}><Brain className="h-3 w-3"/>Test this topic</Button>}
+              </div>
             ))}
           </div>
         </div>

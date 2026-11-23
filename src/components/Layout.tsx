@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react'
+import { PagePracticeActions } from '@/components/PagePracticeActions'
 import { Footer } from '@/components/Footer'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { SearchBar } from '@/components/SearchBar'
@@ -87,6 +88,7 @@ export function Layout({ children, className }: LayoutProps) {
             "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
             className
           )}>
+            <PagePracticeActions />
             {children}
           </div>
 

@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, Trophy, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
-import { parseIndividualRanks, parseCategoryRanks, Question, QuizData } from '@/utils/quizParser'
+import { parseIndividualRanks, parseCategoryRanks, QuizData } from '@/utils/quizParser'
 import { attachLearningToQuestion } from '@/data/quizLearnMore'
 import rankBasedData from '@/data/rankBasedMCQs.txt?raw'
 import categoryBasedData from '@/data/categoryBasedMCQs.txt?raw'
+import { readLocal, writeLocal, removeLocal, updatePractice, getPractice } from '@/utils/practiceStorage'
+import { incorrectIds } from '@/utils/quizPools'
+import { BookmarkButton } from '@/components/BookmarkButton'
+import { useQuizKeyboard } from '@/hooks/useQuizKeyboard'
 import { toast } from 'sonner'
 
-interface QuizState {
-  currentQuestion: number
-  answers: Record<number, number>
-  timeStarted: number
-  completed: boolean
-  score?: number
-}
+import { QuizState, freshQuizState, restoreQuizState } from '@/utils/quizProgress'
 
-export default function QuizComponent() {
+interface QuizProps { allowRetake?: boolean; providedQuiz?: QuizData; storageId?: string; exitHref?: string; resultActions?: React.ReactNode; onComplete?: (quiz: QuizData, answers: Record<number,number>, score: number) => void }
+
+export default function QuizComponent({ providedQuiz, storageId, exitHref, onComplete, resultActions, allowRetake = true }: QuizProps = {}) {
   const { type, quizId } = useParams<{ type: string; quizId: string }>()
   const navigate = useNavigate()
+  const location = useLocation()
   const [quiz, setQuiz] = useState<QuizData | null>(null)
   const [quizState, setQuizState] = useState<QuizState>({
     currentQuestion: 0,
@@ -32,15 +33,17 @@ export default function QuizComponent() {
   const [showResults, setShowResults] = useState(false)
   const [loading, setLoading] = useState(true)
 
-  const storageKey = `quiz_${type}_${quizId}`
+  const storageKey = storageId ?? `quiz_${type}_${quizId}`
+  const backHref = exitHref ?? (type === 'individual' ? '/rank-based-questions/individual-ranks' : '/rank-based-questions/category-ranks')
 
   useEffect(() => {
     loadQuiz()
-    loadProgress()
-  }, [type, quizId])
+
+  }, [type, quizId, storageKey])
 
   const loadQuiz = async () => {
     try {
+      if (providedQuiz) { const selected = { ...providedQuiz, questions: providedQuiz.questions.map(attachLearningToQuestion) }; setQuiz(selected); loadProgress(selected); return }
       if (!quizId) return
       
       const decodedQuizId = decodeURIComponent(quizId)
@@ -59,10 +62,9 @@ export default function QuizComponent() {
         throw new Error('Quiz not found')
       }
       
-      setQuiz({
-        ...selectedQuiz,
-        questions: selectedQuiz.questions.map(attachLearningToQuestion)
-      })
+      const selected = { ...selectedQuiz, questions: selectedQuiz.questions.map(attachLearningToQuestion) }
+      setQuiz(selected)
+      loadProgress(selected)
     } catch (error) {
       console.error('Failed to load quiz:', error)
       toast.error('Failed to load quiz data')
@@ -72,23 +74,16 @@ export default function QuizComponent() {
     }
   }
 
-  const loadProgress = () => {
-    const saved = localStorage.getItem(storageKey)
-    if (saved) {
-      try {
-        const parsedState = JSON.parse(saved)
-        setQuizState(parsedState)
-        if (parsedState.completed) {
-          setShowResults(true)
-        }
-      } catch (error) {
-        console.error('Failed to load progress:', error)
-      }
-    }
+  const loadProgress = (selected: QuizData) => {
+    const saved = readLocal<QuizState>(storageKey, freshQuizState(selected))
+    const parsedState = restoreQuizState(saved, selected, storageKey)
+    writeLocal(storageKey, parsedState)
+    setQuizState(parsedState)
+    setShowResults(parsedState.completed)
   }
 
   const saveProgress = (newState: QuizState) => {
-    localStorage.setItem(storageKey, JSON.stringify(newState))
+    writeLocal(storageKey, newState)
   }
 
   const handleAnswer = (optionIndex: number) => {
@@ -137,22 +132,37 @@ export default function QuizComponent() {
     setQuizState(finalState)
     saveProgress(finalState)
     setShowResults(true)
+    if (!providedQuiz) updatePractice(d => ({ ...d, missed: { ...d.missed, [storageKey]: incorrectIds(quiz.questions, quizState.answers) } }))
+    updatePractice(d => ({...d,roadmap:{...d.roadmap,[storageKey]:Math.max(d.roadmap[storageKey]??0,score)}}))
+    onComplete?.(quiz, quizState.answers, score)
     
     toast.success(`Quiz completed! Score: ${score}%`)
   }
 
   const restartQuiz = () => {
-    const newState = {
-      currentQuestion: 0,
-      answers: {},
-      timeStarted: Date.now(),
-      completed: false
-    }
+    const newState = freshQuizState(quiz ?? undefined)
     setQuizState(newState)
     setShowResults(false)
-    localStorage.removeItem(storageKey)
+    removeLocal(storageKey)
+    if (!providedQuiz) updatePractice(d => ({...d, missed:{...d.missed,[storageKey]:[]}}))
     toast.success('Quiz restarted!')
   }
+
+  useQuizKeyboard(!loading && !showResults, quiz?.questions[quizState.currentQuestion]?.options.length ?? 0, handleAnswer, () => {
+    if (quizState.answers[quizState.currentQuestion] !== undefined) goToNextQuestion()
+  })
+  useEffect(() => {
+    if (!loading && !location.hash) window.scrollTo({top:0, behavior:'instant' as ScrollBehavior})
+  }, [quizState.currentQuestion, showResults, loading, storageKey])
+  useEffect(() => {
+    if (!location.hash || !quiz) return
+    const id = decodeURIComponent(location.hash.slice(1))
+    const index = quiz.questions.findIndex(q => `question-${q.id}` === id)
+    if (!showResults && index >= 0 && index !== quizState.currentQuestion) {
+      const next = {...quizState, currentQuestion:index}; setQuizState(next); saveProgress(next)
+    }
+    requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({block:'center'}))
+  }, [location.hash, quiz, showResults])
 
   if (loading) {
     return (
@@ -188,6 +198,7 @@ export default function QuizComponent() {
               Quiz Completed!
             </h1>
             <p className="text-muted-foreground">Here are your results</p>
+            {quizState.legacyQuestionCount && quizState.legacyQuestionCount !== quiz.questions.length && <p role="status" className="mt-3 text-sm text-muted-foreground">Your saved score is retained. This quiz now includes {quiz.questions.length} questions; retake it to answer the complete set.</p>}
           </div>
 
           <Card className="immersive-card mb-8">
@@ -203,17 +214,13 @@ export default function QuizComponent() {
               <div className="grid md:grid-cols-3 gap-4 text-center">
                 <div>
                   <div className="text-2xl font-semibold text-green-600">
-                    {Object.values(quizState.answers).filter((answer, index) => 
-                      answer === quiz.questions[index]?.correctAnswer
-                    ).length}
+                    {quiz.questions.filter((question, index) => quizState.answers[index] === question.correctAnswer).length}
                   </div>
                   <p className="text-sm text-muted-foreground">Correct</p>
                 </div>
                 <div>
                   <div className="text-2xl font-semibold text-red-600">
-                    {quiz.questions.length - Object.values(quizState.answers).filter((answer, index) => 
-                      answer === quiz.questions[index]?.correctAnswer
-                    ).length}
+                    {quiz.questions.length - quiz.questions.filter((question, index) => quizState.answers[index] === question.correctAnswer).length}
                   </div>
                   <p className="text-sm text-muted-foreground">Incorrect</p>
                 </div>
@@ -234,7 +241,7 @@ export default function QuizComponent() {
               const isCorrect = userAnswer === question.correctAnswer
               
               return (
-                <Card key={index} className="glass-effect border-border/50">
+                <Card key={index} id={`question-${question.id}`} className="glass-effect border-border/50 scroll-mt-24">
                   <CardHeader className="pb-3">
                     <div className="flex items-start gap-3">
                       <Badge variant={isCorrect ? 'default' : 'destructive'} className="mt-1">
@@ -242,6 +249,7 @@ export default function QuizComponent() {
                       </Badge>
                       <div className="flex-1">
                         <p className="font-medium">{question.question}</p>
+                        <BookmarkButton bookmark={{id:`question:${question.id}`,title:question.question,href:`${location.pathname}${location.search}#${encodeURIComponent(`question-${question.id}`)}`,kind:'question',question}}/>
                       </div>
                       {isCorrect ? (
                         <CheckCircle2 className="h-5 w-5 text-green-600 mt-1" />
@@ -302,13 +310,15 @@ export default function QuizComponent() {
             })}
           </div>
 
-          <div className="flex gap-4 justify-center">
-            <Button onClick={restartQuiz} variant="outline" className="gap-2">
+          {resultActions}
+          {!providedQuiz && (getPractice().missed[storageKey] ?? incorrectIds(quiz.questions, quizState.answers)).length > 0 && <div className="mb-6 flex justify-center"><Button asChild className="h-auto min-h-11 whitespace-normal"><Link to={`/practice/missed?type=${type}&quiz=${encodeURIComponent(quiz.title)}`}>Practice only what I missed</Link></Button></div>}
+          <div className="flex flex-wrap gap-4 justify-center">
+            {allowRetake && <Button onClick={restartQuiz} variant="outline" className="gap-2">
               <RefreshCw className="h-4 w-4" />
               Retake Quiz
-            </Button>
+            </Button>}
             <Link 
-              to={type === 'individual' ? '/rank-based-questions/individual-ranks' : '/rank-based-questions/category-ranks'}
+              to={backHref}
             >
               <Button className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
@@ -331,6 +341,7 @@ export default function QuizComponent() {
   }
 
   const currentQuestion = quiz.questions[quizState.currentQuestion]
+  if (!currentQuestion) return <Button onClick={restartQuiz}>Retake Quiz</Button>
   const progress = ((quizState.currentQuestion + 1) / quiz.questions.length) * 100
   const selectedAnswer = quizState.answers[quizState.currentQuestion]
 
@@ -339,7 +350,7 @@ export default function QuizComponent() {
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <Link 
-            to={type === 'individual' ? '/rank-based-questions/individual-ranks' : '/rank-based-questions/category-ranks'}
+            to={backHref}
           >
             <Button variant="ghost" size="sm" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
@@ -359,11 +370,12 @@ export default function QuizComponent() {
           <Progress value={progress} className="h-2" />
         </div>
 
-        <Card className="immersive-card mb-8">
+        <Card id={`question-${currentQuestion.id}`} className="immersive-card mb-8 scroll-mt-24">
           <CardHeader>
             <CardTitle className="text-lg leading-relaxed">
               {currentQuestion.question}
             </CardTitle>
+            <BookmarkButton key={currentQuestion.id} bookmark={{id:`question:${currentQuestion.id}`,title:currentQuestion.question,href:`${location.pathname}${location.search}#${encodeURIComponent(`question-${currentQuestion.id}`)}`,kind:'question',question:currentQuestion}}/>
           </CardHeader>
           <CardContent className="space-y-3">
             {currentQuestion.options.map((option, index) => (
@@ -371,6 +383,8 @@ export default function QuizComponent() {
                 key={index}
                 variant={selectedAnswer === index ? "default" : "outline"}
                 className="w-full justify-start text-left h-auto p-4 whitespace-normal"
+                aria-pressed={selectedAnswer === index}
+                aria-keyshortcuts={String.fromCharCode(65 + index)}
                 onClick={() => handleAnswer(index)}
               >
                 <div className="flex items-start gap-3">

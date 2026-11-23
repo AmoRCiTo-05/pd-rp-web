@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Home, Radio, Scale, FileText, Menu, X } from 'lucide-react'
+import { Home, Radio, Scale, FileText, Menu, X, Brain } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useSidebar } from '@/components/ui/sidebar'
 
 const quickLinks = [
+  { icon: Brain, label: 'Practice', href: '/practice' },
   { icon: Home, label: 'Home', href: '/' },
   { icon: Radio, label: '10-Codes', href: '/basic-codes/10-codes' },
   { icon: Scale, label: 'Penal', href: '/penal-codes/types' },

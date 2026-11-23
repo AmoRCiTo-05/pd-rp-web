@@ -121,6 +121,10 @@ const navigationItems = [{
   href: '/confusing-topics',
   icon: AlertTriangle
 }, {
+  title: 'Practice',
+  href: '/practice',
+  icon: Trophy
+}, {
   title: 'About',
   href: '/about',
   icon: Info

@@ -1,0 +1,168 @@
+{
+  "quiz_individual_Academy (Cadet + Probationary Officer) - Cadet": [
+    "What is the first level of force officers should always attempt before anything else?",
+    "During a patrol, you find a car illegally parked with no driver inside. What should you do first?",
+    "What does BOLO stand for?",
+    "If a senior officer gives you a personal order unrelated to duty, how should you respond?"
+  ],
+  "quiz_individual_Academy (Cadet + Probationary Officer) - Probationary Officer": [
+    "Why must cadets always wear their proper uniform?",
+    "Which amendment protects individuals from self-incrimination?",
+    "When can an officer frisk a person without a warrant?",
+    "After handcuffing a suspect, what must you do?",
+    "How should you handle a civilian who is verbally insulting but not violent?"
+  ],
+  "quiz_individual_Patrol (Officer + Senior Officer) - Officer": [
+    "Why is reporting via MDT essential?",
+    "When must Miranda Rights be read?",
+    "What is the difference between detain and arrest?",
+    "What is the purpose of a traffic stop?",
+    "Which is NOT required equipment on patrol?"
+  ],
+  "quiz_individual_Patrol (Officer + Senior Officer) - Senior Officer": [
+    "What should an officer do first in a domestic violence call?",
+    "Which amendment gives the right to an attorney?",
+    "If an officer witnesses destruction of evidence during a misdemeanor, what can they do?",
+    "What is the N+2 Rule?",
+    "In which case was stop-and-frisk allowed under reasonable suspicion?"
+  ],
+  "quiz_individual_Supervisor (Corporal + Sergeant) - Corporal": [
+    "Which amendment protects against cruel punishment?",
+    "Which case law set precedent for use of deadly force if a suspect poses threat?",
+    "Which is an example of Probable Cause?",
+    "What does “Non-Bonafide Evidence” mean?",
+    "What should be done before deploying a taser?"
+  ],
+  "quiz_individual_Supervisor (Corporal + Sergeant) - Sergeant": [
+    "A sergeant asks you to help in misconduct cover-up. What should you do?",
+    "What is “Match of Force”?",
+    "Which advanced crime term means deliberate lying under oath?",
+    "Which type of warrant allows officers to arrest a person?",
+    "If suspects refuel their vehicle mid-chase, what can officers do?"
+  ],
+  "quiz_individual_Command (Head Sergeant + Lieutenant) - Head Sergeant": [
+    "What is the penalty action system sequence?",
+    "Which advanced crime is defined as “unlawful uprising against government”?",
+    "What is the difference between Reports/FIR and Chargesheet?",
+    "Which crime involves concealing illegal money through transactions?",
+    "In pursuit, when is PIT allowed in city?"
+  ],
+  "quiz_individual_Command (Head Sergeant + Lieutenant) - Lieutenant": [
+    "Which amendment prevents unreasonable searches?",
+    "What is the chain of command from Chief down to Officer in LSPD?",
+    "Which case law allows officers to search a car with probable cause without warrant?",
+    "During an armed bank robbery, what must suspects provide to negotiator?",
+    "What should be done after tasering a suspect twice?"
+  ],
+  "quiz_individual_High Command (Captain + Commander + Deputy Chief + Chief) - Captain": [
+    "What is the LOA maximum duration at once?",
+    "In an active shooter situation, what units must be coordinated?",
+    "Which law protects against forced entry without a warrant?",
+    "Who has final authority on disciplinary actions after IA investigation?",
+    "During gang wars in populated areas, when may officers engage?"
+  ],
+  "quiz_individual_High Command (Captain + Commander + Deputy Chief + Chief) - Commander": [
+    "Which crime involves misuse of public office for personal gain?",
+    "In case of hostage situation, what is the first step?",
+    "Which amendment ensures right to trial by judge?",
+    "What must be prepared within 48 hours of arrest?",
+    "Who can authorize suspension of officers?"
+  ],
+  "quiz_individual_High Command (Captain + Commander + Deputy Chief + Chief) - Deputy Chief": [
+    "What is the maximum suspension period?",
+    "What is the primary jurisdiction of SASP?",
+    "Which crime means unlawfully depriving someone of body part?",
+    "When can lethal force be used?",
+    "What is the insurance policy coverage for SALE officers?"
+  ],
+  "quiz_individual_High Command (Captain + Commander + Deputy Chief + Chief) - Chief": [
+    "How many consecutive terms can a subdivision head serve?",
+    "Who is at the top of Chain of Command in SASP?",
+    "Which case law makes undercover statements admissible in court?",
+    "What’s the correct order of penalty escalation?",
+    "Which amendment covers rights not listed in Constitution?",
+    "In a terrorism situation, what weapons can cadets use?"
+  ],
+  "quiz_category_Academy (10 Questions)": [
+    "What is the first level of force officers should always attempt before anything else?",
+    "During a patrol, you find a car illegally parked with no driver inside. What should you do first?",
+    "What does BOLO stand for, and why is it important?",
+    "If a senior officer gives you an unrelated personal order (e.g., “buy me lunch”), how do you respond?",
+    "Why must cadets always wear their proper uniform?",
+    "Which amendment protects individuals from self-incrimination?",
+    "When can an officer frisk a person without a warrant?",
+    "After handcuffing a suspect, what must you do?",
+    "How should you handle a civilian who is verbally insulting but not violent?"
+  ],
+  "quiz_category_Patrol (10 Questions)": [
+    "Why is reporting via MDT essential?",
+    "When must Miranda Rights be read?",
+    "What is the difference between a misdemeanor and a felony?",
+    "What is the PIT protocol inside the city?",
+    "Which case law allows officers to frisk suspects based on reasonable suspicion?",
+    "On arriving first at a violent fight scene, what are your steps?",
+    "Which amendment guarantees the right to an attorney?",
+    "If a suspect asks for a lawyer during questioning, what must you do?",
+    "You see drugs in plain view during a car stop. What principle allows you to search further?",
+    "In a hostage situation, what is the negotiator’s main goal?"
+  ],
+  "quiz_category_Supervisor (Corporal – 10 Questions)": [
+    "If you discover an officer falsifying a report, what are you required to do?",
+    "Which case law allows ordering someone out of a vehicle for officer safety?",
+    "Define “Bonafide Evidence” with an example.",
+    "Which case law allows searching a passenger’s bag if contraband is suspected?",
+    "What is the N+2 rule in operations?",
+    "How should non-bonafide evidence be handled?",
+    "Which amendment prohibits cruel or unusual punishments?",
+    "What is the correct PIT speed limit outside the city?",
+    "What should you do if a suspect is verbally aggressive but unarmed?",
+    "Which advanced crime means deception for financial gain?"
+  ],
+  "quiz_category_Command (Sergeant + Head Sergeant – 10 Questions)": [
+    "Who can authorize suspension of an officer?",
+    "Which financial crime involves concealing illegal money’s origins?",
+    "When can officers arrest without a warrant?",
+    "What is “Match of Force”? Give an example.",
+    "During a pursuit, if a suspect refuels twice, what is protocol?",
+    "Give an example of abuse of power by an officer.",
+    "Define “Perjury” with an example.",
+    "What is “Double Jeopardy”?",
+    "Which advanced crime involves killing wildlife illegally?",
+    "In a gang war within city limits, when may officers engage directly?"
+  ],
+  "quiz_category_Command Supervisor (Lieutenant – 10 Questions)": [
+    "What is the proper response if an unarmed suspect is verbally aggressive?",
+    "Explain the principle from Mike Smoore vs. LSPD.",
+    "What disciplinary action applies if a cadet points a gun at an unarmed suspect?",
+    "What is the LOA policy for officers?",
+    "If a suspect’s lawyer doesn’t arrive within 15 minutes, what is protocol?",
+    "Explain the difference between Reasonable Suspicion and Probable Cause.",
+    "Which amendment allows firearm ownership with proper paperwork?",
+    "Who can assign MDT officers in robbery?",
+    "What is the maximum suspension duration?",
+    "If suspects jump dangerously during chase, when can PITs be done?"
+  ],
+  "quiz_category_High Command (Captain + Commander + Deputy Chief + Chief – 20 Questions)": [
+    "What role does a Watch Commander play?",
+    "In a blackout with no comms, how should you assign roles?",
+    "Which case law requires Miranda Rights before interrogation?",
+    "What role does a Watch Commander play in crisis?",
+    "What speed limit applies for PITs outside the city?",
+    "After taser deployment, what must be done?",
+    "If a senior officer is caught stealing from evidence, what are your steps?",
+    "During a terrorist attack, what weapons may cadets use?",
+    "A Sergeant files abuse complaint against Lieutenant. How do you handle it?",
+    "How do you coordinate when robbery and gang war occur simultaneously?",
+    "Which case law allows searching vehicle belongings for contraband?",
+    "What are the four levels of disciplinary action?",
+    "When can SEU/MPU units be deployed in pursuits?",
+    "How does Tennessee v. Garner apply to pursuits?",
+    "A Watch Commander fails to assign MDT officer in robbery. What’s your response?",
+    "How do you balance SASP, LSPD, BCSO jurisdiction?",
+    "A high-command officer is colluding with criminals. What’s your step?",
+    "Active shooter in LS + prison riot simultaneously. What do you prioritize?",
+    "Which amendment protects from cruel punishment?",
+    "If subordinate refuses lawful order mid-op, what do you do?",
+    "Hostage crisis and terrorist bombing happen together. How do you lead?"
+  ]
+}

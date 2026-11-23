@@ -1,189 +1,98 @@
 export interface Question {
-  id: string
-  question: string
-  options: string[]
-  correctAnswer: number
-  explanation?: string
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation?: string;
   learnMore?: {
-    label: string
-    href: string
-  }
+    label: string;
+    href: string;
+  };
 }
 
 export interface QuizData {
-  title: string
-  questions: Question[]
+  title: string;
+  questions: Question[];
 }
 
+// Flush a pending question before switching sections: otherwise Q10 was carried
+// into the next category and Academy was left with only nine questions.
+function parseRanks(
+  data: string,
+  individual: boolean,
+): Record<string, QuizData> {
+  const sections: Record<string, QuizData> = {};
+  const lines = data.split("\n");
+  let section = "";
+  let rank = "";
+  let questions: Question[] = [];
+  let current: Question | undefined;
+  let counter = 0;
+  const flushQuestion = () => {
+    if (current?.question && current.options.length) questions.push(current);
+    current = undefined;
+  };
+  const flushSection = () => {
+    flushQuestion();
+    const title = individual ? `${section} - ${rank}` : section;
+    if (section && (!individual || rank) && questions.length)
+      sections[title] = { title, questions: [...questions] };
+    questions = [];
+    counter = 0;
+  };
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    const next = lines[i + 1]?.trim();
+    if (
+      /^={3,}$/.test(line) &&
+      next &&
+      !/^={3,}$/.test(next) &&
+      !/^Q\d+[.)]/.test(next) &&
+      !next.startsWith("---")
+    ) {
+      flushSection();
+      section = next;
+      rank = "";
+      i++;
+      continue;
+    }
+    const rankHeader = line.match(/^---\s+(.+?)\s+---$/);
+    if (individual && rankHeader) {
+      flushSection();
+      rank = rankHeader[1];
+      continue;
+    }
+    const questionLine = line.match(/^Q\d+[.)]\s*(.+)$/);
+    if (questionLine) {
+      flushQuestion();
+      counter++;
+      current = {
+        id: individual
+          ? `${section}-${rank}-${counter}`
+          : `${section}-${counter}`,
+        question: questionLine[1],
+        options: [],
+        correctAnswer: 0,
+      };
+      continue;
+    }
+    if (/^[A-D]\)/.test(line) && current) {
+      const isCorrect = line.includes("✅");
+      current.options.push(
+        line
+          .replace(/^[A-D]\)\s*/, "")
+          .replace(/\s*✅/g, "")
+          .trim(),
+      );
+      if (isCorrect) current.correctAnswer = current.options.length - 1;
+    }
+  }
+  flushSection();
+  return sections;
+}
 export function parseIndividualRanks(data: string): Record<string, QuizData> {
-  const sections: Record<string, QuizData> = {}
-  const lines = data.split('\n')
-  
-  let currentSection = ''
-  let currentSubSection = ''
-  let questions: Question[] = []
-  let currentQuestion: Partial<Question> = {}
-  let questionCounter = 0
-  
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim()
-    
-    // Section headers like "Academy (Cadet + Probationary Officer)"
-    if (line.includes('=====') && lines[i + 1]?.trim() && !lines[i + 1].includes('=====')) {
-      if (currentSubSection && questions.length > 0) {
-        sections[`${currentSection} - ${currentSubSection}`] = {
-          title: `${currentSection} - ${currentSubSection}`,
-          questions: [...questions]
-        }
-      }
-      currentSection = lines[i + 1].trim()
-      questions = []
-      questionCounter = 0
-      continue
-    }
-    
-    // Sub-section headers like "--- Cadet ---"
-    if (line.startsWith('--- ') && line.endsWith(' ---')) {
-      if (currentSubSection && questions.length > 0) {
-        sections[`${currentSection} - ${currentSubSection}`] = {
-          title: `${currentSection} - ${currentSubSection}`,
-          questions: [...questions]
-        }
-      }
-      currentSubSection = line.replace(/---\s*/, '').replace(/\s*---/, '')
-      questions = []
-      questionCounter = 0
-      continue
-    }
-    
-    // Question line
-    if (line.match(/^Q\d+\./)) {
-      if (currentQuestion.question && currentQuestion.options) {
-        questions.push({
-          id: `${currentSection}-${currentSubSection}-${questionCounter}`,
-          question: currentQuestion.question,
-          options: currentQuestion.options,
-          correctAnswer: currentQuestion.correctAnswer || 0
-        })
-      }
-      
-      questionCounter++
-      currentQuestion = {
-        question: line.replace(/^Q\d+\.\s*/, ''),
-        options: [],
-        correctAnswer: 0
-      }
-    }
-    
-    // Answer options
-    if (line.match(/^[A-D]\)/)) {
-      const isCorrect = line.includes('✅')
-      const option = line.replace(/^[A-D]\)\s*/, '').replace(/\s*✅/, '')
-      
-      currentQuestion.options = currentQuestion.options || []
-      currentQuestion.options.push(option)
-      
-      if (isCorrect) {
-        currentQuestion.correctAnswer = currentQuestion.options.length - 1
-      }
-    }
-  }
-  
-  // Add the last question and section
-  if (currentQuestion.question && currentQuestion.options) {
-    questions.push({
-      id: `${currentSection}-${currentSubSection}-${questionCounter}`,
-      question: currentQuestion.question,
-      options: currentQuestion.options,
-      correctAnswer: currentQuestion.correctAnswer || 0
-    })
-  }
-  
-  if (currentSubSection && questions.length > 0) {
-    sections[`${currentSection} - ${currentSubSection}`] = {
-      title: `${currentSection} - ${currentSubSection}`,
-      questions: [...questions]
-    }
-  }
-  
-  return sections
+  return parseRanks(data, true);
 }
-
 export function parseCategoryRanks(data: string): Record<string, QuizData> {
-  const sections: Record<string, QuizData> = {}
-  const lines = data.split('\n')
-  
-  let currentSection = ''
-  let questions: Question[] = []
-  let currentQuestion: Partial<Question> = {}
-  let questionCounter = 0
-  
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim()
-    
-    // Section headers like "Academy (10 Questions)"
-    if (line.includes('=====') && lines[i + 1]?.trim() && !lines[i + 1].includes('=====')) {
-      if (currentSection && questions.length > 0) {
-        sections[currentSection] = {
-          title: currentSection,
-          questions: [...questions]
-        }
-      }
-      currentSection = lines[i + 1].trim()
-      questions = []
-      questionCounter = 0
-      continue
-    }
-    
-    // Question line
-    if (line.match(/^Q\d+\./)) {
-      if (currentQuestion.question && currentQuestion.options) {
-        questions.push({
-          id: `${currentSection}-${questionCounter}`,
-          question: currentQuestion.question,
-          options: currentQuestion.options,
-          correctAnswer: currentQuestion.correctAnswer || 0
-        })
-      }
-      
-      questionCounter++
-      currentQuestion = {
-        question: line.replace(/^Q\d+\.\s*/, ''),
-        options: [],
-        correctAnswer: 0
-      }
-    }
-    
-    // Answer options
-    if (line.match(/^[A-D]\)/)) {
-      const isCorrect = line.includes('✅')
-      const option = line.replace(/^[A-D]\)\s*/, '').replace(/\s*✅/, '')
-      
-      currentQuestion.options = currentQuestion.options || []
-      currentQuestion.options.push(option)
-      
-      if (isCorrect) {
-        currentQuestion.correctAnswer = currentQuestion.options.length - 1
-      }
-    }
-  }
-  
-  // Add the last question and section
-  if (currentQuestion.question && currentQuestion.options) {
-    questions.push({
-      id: `${currentSection}-${questionCounter}`,
-      question: currentQuestion.question,
-      options: currentQuestion.options,
-      correctAnswer: currentQuestion.correctAnswer || 0
-    })
-  }
-  
-  if (currentSection && questions.length > 0) {
-    sections[currentSection] = {
-      title: currentSection,
-      questions: [...questions]
-    }
-  }
-  
-  return sections
+  return parseRanks(data, false);
 }

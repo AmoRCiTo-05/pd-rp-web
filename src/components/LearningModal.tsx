@@ -23,6 +23,7 @@ interface LearningModalProps {
 }
 
 const learningCategories = [
+  { title: 'Practice', description: 'Practice tools and saved study activities', icon: BookOpen, href: '/practice', color: 'from-primary to-primary', subcategories: [{ title: 'Practice', href: '/practice' }] },
   {
     title: 'Basic Codes',
     description: 'Essential 10-codes, communication protocols, priority sequences, and patrol area maps',

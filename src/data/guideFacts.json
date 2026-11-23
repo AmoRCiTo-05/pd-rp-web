@@ -1,0 +1,1385 @@
+{
+  "/amendments": [
+    {
+      "title": "No Religious Discrimination",
+      "detail": "Protects religious freedom and prevents discrimination based on religious beliefs.",
+      "number": "1st"
+    },
+    {
+      "title": "Right to bear arms with proper Paperwork",
+      "detail": "Allows citizens to own firearms with appropriate documentation and permits.",
+      "number": "2nd"
+    },
+    {
+      "title": "No Warrant No Entry",
+      "detail": "Protects against unauthorized entry into private property without a warrant.",
+      "number": "3rd"
+    },
+    {
+      "title": "No Warrant No Search & Seizure",
+      "detail": "Prohibits unreasonable searches and seizures without a warrant.",
+      "number": "4th"
+    },
+    {
+      "title": "Protection Against Self-Incrimination",
+      "detail": "Without Evidence a LEO cannot incriminate through interrogation & threats, Directly / Indirectly",
+      "number": "5th"
+    },
+    {
+      "title": "Right to Attorney",
+      "detail": "Guarantees the right to legal representation in criminal cases.",
+      "number": "6th"
+    },
+    {
+      "title": "Right to Trial by a Judge",
+      "detail": "Ensures the right to a fair trial presided over by a judge.",
+      "number": "7th"
+    },
+    {
+      "title": "Protection Against Cruel Punishment",
+      "detail": "No cruel or unusual punishments / not limited to excessive fines",
+      "number": "8th"
+    },
+    {
+      "title": "Unlisted Rights",
+      "detail": "Protects rights not listed in Constitution",
+      "number": "9th"
+    },
+    {
+      "title": "Federal Powers",
+      "detail": "Federal Government possess powers only listed in Constitution",
+      "number": "10th"
+    }
+  ],
+  "/case-laws": [
+    {
+      "title": "Tennessee vs Garner",
+      "detail": "Deadly force allowed if suspect poses serious threat."
+    },
+    {
+      "title": "Terry vs Ohio",
+      "detail": "Stop-and-frisk allowed with reasonable suspicion."
+    },
+    {
+      "title": "Pennsylvania vs Mimms",
+      "detail": "Officers can order people out of vehicles if armed suspicion exists."
+    },
+    {
+      "title": "Wyoming vs Houghton",
+      "detail": "Officers can search belongings if hiding illegal items is suspected."
+    },
+    {
+      "title": "Carrol vs United States",
+      "detail": "No warrant needed with probable cause."
+    },
+    {
+      "title": "Mike Smoore vs LSPD",
+      "detail": "Search & sweep allowed in felony stops for protective custody."
+    },
+    {
+      "title": "Miranda vs Arizona",
+      "detail": "Suspects must be read their Miranda rights."
+    },
+    {
+      "title": "People vs Georgina Williams",
+      "detail": "Undercover statements are admissible in court."
+    },
+    {
+      "title": "People vs Meg Kyrakruz",
+      "detail": "No interrogation without a lawyer present."
+    },
+    {
+      "title": "People vs Cedric Stanfield",
+      "detail": "Possessing an unlicensed firearm is illegal, even if broken."
+    }
+  ],
+  "/penal-codes/types": [
+    {
+      "title": "Felony",
+      "detail": "Serious crimes punishable by imprisonment for more than one year or capital punishment"
+    },
+    {
+      "title": "Misdemeanor",
+      "detail": "Lesser offenses typically punishable by less than one year in jail"
+    },
+    {
+      "title": "Infraction",
+      "detail": "Minor violations typically punishable by fines rather than imprisonment"
+    }
+  ],
+  "/penal-codes/felony": [
+    {
+      "title": "Unlawful Imprisonment of a Government Employee",
+      "detail": "Restricting a Government Employee's freedom of movement without legal justification.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Unlawful Imprisonment of a Judge",
+      "detail": "Restricting a Judge's freedom of movement without legal justification.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Kidnapping",
+      "detail": "Unlawfully taking or confining another person by force or fear.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Accessory to Kidnapping",
+      "detail": "Helping an individual hinder the apprehension, trial, or punishment for kidnapping.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Kidnapping of a Government Employee",
+      "detail": "Taking a Government Employee by force or fear a significant distance without consent.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Kidnapping of a Judge",
+      "detail": "Taking a Judge by force or fear a significant distance without consent.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Hostage Taking",
+      "detail": "Unlawfully taking or confining a person for use as a shield, leverage, or to obtain ransom.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Accessory to Hostage Taking",
+      "detail": "Being an accessory after the fact to hostage taking.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Hostage Taking of a Government Employee",
+      "detail": "Unlawfully taking or confining a Government Employee for use as a shield, leverage, or to obtain ransom.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Hostage Taking of a Judge",
+      "detail": "Unlawfully taking or confining a Judge for use as a shield, leverage, or to obtain ransom.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Felony Domestic Violence",
+      "detail": "Unlawful act of enacting serious bodily injury or grievous violence on a domestic partner or family member.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Assault with a Weapon",
+      "detail": "Intentionally assaulting another person and inflicting substantial bodily harm with a weapon.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Assault with a Weapon on a Government Employee",
+      "detail": "Intentionally assaulting a Government Employee and inflicting substantial bodily harm with a weapon.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Assault with a Weapon on a Judge",
+      "detail": "Intentionally assaulting a Judge and inflicting substantial bodily harm with a weapon.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Assault with a Deadly Weapon",
+      "detail": "Intentionally assaulting another person and inflicting substantial bodily harm with a deadly weapon.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Assault with a Deadly Weapon on a Government Employee",
+      "detail": "Intentionally assaulting a Government Employee and inflicting substantial bodily harm with a deadly weapon.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Assault with a Deadly Weapon on a Judge",
+      "detail": "Intentionally assaulting a Judge and inflicting substantial bodily harm with a deadly weapon.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Attempted Murder",
+      "detail": "Willful attempt to commit murder that fails, is prevented, or intercepted.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Attempted Murder of a Government Employee",
+      "detail": "Willful attempt to commit murder against a Government Employee that fails, is prevented, or intercepted.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Attempted Murder of a Judge",
+      "detail": "Willful attempt to commit murder against a Judge that fails, is prevented, or intercepted.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Torture",
+      "detail": "Deliberately inflicting severe physical or mental pain, injury, or suffering.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Voluntary Manslaughter",
+      "detail": "Intentionally killing another person without premeditation, as a result of a reckless act or traumatic event.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Involuntary Manslaughter",
+      "detail": "Unintentionally killing another person as a result of a reckless or negligent act, or a non-felony crime.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Vehicular Manslaughter",
+      "detail": "Unintentionally killing another person through the reckless or negligent use of a vehicle.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Second Degree Murder",
+      "detail": "Unlawfully and deliberately killing another person with malice aforethought, but without premeditation.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Accessory to Second Degree Murder",
+      "detail": "Being an accessory after the fact to second degree murder.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Second Degree Murder of a Government Employee",
+      "detail": "Unlawfully and deliberately killing a Government Employee with malice aforethought, but without premeditation.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Accessory to Second Degree Murder of a Government Employee",
+      "detail": "Being an accessory after the fact to second degree murder of a Government Employee.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Second Degree Murder of a Judge",
+      "detail": "Unlawfully and deliberately killing a Judge with malice aforethought, but without premeditation.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Accessory to Second Degree Murder of a Judge",
+      "detail": "Being an accessory after the fact to second degree murder of a Judge.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "First Degree Murder",
+      "detail": "Knowingly or intentionally killing another human being with premeditated intent, or during the commission of certain serious crimes.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Accessory to First Degree Murder",
+      "detail": "Being an accessory after the fact to first degree murder.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "First Degree Murder of a Government Employee",
+      "detail": "Knowingly or intentionally killing a Government Employee with premeditated intent, or during the commission of certain serious crimes.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Accessory to First Degree Murder of a Government Employee",
+      "detail": "Being an accessory after the fact to first degree murder of a Government Employee.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "First Degree Murder of a Judge",
+      "detail": "Knowingly or intentionally killing a Judge with premeditated intent, or during the commission of certain serious crimes.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Accessory to First Degree Murder of a Judge",
+      "detail": "Being an accessory after the fact to first degree murder of a Judge.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Cannibalism",
+      "detail": "Intentionally ingesting the flesh, blood, or internal organs of other human beings.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Gang Related Shooting",
+      "detail": "Individuals operating under a group or organization engaging in a shooting with other gangs or gang members.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Grand Theft",
+      "detail": "Stealing property valued at more than $5,000.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Grand Theft Auto (A)",
+      "detail": "Unlawfully acquiring and/or driving another's vehicle without consent, with intent to permanently deprive.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Grand Theft Auto (B)",
+      "detail": "Unlawfully taking and/or driving a government vehicle without consent, with intent to permanently or temporarily deprive.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Carjacking",
+      "detail": "Unlawfully taking a vehicle with force or threat of bodily harm.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Robbery",
+      "detail": "Taking or attempting to take something of value from a financial institution or store through force or fear.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Accessory to Robbery",
+      "detail": "Being an accessory to robbery.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Armed Robbery",
+      "detail": "Taking or attempting to take something of value from a financial institution or store while armed, through force or fear.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Accessory to Armed Robbery",
+      "detail": "Being an accessory to armed robbery.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Grand Larceny",
+      "detail": "Robbing, being an accessory to, or attempting to rob a vault in specific banks.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Sale of Items Used in the Commission of a Crime",
+      "detail": "Sale of any items used to aid in the commission of a felony, misdemeanor, or infraction.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Theft of an Aircraft",
+      "detail": "Unlawfully taking an aircraft without consent, with intent to use for profit, purpose, or pleasure.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Impersonating a Peace Officer or Public Servant",
+      "detail": "Willfully wearing authorized uniform/insignia or fraudulently introducing belief of being a peace officer/public servant.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Impersonating a Judge",
+      "detail": "Impersonating a Judge by acting or introducing themselves as a Judge and attempting to perform judicial duties.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Impersonation of a Medical Professional",
+      "detail": "Impersonating a Medical Professional by acting or introducing themselves as one.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Extortion",
+      "detail": "Using coercion upon another person with intent to obtain property, services, or restrict freedom.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Money Laundering",
+      "detail": "Illegal process of making large amounts of money from criminal activity appear to have come from a legitimate source.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Graft",
+      "detail": "Unlawful acquisition of funds or property through improper/unlawful transactions subverting public interest.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Greenmail",
+      "detail": "Purchasing enough shares in a business to challenge leadership and force a buyback at a premium.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Grey Market",
+      "detail": "Trade of a legal commodity through distribution channels not authorized by the original manufacturer or state.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Black Market",
+      "detail": "Repeat sale of illegal items or commodities or false currencies for profit without state approval.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Tax Evasion",
+      "detail": "Sale of illegal items or commodities or false currencies for profit without Government Approval.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Felony Trespassing",
+      "detail": "Entering private property without permission while in possession of a weapon with intent to rob or cause bodily harm, or repeated misdemeanor trespassing, or unlawful entry onto government premises.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Arson",
+      "detail": "Willfully starting or causing a fire with or without intent to damage property, or causing burning of a person, animal, structure, or land.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Vandalism of Government Property",
+      "detail": "Intentionally causing damage to government property.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Bribery of a Government Official",
+      "detail": "Conferring or agreeing to confer any benefit upon a public servant to influence their official actions.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Possession of Contraband in a Government Facility",
+      "detail": "Possessing a weapon, controlled substance, explosives, or items used to conspire crime while in a government facility.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Smuggling Items into a Government Facility",
+      "detail": "Smuggling any unauthorized item into a government facility.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Escaping Custody",
+      "detail": "Unlawful act of escaping or attempting to escape the custody of peace officers, judges, or other government agency.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Jailbreak",
+      "detail": "Removing or attempting to remove oneself or another from official detention without lawful authority, or failing to return from temporary leave.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Accessory to Jailbreak",
+      "detail": "Being an accessory after the fact to jailbreak.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Attempted Jailbreak",
+      "detail": "Attempting to unlawfully remove oneself or another from official detention or failing to return from temporary leave.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Perjury",
+      "detail": "Knowingly lying under oath verbally or through writing in judicial proceedings.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Violation of a Restraining Order",
+      "detail": "Willfully disobeying the outlined restrictions of a lawful restraining order.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Embezzlement",
+      "detail": "Fraudulent appropriation of finances by a person to whom business or government funds have been entrusted.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Unlawful Practice",
+      "detail": "Practicing law or medicine without proper state-sanctioned licensing.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Contempt of Court",
+      "detail": "Engaging in disorderly behavior during court, publishing false reports, or refusing to be sworn in as a witness or answer material questions.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Malfeasance",
+      "detail": "A government employee performing an act they had no legal right to perform, or exceeding, ignoring, or abusing their powers.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Operating an Unlicensed Business",
+      "detail": "Operating a Business without prior approval, licensure, or permit from an authorized Government Entity.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Felony Obstruction of Justice",
+      "detail": "Intentionally hindering the discovery, apprehension, conviction, or punishment of a person who committed a crime.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Inciting a Riot",
+      "detail": "Organizing an event/assembly which results in violent conduct or creates a risk of causing public harm with a group of at least 4 people.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Evidence Tampering",
+      "detail": "Destroying, concealing, or removing a piece of evidence with the purpose of hiding the truth or making an item unavailable for investigation or trial.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Witness Tampering",
+      "detail": "Murdering, attempting to murder, or using force, intimidation, or threats to hinder, delay, or prevent an individual from producing testimony or evidence.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Vigilantism",
+      "detail": "Law enforcement undertaken without legal authority by a self-appointed group or person.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Government Corruption",
+      "detail": "A government employee acting outside the interests of public good or justice, demonstrating criminal negligence for personal gains, or convicted of a felony while on duty for personal gains.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Stalking",
+      "detail": "Following, harassing, or threatening another person to the point where an individual fears for their safety.",
+      "classification": "Felony"
+    },
+    {
+      "title": "2nd Degree Possession of Controlled/Dangerous Substance",
+      "detail": "Possession of a controlled/dangerous substance or untaxed alcohol within specified amounts.",
+      "classification": "Felony"
+    },
+    {
+      "title": "1st Degree Possession of Controlled/Dangerous Substance",
+      "detail": "Possession of a controlled/dangerous substance or untaxed alcohol within specified amounts.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Cultivation/Production of Controlled/Dangerous Substance",
+      "detail": "Unlawful manufacturing, intent to manufacture, or harvesting of any controlled/dangerous substance (with exception to Marijuana), or planting/cultivating/harvesting/processing Marijuana in excess of 6 plants.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Sale of Controlled/Dangerous Substance",
+      "detail": "Unlawful selling of any controlled/dangerous substance(s) or untaxed alcohol.",
+      "classification": "Felony"
+    },
+    {
+      "title": "3rd Degree Drug Trafficking",
+      "detail": "Manufacturing, selling, delivering, or possessing with intent to manufacture, sell, or deliver a controlled substance in excess of specified amounts.",
+      "classification": "Felony"
+    },
+    {
+      "title": "2nd Degree Drug Trafficking",
+      "detail": "Manufacturing, selling, delivering, or possessing with intent to manufacture, sell, or deliver a controlled substance in excess of specified amounts.",
+      "classification": "Felony"
+    },
+    {
+      "title": "1st Degree Drug Trafficking",
+      "detail": "Manufacturing, selling, delivering, or possessing with intent to manufacture, sell, or deliver a controlled substance in excess of specified amounts.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Desecration of a Human Corpse",
+      "detail": "Any act committed after the death of a human being including dismemberment, disfigurement, mutilation, burning, or causing the dead body to be devoured, scattered, or dissipated, except for authorized procedures.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Pimping and Pandering",
+      "detail": "Unlawful act of causing, compelling, inducing, enticing, or procuring any individual to engage in prostitution.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Illegal Gambling",
+      "detail": "Unlawfully wagering, or facilitating the wagering, on the outcome of an uncertain event for financial or personal gain.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Solicitation of a Crime",
+      "detail": "Requesting, commanding, paying, coercing, or encouraging another person to commit, attempt to commit, or be an accomplice to any crime.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Discharge of a Firearm from a Vehicle",
+      "detail": "Unlawful act of willfully and maliciously discharging a firearm, directly or indirectly, at another person or inhabited dwelling from any vehicle.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Unlawful Possession of Ammunition",
+      "detail": "Unlawful act of owning, possessing, or having under custody or control any ammunition or reloaded ammunition by a person prohibited from owning or possessing a firearm, without possessing the weapon itself.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of a Weapon (Class 1)",
+      "detail": "Possession of a Class 1 weapon without a proper license, not registered, or not purchasable at approved legal vendors.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of a Weapon (Class 2)",
+      "detail": "Possession of a Class 2 weapon without a proper license, not registered, or not purchasable at approved legal vendors.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of a Weapon (Class 3)",
+      "detail": "Possession of a Class 3 weapon without a proper license, not registered, or not purchasable at approved legal vendors.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of a Weapon (Class 4)",
+      "detail": "Possession of a Class 4 weapon without a proper license, not registered, or not purchasable at approved legal vendors.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of a Weapon (Class 5)",
+      "detail": "Possession of a Class 5 weapon without a proper license, not registered, or not purchasable at approved legal vendors.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of a Police Weapon (Class 1)",
+      "detail": "Possession of a Class 1 government-issued weapon without proper license, not registered, or not authorized to carry.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of a Police Weapon (Class 2)",
+      "detail": "Possession of a Class 2 government-issued weapon without proper license, not registered, or not authorized to carry.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of a Police Weapon (Class 3)",
+      "detail": "Possession of a Class 3 government-issued weapon without proper license, not registered, or not authorized to carry.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Possession of an Explosive or Incendiary Device",
+      "detail": "Possessing, controlling, owning, or having under custody or control any incendiary device or explosive device.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Criminal Use of Explosives or Incendiary Device",
+      "detail": "Unlawful act of intentionally placing, using, or attempting to use an explosive or incendiary device against any real person or property and detonating or igniting said device, or using it to intimidate or terrify.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Use of a Weapon",
+      "detail": "Using and/or discharging any Class of weapon outside of self-defense limitations.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Use of a Weapon at a Government Facility",
+      "detail": "Using and/or discharging a firearm, outside self-defense limitations, at a government facility.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Sale of a Weapon (Class 1)",
+      "detail": "Unlawful act of selling, purchasing, or exchanging of a Class 1 weapon without proper licensure.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Sale of a Weapon (Class 2)",
+      "detail": "Unlawful act of selling, purchasing, or exchanging of a Class 2 weapon without proper licensure.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Sale of a Weapon (Class 3)",
+      "detail": "Unlawful act of selling, purchasing, or exchanging of a Class 3 weapon without proper licensure.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Sale of a Weapon (Class 4)",
+      "detail": "Unlawful act of selling, purchasing, or exchanging of a Class 4 weapon without proper licensure.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Criminal Sale of a Weapon (Class 5)",
+      "detail": "Unlawful act of selling, purchasing, or exchanging of a Class 5 weapon without proper licensure.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Weapon Stockpiling",
+      "detail": "Possession of six or more Class 1, 2, 3, 4, and/or 5 firearms on their person or stored in one location.",
+      "classification": "Felony"
+    },
+    {
+      "title": "3rd Degree Weapon Trafficking",
+      "detail": "Illicit trade, sale, and/or transport of contraband firearms, ammunition, and other weapon accessories for contraband weaponry, defined as 5+ of any aforementioned criteria.",
+      "classification": "Felony"
+    },
+    {
+      "title": "2nd Degree Weapon Trafficking",
+      "detail": "Illicit trade, sale, and/or transport of contraband firearms, ammunition, and other weapon accessories for contraband weaponry, defined as 10+ of any aforementioned criteria.",
+      "classification": "Felony"
+    },
+    {
+      "title": "1st Degree Weapon Trafficking",
+      "detail": "Illicit trade, sale, and/or transport of contraband firearms, ammunition, and other weapon accessories for contraband weaponry, defined as 20+ of any aforementioned criteria.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Insurrection",
+      "detail": "Participating in acts of mass destruction in pursuit of social, political, or economical aims.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Mayhem",
+      "detail": "Committing an act \"dangerous to human life\" intended to intimidate or coerce a civilian population, influence government policy, or affect government conduct by mass destruction, assassination, or kidnapping.",
+      "classification": "Capital Offense"
+    },
+    {
+      "title": "Reckless Evading",
+      "detail": "Fleeing from police custody in a motor vehicle with willful or wanton disregard for safety.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Street Racing",
+      "detail": "Participating in an unsanctioned auto race on a public road, highway, or freeway.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Piloting without Proper License",
+      "detail": "Operating or attempting to operate an aircraft without the proper license.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Flying into Restricted Airspace",
+      "detail": "Flying in an unauthorized area when not responding to an emergency call.",
+      "classification": "Felony"
+    },
+    {
+      "title": "Poaching",
+      "detail": "Unlawfully killing any legal or illegal game outside of authorized hunting grounds, or harvesting, processing, injuring, possessing, or containing an endangered species.",
+      "classification": "Felony"
+    }
+  ],
+  "/penal-codes/misdemeanor": [
+    {
+      "title": "Criminal Threats",
+      "detail": "Threatening to physically harm or kill another, causing fear.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Aggravated Criminal Threats",
+      "detail": "Willfully threatening death or great bodily injury, causing sustained fear.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Unlawful Imprisonment",
+      "detail": "Restricting a person's freedom of movement without legal justification.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Misdemeanor Domestic Violence",
+      "detail": "Unlawful act of enacting violence or abuse on a domestic partner or family member.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Reckless Endangerment",
+      "detail": "Willfully engaging in an activity that endangers the life or property of another.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Assault",
+      "detail": "Unlawful attempt to touch or injure another person, or intentionally placing them in fear of injury.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Battery",
+      "detail": "Unlawful use of force or violence against another person, causing physical harm.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Aggravated Battery",
+      "detail": "Unlawful intentional and reckless use of force or violence, resulting in serious bodily injury.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Battery on a Government Employee",
+      "detail": "Unlawful use of force or violence against a Government Employee.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Battery on a Judge",
+      "detail": "Unlawful use of force or violence against a Judge.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Petty Theft",
+      "detail": "Stealing property valued at less than $5,000.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Burglary",
+      "detail": "Unlawfully entering or remaining concealed in a building with intent to commit a crime.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Leaving Without Paying",
+      "detail": "Obtaining services by deception or unlawful means without compensating the provider.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Possession of Nonlegal Currency",
+      "detail": "Possession of loose, rolled, marked, or inked monies in relation to certain offenses.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Possession of Government-Issued Items",
+      "detail": "Possession of items issued and accessible only in SASP armories to SASP or state employees.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Possession of Items Used in the Commission of a Crime",
+      "detail": "Possession of items that could aid in the commission of certain offenses, or possession of a still for liquor manufacture.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Impersonating",
+      "detail": "Impersonating another person that could make them civilly or criminally liable.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Possession of Stolen Identification",
+      "detail": "Fraudulent use or possession of another person's identifying information.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Possession of Stolen Government Identification",
+      "detail": "Possessing a governmental employee's badge or other identifying information that does not belong to the individual.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Fraud",
+      "detail": "Knowingly or designedly defrauding any other person of money, labor, or property by false representation.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Forgery",
+      "detail": "Possessing or creating any false government document or false currency.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Trespassing",
+      "detail": "Knowingly entering or remaining unlawfully in or upon private property.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Vandalism",
+      "detail": "Intentionally defacing, destroying, or damaging any property that does not belong to the individual.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Criminal Possession of Stolen Property",
+      "detail": "Possessing any physical property that is reported and reasonably believed to be stolen.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Misuse of Emergency Systems",
+      "detail": "Making a request for emergency response when no actual emergency exists, or reporting a false crime.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Conspiracy",
+      "detail": "Conspiring to commit any crime with one or more people, and one of them commits an overt act in furtherance of that agreement.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Violating a Court Order",
+      "detail": "Willfully disobeying or not complying with the terms written in any court-issued order.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Failure to Appear",
+      "detail": "Failure to Appear in Court when summoned.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Resisting Arrest",
+      "detail": "Using physical force or willfully absconding to prevent arrest, handcuffing, or being taken to jail or prison.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Disobeying a Peace Officer",
+      "detail": "Willfully refusing or failing to comply with a lawful order, signal, or direction of any peace officer.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Disorderly Conduct",
+      "detail": "Engaging in behavior intending to cause public inconvenience.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "False Reporting",
+      "detail": "Unlawful act of reporting a false or nonexistent crime.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Harassment",
+      "detail": "Intimidating or pressuring another person aggressively with unwelcome words, deeds, actions, or gestures.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Misdemeanor Obstruction of Justice",
+      "detail": "Recklessly or with criminal negligence hindering the discovery, apprehension, conviction, or punishment of a person who committed a crime.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Unlawful Assembly",
+      "detail": "Participating in an event/assembly which results in violent conduct or creates a risk of causing public harm with a group of at least four people.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Harboring a Fugitive",
+      "detail": "Knowingly hiding a criminal with an active warrant or who has escaped police custody.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "3rd Degree Possession of Controlled/Dangerous Substance",
+      "detail": "Possession of a controlled/dangerous substance or untaxed alcohol within specified amounts.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Prostitution",
+      "detail": "Offering, for payment, the services of prostitution or offering payment for prostitution.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Aggressive Panhandling",
+      "detail": "Solicitation made in person for immediate donation of money or other gratuity by vocal or nonvocal appeal, including badgering, harassment, threats, or demands.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Obstructing Emergency Services",
+      "detail": "Hindering Medical or Fire personnel in the performance of their duties.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Brandishing a Weapon",
+      "detail": "Unlawful drawing or exhibition of a deadly weapon in the presence of another person not in self-defense, or otherwise displaying a weapon in public without a legal reason.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Unlawful Discharge of a Stun Gun or Deleterious Agent",
+      "detail": "Unlawful act of knowingly discharging any electrical stun gun, propelled bean bag, tear gas, or similar agent against another person without cause.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Negligent Discharge of a Firearm",
+      "detail": "Unlawful act of willfully or unwillfully discharging a firearm in a negligent manner that could result in injury, death, or property damage.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Possession of Illegal Weapon Modification Device",
+      "detail": "Possessing any weapon modification device that would unlawfully alter any weapon.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Driving While Under the Influence of Drugs or Alcohol",
+      "detail": "Operating a vehicle or bicycle while affected by drug or alcohol intoxication.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Evading",
+      "detail": "Fleeing from a peace officer to avoid apprehension, detention, or arrest while on foot or in a vehicle.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Reckless Driving",
+      "detail": "Driving with a willful or wanton disregard for the safety of oneself or others, or in a manner likely to cause injury or death.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Unlawful Use of a Motor Vehicle",
+      "detail": "Taking a vehicle without the owner's consent, without intent to permanently deprive the owner.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Animal Cruelty",
+      "detail": "Maliciously and intentionally wounding or killing an animal.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Hunting With A Non-Hunting Weapon",
+      "detail": "The use of any firearm that is not a hunting rifle in the act of hunting.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Overhunting",
+      "detail": "Illegally killing more than allowed through collecting over the limit of pelts, meat, antlers etc, allowed by the season's stipulations published by the San Andreas Park Rangers.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Overfishing",
+      "detail": "Illegally catching or possessing more than allowed through collecting over the limit of fish allowed by the season's stipulations published by the San Andreas Park Rangers.",
+      "classification": "Misdemeanor"
+    },
+    {
+      "title": "Hit and Run",
+      "detail": "Operating a vehicle involved in an accident resulting in injury, death, or property damage, and leaving the scene without providing identifiable information or rendering aid.",
+      "classification": "Misdemeanor"
+    }
+  ],
+  "/penal-codes/infraction": [
+    {
+      "title": "Littering",
+      "detail": "Discarding items in a non-acceptable container, leaving trash on the ground.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Anti-Mask Law -> Unauthorized Face Covering",
+      "detail": "Wearing a face covering in a government building that obstructs identification and refusing to remove it when asked during a lawful investigation.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Operating without a Permit",
+      "detail": "Operating an event without prior approval, licensure, or permit from an authorized Government Entity.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Disturbing the Peace",
+      "detail": "Unlawfully fighting or challenging another in a public place, disturbing by loud noise, or using offensive words likely to provoke violence.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Loitering on Government Properties",
+      "detail": "Intentionally standing or waiting idly without apparent purpose on government properties.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Public Intoxication",
+      "detail": "Being under the influence of Alcohol or a Controlled Dangerous Substance in a public place.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Failure to Yield to Emergency Vehicle",
+      "detail": "Failing to pull to the side of the road or safely move out of the way and reduce speed when an emergency vehicle is active.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Failure to Obey Traffic Control Device",
+      "detail": "Failure to obey any erected or maintained sign, including regulatory and warning signs, or pavement markings.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Nonfunctional Vehicle -> Illegal Vehicle Modifications",
+      "detail": "Driving a nonfunctional or unsafe vehicle, such as with smashed windows, illegal tint, or missing doors.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Negligent Driving",
+      "detail": "Driving in a way that is negligent, demonstrating a lack of proper regard or attention to safety, with no regard to basic traffic rules.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Third Degree Speeding",
+      "detail": "Speeding in excess of 1 mph to 30 mph over the posted limit.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Second Degree Speeding",
+      "detail": "Speeding in excess of 31 mph to 60 mph over the posted limit.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "First Degree Speeding",
+      "detail": "Speeding in excess of more than 61+ mph over the posted limit.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Unlicensed Operation of Vehicle",
+      "detail": "Operating a vehicle without a proper license, or with a suspended/revoked license, or without a valid physical government identification card.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Illegal U-Turn",
+      "detail": "Turning around at an intersection marked against U-turns, or changing direction in the middle of a roadway by crossing a yellow line.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Illegal Passing",
+      "detail": "Passing another vehicle by a shoulder, median, or solid lines, or interfering with safe operation of an approaching vehicle.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Failure to Maintain Lane",
+      "detail": "Failure to maintain control of a vehicle within an appropriate lane of travel.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Illegal Turn",
+      "detail": "Performing a turn at a stop sign or red light without a full stop, failing to yield, making a left-hand turn where prohibited, turning from an opposite lane, or turning against a \"turn only lane\" indication.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Failure to Stop",
+      "detail": "Failing to bring all wheels to a complete stop before moving forward, or failing to yield to oncoming traffic at a 4-way stop.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Unauthorized Parking",
+      "detail": "Parking in a fire lane, emergency lane, red curb, blocking a fire hydrant, parking unsafely, impeding traffic, failing to park within marked lines, or parking in a \"No Parking\" zone or handicap spot without authorization.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Driving without Headlights or Signals",
+      "detail": "Failing to use headlights to see safely in low light or allow other vehicles to see you.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Unlawful Operation of an Unroadworthy Vehicle",
+      "detail": "Operating a vehicle that does not have a visible license plate.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Jaywalking",
+      "detail": "Crossing a roadway at any place except in a designated crosswalk while minding traffic control signal devices.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Illegal Vehicle Modification",
+      "detail": "Any modification applied to a vehicle that would unlawfully alter performance and/or any body modifications that would render the vehicle unsafe or unroadworthy.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Improper Use of a Horn",
+      "detail": "Using a horn when not reasonably necessary for safe operation, or using it in excess.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Driving an Unregistered Vehicle",
+      "detail": "Illegally operating a motor vehicle on a public roadway that is not registered to the State of San Andreas.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Failure to maintain Aircraft radio",
+      "detail": "Maintaining radio frequency Radio 919.1 at all times during flights.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Failure to Register Flight with Authorities",
+      "detail": "Failure to report recreational flight via 311 prior to takeoff.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Landing in an Unsafe Area",
+      "detail": "Helicopter landing in undesignated areas, or less than 75m from any roadway, residence, or built-up structure; fixed-wing aircraft landing only on designated runways; pontoon aircraft landing on waterways but 75m from bridges, vessels, or swimming areas.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Flying too Low",
+      "detail": "Maintaining minimum altitudes of 1500 ft over city limits and 750 ft over county areas.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Flying an Unregistered Aircraft",
+      "detail": "Piloting any aircraft which does not have a valid registration, excluding rental aircrafts with tail number prefix \"RENT\" and \"PEG\".",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Hunting In Restricted Areas",
+      "detail": "Hunting outside of the defined boundaries of the hunting area.",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Unlicensed Hunting or Fishing",
+      "detail": "Performing the act of hunting or fishing without being in possession of the appropriate license(s).",
+      "classification": "Infraction"
+    },
+    {
+      "title": "Hunting Outside of Hunting Hours",
+      "detail": "Hunting outside of the window of 05:00 and 19:30.",
+      "classification": "Infraction"
+    }
+  ],
+  "/sop/training": [
+    {
+      "title": "1. What is SOP?",
+      "detail": "Standard Operating Procedure (SOP) is a guideline provided/set by police management or government to guide police officers in their work. It includes processes for identifying reasonable suspicion, probable cause, and determining appropriate force levels.\n📌 Example: SOP may outline exactly when an officer may frisk a suspect or escalate force. It ensures consistency and legality in law enforcement operations."
+    },
+    {
+      "title": "2. Code of Ethics vs Code of Conduct",
+      "detail": "Code of Ethics reflects the values officers must embody, like integrity, impartiality, and accountability.\nCode of Conduct covers behavior expectations like wearing a clean uniform, reporting misconduct, and obeying legal orders.\n📌 Example: If an officer sees a colleague taking bribes, ethics demand honesty, while conduct rules require reporting it."
+    },
+    {
+      "title": "3. Chain of Command",
+      "detail": "The chain of command is the structure through which orders flow, from superiors to subordinates. Officers must follow duty-related orders but can report unlawful or personal commands.\n📌 Example: A cadet must block a road if instructed by a sergeant, but may refuse to do a personal errand and report it."
+    },
+    {
+      "title": "4. Bonafide vs Non-Bonafide Evidence",
+      "detail": "Bonafide evidence is legally collected and reliable (e.g., fingerprints, bodycam footage).\nNon-Bonafide evidence is unverified or illegally obtained (e.g., hearsay, hidden recordings).\n📌 Example: A confession after Miranda is bonafide; a secretly recorded conversation without consent may be inadmissible."
+    },
+    {
+      "title": "5. Frisk vs Search",
+      "detail": "A frisk is a limited pat-down for weapons, allowed with reasonable suspicion.\nA search is more thorough, requiring probable cause or a warrant.\n📌 Example: Frisk a suspect loitering at night; search their bag only if you see contraband or smell drugs."
+    },
+    {
+      "title": "6. Miranda Rights",
+      "detail": "These are legal rights read during custodial interrogation:\n\n• You have the Right to remain silent\n• Anything said may be used in court\n• You have the Right to an attorney\n• If unaffordable, state will provide one, If available\n\n📌 Example: If rights aren't read before questioning, the confession may not be admissible."
+    },
+    {
+      "title": "7. Levels of Force",
+      "detail": "The SOP uses a force continuum:\n\n1. Officer Presence\n2. Verbal Commands\n3. Empty-Hand Control\n4. Less-Lethal Force (tasers, batons)\n5. Lethal Force (firearms for deadly threats)\n\n📌 Example: A calm subject may only need verbal commands, but a gunman may justify lethal force."
+    },
+    {
+      "title": "8. De-escalation of Force",
+      "detail": "De-escalation is calming a situation through communication, reducing police presence, or offering exits.\n📌 Example: Talking down a threatening individual rather than tasing them helps avoid violence."
+    },
+    {
+      "title": "9. Escalation of Force",
+      "detail": "Escalation means raising force if verbal or soft tactics fail.\n📌 Example: If a suspect refuses to comply and begins resisting, an officer may escalate to taser use."
+    },
+    {
+      "title": "10. Match of Force",
+      "detail": "This principle requires officers to apply equivalent or slightly superior force to neutralize threats.\n📌 Example: If a suspect uses a knife, an officer may draw a gun."
+    },
+    {
+      "title": "11. 10-Codes",
+      "detail": "Radio shorthand used for quick, effective communication.\n📌 Example: \"10-80\" means pursuit in progress, and \"10-4\" means message acknowledged."
+    },
+    {
+      "title": "12. Types of Warrants",
+      "detail": "• AOS (Arrest on Sight): Immediate arrest authority\n• Search & Seizure Warrant: For specific items, judge-approved\n• Raid Warrant: For raiding property; broad scope\n• KOS (Kill on Sight): For terrorists only\n\n📌 Example: AOS allows immediate detention; search warrant limits you to listed items."
+    },
+    {
+      "title": "13. Bail",
+      "detail": "Allows a suspect to await trial outside custody.\n\n• Misdemeanor: Magistrate grants bail\n• Felony: Needs judge approval\n• Bail = 3x charges value\n\n📌 Example: Bail may be denied if suspect is a flight risk or repeat offender."
+    },
+    {
+      "title": "14. Detain vs Arrest",
+      "detail": "• Detain: Temporary stop for investigation; needs reasonable suspicion\n• Arrest: Full custody with charges; needs probable cause\n\n📌 Example: A man matching a robbery suspect's clothing may be detained, but not arrested without further proof."
+    },
+    {
+      "title": "15. Types of Crimes",
+      "detail": "• Infraction: Minor (e.g., jaywalking)\n• Misdemeanor: Moderate (e.g., trespass)\n• Felony: Serious (e.g., armed robbery)\n• HUT: Held Until Trial (e.g., terrorism)\n\n📌 Example: Stealing a car is a felony; speeding is an infraction."
+    },
+    {
+      "title": "16. BOLO vs Warrants",
+      "detail": "• BOLO: \"Be On the Lookout\" alert; no arrest power\n• Warrant: Legal order to arrest or search\n\n📌 Example: A BOLO vehicle can't be stopped unless matching a crime. A warrant gives legal arrest authority."
+    },
+    {
+      "title": "17. Use of Taser",
+      "detail": "Guidelines include:\n\n• Avoid wet areas or heights\n• Cooldown between uses\n• Warn suspect before deploying\n\n📌 Example: A fleeing suspect may be tased, but not while running on stairs or near water."
+    },
+    {
+      "title": "18. N+2 Rule",
+      "detail": "Officers must outnumber suspects by at least 2.\n📌 Example: Confronting 2 suspects needs minimum 4 officers. Exceptions: high-risk crimes like kidnappings or terrorism."
+    },
+    {
+      "title": "19. Reasonable Suspicion",
+      "detail": "Allows a brief stop or frisk based on specific behavior or context.\n📌 Example: Someone pacing nervously outside a store at night may be detained and questioned."
+    },
+    {
+      "title": "20. Probable Cause",
+      "detail": "Stronger than reasonable suspicion; allows arrest, search, or warrants.\n📌 Example: Seeing stolen goods in plain view or matching fingerprints gives probable cause to arrest."
+    },
+    {
+      "title": "21. Reports/FIR vs Chargesheet",
+      "detail": "• FIR/Report: First complaint filed by officer\n• Chargesheet: Official document with evidence for prosecution\n\n📌 Example: A theft FIR may become a chargesheet if CCTV proves the suspect's guilt."
+    },
+    {
+      "title": "22. Type of Settlement",
+      "detail": "• Plea Bargain: Lighter sentence for guilty plea\n• Diversion: Offender avoids jail by joining rehab/community service\n• Civil Compromise: Case dropped after compensation\n\n📌 Example: A minor drug offender may complete a rehab program to avoid criminal record."
+    }
+  ],
+  "/sop/meu": [
+    {
+      "title": "1. Introduction",
+      "detail": "The Motor Pursuit Unit (MPU) is a tactical law enforcement division specialized in high-speed motorcycle-based pursuit operations. These officers are trained to respond quickly, navigate tight urban environments, and provide rapid visual tracking during vehicular chases."
+    },
+    {
+      "title": "2. Oath of the MPU Officer",
+      "detail": "\"I swear to protect and serve with speed, skill, and control. I will use my training to pursue justice while ensuring public safety, maintaining discipline, and representing the department with honor and precision.\""
+    },
+    {
+      "title": "3. Certification Process",
+      "detail": "To become an MPU Officer, one must: Hold at least the rank of Corporal or above. Complete MPU Training Program (Vehicle handling + Pursuit Tactics) Pass Obstacle Course & Reaction Test Undergo 3 trial ride-alongs with MPU Lead or SEU Leader Be approved by HR and High Command"
+    },
+    {
+      "title": "4. Purpose",
+      "detail": "MPU's purpose is to: Engage in vehicle pursuits, especially in tight or urban environments Assist SEU and ground units with visual confirmation Scout and report suspect locations during evasion Reduce loss-of-suspect scenarios by superior maneuverability"
+    },
+    {
+      "title": "7. MPU Types",
+      "detail": "Unit Role MPU-1 Patrol Vehicle MPU-2 Interception/Support MPU-3 Urban Interceptor"
+    },
+    {
+      "title": "13. Communication Protocols",
+      "detail": "Use Incident Radio for active MPU pursuits Avoid radio spamming, focus on short, clear callouts Must report fuel levels, status, and vehicle issues post-patrol"
+    },
+    {
+      "title": "Example Radio Callout",
+      "detail": "\"MPU-1 to Dispatch, visual on suspect, black Kuruma, southbound Alta Street, speeds 140+, requesting SEU backup. Will maintain visual from distance.\""
+    }
+  ],
+  "/sop/seu": [
+    {
+      "title": "1. Introduction",
+      "detail": "The Speed Enforcement Unit (SEU) is a specialized division of the Police Department responsible for monitoring, enforcing, and responding to high-speed traffic violations. Operating high-performance patrol vehicles, SEU ensures road safety through proactive patrolling and rapid response."
+    },
+    {
+      "title": "2. Oath of the SEU Officer",
+      "detail": "\"I swear to uphold the laws of the State, act swiftly and responsibly, and ensure public safety through fair and effective speed enforcement. I will not abuse the power entrusted to me and will conduct myself with honor and discipline at all times.\""
+    },
+    {
+      "title": "3. Certification Process",
+      "detail": "To be assigned to SEU, an officer must: Be at least Rank Corporal or above Have completed the SEU Training Program Successfully pass High-Speed Vehicle Control assessment Get clearance from HR & SEU Command Undergo a Probationary Ride-Along phase with SEU-1 Lead"
+    },
+    {
+      "title": "4. Purpose",
+      "detail": "The SEU aims to: Enforce traffic speed limits and related laws Minimize street racing and reckless driving Reduce vehicular incidents through deterrence and rapid response Support ground patrol and pursuits when speeds escalate"
+    },
+    {
+      "title": "5. Scope",
+      "detail": "The SEU is authorized to patrol and enforce in: Highways Freeways Expressways Airport Roads Inner-city areas with frequent street racing"
+    },
+    {
+      "title": "6. Authorized Guidelines",
+      "detail": "SEU Officers must operate only approved SEU vehicles. Officers must not exceed departmental jurisdiction unless given chase or support orders. Lights/Sirens must be used for all stops. Bodycam or In-car dashcam must be active at all times."
+    },
+    {
+      "title": "7. SEU Types & Vehicle Assignments",
+      "detail": "Unit Role SEU-1 Lead Patrol & Interception SEU-2 Support & Surveillance SEU-3 Urban Speed Enforcement"
+    },
+    {
+      "title": "13. Communication Protocols",
+      "detail": "Use Incident Radio for pursuit-related traffic Use PD Main for general updates Callouts must include location, direction, suspect details End all 10-80s with final status: \"Code 4, Suspect in Custody / Escaped / Vehicle Disabled\""
+    },
+    {
+      "title": "Example RP Callout",
+      "detail": "SEU-1 to Dispatch, 10-80 initiated, black Sultan RS, eastbound Del Perro Freeway, speed 160+, requesting spike support from SEU-2 or MPU unit. Air-1 status?"
+    }
+  ],
+  "/sop/asd": [
+    {
+      "title": "Introduction",
+      "detail": "The SASP Air Corps supports Patrol Operations, SWAT teams, and Major Crimes Units by providing aerial assistance, surveillance, search and rescue, and tactical insertions. Response times are crucial in assisting units that require Air 1 support. The Air Corps plays a critical role in public safety, criminal apprehension, and emergency response, ensuring that ground units receive real-time intelligence and tactical advantage."
+    },
+    {
+      "title": "Oath",
+      "detail": "\"This is my chopper. There are many like it, but this one is mine. I swear to uphold the high standards of the Air Corps, protect my chopper, and keep my co-pilot safe. If I crash or fail, I risk my wings and the trust of my team. I pledge to serve with honor, courage, and precision in the skies.\""
+    },
+    {
+      "title": "Certification Process (Getting Your Wings)",
+      "detail": "Theory (Helicopter mechanics, maintenance, SOPs, emergency procedures) Communication (In-flight, air-to-ground coordination, emergency protocols) Handling (Take-off, in-flight controls, hovering, positioning, altitude management) Landing (Precision landing under various conditions, emergency landings) Tactical Maneuvering (Insertions, flying under fire, rapid extractions, urban operations) Night & Adverse Weather Training (Low-visibility operations, using onboard instruments) Final Exam (Viva and practical test for certification)"
+    },
+    {
+      "title": "Purpose",
+      "detail": "The Air 1 Unit serves as the aerial division of the San Andreas State Police, providing tactical air support, reconnaissance, emergency response, and high-risk intervention. Air 1 ensures enhanced situational awareness, rapid deployment, and an additional layer of security for law enforcement operations."
+    },
+    {
+      "title": "Authorized Air 1 Altitude Guidelines",
+      "detail": "Standard Patrol & Surveillance: Above Ground Level (AGL): 800 - 1,000 feet Pursuit Operations: Above Ground Level (AGL): 1,200 - 1,500 feet Search & Rescue: Above Ground Level (AGL): 500 - 1,000 feet Tactical Operations: Above Ground Level (AGL): 200 - 500 feet (for approach)"
+    },
+    {
+      "title": "Communication Protocols",
+      "detail": "Dispatch Coordination: Notify before takeoff/landing, provide mission updates. Radio Channels: Use designated secure frequencies to prevent interference. Emergency Signals: Mayday - Used in life-threatening situations. Code Red - Indicates an active threat requiring immediate response. Code Blue - Signifies an aircraft in distress but not in immediate danger."
+    },
+    {
+      "title": "Standard Operating Procedures (SOPs)",
+      "detail": "Only certified pilots may operate Air 1. Pilots cannot use surveillance cameras while flying - a co-pilot must be present. Helicopters are for specialized operations only, including pursuits, robberies, search and rescue, SWAT ops. Thermal imaging is used only in authorized operations (e.g. Major RPR, Dense terrain, Wooded areas, Perimeter Scanning). Unauthorized aircraft must be contacted on frequency 911. If unresponsive, seek clearance before engaging. Recklessness is strictly prohibited – Any misuse of Air 1 may result in disciplinary action or license suspension. Landing on roads/highways is prohibited unless explicitly authorized by High Command or the Air 1 Commander. Mandatory uniform and gear compliance – Violations may result in strikes or suspension."
+    }
+  ],
+  "/sop/dispatcher": [
+    {
+      "title": "Purpose",
+      "detail": "This document explains the dispatcher's role in making sure everything runs smoothly during an emergency or regular operation."
+    },
+    {
+      "title": "1. Managing Calls and Assigning Help",
+      "detail": "The dispatcher takes all radio calls and decides which units or officers should handle the situation, based on what's needed and available.\n\nSample Conversation:\n• Dispatcher on radio: Officer A, please attach yourself to the latest situation at 5th Avenue, reports of a disturbance.\n• Officer A to Dispatcher: 10-4, I'm attaching myself. Also, I have a 10-12 with me, and I'm in XYZ car, heading to the scene.\n• Dispatcher: 10-4 on that, Officer A. Officer B, please attach to the situation as well. I need you to provide backup.\n• Officer B: 10-4, I'm 10-76, en route with a 10-12, ETA 5 minutes.\n• Dispatcher: Roger that. MDT Officer will be Officer C, Negotiation Officer will be Officer D, and Officer A will be commanding the first responders. Ensure communication remains clear and check in once on-site."
+    },
+    {
+      "title": "2. Partnering Up",
+      "detail": "If needed, the dispatcher can assign a partner to an officer for safety or teamwork, ensuring everyone knows their role.\n\nSample Conversation:\n• Officer A: Direct to dispatch I need a 10-12.\n• Dispatcher: Officer A, I'm assigning Officer B as your partner.\n• Officer A: 10-4, understood."
+    },
+    {
+      "title": "3. Clear Communication",
+      "detail": "Dispatchers use simple codes to communicate clearly, like 10-3 (Stop talking) or 10-4 (Got it), to avoid confusion and save time.\n\nSample Conversation:\n• Dispatcher: 10-3, everyone stop radio chatter unless you're in active communication.\n• Dispatcher: 10-4, Officer A. Stand by for the next update. Officer B, I need you to report in with your location once you're on the scene.\n• Officer B: 10-4, I'm 10-23, arrived at the location and assessing the situation."
+    },
+    {
+      "title": "4. Connecting Officers",
+      "detail": "The dispatcher is responsible for connecting officers with each other, confirming their readiness before establishing communication.\n\nSample Conversation:\n• Dispatcher: Officer A, connect with Officer B for backup. Confirm when you're ready.\n• Officer A: 10-4, confirming with Officer B.\n• Dispatcher: Once confirmed, you may proceed with the connection."
+    },
+    {
+      "title": "5. Handling Emergency and Non-Emergency Communications",
+      "detail": "The dispatcher manages the flow of communications for both urgent and less critical situations.\n\nSample Conversation (Emergency):\n• Dispatcher (Emergency): Officer A, urgent situation, Please respond and get to abc place at Officer C's tracker with your 10-12.\n• Officer A: 10-4, en route with a code 3. I'm 10-23.\n\nSample Conversation (Non-Emergency):\n• Dispatcher (Non-Emergency): Officer B, I need you to conduct a Code 1 in Sandy Shores.\n• Officer B: 10-4, understood. Proceeding with Code 1. I'll report back once I've completed the check.\n• Dispatcher: Copy that, Officer B. Keep me updated if anything unusual arises during your patrol."
+    }
+  ]
+}

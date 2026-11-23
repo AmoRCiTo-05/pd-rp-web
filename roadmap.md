@@ -1,0 +1,12 @@
+# Practice rollout
+- [x] 1. Practice hub and shared local helpers
+- [x] 2. Flashcards
+- [x] 3. Page drills
+- [x] 4. Wrong-answer review
+- [x] 5. Daily challenge
+- [x] 6. Scenarios
+- [x] 7. Radio call builder
+- [x] 8. Charge picker
+- [x] 9. Rank roadmap
+- [x] 10. Search, keyboard controls, bookmarks and study list
+- [x] Repair Academy parsing without deleting saved scores

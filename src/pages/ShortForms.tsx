@@ -1,79 +1,13 @@
+import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
+import { shortForms } from '@/data/referenceLists'
 
 import React, { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { FileCode, Search } from 'lucide-react'
 
-const shortForms = [
-  { abbreviation: "APB", meaning: "All Points Bulletin" },
-  { abbreviation: "AOS", meaning: "Arrest On Sight" },
-  { abbreviation: "ATL", meaning: "Attempting To Locate" },
-  { abbreviation: "BAC", meaning: "Blood Alcohol Concentration" },
-  { abbreviation: "BAT", meaning: "Breath Alcohol Test" },
-  { abbreviation: "BCSO", meaning: "Blaine County Sheriffs Office" },
-  { abbreviation: "BOLO", meaning: "Be on a Lookout" },
-  { abbreviation: "CERT", meaning: "Community Emergency Response Team" },
-  { abbreviation: "CDS", meaning: "Controlled Dangerous Substance" },
-  { abbreviation: "CSU", meaning: "Crime Scene Unit" },
-  { abbreviation: "CTS", meaning: "Critical Traffic Stop" },
-  { abbreviation: "CI", meaning: "Confidential Informant" },
-  { abbreviation: "DOA", meaning: "Dead On Arrival / Drug Observation Agency" },
-  { abbreviation: "DOJ", meaning: "Department of Justice" },
-  { abbreviation: "DRT", meaning: "Dead Right There" },
-  { abbreviation: "DV", meaning: "Domestic Violence" },
-  { abbreviation: "EMS", meaning: "Emergency Medical Services" },
-  { abbreviation: "EOW", meaning: "End Of Watch (officer killed on duty)" },
-  { abbreviation: "FIB", meaning: "Federal Investigation Bureau" },
-  { abbreviation: "FI", meaning: "Field Interview" },
-  { abbreviation: "FIR", meaning: "First Investigation Report" },
-  { abbreviation: "FTD", meaning: "Field Training Department" },
-  { abbreviation: "FTO", meaning: "Field Training Officer" },
-  { abbreviation: "GO", meaning: "General Order" },
-  { abbreviation: "GOA", meaning: "Gone On Arrival" },
-  { abbreviation: "GTA", meaning: "Grand Theft Auto" },
-  { abbreviation: "GSR", meaning: "Gun Shot Residue" },
-  { abbreviation: "HIT", meaning: "High-Intensity Target" },
-  { abbreviation: "HOJ", meaning: "Home of Justice" },
-  { abbreviation: "HUT", meaning: "Held Until Trial" },
-  { abbreviation: "IAA", meaning: "Internal Affairs Agency" },
-  { abbreviation: "ID", meaning: "Identification" },
-  { abbreviation: "IFAKS", meaning: "Individual First Aid Kits" },
-  { abbreviation: "K9", meaning: "Canine Unit" },
-  { abbreviation: "KOS", meaning: "Kill On Sight" },
-  { abbreviation: "LS", meaning: "Los Santos" },
-  { abbreviation: "LSPD", meaning: "Los Santos Police Department" },
-  { abbreviation: "MDT", meaning: "Mobile Data Terminal" },
-  { abbreviation: "MIA", meaning: "Missing In Action" },
-  { abbreviation: "MO", meaning: "Modus Operandi" },
-  { abbreviation: "NB", meaning: "Note Bene (Note Well)" },
-  { abbreviation: "NCIC", meaning: "National Crime Information Center" },
-  { abbreviation: "NOTICE", meaning: "Notice Of Traffic Incident Causing Emergency" },
-  { abbreviation: "OC", meaning: "Oleoresin Capsicum (Pepper Spray)" },
-  { abbreviation: "OIS", meaning: "Officer Involved Shooting" },
-  { abbreviation: "PIT", meaning: "Pursuit Immobilization/Intervention Technique" },
-  { abbreviation: "PD", meaning: "Police Department" },
-  { abbreviation: "PO", meaning: "Police Officer" },
-  { abbreviation: "POI", meaning: "Person of Interest" },
-  { abbreviation: "RA", meaning: "Rescue Ambulance" },
-  { abbreviation: "RO", meaning: "Registered Owner" },
-  { abbreviation: "RTB", meaning: "Returning To Base" },
-  { abbreviation: "RTO", meaning: "Radio Traffic Only" },
-  { abbreviation: "SASP", meaning: "San Andreas State Police" },
-  { abbreviation: "SO", meaning: "Sheriff's Office" },
-  { abbreviation: "SOP", meaning: "Standard Operating Procedure" },
-  { abbreviation: "SRO", meaning: "School Resource Officer" },
-  { abbreviation: "SWAT", meaning: "Special Weapons and Tactics" },
-  { abbreviation: "TA", meaning: "Traffic Accident" },
-  { abbreviation: "TO", meaning: "Training Officer" },
-  { abbreviation: "TVI", meaning: "Tactical Vehicle Intervention" },
-  { abbreviation: "UOI", meaning: "Unusual Occurrence Investigation" },
-  { abbreviation: "UTL", meaning: "Unable to Locate" },
-  { abbreviation: "VCB", meaning: "Visual Contact Broken" },
-  { abbreviation: "VO", meaning: "Victim's Officer" },
-  { abbreviation: "WARN", meaning: "Warning, Alert, Response Network" },
-  { abbreviation: "WI", meaning: "Witness Interview" },
-  { abbreviation: "WO", meaning: "Warning Order" }
-]
+
 
 export default function ShortForms() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -94,6 +28,7 @@ export default function ShortForms() {
             </div>
             <div>
               <h1 className="font-heading text-3xl font-bold">Short Forms</h1>
+              <Button asChild variant="outline" className="my-3 whitespace-normal h-auto min-h-10"><Link to="/practice/flashcards?deck=shortForms">Study with Flashcards</Link></Button>
               <p className="text-muted-foreground">Common abbreviations used in law enforcement communication</p>
             </div>
           </div>

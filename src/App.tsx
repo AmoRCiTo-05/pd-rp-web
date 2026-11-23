@@ -37,6 +37,16 @@ import CategoryRanks from '@/pages/RankBasedQuestions/CategoryRanks'
 import QuizComponent from '@/components/QuizComponent'
 import About from '@/pages/About'
 import NotFound from '@/pages/NotFound'
+import StudyList from '@/pages/Practice/StudyList'
+import RankRoadmap from '@/pages/Practice/RankRoadmap'
+import ChargePicker from '@/pages/Practice/ChargePicker'
+import RadioBuilder from '@/pages/Practice/RadioBuilder'
+import Scenarios from '@/pages/Practice/Scenarios'
+import DailyChallenge from '@/pages/Practice/DailyChallenge'
+import MissedReview from '@/pages/Practice/MissedReview'
+import QuizMe from '@/pages/Practice/QuizMe'
+import Flashcards from '@/pages/Practice/Flashcards'
+import PracticeHub from '@/pages/Practice/PracticeHub'
 import EvaluationTest from '@/pages/FTD/EvaluationTest'
 
 function App() {
@@ -47,6 +57,16 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/practice" element={<PracticeHub />} />
+              <Route path="/practice/study-list" element={<StudyList />} />
+              <Route path="/practice/roadmap" element={<RankRoadmap />} />
+              <Route path="/practice/charges" element={<ChargePicker />} />
+              <Route path="/practice/radio" element={<RadioBuilder />} />
+              <Route path="/practice/scenarios" element={<Scenarios />} />
+              <Route path="/practice/daily" element={<DailyChallenge />} />
+              <Route path="/practice/missed" element={<MissedReview />} />
+              <Route path="/practice/quiz-me" element={<QuizMe />} />
+              <Route path="/practice/flashcards" element={<Flashcards />} />
               <Route path="/basic-codes/10-codes" element={<TenCodes />} />
               <Route path="/basic-codes/code-comms" element={<CodeComms />} />
               <Route path="/basic-codes/in-game-commands" element={<BasicInGameCommands />} />

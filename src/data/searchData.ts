@@ -8,6 +8,7 @@ export interface SearchResult {
 }
 
 export const searchData: SearchResult[] = [
+  { id:'practice',title:'Practice',description:'Practice tools and saved study activities',path:'/practice',category:'Practice',keywords:['flashcards','quiz','daily','scenarios','radio','charges','roadmap','study'] },
   // Home
   {
     id: 'home',
