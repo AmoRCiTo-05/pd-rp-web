@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { parseIndividualRanks, parseCategoryRanks, Question, QuizData } from '@/utils/quizParser'
+import { attachLearningToQuestion } from '@/data/quizLearnMore'
 import rankBasedData from '@/data/rankBasedMCQs.txt?raw'
 import categoryBasedData from '@/data/categoryBasedMCQs.txt?raw'
 import { toast } from 'sonner'
@@ -58,7 +59,10 @@ export default function QuizComponent() {
         throw new Error('Quiz not found')
       }
       
-      setQuiz(selectedQuiz)
+      setQuiz({
+        ...selectedQuiz,
+        questions: selectedQuiz.questions.map(attachLearningToQuestion)
+      })
     } catch (error) {
       console.error('Failed to load quiz:', error)
       toast.error('Failed to load quiz data')
@@ -266,6 +270,32 @@ export default function QuizComponent() {
                         </div>
                       )
                     })}
+                    {question.explanation && (
+                      <div
+                        role="note"
+                        className={`rounded-md border p-3 sm:p-4 ${
+                          isCorrect
+                            ? 'border-primary/25 bg-primary/5'
+                            : 'border-destructive/50 bg-destructive/10 ring-1 ring-destructive/15'
+                        }`}
+                      >
+                        <p className="text-sm leading-relaxed">
+                          <span className="font-semibold">Why: </span>
+                          {question.explanation}
+                        </p>
+                      </div>
+                    )}
+                    {question.learnMore && (
+                      <div className="flex min-w-0 flex-col gap-1 text-sm sm:flex-row sm:items-center sm:gap-2">
+                        <span className="shrink-0 font-semibold text-muted-foreground">Learn more:</span>
+                        <Link
+                          to={question.learnMore.href}
+                          className="break-words text-primary underline underline-offset-4 hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        >
+                          {question.learnMore.label}
+                        </Link>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               )
@@ -286,6 +316,15 @@ export default function QuizComponent() {
               </Button>
             </Link>
           </div>
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Want more scenario practice?{' '}
+            <Link
+              to="/situation-questions"
+              className="font-medium text-primary underline underline-offset-4 hover:text-primary/80"
+            >
+              Explore Situation Based Questions
+            </Link>
+          </p>
         </div>
       </div>
     )

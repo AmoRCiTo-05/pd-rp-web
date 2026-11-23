@@ -20,6 +20,11 @@ const learningRules: LearningRule[] = [
     learnMore: { label: 'Review the 5th and 6th Amendments', href: '/amendments' }
   },
   {
+    matches: /after handcuff(?:ed|ing)|handcuff(?:ed|ing)[^?]*(?:must|should|what next)/i,
+    explanation: 'After a person is in custody, explain their rights before custodial questioning and follow the required booking and reporting steps.',
+    learnMore: { label: 'Review the 5th and 6th Amendments', href: '/amendments' }
+  },
+  {
     matches: /self-incrimination|5th amendment|fifth amendment/i,
     explanation: 'The 5th Amendment protects a person from being compelled to incriminate themselves.',
     learnMore: { label: 'Review the 5th Amendment', href: '/amendments' }
@@ -40,9 +45,19 @@ const learningRules: LearningRule[] = [
     learnMore: { label: 'Review the 4th Amendment', href: '/amendments' }
   },
   {
-    matches: /terry v\.?\s*ohio|stop-and-frisk|frisk|reasonable suspicion/i,
+    matches: /\bamendment\b|\bdouble jeopardy\b/i,
+    explanation: 'Amendments describe constitutional rights and limits, including protections that guide police procedures and criminal proceedings.',
+    learnMore: { label: 'Review Amendments', href: '/amendments' }
+  },
+  {
+    matches: /terry v\.?\s*ohio|stop-and-frisk|frisk|reasonable suspicion[^?]*(?:armed|weapon)|(?:armed|weapon)[^?]*reasonable suspicion/i,
     explanation: 'Reasonable suspicion can justify a brief stop and, when there is reason to suspect a person is armed, a limited weapons frisk—not a full search.',
     learnMore: { label: 'Review Terry v. Ohio', href: '/case-laws' }
+  },
+  {
+    matches: /difference between.{0,40}reasonable suspicion.{0,40}probable cause|reasonable suspicion.{0,40}probable cause/i,
+    explanation: 'Reasonable suspicion supports limited investigative steps; probable cause requires stronger facts and can support an arrest or search.',
+    learnMore: { label: 'Review Detainment Standards', href: '/confusing-topics' }
   },
   {
     matches: /tennessee v\.?\s*garner|deadly force|lethal force|shoot(?:ing)? .*flee|poses? (?:a )?serious threat/i,
@@ -50,7 +65,7 @@ const learningRules: LearningRule[] = [
     learnMore: { label: 'Review use-of-force case law', href: '/case-laws' }
   },
   {
-    matches: /pennsylvania v\.?\s*mimms|wyoming v\.?\s*houghton|carroll v\.?|miranda v\.?|people v\.?|case law|precedent/i,
+    matches: /pennsylvania v\.?\s*mimms|wyoming v\.?\s*houghton|carroll v\.?|miranda v\.?|people v\.?|mike smoore|case law|precedent/i,
     explanation: 'Case-law guides connect operational decisions to the legal precedent that governs them.',
     learnMore: { label: 'Review Case Laws', href: '/case-laws' }
   },
@@ -70,7 +85,7 @@ const learningRules: LearningRule[] = [
     learnMore: { label: 'Review 10-Codes', href: '/basic-codes/10-codes' }
   },
   {
-    matches: /mdt|report(?:ing)? via|report writing|fir|chargesheet/i,
+    matches: /mdt|report(?:ing)? via|report writing|\bfir\b|chargesheet/i,
     explanation: 'Clear, timely reporting supports accountability and preserves an organized record of the incident and evidence.',
     learnMore: { label: 'Review Code Communications', href: '/basic-codes/code-comms' }
   },
@@ -105,7 +120,7 @@ const learningRules: LearningRule[] = [
     learnMore: { label: 'Review Training SOP', href: '/sop/training' }
   },
   {
-    matches: /pursuit|pit protocol|pit speed|vehicle chase|spikes/i,
+    matches: /pursuit|\bpits?\b|vehicle chase|spikes/i,
     explanation: 'Pursuit tactics must follow the applicable speed, authorization, and public-safety limits; reassess risk as conditions change.',
     learnMore: { label: 'Review Training SOP', href: '/sop/training' }
   },
@@ -115,7 +130,7 @@ const learningRules: LearningRule[] = [
     learnMore: { label: 'Review Training SOP', href: '/sop/training' }
   },
   {
-    matches: /10-\d+|dispatch|backup|radio|communication code|code 50/i,
+    matches: /10-\d+|dispatch|backup|radio|communication code|code 50|without comms|no comms|blackout/i,
     explanation: 'Use clear radio communication to share status, location, and requests so responding units can coordinate effectively.',
     learnMore: { label: 'Review Code Communications', href: '/basic-codes/code-comms' }
   },
@@ -123,6 +138,11 @@ const learningRules: LearningRule[] = [
     matches: /perjury|money laundering|graft|insurrection|embezzlement|mayhem|poaching|extortion|forgery/i,
     explanation: 'Precise legal terminology helps distinguish the conduct involved and the correct offense classification.',
     learnMore: { label: 'Review Advanced Terms', href: '/advanced-sop/terms' }
+  },
+  {
+    matches: /n\s*\+\s*2|traffic stop|fight scene|scene safety|arriving first|\bloa\b|penalty action|penalty escalation|subdivision head|abuse complaint|internal affairs|\bia\b|lawful order|refuses? .*order/i,
+    explanation: 'Use the department procedure for the situation, communicate with the right units, and document decisions through the proper chain of command.',
+    learnMore: { label: 'Review Training SOP', href: '/sop/training' }
   },
   {
     matches: /reasonable suspicion|probable cause|warrant|search|arrest|crime|officer|suspect|patrol|cadet|unit|jurisdiction|medical attention|ems|life safety/i,
