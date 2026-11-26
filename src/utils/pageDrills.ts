@@ -79,24 +79,24 @@ export function createPageDrill(
     : bank;
   if (!matches.length) return;
   const title = searchData.find((p) => p.path === href)?.title ?? "Guide";
-  const fresh = shuffle(matches.filter((b) => !avoid.includes(b.id)), rand);
-  const pool = [...fresh, ...shuffle(matches.filter((b) => avoid.includes(b.id)), rand)];
-  // First pass prefers a new question style each time; second pass fills the remainder.
-  const picked: BankQuestion[] = [];
-  const kinds = new Set<string>();
-  for (const b of pool) if (picked.length < 5 && !kinds.has(b.kind)) { picked.push(b); kinds.add(b.kind); }
-  for (const b of pool) if (picked.length < 5 && !picked.includes(b)) picked.push(b);
-
-  const used = new Set(picked.map((b) => b.correct.toLowerCase()));
+  const ok = (t: string) => t.length <= 150;
+  const usable = matches.filter((b) => ok(b.correct) && b.wrong.filter(ok).length >= 3);
+  const fresh = shuffle(usable.filter((b) => !avoid.includes(b.id)), rand);
+  const stale = shuffle(usable.filter((b) => avoid.includes(b.id)), rand);
+  const used = new Set<string>();
   const questions: Question[] = [];
-  for (const b of picked) {
-    const candidates = [...new Set(b.wrong)].filter((w) => w.toLowerCase() !== b.correct.toLowerCase());
+  const kinds = new Set<string>();
+  const take = (b: BankQuestion, allowReuse: boolean) => {
+    if (questions.length >= 5 || questions.some((q) => q.id.endsWith(`:${b.id}`))) return;
+    const correct = b.correct.toLowerCase();
+    if (used.has(correct)) return;
+    const candidates = [...new Set(b.wrong.filter(ok))].filter((w) => w.toLowerCase() !== correct);
     const unused = shuffle(candidates.filter((w) => !used.has(w.toLowerCase())), rand);
-    const wrong = [...unused, ...shuffle(candidates.filter((w) => used.has(w.toLowerCase())), rand)]
-      .filter((w, i, a) => a.findIndex((x) => x.toLowerCase() === w.toLowerCase()) === i)
-      .slice(0, 3);
-    if (wrong.length < 3) continue;
-    wrong.forEach((w) => used.add(w.toLowerCase()));
+    if (!allowReuse && unused.length < 3) return;
+    const wrong = [...unused, ...shuffle(candidates.filter((w) => used.has(w.toLowerCase())), rand)].slice(0, 3);
+    if (wrong.length < 3) return;
+    [b.correct, ...wrong].forEach((w) => used.add(w.toLowerCase()));
+    kinds.add(b.kind);
     const options = shuffle([b.correct, ...wrong], rand);
     const q: Question = {
       id: `quizme:${href}:${b.id}`,
@@ -113,7 +113,12 @@ export function createPageDrill(
       if (issues.length) console.warn(`[Quiz Me] ${b.id}: ${issues.join(", ")}`);
     }
     questions.push(q);
-  }
+  };
+  // Prefer: new style + new question + unused answers, then relax one rule at a time.
+  for (const b of fresh) if (!kinds.has(b.kind)) take(b, false);
+  for (const b of fresh) take(b, false);
+  for (const b of stale) take(b, false);
+  for (const b of [...fresh, ...stale]) take(b, true);
   if (!questions.length) return;
   return { title: `${title} · Quiz Me`, questions };
 }

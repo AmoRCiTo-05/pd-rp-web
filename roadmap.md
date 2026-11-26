@@ -10,3 +10,4 @@
 - [x] 9. Rank roadmap
 - [x] 10. Search, keyboard controls, bookmarks and study list
 - [x] Repair Academy parsing without deleting saved scores
+- [x] Rebuild Quiz Me drills with hand-written/data-built banks, varied styles, saved sets, quality guard and question reporting

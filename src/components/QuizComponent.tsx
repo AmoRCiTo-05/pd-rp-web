@@ -17,9 +17,9 @@ import { toast } from 'sonner'
 
 import { QuizState, freshQuizState, restoreQuizState } from '@/utils/quizProgress'
 
-interface QuizProps { allowRetake?: boolean; providedQuiz?: QuizData; storageId?: string; exitHref?: string; resultActions?: React.ReactNode; onComplete?: (quiz: QuizData, answers: Record<number,number>, score: number) => void }
+interface QuizProps { allowRetake?: boolean; providedQuiz?: QuizData; storageId?: string; exitHref?: string; resultActions?: React.ReactNode; onComplete?: (quiz: QuizData, answers: Record<number,number>, score: number) => void; onRestart?: () => void; restartLabel?: string; onReport?: (q: { id: string; question: string }) => void; reportedIds?: string[] }
 
-export default function QuizComponent({ providedQuiz, storageId, exitHref, onComplete, resultActions, allowRetake = true }: QuizProps = {}) {
+export default function QuizComponent({ providedQuiz, storageId, exitHref, onComplete, resultActions, allowRetake = true, onRestart, restartLabel, onReport, reportedIds = [] }: QuizProps = {}) {
   const { type, quizId } = useParams<{ type: string; quizId: string }>()
   const navigate = useNavigate()
   const location = useLocation()
@@ -140,6 +140,7 @@ export default function QuizComponent({ providedQuiz, storageId, exitHref, onCom
   }
 
   const restartQuiz = () => {
+    if (onRestart) { onRestart(); toast.success('New set ready!'); return }
     const newState = freshQuizState(quiz ?? undefined)
     setQuizState(newState)
     setShowResults(false)
@@ -293,6 +294,11 @@ export default function QuizComponent({ providedQuiz, storageId, exitHref, onCom
                         </p>
                       </div>
                     )}
+                    {onReport && (
+                      <button type="button" disabled={reportedIds.includes(question.id)} onClick={() => { onReport({ id: question.id, question: question.question }); toast.success('Question reported') }} className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground disabled:no-underline disabled:opacity-70">
+                        {reportedIds.includes(question.id) ? 'Reported' : 'Report a bad question'}
+                      </button>
+                    )}
                     {question.learnMore && (
                       <div className="flex min-w-0 flex-col gap-1 text-sm sm:flex-row sm:items-center sm:gap-2">
                         <span className="shrink-0 font-semibold text-muted-foreground">Learn more:</span>
@@ -315,7 +321,7 @@ export default function QuizComponent({ providedQuiz, storageId, exitHref, onCom
           <div className="flex flex-wrap gap-4 justify-center">
             {allowRetake && <Button onClick={restartQuiz} variant="outline" className="gap-2">
               <RefreshCw className="h-4 w-4" />
-              Retake Quiz
+              {restartLabel ?? 'Retake Quiz'}
             </Button>}
             <Link 
               to={backHref}
