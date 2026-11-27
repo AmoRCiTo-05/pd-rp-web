@@ -21,9 +21,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { LearningModal } from '@/components/LearningModal'
-import { ParticleField } from '@/components/ParticleField'
 import { FloatingElements } from '@/components/FloatingElements'
-import { AnimatedBackground } from '@/components/AnimatedBackground'
 import { GlowCard } from '@/components/GlowCard'
 
 const categoryCards = [
@@ -100,11 +98,9 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Optimized for mobile */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-b border-border min-h-[70vh] sm:min-h-[85vh] flex items-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-transparent via-transparent to-primary/5 border-b border-border min-h-[70vh] sm:min-h-[85vh] flex items-center">
         {/* Decorative backgrounds only on desktop */}
-        <div className="hidden md:block absolute inset-0 pointer-events-none">
-          <AnimatedBackground />
-          <ParticleField />
+        <div aria-hidden="true" className="hidden md:block absolute inset-0 pointer-events-none">
           <FloatingElements />
         </div>
         <div className="relative container max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12 lg:py-16 z-10">

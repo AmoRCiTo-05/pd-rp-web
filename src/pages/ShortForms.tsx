@@ -1,3 +1,4 @@
+import { useUrlQuery } from '@/hooks/useUrlQuery'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import { shortForms } from '@/data/referenceLists'
@@ -10,7 +11,7 @@ import { FileCode, Search } from 'lucide-react'
 
 
 export default function ShortForms() {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useUrlQuery()
 
   const filteredShortForms = shortForms.filter(
     form =>

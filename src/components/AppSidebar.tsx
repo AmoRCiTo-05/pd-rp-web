@@ -139,15 +139,15 @@ export function AppSidebar() {
   const [openSections, setOpenSections] = useState<string[]>([]);
   const location = useLocation();
   const { state, setOpenMobile, isMobile } = useSidebar();
-  const isCollapsed = state === 'collapsed';
+  const isCollapsed = !isMobile && state === 'collapsed';
 
   // Keep the active section open by default
   React.useEffect(() => {
     const activeSection = navigationItems.find(item => 
       item.children?.some(child => child.href === location.pathname)
     );
-    if (activeSection && !openSections.includes(activeSection.title)) {
-      setOpenSections(prev => [...prev, activeSection.title]);
+    if (activeSection) {
+      setOpenSections(prev => prev.includes(activeSection.title) ? prev : [...prev, activeSection.title]);
     }
   }, [location.pathname]);
 
@@ -178,7 +178,7 @@ export function AppSidebar() {
             </div>
             {!isCollapsed && (
               <div>
-                <h1 className="font-heading font-semibold text-lg text-sidebar-foreground">PD RP Guide</h1>
+                <p className="font-heading font-semibold text-lg text-sidebar-foreground">PD RP Guide</p>
                 <p className="text-xs text-sidebar-foreground/60">Law Enforcement Roleplay</p>
               </div>
             )}
@@ -232,10 +232,11 @@ export function AppSidebar() {
                     <>
                       <SidebarMenuButton
                         onClick={() => toggleSection(item.title)}
+                        aria-expanded={!isCollapsed && openSections.includes(item.title)}
                         size="lg"
                         className={cn(
                           "flex items-center justify-between w-full text-base min-h-[40px]",
-                          isParentActive(item.children!) && "bg-sidebar-accent text-sidebar-accent-foreground"
+                          isParentActive(item.children ?? []) && "bg-sidebar-accent text-sidebar-accent-foreground"
                         )}
                       >
                         <div className="flex items-center space-x-3 flex-1 min-w-0">

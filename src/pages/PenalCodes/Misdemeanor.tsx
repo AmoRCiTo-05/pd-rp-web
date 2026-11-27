@@ -1,3 +1,4 @@
+import { useUrlQuery } from '@/hooks/useUrlQuery'
 
 import React, { useState } from 'react'
 import { Gavel, Search, AlertTriangle } from 'lucide-react'
@@ -63,7 +64,7 @@ const misdemeanorOffenses = [
 ]
 
 export default function Misdemeanor() {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useUrlQuery()
 
   const filteredOffenses = misdemeanorOffenses.filter(
     offense =>

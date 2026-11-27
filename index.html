@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script>
+      (function () {
+        var themes = ['dark', 'light', 'blue', 'green', 'orange', 'red', 'slate'];
+        var theme = 'dark';
+        try { var stored = localStorage.getItem('pd-rp-guide-theme'); if (themes.indexOf(stored) !== -1) theme = stored; } catch (_) {}
+        document.documentElement.className = theme;
+        document.documentElement.style.colorScheme = theme === 'light' ? 'light' : 'dark';
+      })();
+    </script>
     <title>PD RP Guide | Law Enforcement Roleplay</title>
     <meta name="description" content="A comprehensive guide for law enforcement roleplay on GTA RP servers. Explore 10-codes, SOPs, penal codes, amendments, and more for an immersive and accurate roleplay experience." />
     <meta name="author" content="Aarsch (AmorCiTO)" />

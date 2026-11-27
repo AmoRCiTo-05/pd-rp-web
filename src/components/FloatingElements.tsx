@@ -12,15 +12,15 @@ const floatingIcons = [
 
 export function FloatingElements() {
   return (
-    <div className="floating-elements absolute inset-0 overflow-hidden pointer-events-none">
+    <div aria-hidden="true" className="floating-elements absolute inset-0 overflow-hidden pointer-events-none">
       {floatingIcons.map((item, index) => {
         const Icon = item.icon
         return (
           <div
             key={index}
-            className="absolute opacity-[0.03] dark:opacity-[0.08]"
+            className="absolute opacity-[0.03] dark:opacity-[0.05]"
             style={{
-              left: `${15 + (index * 15)}%`,
+              ...(index % 2 === 0 ? { left: `${3 + index % 3}%` } : { right: `${3 + index % 3}%` }),
               top: `${20 + (index * 10)}%`,
               animation: `float ${item.duration}s ease-in-out infinite`,
               animationDelay: `${item.delay}s`

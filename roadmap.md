@@ -1,13 +1,24 @@
-# Practice rollout
-- [x] 1. Practice hub and shared local helpers
-- [x] 2. Flashcards
-- [x] 3. Page drills
-- [x] 4. Wrong-answer review
-- [x] 5. Daily challenge
-- [x] 6. Scenarios
-- [x] 7. Radio call builder
-- [x] 8. Charge picker
-- [x] 9. Rank roadmap
-- [x] 10. Search, keyboard controls, bookmarks and study list
-- [x] Repair Academy parsing without deleting saved scores
-- [x] Rebuild Quiz Me drills with hand-written/data-built banks, varied styles, saved sets, quality guard and question reporting
+# Site improvement checklist
+- [x] 1. Sidebar theme colours
+- [x] 2. Theme-aware cards and unused styles
+- [x] 3. Theme first paint and safe storage
+- [x] 4. Mobile forms
+- [x] 5. Mobile quick navigation
+- [x] 6. Learning modal
+- [x] 7. Sidebar accessibility
+- [x] 8. Route scrolling
+- [x] 9. Back to top
+- [x] 10. Particle field
+- [x] 11. Shared decorative backgrounds
+- [x] 12. Floating icons
+- [ ] 13. Content search index
+- [ ] 14. URL filters
+- [ ] 15. Search keyboard and accessibility
+- [ ] 16. Skip link and document metadata
+- [ ] 17. Home buttons, feedback and MPU naming
+- [ ] 18. Responsive footer
+- [ ] 19. Duplicate route redirects
+- [ ] 20. Share image and head metadata
+- [ ] 21. Robots and sitemap
+- [ ] 22. Hosting headers
+- [ ] 23. Documentation and regression checks

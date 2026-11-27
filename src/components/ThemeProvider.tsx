@@ -1,6 +1,8 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
+const themes = ['dark', 'light', 'blue', 'green', 'orange', 'red', 'slate'] as const
+
 type Theme = 'dark' | 'light' | 'blue' | 'green' | 'orange' | 'red' | 'slate'
 
 type ThemeProviderProps = {
@@ -28,7 +30,12 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+    () => {
+      try {
+        const stored = localStorage.getItem(storageKey)
+        return themes.includes(stored as Theme) ? stored as Theme : defaultTheme
+      } catch { return defaultTheme }
+    }
   )
 
   useEffect(() => {
@@ -39,12 +46,14 @@ export function ThemeProvider({
 
     // Add the current theme class
     root.classList.add(theme)
+    root.style.colorScheme = theme === 'light' ? 'light' : 'dark'
   }, [theme])
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
+      if (!themes.includes(theme)) return
+      try { localStorage.setItem(storageKey, theme) } catch { /* Theme still works without storage. */ }
       setTheme(theme)
     },
   }

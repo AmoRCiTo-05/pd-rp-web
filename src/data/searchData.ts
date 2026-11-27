@@ -1,3 +1,6 @@
+import { tenCodes, shortForms } from './referenceLists'
+import guideFacts from './guideFacts.json'
+
 export interface SearchResult {
   id: string
   title: string
@@ -56,11 +59,11 @@ export const searchData: SearchResult[] = [
   },
   {
     id: 'meu',
-    title: 'MEU SOP',
-    description: 'Major Enforcement Unit Standard Operating Procedures',
+    title: 'MPU SOP',
+    description: 'Motor Pursuit Unit Standard Operating Procedures',
     path: '/sop/meu',
     category: 'S.O.P',
-    keywords: ['meu', 'major', 'enforcement', 'unit', 'sop']
+    keywords: ['mpu', 'motor', 'pursuit', 'motorcycle', 'unit', 'sop']
   },
   {
     id: 'seu',
@@ -220,21 +223,56 @@ export const searchData: SearchResult[] = [
   }
 ]
 
-export function searchPages(query: string): SearchResult[] {
-  if (!query || query.trim().length < 2) {
-    return []
-  }
+const extraPages: Array<[string, string, string]> = [
+  ['Patrol Areas', '/basic-codes/patrol-areas', 'PD Directory'],
+  ['Rank Based Questions', '/rank-based-questions', 'FTD'],
+  ['Individual Ranks', '/rank-based-questions/individual-ranks', 'FTD'],
+  ['Category Ranks', '/rank-based-questions/category-ranks', 'FTD'],
+  ['Flashcards', '/practice/flashcards', 'Practice'],
+  ['Quiz Me', '/practice/quiz-me', 'Practice'],
+  ['Daily Challenge', '/practice/daily', 'Practice'],
+  ['Scenario Simulator', '/practice/scenarios', 'Practice'],
+  ['Radio Call Builder', '/practice/radio', 'Practice'],
+  ['Charge Picker', '/practice/charges', 'Practice'],
+  ['Rank Roadmap', '/practice/roadmap', 'Practice'],
+  ['Study List', '/practice/study-list', 'Practice'],
+  ['Review Missed Questions', '/practice/missed', 'Practice'],
+]
+searchData.push(...extraPages.map(([title, path, category]) => ({
+  id: path, title, path, category, description: `${title} — PD RP Guide`, keywords: title.toLowerCase().split(/\s+/),
+})))
 
-  const searchTerm = query.toLowerCase().trim()
-  
-  return searchData.filter(item => {
-    const titleMatch = item.title.toLowerCase().includes(searchTerm)
-    const descriptionMatch = item.description.toLowerCase().includes(searchTerm)
-    const categoryMatch = item.category.toLowerCase().includes(searchTerm)
-    const keywordMatch = item.keywords.some(keyword => 
-      keyword.toLowerCase().includes(searchTerm)
-    )
-    
-    return titleMatch || descriptionMatch || categoryMatch || keywordMatch
-  }).slice(0, 8) // Limit to 8 results
+let contentIndex: SearchResult[] | undefined
+function getContentIndex() {
+  if (contentIndex) return contentIndex
+  const entry = (title: string, description: string, path: string, category: string): SearchResult => ({
+    id: `content:${path}:${title}`, title, description, path: `${path}?q=${encodeURIComponent(title)}`, category,
+    keywords: [title, description],
+  })
+  contentIndex = [
+    ...tenCodes.map(c => entry(c.code, c.description, '/basic-codes/10-codes', '10-Codes')),
+    ...shortForms.map(c => entry(c.abbreviation, c.meaning, '/short-forms', 'Short Forms')),
+    ...(['/penal-codes/felony', '/penal-codes/misdemeanor', '/penal-codes/infraction'] as const)
+      .flatMap(path => guideFacts[path].map(c => entry(c.title, c.detail, path, 'Penal Codes'))),
+  ]
+  return contentIndex
+}
+
+export function searchPages(query: string, limit = 8): SearchResult[] {
+  const term = query.toLowerCase().trim()
+  if (!term) return []
+  const words = term.split(/\s+/)
+  return [...searchData, ...getContentIndex()].map(item => {
+    const title = item.title.toLowerCase()
+    const keywords = item.keywords.join(' ').toLowerCase()
+    const category = item.category.toLowerCase()
+    const description = item.description.toLowerCase()
+    if (!words.every(word => [title, keywords, category, description].some(field => field.includes(word)))) return { item, score: 0 }
+    const titleWords = title.split(/[^a-z0-9-]+/)
+    const score = (title === term ? 1000 : title.startsWith(term) ? 700 : 0)
+      + words.reduce((sum, word) => sum + (titleWords.includes(word) ? 100 : title.includes(word) ? 80 : keywords.includes(word) ? 40 : category.includes(word) ? 20 : description.includes(word) ? 10 : 0), 0)
+      + (item.id.startsWith('content:') ? 0 : 5)
+    return { item, score }
+  }).filter(result => result.score > 0).sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+    .slice(0, Math.max(0, limit)).map(result => result.item)
 }

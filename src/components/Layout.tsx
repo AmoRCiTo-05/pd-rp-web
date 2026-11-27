@@ -27,16 +27,16 @@ export function Layout({ children, className }: LayoutProps) {
 
 
   return (
-      <div id="app-root" className="min-h-screen bg-background text-foreground relative">
+      <div id="app-root" className="min-h-screen w-full bg-background text-foreground relative">
 
         {/* Animated Background - Only show on desktop for better mobile performance */}
-        <div className="fixed inset-0 pointer-events-none hidden md:block">
+        <div aria-hidden="true" className="fixed inset-0 pointer-events-none hidden md:block">
           <AnimatedBackground />
           <ParticleField />
         </div>
         
         {/* Mobile-optimized simpler background */}
-        <div className="fixed inset-0 pointer-events-none md:hidden bg-gradient-to-b from-background via-background/95 to-background opacity-80" />
+        <div aria-hidden="true" className="fixed inset-0 pointer-events-none md:hidden bg-gradient-to-b from-background via-background/95 to-background opacity-80" />
 
         <div className="flex min-h-screen w-full">
           {/* Single sidebar handles the mobile sheet and desktop sidebar. */}

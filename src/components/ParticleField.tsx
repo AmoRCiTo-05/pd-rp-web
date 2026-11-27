@@ -1,119 +1,80 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
-interface Particle {
-  x: number
-  y: number
-  vx: number
-  vy: number
-  size: number
-  opacity: number
-}
+interface Particle { x: number; y: number; vx: number; vy: number; size: number }
 
 export function ParticleField() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const particlesRef = useRef<Particle[]>([])
-  const animationRef = useRef<number>()
-
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    const updateCanvasSize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    const createParticles = () => {
-      const particles: Particle[] = []
-      // Reduced particle count for better performance, especially on mobile
-      const particleCount = Math.min(30, Math.floor(window.innerWidth / 40)) // More optimized responsive count
-      
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.8,
-          vy: (Math.random() - 0.5) * 0.8,
-          size: Math.random() * 3 + 1,
-          opacity: Math.random() * 0.4 + 0.2
+    const desktop = matchMedia('(min-width: 768px)')
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)')
+    let cleanup: (() => void) | undefined
+    const configure = () => {
+      cleanup?.()
+      cleanup = undefined
+      if (!desktop.matches) return
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+      let particles: Particle[] = []
+      let frame = 0
+      let previous = 0
+      let colour = ''
+      const readColour = () => {
+        const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim()
+        const candidate = `hsl(${primary})`
+        colour = primary && CSS.supports('color', candidate) ? candidate : getComputedStyle(document.body).color
+      }
+      const resize = () => {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        particles = Array.from({ length: Math.min(30, Math.floor(canvas.width / 40)) }, () => {
+          const angle = Math.random() * Math.PI * 2
+          return { x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: Math.cos(angle) * 30, vy: Math.sin(angle) * 30, size: Math.random() * 2 + 1 }
         })
       }
-      particlesRef.current = particles
-    }
-
-    const animate = () => {
-      if (!ctx) return;
-      
-      // Use RequestAnimationFrame timestamp for smooth animation
-      const now = performance.now() * 0.001; // Convert to seconds
-      
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      
-      particlesRef.current.forEach((particle, index) => {
-        // Use time-based movement for smooth animation across different frame rates
-        particle.x += particle.vx * (1/60)
-        particle.y += particle.vy * (1/60)
-
-        // Optimized edge wrapping
-        particle.x = (particle.x + canvas.width) % canvas.width
-        particle.y = (particle.y + canvas.height) % canvas.height
-
-        // Draw particle
-        ctx.globalAlpha = particle.opacity
-        ctx.fillStyle = 'hsl(var(--primary))'
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fill()
-
-        // Connect nearby particles
-        for (let j = index + 1; j < particlesRef.current.length; j++) {
-          const other = particlesRef.current[j]
-          const dx = particle.x - other.x
-          const dy = particle.y - other.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 100) {
-            ctx.globalAlpha = (1 - distance / 100) * 0.1
-            ctx.strokeStyle = 'hsl(var(--primary))'
-            ctx.lineWidth = 0.5
-            ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(other.x, other.y)
-            ctx.stroke()
-          }
-        }
-      })
-
-      animationRef.current = requestAnimationFrame(animate)
-    }
-
-    updateCanvasSize()
-    createParticles()
-    animate()
-
-    const handleResize = () => {
-      updateCanvasSize()
-      createParticles()
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
+      const draw = (dt: number) => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        ctx.fillStyle = colour
+        ctx.globalAlpha = 0.4
+        particles.forEach(p => {
+          p.x = (p.x + p.vx * dt + canvas.width) % canvas.width
+          p.y = (p.y + p.vy * dt + canvas.height) % canvas.height
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill()
+        })
       }
-      window.removeEventListener('resize', handleResize)
+      const tick = (time: number) => {
+        frame = 0
+        if (document.hidden) return
+        const dt = previous ? Math.min((time - previous) / 1000, 0.05) : 0
+        previous = time
+        draw(dt)
+        frame = requestAnimationFrame(tick)
+      }
+      const resume = () => {
+        cancelAnimationFrame(frame); frame = 0; previous = 0
+        if (document.hidden) return
+        if (reduced.matches) draw(0)
+        else frame = requestAnimationFrame(tick)
+      }
+      const onResize = () => { resize(); resume() }
+      const observer = new MutationObserver(() => { readColour(); resume() })
+      readColour(); resize(); resume()
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+      window.addEventListener('resize', onResize)
+      document.addEventListener('visibilitychange', resume)
+      reduced.addEventListener('change', resume)
+      cleanup = () => {
+        cancelAnimationFrame(frame); observer.disconnect()
+        window.removeEventListener('resize', onResize)
+        document.removeEventListener('visibilitychange', resume)
+        reduced.removeEventListener('change', resume)
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+      }
     }
+    configure()
+    desktop.addEventListener('change', configure)
+    return () => { cleanup?.(); desktop.removeEventListener('change', configure) }
   }, [])
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="particle-field absolute inset-0 pointer-events-none opacity-20"
-      style={{ zIndex: 1 }}
-    />
-  )
+  return <canvas ref={canvasRef} aria-hidden="true" className="particle-field absolute inset-0 pointer-events-none opacity-20 z-[1]" />
 }

@@ -1,3 +1,4 @@
+import { useUrlQuery } from '@/hooks/useUrlQuery'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import { tenCodes } from '@/data/referenceLists'
@@ -15,7 +16,7 @@ const categories = ['All', 'Communication', 'Status', 'Emergency', 'Incident', '
 const priorities = ['All', 'Low', 'Medium', 'High']
 
 export default function TenCodes() {
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useUrlQuery()
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedPriority, setSelectedPriority] = useState('All')
 
@@ -73,7 +74,7 @@ export default function TenCodes() {
         {/* Filters - Optimized for mobile */}
         <div className="mb-6 sm:mb-8 space-y-4">
           <div className="w-full">
-            <SearchBar 
+            <SearchBar value={searchQuery} showResults={false} 
               placeholder="Search 10-codes..."
               onSearch={setSearchQuery}
             />

@@ -3,8 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import layout fixes */
-@import './styles/layout.css';
+
 
 /* Base fixes */
 html {
@@ -105,6 +104,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    --scrollbar: hsl(var(--border));
     /* Enhanced Light Theme with Immersive Effects */
     --background: 223.8136 0.0005% 98.6829%;
     --foreground: 0 0% 0%;
@@ -498,7 +498,6 @@ All colors MUST be HSL.
   .immersive-card {
     @apply bg-card border border-border rounded-lg shadow-sm hover:shadow-md;
     transition: var(--transition-smooth);
-    will-change: transform, box-shadow;
   }
   
   .immersive-card:hover {
@@ -507,9 +506,9 @@ All colors MUST be HSL.
   }
   
   .glass-effect {
-    background: hsl(var(--background) / 0.8);
+    background: hsl(var(--card) / 0.65);
     backdrop-filter: blur(8px);
-    border: 1px solid hsl(var(--border) / 0.5);
+    border: 1px solid hsl(var(--border));
     box-shadow: inset 0 1px 0 0 hsl(var(--primary) / 0.1);
   }
   
@@ -626,28 +625,6 @@ All colors MUST be HSL.
     will-change: auto; /* Only set will-change when needed */
   }
   
-  /* Immersive enhancements */
-  .glass-effect {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    will-change: transform, box-shadow;
-  }
-  
-  .immersive-card {
-    @apply transition-all duration-500 ease-out;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    will-change: transform, box-shadow;
-  }
-  
-  .immersive-card:hover {
-    @apply transform -translate-y-2;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  }
-  
   /* Text centering utilities */
   .text-center {
     text-align: center !important;
@@ -716,7 +693,7 @@ All colors MUST be HSL.
   /* Hide decorative floating elements on smaller screens (redundant safety) */
   .floating-elements,
   .particle-field,
-  .AnimatedBackground {
+  .animated-background {
     display: none !important;
   }
 }
@@ -730,7 +707,7 @@ All colors MUST be HSL.
 
 /* Mobile sidebar sheet: avoid nested scroll containers (prevents iOS "ghosting") */
 [data-sidebar="sidebar"][data-mobile="true"] {
-  background: hsl(var(--sidebar));
+  background: hsl(var(--sidebar-background, var(--sidebar)));
 }
 
 [data-sidebar="sidebar"][data-mobile="true"] [data-sidebar="content"] {
@@ -799,3 +776,7 @@ All colors MUST be HSL.
   }
 }
 
+
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea { font-size: 16px !important; }
+}

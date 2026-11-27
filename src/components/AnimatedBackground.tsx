@@ -2,7 +2,7 @@ import React from 'react'
 
 export function AnimatedBackground() {
   return (
-    <div className="animated-background absolute inset-0 overflow-hidden">
+    <div aria-hidden="true" className="animated-background absolute inset-0 overflow-hidden">
       {/* Animated gradient orbs */}
   <div className="absolute top-1/4 left-1/4 w-[30vw] h-[30vw] bg-primary/10 rounded-full blur-3xl md:motion-safe:animate-float opacity-60 mix-blend-soft-light"></div>
   <div className="absolute bottom-1/4 right-1/4 w-[40vw] h-[40vw] bg-accent/15 rounded-full blur-3xl md:motion-safe:animate-float-delayed opacity-50 mix-blend-soft-light" style={{ animationDelay: '2s' }}></div>

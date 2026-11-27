@@ -9,8 +9,9 @@ export function BackToTop() {
   const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      const scrolled = window.pageYOffset
+    let frame = 0
+    const update = () => {
+      const scrolled = window.scrollY
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
       const progress = windowHeight > 0 ? (scrolled / windowHeight) * 100 : 0
       
@@ -18,8 +19,13 @@ export function BackToTop() {
       setIsVisible(scrolled > 300)
     }
 
+    const toggleVisibility = () => {
+      if (frame) return
+      frame = requestAnimationFrame(() => { frame = 0; update() })
+    }
+    update()
     window.addEventListener('scroll', toggleVisibility, { passive: true })
-    return () => window.removeEventListener('scroll', toggleVisibility)
+    return () => { window.removeEventListener('scroll', toggleVisibility); cancelAnimationFrame(frame) }
   }, [])
 
   const scrollToTop = useCallback(() => {
@@ -33,7 +39,7 @@ export function BackToTop() {
       onClick={scrollToTop}
       size="icon"
       className={cn(
-        "fixed z-50 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 touch-manipulation",
+        "fixed z-30 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 touch-manipulation",
         // Mobile: bottom-right above quick nav, Desktop: standard position
         "bottom-20 right-4 md:bottom-8 md:right-8",
         "h-12 w-12 md:h-10 md:w-10" // Larger touch target on mobile
