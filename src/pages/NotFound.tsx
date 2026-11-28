@@ -29,12 +29,12 @@ const NotFound = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/">
-            <Button size="lg" className="w-full sm:w-auto">
+          <Button asChild size="lg" className="w-full sm:w-auto">
+            <Link to="/">
               <Home className="mr-2 h-5 w-5" />
               Back to Home
-            </Button>
-          </Link>
+            </Link>
+          </Button>
           <Button variant="outline" size="lg" onClick={() => window.history.back()}>
             <ArrowLeft className="mr-2 h-5 w-5" />
             Go Back

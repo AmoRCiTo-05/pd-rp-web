@@ -49,7 +49,7 @@ const categoryCards = [
   },
   {
     title: 'Standard Operating Procedures',
-    description: 'Comprehensive SOPs for training, MEU, SEU, and ASD operations',
+    description: 'Comprehensive SOPs for training, MPU, SEU, and ASD operations',
     icon: FileText,
     href: '/sop/training',
     color: 'from-green-500 to-green-600'
@@ -137,11 +137,9 @@ export default function Home() {
                   <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </GlowCard>
-              <Link to="/about" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base glass-effect active:scale-95 touch-manipulation">
-                  Learn More
-                </Button>
-              </Link>
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-primary/40 bg-background/60 hover:bg-primary/10 hover:border-primary active:scale-95 touch-manipulation">
+                <Link to="/about">Learn More</Link>
+              </Button>
             </div>
 
             {/* Quick Access Grid - Optimized for mobile touch */}
@@ -229,56 +227,9 @@ export default function Home() {
 
           </div>
 
-          {/* Interactive Highlights Section */}
-          <div className="mt-8 sm:mt-16">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6">
-              {[
-                { title: 'Codes', subtitle: 'Reference', icon: Radio },
-                { title: 'Case Laws', subtitle: 'Precedents', icon: Scale },
-                { title: 'SOPs', subtitle: 'Procedures', icon: FileText },
-                { title: 'Available', subtitle: 'Anytime', icon: Shield }
-              ].map((stat, index) => (
-                <GlowCard key={index} glowColor="blue">
-                  <div className="glass-effect border border-border/50 rounded-lg p-3 sm:p-6 text-center group hover:border-primary/50 transition-all duration-200 hover:shadow-lg hover:shadow-primary/10 active:scale-95 touch-manipulation">
-                    <stat.icon className="h-5 w-5 sm:h-8 sm:w-8 text-primary mx-auto mb-2 sm:mb-3 motion-safe:animate-pulse" />
-                    <div className="text-sm sm:text-xl font-semibold text-primary mb-0.5 sm:mb-1">
-                      {stat.title}
-                    </div>
-                    <div className="text-[10px] sm:text-sm text-muted-foreground">
-                      {stat.subtitle}
-                    </div>
-                  </div>
-                </GlowCard>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
-
-      {/* Feedback Section */}
-      <section className="py-10 sm:py-14 bg-gradient-to-br from-primary/5 to-background border-t border-border">
-        <div className="mx-auto max-w-4xl text-center px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center mb-3 sm:mb-4">
-            <div className="p-2 sm:p-2.5 bg-primary/10 rounded-lg">
-              <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-            </div>
-          </div>
-          <h2 className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
-            Help Us Improve
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto">
-            Your feedback is invaluable in making this guide better for the entire community. 
-            Share your thoughts, report issues, or suggest new features.
-          </p>
-          <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
-              <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-              Share Feedback
-            </Button>
-          </a>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-12 sm:py-16 bg-gradient-to-br from-primary/5 to-background border-t border-border">
@@ -287,8 +238,7 @@ export default function Home() {
             Ready to Master Law Enforcement RP?
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-2xl mx-auto">
-            Join thousands of roleplayers who rely on our comprehensive guides for 
-            authentic and immersive law enforcement experiences.
+            Whether you are a new cadet or a veteran officer, everything you need for authentic and immersive law enforcement roleplay is in one place. Spotted a mistake or have an idea? Tell us.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button 
@@ -297,14 +247,14 @@ export default function Home() {
               onClick={() => setIsLearningModalOpen(true)}
             >
               <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-              Get Started Now
+              Start Learning
             </Button>
-            <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
+              <a href="https://forms.gle/qRnadpZqkHahsq7U6" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Share Feedback
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -318,12 +268,12 @@ export default function Home() {
               <p className="text-sm sm:text-base text-muted-foreground mt-1.5">Take a Rank Evaluation Test to confirm your knowledge and get tailored recommendations.</p>
             </div>
             <div className="w-full sm:w-auto sm:ml-auto flex-shrink-0">
-              <Link to="/rank-based-questions">
-                <Button size="lg" className="w-full sm:w-auto px-6 py-3">
+              <Button asChild size="lg" className="w-full sm:w-auto px-6 py-3">
+                <Link to="/rank-based-questions">
                   <BookOpen className="mr-2 h-4 w-4" aria-hidden="true" />
                   <span>Take the Rank Evaluation</span>
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

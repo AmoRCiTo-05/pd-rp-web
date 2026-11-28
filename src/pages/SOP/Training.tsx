@@ -151,7 +151,7 @@ export default function Training() {
         </div>
 
         <div className="mb-8">
-          <SearchBar 
+          <SearchBar value={searchQuery} showResults={false}
             placeholder="Search training topics..."
             onSearch={setSearchQuery}
           />

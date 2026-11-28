@@ -86,7 +86,7 @@ export default function CodeComms() {
         {/* Filters */}
         <div className="mb-8 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:space-x-6">
           <div className="flex-1">
-            <SearchBar 
+            <SearchBar value={searchQuery} showResults={false}
               placeholder="Search code communications..."
               onSearch={setSearchQuery}
             />

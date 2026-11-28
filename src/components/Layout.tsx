@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button'
 import { BookOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useScrollToTop } from '@/hooks/useScrollToTop'
+import { useDocumentMeta } from '@/hooks/useDocumentMeta'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -23,11 +24,13 @@ interface LayoutProps {
 
 export function Layout({ children, className }: LayoutProps) {
   useScrollToTop();
+  useDocumentMeta();
   const [isLearningModalOpen, setIsLearningModalOpen] = useState(false);
 
 
   return (
       <div id="app-root" className="min-h-screen w-full bg-background text-foreground relative">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground">Skip to main content</a>
 
         {/* Animated Background - Only show on desktop for better mobile performance */}
         <div aria-hidden="true" className="fixed inset-0 pointer-events-none hidden md:block">
@@ -42,7 +45,7 @@ export function Layout({ children, className }: LayoutProps) {
           {/* Single sidebar handles the mobile sheet and desktop sidebar. */}
           <AppSidebar />
 
-          <SidebarInset className="flex flex-1 flex-col min-w-0 relative z-10">
+          <SidebarInset id="main-content" tabIndex={-1} className="flex flex-1 flex-col min-w-0 relative z-10">
           {/* Header */}
           <header className="sticky top-0 z-[15] backdrop-blur-md bg-background/80 border-b border-border/50 shadow-sm transition-all duration-300 hover:bg-background/90">
             <div className="flex items-center justify-between h-14 sm:h-16 px-3 sm:px-4 lg:px-6 gap-2 sm:gap-3">
@@ -53,7 +56,7 @@ export function Layout({ children, className }: LayoutProps) {
               
               {/* Center: Search Bar */}
               <div className="flex-1 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto min-w-0">
-                <SearchBar />
+                <SearchBar shortcut />
               </div>
               
               {/* Right: Start Learning + Theme Toggle */}

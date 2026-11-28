@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { Layout } from '@/components/Layout'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { Toaster } from '@/components/ui/sonner'
@@ -29,8 +29,6 @@ import SituationQuestions from '@/pages/PenalCodes/SituationQuestions'
 import ConfusingTopics from '@/pages/PenalCodes/ConfusingTopics'
 import SampleCalls from '@/pages/PD/SampleCalls'
 import InGameCommands from '@/pages/PD/InGameCommands'
-import BasicInGameCommands from '@/pages/BasicCodes/InGameCommands'
-import BasicSampleCalls from '@/pages/BasicCodes/SampleCalls'
 import RankBasedQuestions from '@/pages/RankBasedQuestions/RankBasedQuestions'
 import IndividualRanks from '@/pages/RankBasedQuestions/IndividualRanks'
 import CategoryRanks from '@/pages/RankBasedQuestions/CategoryRanks'
@@ -69,10 +67,10 @@ function App() {
               <Route path="/practice/flashcards" element={<Flashcards />} />
               <Route path="/basic-codes/10-codes" element={<TenCodes />} />
               <Route path="/basic-codes/code-comms" element={<CodeComms />} />
-              <Route path="/basic-codes/in-game-commands" element={<BasicInGameCommands />} />
+              <Route path="/basic-codes/in-game-commands" element={<Navigate replace to="/pd/in-game-commands" />} />
               <Route path="/basic-codes/patrol-areas" element={<PatrolAreas />} />
               <Route path="/basic-codes/priority-sequence" element={<PrioritySequence />} />
-              <Route path="/basic-codes/sample-calls" element={<BasicSampleCalls />} />
+              <Route path="/basic-codes/sample-calls" element={<Navigate replace to="/pd/sample-calls" />} />
               <Route path="/short-forms" element={<ShortForms />} />
               <Route path="/amendments" element={<Amendments />} />
               <Route path="/sop/training" element={<Training />} />
